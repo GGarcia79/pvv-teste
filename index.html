@@ -1,0 +1,2046 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Praia Vermelha Va’a Clube</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EAF0F2; --surface:#FFFFFF; --surface-2:#F4F8F9; --ink:#10293A; --muted:#5B7282; --line:#D3DEE3;
+  --ocean:#1C6C86; --ocean-soft:#D8EAF0; --brand:#F04A12; --brand-2:#FB6713;
+  --ok:#2C8A57; --ok-soft:#DDF1E5; --warn:#B9800F; --warn-soft:#FBEFD2; --stop:#C0392B; --stop-soft:#F8DEDA;
+  --shadow:0 1px 0 var(--line);
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1A24; --surface:#122634; --surface-2:#0F202C; --ink:#E4EDF1; --muted:#93A9B6; --line:#24404F;
+    --ocean:#5FB3CF; --ocean-soft:#16384A; --brand:#FF6A2E; --brand-2:#FF7F3A;
+    --ok:#5CC48A; --ok-soft:#173A29; --warn:#E5B54A; --warn-soft:#3A3016; --stop:#F07463; --stop-soft:#43201C;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1A24; --surface:#122634; --surface-2:#0F202C; --ink:#E4EDF1; --muted:#93A9B6; --line:#24404F;
+  --ocean:#5FB3CF; --ocean-soft:#16384A; --brand:#FF6A2E; --brand-2:#FF7F3A;
+  --ok:#5CC48A; --ok-soft:#173A29; --warn:#E5B54A; --warn-soft:#3A3016; --stop:#F07463; --stop-soft:#43201C;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased;padding-bottom:84px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:#F23F0C}
+h1,h2,h3,.cond{font-family:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;letter-spacing:.01em}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--ocean)}
+:focus-visible{outline:2px solid var(--ocean);outline-offset:2px}
+
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:linear-gradient(100deg,#F23F0C 0%,#FA5A10 55%,#FC6A14 100%);color:#fff;box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.top-in{max-width:960px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:12px}
+.logo{width:44px;height:44px;border-radius:12px;flex:none;display:block;box-shadow:0 0 0 2px rgba(255,255,255,.85)}
+.top h1{margin:0;font-size:23px;font-weight:700;line-height:1;color:#fff;white-space:nowrap}
+.top-in>div{flex:none}
+.top small{display:block;color:rgba(255,255,255,.85);font-size:13px;margin-top:3px}
+.top .who{margin-left:auto;font-size:13px;color:rgba(255,255,255,.9);text-align:right;white-space:nowrap}
+@media (max-width:1100px){.top .who{display:none}}
+@media (max-width:520px){.top h1{font-size:21px}}
+nav.tabs{display:none}
+
+main{max-width:960px;margin:0 auto;padding:18px}
+.view[hidden]{display:none}
+
+nav.bottom{position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);display:flex}
+nav.bottom button{flex:1;min-width:0;position:relative;background:none;border:0;padding:9px 0 11px;display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--muted);font-size:11.5px;font-weight:500;cursor:pointer}
+nav.bottom button svg{width:23px;height:23px}
+.dotn{position:absolute;top:4px;left:calc(50% + 6px);min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--brand);color:#fff;font-size:11px;font-weight:700;line-height:18px;text-align:center}
+nav.tabs button{position:relative}
+nav.tabs .dotn{top:-4px;left:auto;right:-4px;background:#fff;color:#F04A12}
+nav.bottom button[aria-current="page"]{color:var(--ocean)}
+@media (min-width:760px){
+  body{padding-bottom:24px}
+  nav.bottom{display:none}
+  nav.tabs{display:flex;gap:2px;margin-left:auto}
+  nav.tabs button{background:none;border:0;padding:8px 11px;border-radius:8px;color:rgba(255,255,255,.88);font-weight:600;cursor:pointer}
+  nav.tabs button:hover{background:rgba(255,255,255,.14)}
+  nav.tabs button[aria-current="page"]{background:#fff;color:#E2400C}
+  header.top :focus-visible{outline-color:#fff}
+}
+
+/* ---------- Mar ---------- */
+.daybar{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.daybar h2{margin:0;font-size:26px;font-weight:700;line-height:1.1}
+.daybar .place{color:var(--muted);font-size:15px}
+.daybar input[type=date]{margin-left:auto;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+
+.verdict{border-radius:14px;padding:18px 20px 16px;position:relative;overflow:hidden;background:var(--surface-2);border:1px solid var(--line)}
+.verdict.l0{background:var(--ok-soft);border-color:transparent}
+.verdict.l1{background:var(--warn-soft);border-color:transparent}
+.verdict.l2{background:var(--stop-soft);border-color:transparent}
+.verdict .word{font-family:"Barlow Condensed",system-ui,sans-serif;font-weight:700;font-size:clamp(40px,11vw,64px);line-height:.95;margin:0}
+.verdict.l0 .word{color:var(--ok)} .verdict.l1 .word{color:var(--warn)} .verdict.l2 .word{color:var(--stop)}
+.verdict .why{margin:10px 0 0;padding:0;list-style:none;font-size:15px}
+.verdict .why li{padding:2px 0}
+.verdict .src{font-size:13px;color:var(--muted);margin-top:10px}
+.verdict svg.wave{position:absolute;right:-10px;bottom:-6px;width:200px;opacity:.18;pointer-events:none}
+
+.gauges{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:14px}
+@media (min-width:640px){.gauges{grid-template-columns:repeat(4,1fr)}}
+.g{background:var(--surface);padding:14px 16px}
+.g .k{font-size:14px;color:var(--muted)}
+.g .v{font-family:"Barlow Condensed",system-ui,sans-serif;font-weight:600;font-size:38px;line-height:1.05}
+.g .v small{font-size:18px;font-weight:500;color:var(--muted);margin-left:2px}
+.g .d{font-size:14px;color:var(--muted)}
+.g.flag-1 .v{color:var(--warn)} .g.flag-2 .v{color:var(--stop)}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-top:14px}
+.panel h3{margin:0 0 8px;font-size:20px;font-weight:600}
+.tides{display:flex;gap:8px;flex-wrap:wrap}
+.tide{background:var(--surface-2);border-radius:10px;padding:8px 12px;min-width:110px}
+.tide .t{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:24px;font-weight:600;line-height:1}
+.tide .h{font-size:14px;color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:var(--ocean-soft);text-decoration:none;font-weight:600;font-size:15px}
+.hist{list-style:none;margin:0;padding:0}
+.hist li{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line);cursor:pointer}
+.hist li:first-child{border-top:0}
+.dot{width:10px;height:10px;border-radius:50%;flex:none;background:var(--muted)}
+.dot.l0{background:var(--ok)} .dot.l1{background:var(--warn)} .dot.l2{background:var(--stop)}
+.hist .meta{color:var(--muted);font-size:14px;margin-left:auto;text-align:right}
+.empty{padding:28px 20px;text-align:center;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:14px}
+.empty p{margin:0 0 12px}
+
+/* ---------- buttons/forms ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;border-radius:10px;padding:10px 16px;font-weight:600;cursor:pointer;background:var(--ocean);color:#fff}
+:root .btn{color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#06141C}}
+:root[data-theme="dark"] .btn{color:#06141C}
+.btn.ghost{background:var(--surface-2);color:var(--ink);border:1px solid var(--line)}
+.btn.danger{background:none;color:var(--stop);border:1px solid var(--stop)}
+.btn.small{padding:7px 12px;font-size:15px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.spacer{flex:1}
+
+.overlay{position:fixed;inset:0;z-index:20;background:rgba(5,18,26,.45);display:flex;align-items:flex-end;justify-content:center}
+.overlay[hidden]{display:none}
+.sheet{background:var(--surface);width:100%;max-width:640px;max-height:92%;overflow:auto;border-radius:18px 18px 0 0;padding:18px 18px calc(18px + env(safe-area-inset-bottom,0px))}
+@media (min-width:760px){.overlay{align-items:center}.sheet{border-radius:18px;max-height:88%}}
+.sheet h2{margin:0;font-size:26px;font-weight:700}
+.sheet .head{display:flex;align-items:center;gap:10px;margin-bottom:6px;position:sticky;top:-18px;background:var(--surface);padding:6px 0;z-index:1}
+.sheet .x{margin-left:auto;background:var(--surface-2);border:0;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:20px;line-height:1}
+fieldset{border:0;margin:14px 0 0;padding:0}
+legend{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:19px;font-weight:600;padding:0;margin-bottom:6px;color:var(--ocean)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid .full{grid-column:1/-1}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:14px;color:var(--muted)}
+label.f input,label.f select,label.f textarea{background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:9px 10px;color:var(--ink);font-size:16px;width:100%}
+label.f textarea{min-height:64px;resize:vertical}
+label.chk{display:flex;align-items:center;gap:8px;font-size:15px}
+label.chk input{width:20px;height:20px;accent-color:var(--ocean)}
+.hint{font-size:13px;color:var(--muted);margin:4px 0 0}
+.tiderow{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:8px;margin-bottom:8px}
+
+/* ---------- Alunos ---------- */
+.stats{display:flex;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:14px}
+.stats div{flex:1;background:var(--surface);padding:10px 14px}
+.stats .n{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:30px;font-weight:600;line-height:1}
+.stats .l{font-size:13px;color:var(--muted)}
+.tools{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.tools input{flex:1;min-width:160px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.tools select{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.list{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid var(--line);cursor:pointer;width:100%;background:none;border-left:0;border-right:0;border-bottom:0;text-align:left}
+.item:first-child{border-top:0}
+.item:hover{background:var(--surface-2)}
+.av{width:40px;height:40px;border-radius:50%;background:var(--ocean-soft);color:var(--ocean);display:grid;place-items:center;font-family:"Barlow Condensed",system-ui,sans-serif;font-weight:700;font-size:18px;flex:none}
+.item .nm{font-weight:600}
+.item .sub{font-size:14px;color:var(--muted)}
+.badges{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.b{font-size:12.5px;font-weight:600;border-radius:6px;padding:1px 7px;background:var(--surface-2);color:var(--muted)}
+.b.red{background:var(--stop-soft);color:var(--stop)}
+.b.amb{background:var(--warn-soft);color:var(--warn)}
+.b.grn{background:var(--ok-soft);color:var(--ok)}
+
+.health{border-left:4px solid var(--stop);background:var(--stop-soft);border-radius:8px;padding:10px 12px;margin-top:10px}
+.health.none{border-color:var(--ok);background:var(--ok-soft)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:15px;margin:0}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0}
+.call{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--surface-2);border-radius:10px;margin-top:8px;text-decoration:none;color:var(--ink)}
+.call strong{display:block}
+.call span{font-size:14px;color:var(--muted)}
+.call .ph{margin-left:auto;color:var(--ocean);font-weight:600}
+.section{margin-top:16px}
+.section h3{font-size:19px;margin:0 0 6px;color:var(--ocean);font-weight:600}
+
+.locked{padding:30px 20px;text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.locked h3{margin:0 0 6px;font-size:22px}
+.locked p{margin:0;color:var(--muted)}
+
+/* ---------- Clube ---------- */
+.capacity{display:flex;align-items:baseline;gap:10px}
+.capacity .n{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:56px;font-weight:700;line-height:1;color:var(--ocean)}
+.canoe{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.canoe:first-of-type{border-top:0}
+.canoe .nm{font-weight:600}
+.canoe .sub{font-size:14px;color:var(--muted)}
+.limits{width:100%;border-collapse:collapse;font-size:15px}
+.limits th,.limits td{text-align:left;padding:7px 6px;border-top:1px solid var(--line)}
+.limits th{color:var(--muted);font-weight:500;font-size:14px;border-top:0}
+.limits input{width:80px;background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:5px 7px}
+.scroll-x{overflow-x:auto}
+
+/* ---------- Agenda ---------- */
+.ag-head{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.ag-head h2{margin:0;font-size:26px;font-weight:700;line-height:1.1}
+.ag-head .hint{margin:0}
+.dayhdr{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:21px;font-weight:600;margin:22px 0 8px;display:flex;align-items:baseline;gap:8px}
+.dayhdr span{font-family:"Barlow",system-ui,sans-serif;font-size:14px;font-weight:400;color:var(--muted)}
+.turma{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+.turma.off{opacity:.72}
+.t-main{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:start;padding:14px 16px 12px;cursor:pointer;background:none;border:0;width:100%;text-align:left}
+.t-time{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:34px;font-weight:700;line-height:.95;color:var(--ocean)}
+.t-time small{display:block;font-size:15px;font-weight:500;color:var(--muted);margin-top:3px}
+.t-title{font-weight:600;font-size:17px;line-height:1.25}
+.t-sub{font-size:14px;color:var(--muted);margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.cap{margin-top:8px}
+.cap .bar{height:6px;border-radius:3px;background:var(--surface-2);overflow:hidden;border:1px solid var(--line)}
+.cap .bar i{display:block;height:100%;background:var(--ocean)}
+.cap .bar i.full{background:var(--brand)}
+.cap .txt{font-size:14px;color:var(--muted);margin-top:4px}
+.cap .txt b{color:var(--ink);font-weight:600}
+.rsvp{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.rsvp button{background:none;border:0;border-left:1px solid var(--line);padding:12px 4px;font-weight:600;font-size:15px;color:var(--muted);cursor:pointer}
+.rsvp button:first-child{border-left:0}
+.rsvp button[aria-pressed="true"]{background:var(--ocean-soft);color:var(--ocean)}
+.rsvp button.vou[aria-pressed="true"]{background:var(--ok-soft);color:var(--ok)}
+.rsvp button.nao[aria-pressed="true"]{background:var(--stop-soft);color:var(--stop)}
+.rsvp button:disabled{cursor:default}
+.mine{font-size:14px;font-weight:600;padding:8px 16px;border-top:1px solid var(--line);background:var(--surface-2)}
+.mine.esp{color:var(--warn)}
+.people{list-style:none;margin:0;padding:0}
+.people li{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line)}
+.people li:first-child{border-top:0}
+.people .av{width:32px;height:32px;font-size:14px}
+.people .pos{font-family:"Barlow Condensed",system-ui,sans-serif;color:var(--muted);width:22px;text-align:right;flex:none}
+.people .tag{font-size:12.5px;color:var(--muted)}
+.ck{margin-left:auto;border:1px solid var(--line);background:var(--surface-2);border-radius:8px;padding:5px 10px;font-size:14px;font-weight:600;cursor:pointer;color:var(--muted)}
+.ck[aria-pressed="true"]{background:var(--ok);border-color:var(--ok);color:#fff}
+.rm{border:0;background:none;color:var(--muted);font-size:18px;cursor:pointer;padding:2px 6px}
+.grade-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+.grade-row:first-of-type{border-top:0}
+
+/* ---------- Mural ---------- */
+.filters{display:flex;gap:6px;overflow-x:auto;padding:2px 0 6px;margin:10px 0 8px}
+.filters button{flex:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 13px;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.aviso{--kc:var(--muted);background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--kc);border-radius:12px;padding:13px 16px 14px;margin-bottom:10px}
+.aviso.k-cancelamento{--kc:var(--stop)} .aviso.k-competicao{--kc:var(--ocean)} .aviso.k-passeio{--kc:var(--ok)} .aviso.k-evento{--kc:var(--brand)} .aviso.k-viagem{--kc:var(--warn)}
+.aviso .tp{font-size:14px;font-weight:600;color:var(--kc)}
+.aviso .when{font-size:13px;color:var(--muted)}
+.aviso h3{margin:2px 0 2px;font-size:22px;font-weight:600;line-height:1.15}
+.aviso .qd{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.aviso .tx{white-space:pre-wrap;margin:4px 0 0;max-width:68ch}
+.aviso .tx.clamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.more{background:none;border:0;padding:4px 0;color:var(--ocean);font-weight:600;cursor:pointer}
+a.btn{text-decoration:none}
+/* ---------- Competição ---------- */
+.hero{display:block;width:100%;text-align:left;border:0;cursor:pointer;background:var(--ocean-soft);color:var(--ink);border-radius:14px;padding:16px 18px;margin-top:12px}
+.hero .hk{font-size:14px;color:var(--ocean);font-weight:600}
+.hero .hn{font-family:"Barlow Condensed",system-ui,sans-serif;font-weight:700;font-size:clamp(40px,11vw,60px);line-height:.95;color:var(--ocean);margin:2px 0 6px}
+.hero .ht{font-weight:600;font-size:18px}
+.hero .hs{font-size:15px;color:var(--muted)}
+.hero .hs.warn{color:var(--warn);font-weight:600}
+.catline{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:6px}
+.catbig{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:34px;font-weight:700;color:var(--ocean);line-height:1}
+.subday{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:18px;font-weight:600;margin:12px 0 6px;display:flex;gap:8px;align-items:baseline}
+.subday span{font-family:"Barlow",system-ui,sans-serif;font-size:14px;font-weight:400;color:var(--muted)}
+.datebox{width:48px;flex:none;text-align:center;border-radius:10px;background:var(--ocean-soft);color:var(--ocean);font-size:13px;padding:4px 0;line-height:1.1}
+.datebox b{display:block;font-family:"Barlow Condensed",system-ui,sans-serif;font-size:24px}
+details summary{cursor:pointer;font-weight:600;padding:6px 0}
+
+/* ---------- Mar v2 ---------- */
+.bcards{display:grid;gap:12px}
+@media (min-width:760px){.bcards{grid-template-columns:1fr 1fr}}
+.bcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.bhead{display:flex;align-items:flex-start;gap:10px;padding:14px 16px 12px;background:var(--surface-2)}
+.bcard.l0 .bhead{background:var(--ok-soft)} .bcard.l1 .bhead{background:var(--warn-soft)} .bcard.l2 .bhead{background:var(--stop-soft)}
+.bname{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:22px;font-weight:700;line-height:1.1}
+.bsub{font-size:14px;color:var(--muted)}
+.bword{margin-left:auto;font-family:"Barlow Condensed",system-ui,sans-serif;font-size:30px;font-weight:700;line-height:1}
+.bcard.l0 .bword{color:var(--ok)} .bcard.l1 .bword{color:var(--warn)} .bcard.l2 .bword{color:var(--stop)}
+.bm{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.bm>div{background:var(--surface);padding:10px 14px}
+.bm .k{font-size:13px;color:var(--muted)} .bm .v{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:32px;font-weight:600;line-height:1.05}
+.bm .v small{font-size:16px;color:var(--muted);margin-left:2px;font-weight:500} .bm .d{font-size:13px;color:var(--muted)}
+.bm .flag-1 .v{color:var(--warn)} .bm .flag-2 .v{color:var(--stop)}
+.bfbox{padding:10px 14px 4px}
+.bft-t{display:flex;flex-wrap:wrap;gap:6px;align-items:baseline;font-size:14px;margin-bottom:6px}
+.bft-t span{color:var(--muted)}
+.c0{color:var(--ok)} .c1{color:var(--warn)} .c2{color:var(--stop)}
+.bft{display:grid;grid-template-columns:repeat(13,1fr);gap:2px}
+.bft span{font-size:11px;text-align:center;padding:3px 0;border-radius:3px;color:var(--muted)}
+.bft .s0{background:var(--ok-soft)} .bft .s1{background:var(--warn-soft)} .bft .s2{background:var(--stop-soft)}
+.bft span.on{color:#fff;font-weight:700;box-shadow:0 0 0 2px var(--ink)}
+.bft .s0.on{background:var(--ok)} .bft .s1.on{background:var(--warn)} .bft .s2.on{background:var(--stop)}
+.bxtra{padding:8px 14px 0;font-size:14px;display:grid;gap:4px}
+.bxtra .k{color:var(--muted)}
+.bcard .why{list-style:none;margin:0;padding:8px 14px 14px;font-size:14px}
+.bcard .why li{padding:2px 0}
+.hb{display:inline-flex;align-items:center;gap:5px;margin-left:10px}
+details.panel summary{cursor:pointer}
+.limits select{background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:4px 6px}
+.basefs{border-top:1px solid var(--line);padding-top:10px}
+/* ---------- Ficha ---------- */
+.fstat{border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:2px;font-size:14px;margin-top:6px}
+.fstat span{color:var(--muted)}
+.fstat.s-ok{background:var(--ok-soft)} .fstat.s-ok b{color:var(--ok)}
+.fstat.s-vence{background:var(--warn-soft)} .fstat.s-vence b{color:var(--warn)}
+.fstat.s-incompleta,.fstat.s-vencida,.fstat.s-liberacao{background:var(--stop-soft)}
+.fstat.s-incompleta b,.fstat.s-vencida b,.fstat.s-liberacao b{color:var(--stop)}
+.yn{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:9px 0;border-top:1px solid var(--line)}
+.ynq{font-size:15px;line-height:1.35}
+.ynq .hint{display:block}
+.ynb{display:flex;flex:none;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.ynb label{cursor:pointer}
+.ynb input{position:absolute;opacity:0;pointer-events:none}
+.ynb span{display:block;padding:7px 14px;font-weight:600;font-size:14px;color:var(--muted)}
+.ynb label+label span{border-left:1px solid var(--line)}
+.ynb input:checked+span{background:var(--ocean);color:#fff}
+.ynb input:focus-visible+span{outline:2px solid var(--ocean);outline-offset:-2px}
+label.yt textarea{min-height:44px}
+.termo{background:var(--surface-2);border-radius:8px;padding:10px 12px;font-size:14px;margin-bottom:10px}
+.errbox{background:var(--stop-soft);border-radius:10px;padding:10px 14px;font-size:14px;margin-bottom:8px}
+.errbox ul{margin:4px 0 0;padding-left:18px}
+.linkbtn{background:none;border:0;padding:0;color:var(--ocean);font-weight:700;text-decoration:underline;cursor:pointer;font-size:inherit}
+.daypick{display:flex;flex-wrap:wrap;gap:6px}
+.daypick label{cursor:pointer}
+.daypick input{position:absolute;opacity:0;pointer-events:none}
+.daypick span{display:block;min-width:44px;text-align:center;padding:8px 6px;border:1px solid var(--line);border-radius:8px;font-weight:600;font-size:14px;color:var(--muted);background:var(--surface-2)}
+.daypick input:checked+span{background:var(--ocean);border-color:var(--ocean);color:#fff}
+.daypick input:focus-visible+span{outline:2px solid var(--ocean);outline-offset:2px}
+
+.stats>div{min-width:0;padding:10px 10px} .stats .l{font-size:12.5px;overflow-wrap:anywhere}
+/* ---------- Mar cards animados ---------- */
+.daypick-l{margin-left:auto;display:flex;flex-direction:column;font-size:12.5px;color:var(--muted);gap:2px}
+.daypick-l input{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-size:16px}
+.wxs{display:grid;gap:14px}
+@media (min-width:900px){.wxs{grid-template-columns:1fr 1fr}}
+.wx{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--line);border-radius:18px;overflow:hidden}
+.wx.l0{border-top-color:var(--ok)} .wx.l1{border-top-color:var(--warn)} .wx.l2{border-top-color:var(--stop)}
+.wx-scene{position:relative;line-height:0}
+.wx-svg{width:100%;height:auto;aspect-ratio:360/196;display:block}
+.bubble{position:absolute;top:10px;left:10px;max-width:60%;background:rgba(255,255,255,.94);color:#10293A;border-radius:12px;padding:8px 11px;font-size:13.5px;line-height:1.32;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.bubble::after{content:"";position:absolute;right:-7px;bottom:12px;border:7px solid transparent;border-left-color:rgba(255,255,255,.94);border-right:0}
+@media (max-width:420px){.bubble{font-size:12.5px;max-width:64%;padding:7px 9px}}
+.wx-head{display:flex;align-items:center;gap:10px;padding:12px 16px 8px}
+.wx-name{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:23px;font-weight:700;line-height:1.05}
+.wx-cond{font-size:14px;color:var(--muted)}
+.wx-stat{margin-left:auto;font-family:"Barlow Condensed",system-ui,sans-serif;font-size:26px;font-weight:700}
+.wx.l0 .wx-stat{color:var(--ok)} .wx.l1 .wx-stat{color:var(--warn)} .wx.l2 .wx-stat{color:var(--stop)}
+.wx-hours{display:flex;gap:6px;overflow-x:auto;padding:0 16px 10px}
+.wx-hours button{flex:none;border:1px solid var(--line);background:var(--surface-2);border-radius:999px;padding:5px 11px;font-weight:600;font-size:14px;color:var(--muted);cursor:pointer}
+.wx-hours button[aria-pressed="true"]{background:var(--ocean);border-color:var(--ocean);color:#fff}
+.wx-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.wt{background:var(--surface);padding:10px 14px;min-width:0}
+.wt.wide{grid-column:1/-1}
+.wt .k{font-size:13px;color:var(--muted)}
+.wt .v{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:30px;font-weight:600;line-height:1.1;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.wt .v small{font-family:"Barlow",system-ui,sans-serif;font-size:14px;font-weight:500;color:var(--muted)}
+.wt .d{font-size:13px;color:var(--muted)}
+.wt.flag-1 .v{color:var(--warn)} .wt.flag-2 .v{color:var(--stop)}
+.wt .bft{margin-top:6px}
+.wind{display:inline-flex;align-items:center;gap:3px}
+.arrow{color:var(--ocean);transition:transform .4s}
+.uv{display:inline-block;min-width:36px;text-align:center;border-radius:7px;padding:0 7px}
+.tide{width:100%;max-width:300px;height:46px;display:block;margin:4px 0 2px}
+.wx .why{list-style:none;margin:0;padding:10px 16px 14px;font-size:14px}
+.wx .why li{padding:2px 0}
+
+/* ---------- v5 ---------- */
+.alertbar{display:flex;align-items:center;gap:10px;background:var(--stop);color:#fff;border-radius:12px;padding:10px 14px;margin-bottom:14px}
+.alertbar b{display:block}
+.alertbar span{display:block;font-size:14px;opacity:.92}
+.alertbar .linkbtn{color:#fff;margin-left:auto}
+nav.bottom button.alerta{background:var(--stop);color:#fff}
+nav.bottom button.alerta svg{color:#fff}
+@media (prefers-reduced-motion:no-preference){nav.bottom button.alerta{animation:pulsa 1.6s ease-in-out infinite}@keyframes pulsa{50%{background:#E2574A}}}
+nav.tabs button.alerta{background:#fff;color:var(--stop)}
+.pills{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px}
+.pill{font-size:12.5px;font-weight:600;border-radius:999px;padding:3px 10px}
+.pill.p0{background:var(--ok-soft);color:var(--ok)} .pill.p1{background:var(--warn-soft);color:var(--warn)} .pill.p2{background:var(--stop-soft);color:var(--stop)}
+.remline{margin:0 16px 10px;padding:8px 12px;border-radius:10px;background:var(--surface-2);font-size:14px;display:flex;flex-direction:column}
+.remline span{color:var(--muted);font-size:13px}
+.remline.ok{background:var(--ok-soft)} .remline.ok b{color:var(--ok)}
+.remline.cx{background:var(--stop-soft)} .remline.cx b{color:var(--stop)}
+.wx-hours button.rem{position:relative}
+.wx-hours button.rem::after{content:"";position:absolute;top:3px;right:5px;width:6px;height:6px;border-radius:50%;background:var(--ok)}
+.wx-hours button.rem.cx::after{background:var(--stop)}
+.staffrow{padding:8px 16px;border-top:1px solid var(--line);display:flex;justify-content:flex-end}
+.testbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;background:var(--ocean-soft);border-radius:10px;padding:8px 12px;margin-bottom:14px;font-size:14px}
+.testbar select{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:4px 6px}
+
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:15px;z-index:30}
+.toast[hidden]{display:none}
+.notice{background:var(--warn-soft);color:var(--ink);border-radius:10px;padding:10px 14px;margin-bottom:14px;font-size:15px}
+@media (prefers-reduced-motion:no-preference){.sheet{animation:up .22s ease-out}@keyframes up{from{transform:translateY(24px);opacity:.6}}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <img class="logo" alt="Praia Vermelha Va’a Clube" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCABgAGADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDl6KKOpr8PP7KDtTlQn6VJHFnlquw2rEcKfyqZSSMp1VEprAWwACfwr3K08H+Bfhd4J0/V/iDoza5r2pgPDpe7CwR8EkjpkA8k9zgdzXJ/CvwymvfFjR7O5j3W8cv2mYMOCsY3YPsSAKm+J2vyeLfiXqOoiQvbROba2HUCNDgY+pyfxruw9WOHw7xMknJvljfVd27dbaJep8dm2IqZhjoZdCbjTUeabi7N62jG61V9W/JHX6h8MvAfxK8OTa38LJhp+pwrmbR522jPpgk7D6EEqfavCr3TbvTr+axvbaS3uYXKSRSLtZGHUEV0+h6pqnhvW4dX0a7ktbuE5V17jurDup7g17HrukaR8bfBLeI9Et4rTxdYRgXdoD/x8ADp75/hb8DWydPMYt0oqNVdFtJd0uj8uvQ5KWOxOQVVDE1HUwsnZSesqb6KT6xffp1PmkqQaSttdGv7i4kgt7G5mljJDpHEzFcHnIA4rMntnidlZCrKcFWGCK8uMrn3VPEQm7J6leigjBxRVG4VNFHk5IqNFLN0rQt4gSKmcrIyqT5UdV4V1/S/DtuJv+EU0/VNRLZFxqLNJGg7bYhgZ9zmux/4XJ4zLf6LFo1onZItPjwB6c5rzmCIbRkj867PR5tH0CC0vdX8PW+treQmREmmeMREOy/w9c470UcdXg+SnU5F5affbVnxua4HBSk6tWj7Sb2Td/u5nZfgejeE/irrsnhrxDrOs2umT/2fbxiEJbCIySSPtCkjtgHj2rBHiH4VeIvk13wncaDcMMfadLfco99v/wBaqnxAi0dPD2gat4bsP7KstYtzLc2UUhaPzY2wPxGT+dcB3rrxmZYilJUKjVRJdVdO+t7tXWjXZng5ZkmExEZ4uipUnJ6KLcXHl91p2dn7yb6rU9Eu/hOmp2r33gTxFZeIIAMm33CO4X22nr+lcro+oeIPAXjGK+igms72A4kt51K717qw7g//AF6yra5ubS5S4s55YJlOVkiYqw/EV2kHxJu76xXTvGemW/iKzA2iSYeXcxD1WUc/nXJGth5yU4XpzWqtdx/+SX/kx6M6GOpQdKravTejTtGVv/SZf+Snq3hR4p/Gr+PPDMqRaBqtnJLq1scZhuYxn8Cck574PrXzj488TXPjPxZPrdzZWtqWGxUt49uVGcFj/E2D1r3Dwxp+lWPwi8S6l4VmvrqLVh9jgsrx1hdJNpDKDnDn5uo5OMV4Ff2NxZ3L291BJBMhw0cilSPwNermuKqfV6UHtK8nba7009bN26XPM4Rw9COOr1d5QtCN9JWW911a0jf+6jmZYsHNQ1pXMeM+lZ7qVPNeTCV0fqVKfMiWAZORWtapnA4rMtx0rZtF6VnVZzYmVkeiWPxIu7OzS2g8K+FQqALltPBJx3JJqv4ouv7Q0HQdU+zW1u08dwrRWybI1ImP3V7D5q5RO1dVexLN8JNHul+9b6jc27+29UcfyNL29StCUZu9lp96Pjq2Bw+Er0qlKNm5We/WMv1sa+h6lE3w2inudItdYTQrx2ks7gnHkzrjfx/ddf8Ax6pW+InhwptPwv0AevzN/hXL+GPEUvhvWHufsyXdrPE1vdWkh+WaNuqn0PcHsa6mPQPhj4gG/SfFV1oEzdbTU4vMQH0Eg7fWuzD16s6aVGUVLqpKPTZpyXaytfoeZi8Hh6FecsVTm4N3UouVlfVpqLvvd3t130J9O1m08RvLHovwe0y9MYy/2fzTt+uCKwtb1KOyuPs998OtN02U9EkSdGP0y3NehadoGs2fgJfDfg/xr4eWRrh7i6ube82SSdNqjjIAxzWrpQ8Z3Oo6f4W+Ivh611vT7lz5OpowcwlQWyXXjt7H613/AFGdaMYzbUnbXki43fS8dV69zxP7ToUJznTinCN/ddSanZdbSdn3tvY4b4jyrovgXwr4RijWJxAdRuY4yQFeQ/KMHnjJ615zfajqF7ZRW15dyXEcX+r807ig9Ax5x7ZxXc/F1JZ/iG+spdRXen38SvZzwnKbFG0qPcEHI968+k6V5GZzf1qcVsrJeiVl961PrOHaMPqNKo9ZO8m+qlJtvzutvkY9ynBrJuFwa27ocnArHuRjNZ0WfZ4Z3C3xiti1PArDgbBxWtauABzRWQYmJsxkbetdp4fi/tP4VeJ9MVczWckGpxjqSFJjf9GBrj7SzvLiQQwWdzJIeipExP8AKuv8D3b+GvHEJ12zuLfT7yN7K7EsTKPLkGCefQ4P4VOESVVKeid032urX+W58pnEk8PJ03ecbSS6vladvnaxx9Fbvi3wve+E/EsumXQ3xH57e4A+WeM/dYGsKuerSlSm6c1Zo78PiKeIpxrUneLV0w6HPQ+1ej+CdQvNA+GnibxI93OqFBp1lEXO0zP95gOmVXvXCWOlahqa3LWVq8q20RnmYcKiDuSePYDvXWeOZBo+gaF4IjOHsYBd3wHe4lG7B/3VIFdmCcqKliNrLT1ei+7V/I8jNvZ4uVPAqzcpJy8ox1fpfRfMyfDviW20u3l03W9Jj1rS5Mt9mmco0T/30YcqT39ao+Ir/Qb66hfQdDk0qFUIkjkuDOXbPXJ6cVlE4HNRTNtU1ze3nKHs3a3or/fv+J6VPAUo1/bxum+zdn58t7X87GfdEc1j3HOa07lwRWROxLEVvRR9DhokaHDjmtC3kxjms2p4pSCAa2lG501YcyPSdI+JnjjTZEe28S3uFGAkreYuB2w2a1774r+O9VtHt7rXD5bjDCOFFOPqBXl8E4HFaMVxxUSxeIjHkVSVu12fMV8iwLn7R0I378q/yPUvDvjPRdU8OReEfH8Mk9jFxZ6jFzNZ+3uv+cVYX4O3mqX0T+GPEOlatp0jDdcJLtaFT/E6denpXBeHNG1DxP4gt9H0qISXEzY9kXuzHsAK9D8catp3gnQf+Fd+FZv33DatqCnDzP8A3MjoPUdunrXbh3GtQdXGxvCGie0m+kb9fmtF12R8xjqVTC4tYfLJ8tSpq42vGK6zt9nyS+J9DUls4tI8RQeHIdNu7LwxowbUb+6uIyjak8XIJPdS21VX3rzjXodQ1C0j8Y3siyf2tdz5AH3GUgkfkwx9KUeIRB8OptHiuriS6vboNch2JVIoxlFGT/ExJP8Auit7ULbf+zNpN/x+51mYE+zLj+YFRUaxUZqO0Y81u2qSXyX4t9QwtCpl9SE6m8pqF+rVpNy16ylb5JW0OAZ8DpVK4m96SWcAVnzT5zzXlwgfc0qTuRTy5J5rOdiz1LNJk8Hmoa7IKyPVpQ5UFFFFWak0U204NXIrjvms2nK7L0NS4pmU6akfSPwPuE0/4V+MPEVhai41a2UiMBcsFEe5QPbdk++K8Rl1GW5uHuZ5TJLKxd3Y8sxOSfzq14C+IeteAPEJ1LTNksUqhLi1lzsmXPf0I7HtXb6vefBfxqTqcOo33g3U5STLA9sZ7ZmPUjb0H0x9K9Kqo4rC0qUZJShfR6Xu73T2v0d/kfCxwtXKsyxGIrUpTp1bNSinJxsrcrS1t2aTPPDc8YyPzr17VB5H7F+mysMGbVN65/33H9K8p1rRNO0y8tYrHxhomqRXEmwzWzSDyB/ekVlyBz2z0rrPiV420Gb4f+Hfh94VvTf2elIJLq9VCiTTYI+UHBIyzHPuKxwMI0IVnN6uNl5ttfob5nSeOrYOOHi2vaKbdmrKKe90rXeiW551LPnvVOSUk4BqMsSetNrijBI+zhTUQ6miiirNT//Z">
+    <div>
+      <h1>Praia Vermelha Va’a</h1>
+      <small id="sub">Clube, Urca, Rio de Janeiro</small>
+    </div>
+    <nav class="tabs" aria-label="Seções">
+      <button data-tab="agenda">Agenda</button>
+      <button data-tab="mar">Mar</button>
+      <button data-tab="mural">Mural</button>
+      <button data-tab="competicao">Competição</button>
+      <button data-tab="alunos"><span class="lbl">Alunos</span></button>
+      <button data-tab="clube">Clube</button>
+    </nav>
+    <div class="who" id="who"></div>
+  </div>
+</header>
+
+<main>
+  <div id="dbnotice" class="notice" hidden></div>
+
+  <!-- AGENDA -->
+  <section class="view" id="v-agenda" hidden>
+    <div id="agendaBody"></div>
+  </section>
+
+  <!-- MAR -->
+  <section class="view" id="v-mar">
+    <div class="daybar">
+      <div>
+        <h2 id="dayTitle">Hoje</h2>
+        <div class="place">Urca e Lagoa Rodrigo de Freitas</div>
+      </div>
+      <label class="daypick-l"><span>Escolher dia</span><input type="date" id="dayPick" aria-label="Escolher dia da previsão"></label>
+    </div>
+    <div id="marBody"></div>
+  </section>
+
+  <!-- MURAL -->
+  <section class="view" id="v-mural" hidden>
+    <div id="muralBody"></div>
+  </section>
+
+  <!-- COMPETIÇÃO -->
+  <section class="view" id="v-competicao" hidden>
+    <div id="compBody"></div>
+  </section>
+
+  <!-- ALUNOS -->
+  <section class="view" id="v-alunos" hidden>
+    <div id="alunosBody"></div>
+  </section>
+
+  <!-- CLUBE -->
+  <section class="view" id="v-clube" hidden>
+    <div id="clubeBody"></div>
+  </section>
+</main>
+
+<nav class="bottom" aria-label="Seções">
+  <button data-tab="agenda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M9 15l2 2 4-4"/></svg>Agenda</button>
+  <button data-tab="mar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 12c2.5 2 5 2 7.5 0s5-2 7.5 0 3.5 1.5 5 1"/><path d="M2 17c2.5 2 5 2 7.5 0s5-2 7.5 0 3.5 1.5 5 1"/><circle cx="17" cy="6" r="2.5"/></svg>Mar</button>
+  <button data-tab="mural"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4a1 1 0 0 0 1 1h2l5 4V5L7 9H5a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/></svg>Mural</button>
+  <button data-tab="competicao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20h7"/></svg>Competição</button>
+  <button data-tab="alunos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.8a3.3 3.3 0 0 1 0 6.4M18 14.8c2 .7 3.2 2.5 3.6 5.2"/></svg><span class="lbl">Alunos</span></button>
+  <button data-tab="clube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 14h20l-2.5 3.5h-15z"/><path d="M5 14V9M19 14V9M5 9h14"/></svg>Clube</button>
+</nav>
+
+<div class="overlay" id="ov" hidden><div class="sheet" id="sheet" role="dialog" aria-modal="true"></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+"use strict";
+const $ = s => document.querySelector(s);
+const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const num = v => (v === "" || v == null || isNaN(+v)) ? null : +v;
+const fmtN = (v, d=1) => v == null ? "–" : (+v).toLocaleString("pt-BR",{maximumFractionDigits:d});
+
+function todaySP(){
+  const p = new Intl.DateTimeFormat("en-CA",{timeZone:"America/Sao_Paulo",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+  return p;
+}
+function dateLabel(iso){
+  if(!iso) return "";
+  const t = todaySP();
+  const d = new Date(iso+"T12:00:00");
+  const td = new Date(t+"T12:00:00");
+  const diff = Math.round((d - td)/86400000);
+  if(diff===0) return "Hoje";
+  if(diff===1) return "Amanhã";
+  if(diff===-1) return "Ontem";
+  return d.toLocaleDateString("pt-BR",{weekday:"short",day:"numeric",month:"short"}).replace(".","");
+}
+
+const DEFAULT_LIM = {
+  vento:{a:12,c:18}, rajada:{a:16,c:22}, onda:{a:1.5,c:2.5}, chuva_prob:{a:60,c:null}, chuva_mm:{a:5,c:15}
+};
+const DEFAULT_CONFIG = { canoas:[], limites: DEFAULT_LIM, grade:[] };
+const LOCAIS = ["Urca","Lagoa"];
+const DIAS = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
+const DIRS = ["N","NE","E","SE","S","SO","O","NO"];
+const TIPOS = {OC6:6, OC2:2, OC1:1, V6:6, V1:1};
+
+const S = {
+  db:null, user:null, canEdit:false, uid:null,
+  tab:"agenda", day:todaySP(),
+  previsoes:{}, marHora:{}, marSim:null, previsaoConectada:false,
+  role:"visitante", canAgenda:false, platAdmin:false, isOwner:false, equipe:{}, minhaFicha:null, me:null, agendaBase:"todas",
+  avisos:{}, avisosLoaded:false, muralFiltro:"todos", muralAberto:{},
+  provas:{}, atletas:{}, atletaMe:null, showPastProvas:false,
+  turmas:{}, turmasLoaded:false, insc:{}, names:{}, canWrite:null, pending:false, showPast:false,
+  config:DEFAULT_CONFIG, configLoaded:false,
+  boletins:{}, boletinsLoaded:false,
+  alunos:[], alunosLoaded:false, alunosSearch:"", alunosFilter:"todos",
+  readOnly:false
+};
+
+/* ---------- tabs ---------- */
+const TABS = ["agenda","mar","mural","competicao","alunos","clube"];
+function setTab(t){
+  S.tab = t;
+  document.querySelectorAll("[data-tab]").forEach(b => b.setAttribute("aria-current", b.dataset.tab===t ? "page" : "false"));
+  TABS.forEach(k => $("#v-"+k).hidden = k!==t);
+  if(location.hash !== "#"+t) history.replaceState(null,"","#"+t);
+  render();
+  window.scrollTo(0,0);
+}
+document.querySelectorAll("[data-tab]").forEach(b => b.addEventListener("click", () => setTab(b.dataset.tab)));
+window.addEventListener("hashchange", () => { const h = location.hash.slice(1); if(TABS.includes(h) && h!==S.tab) setTab(h); });
+
+$("#dayPick").value = S.day;
+$("#dayPick").addEventListener("change", e => { if(e.target.value){ S.day = e.target.value; renderMar(); }});
+
+/* ---------- toast ---------- */
+let toastT;
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>t.hidden=true,2600); }
+
+/* ---------- sheet ---------- */
+function openSheet(html, onMount){
+  S.openTurma = null;
+  $("#sheet").innerHTML = html;
+  $("#ov").hidden = false;
+  document.body.style.overflow="hidden";
+  const x = $("#sheet .x"); if(x) x.addEventListener("click", closeSheet);
+  if(onMount) onMount($("#sheet"));
+}
+function closeSheet(){ S.openTurma = null; $("#ov").hidden = true; document.body.style.overflow=""; }
+function ask(msg, ok){ return new Promise(res=>{ openSheet(`<div class="head"><h2>Confirmar</h2><button class="x" aria-label="Fechar">×</button></div><p style="margin:4px 0 0">${esc(msg)}</p><div class="row" style="margin-top:18px"><span class="spacer"></span><button class="btn ghost" id="qN">Voltar</button><button class="btn" id="qY">${esc(ok||"Confirmar")}</button></div>`, root=>{ let done=false; const fin=v=>{ if(done) return; done=true; res(v); }; root.querySelector("#qN").addEventListener("click",()=>{ closeSheet(); fin(false); }); root.querySelector("#qY").addEventListener("click",()=>fin(true)); root.querySelector(".x").addEventListener("click",()=>fin(false)); }); }); }
+function askText(title, label){ return new Promise(res=>{ openSheet(`<div class="head"><h2>${esc(title)}</h2><button class="x" aria-label="Fechar">×</button></div><form id="qF"><label class="f">${esc(label)}<input name="v" required maxlength="60" autocomplete="name"></label><div class="row" style="margin-top:18px"><span class="spacer"></span><button class="btn" type="submit">Continuar</button></div></form>`, root=>{ root.querySelector("input").focus(); root.querySelector("#qF").addEventListener("submit",e=>{ e.preventDefault(); const v=new FormData(e.target).get("v").toString().trim(); closeSheet(); res(v||null); }); root.querySelector(".x").addEventListener("click",()=>res(null)); }); }); }
+$("#ov").addEventListener("click", e => { if(e.target.id==="ov") closeSheet(); });
+document.addEventListener("keydown", e => { if(e.key==="Escape" && !$("#ov").hidden) closeSheet(); });
+
+/* ---------- avaliação das condições ---------- */
+function lim(){ return Object.assign({}, DEFAULT_LIM, S.config.limites||{}); }
+const BEAUFORT = [[1,"Calmaria","menos de 1 nó"],[4,"Bafagem","1 a 3 nós"],[7,"Aragem","4 a 6 nós"],[11,"Fraco","7 a 10 nós"],[17,"Moderado","11 a 16 nós"],[22,"Fresco","17 a 21 nós"],[28,"Muito fresco","22 a 27 nós"],[34,"Forte","28 a 33 nós"],[41,"Muito forte","34 a 40 nós"],[48,"Duro","41 a 47 nós"],[56,"Muito duro","48 a 55 nós"],[64,"Tempestuoso","56 a 63 nós"],[Infinity,"Furacão","64 nós ou mais"]];
+const DEFAULT_BF = { Urca:[0,0,0,0,1,2,2,2,2,2,2,2,2], Lagoa:[0,0,0,0,0,1,2,2,2,2,2,2,2] };
+const NIVEL_TXT = ["Liberada","Atenção","Cancelada"];
+const NOME_BASE = { Urca:"Praia da Urca", Lagoa:"Lagoa Rodrigo de Freitas" };
+function beaufort(kn){ if(kn==null) return null; const v=Math.round(kn); for(let f=0; f<BEAUFORT.length; f++){ if(v<BEAUFORT[f][0]) return {f, n:BEAUFORT[f][1], faixa:BEAUFORT[f][2]}; } return null; }
+function bfTabela(base){ const t=S.config.beaufort && S.config.beaufort[base]; return (t && t.length===13) ? t : DEFAULT_BF[base]; }
+function baseData(b, base){ if(!b) return null; if(b.bases) return b.bases[base]||null; return base==="Urca" ? b : null; }
+function temDados(d){ return !!d && ["temp_ar","chuva_prob","chuva_mm","vento","rajada","onda"].some(k=>d[k]!==""&&d[k]!=null); }
+function avaliarBase(d, base){
+  const L=lim(); const motivos=[]; let nivel=0; const flags={};
+  const bt=bfTabela(base);
+  const bf=beaufort(num(d.vento)), bg=beaufort(num(d.rajada));
+  if(bf){ const s=bt[bf.f]; flags.vento=s; nivel=Math.max(nivel,s); if(s>0) motivos.push(`Vento de ${fmtN(num(d.vento),0)} nós: força ${bf.f} (${bf.n}) na escala Beaufort`); }
+  if(bg){ const fg=Math.max(0,bg.f-1), s=bt[fg]; if(s>(flags.vento||0)){ flags.rajada=s; nivel=Math.max(nivel,s); motivos.push(`Rajadas de ${fmtN(num(d.rajada),0)} nós: força ${bg.f} (${bg.n})`); } }
+  const chk=(key,val,label,unit)=>{ if(val==null) return; const l=L[key]; if(!l) return;
+    if(l.c!=null && val>=l.c){ nivel=Math.max(nivel,2); flags[key]=2; motivos.push(`${label} ${fmtN(val)} ${unit}, limite para cancelar é ${fmtN(l.c)}`); }
+    else if(l.a!=null && val>=l.a){ nivel=Math.max(nivel,1); flags[key]=1; motivos.push(`${label} ${fmtN(val)} ${unit}, acima de ${fmtN(l.a)}`); } };
+  if(base==="Urca") chk("onda", num(d.onda), "Ondulação", "m");
+  chk("chuva_mm", num(d.chuva_mm), "Chuva", "mm");
+  chk("chuva_prob", num(d.chuva_prob), "Chance de chuva", "%");
+  let manual=false;
+  if(d.decisao && d.decisao!=="auto"){ manual=true; nivel={liberada:0,atencao:1,cancelada:2}[d.decisao]; }
+  return {nivel, motivos, flags, manual, bf, bg};
+}
+function bfStrip(base, f){ const t=bfTabela(base); return `<div class="bft" role="img" aria-label="Escala Beaufort de 0 a 12, força atual ${f}">${t.map((s,i)=>`<span class="s${s}${i===f?" on":""}">${i}</span>`).join("")}</div>`; }
+const WORD = ["Remada liberada","Remar com atenção","Remada cancelada"];
+
+/* ---------- MAR ---------- */
+function cardBase(base, d){
+  if(!temDados(d)) return `<article class="bcard"><div class="bhead"><div><div class="bname">${NOME_BASE[base]}</div><div class="bsub">Sem previsão lançada</div></div></div><p class="hint" style="padding:0 16px 14px;margin:0">${S.canAgenda?"Toque em “Lançar previsão” e preencha com os dados do Windy.":"Os instrutores publicam a previsão antes da remada."}</p></article>`;
+  const ev=avaliarBase(d,base), bf=ev.bf;
+  const mares=(d.mares||[]).filter(m=>m.hora);
+  return `<article class="bcard l${ev.nivel}">
+    <div class="bhead"><div><div class="bname">${NOME_BASE[base]}</div><div class="bsub">Previsão para as ${esc(d.hora||"06:00")}</div></div><div class="bword">${NIVEL_TXT[ev.nivel]}</div></div>
+    <div class="bm">
+      <div><div class="k">Temperatura</div><div class="v">${fmtN(num(d.temp_ar),0)}<small>°C</small></div>${base==="Urca"&&num(d.temp_agua)!=null?`<div class="d">água ${fmtN(num(d.temp_agua),0)} °C</div>`:""}</div>
+      <div class="flag-${ev.flags.chuva_prob||0}"><div class="k">Chance de chuva</div><div class="v">${fmtN(num(d.chuva_prob),0)}<small>%</small></div></div>
+      <div class="flag-${ev.flags.chuva_mm||0}"><div class="k">Chuva no horário</div><div class="v">${fmtN(num(d.chuva_mm))}<small>mm</small></div></div>
+      <div class="flag-${Math.max(ev.flags.vento||0,ev.flags.rajada||0)}"><div class="k">Vento no horário</div><div class="v">${fmtN(num(d.vento),0)}<small>nós</small></div><div class="d">${d.vento_dir?esc(d.vento_dir)+", ":""}rajada ${fmtN(num(d.rajada),0)}</div></div>
+    </div>
+    ${bf?`<div class="bfbox"><div class="bft-t"><b>Beaufort ${bf.f}: ${bf.n}</b> <span>${bf.faixa}</span><span class="spacer"></span><b class="c${bfTabela(base)[bf.f]}">${["vento liberado","vento pede atenção","vento acima do limite"][bfTabela(base)[bf.f]]}</b></div>${bfStrip(base,bf.f)}</div>`:""}
+    ${base==="Urca"&&(num(d.onda)!=null||mares.length||d.corrente)?`<div class="bxtra">
+      ${num(d.onda)!=null?`<div><span class="k">Ondulação</span> <b class="${ev.flags.onda?"c"+ev.flags.onda:""}">${fmtN(num(d.onda))} m</b>${d.periodo?`, ${fmtN(num(d.periodo),0)} s`:""}${d.onda_dir?`, ${esc(d.onda_dir)}`:""}</div>`:""}
+      ${mares.length?`<div><span class="k">Maré</span> ${mares.map(m=>`${esc(m.tipo||"")} ${esc(m.hora)}${m.altura!==""&&m.altura!=null?` (${fmtN(num(m.altura))} m)`:""}`).join(", ")}</div>`:""}
+      ${d.corrente?`<div><span class="k">Corrente</span> ${esc(d.corrente)}</div>`:""}
+    </div>`:""}
+    <ul class="why">${ev.manual?`<li>Decisão do instrutor${d.decisao_motivo?`: ${esc(d.decisao_motivo)}`:""}</li>`:""}${ev.motivos.length?ev.motivos.map(m=>`<li>${esc(m)}</li>`).join(""):(ev.manual?"":"<li>Todas as leituras dentro dos limites do clube.</li>")}</ul>
+  </article>`;
+}
+function dirSelect(name, val){
+  return `<select name="${name}"><option value="">–</option>${DIRS.map(d=>`<option ${d===val?"selected":""}>${d}</option>`).join("")}</select>`;
+}
+function editBoletim(){
+  const b = S.boletins[S.day] || {};
+  const campos = (base)=>{
+    const d = baseData(b, base) || {};
+    const p = base+"_";
+    const m = (d.mares||[]).concat([{},{},{},{}]).slice(0,4);
+    return `<fieldset class="basefs"><legend>${NOME_BASE[base]}</legend><div class="grid">
+      <label class="f">Horário da previsão<input name="${p}hora" type="time" value="${esc(d.hora||"06:00")}"></label>
+      <label class="f">Temperatura (°C)<input name="${p}temp_ar" inputmode="decimal" value="${esc(d.temp_ar)}"></label>
+      <label class="f">Chance de chuva (%)<input name="${p}chuva_prob" inputmode="numeric" value="${esc(d.chuva_prob)}"></label>
+      <label class="f">Chuva no horário (mm)<input name="${p}chuva_mm" inputmode="decimal" value="${esc(d.chuva_mm)}"></label>
+      <label class="f">Vento médio (nós)<input name="${p}vento" data-bf="${base}" inputmode="decimal" value="${esc(d.vento)}"></label>
+      <label class="f">Rajada (nós)<input name="${p}rajada" inputmode="decimal" value="${esc(d.rajada)}"></label>
+      <label class="f full">Direção do vento${dirSelect(p+"vento_dir", d.vento_dir)}</label>
+      <p class="hint full bfprev" id="bfp_${base}"></p>
+      ${base==="Urca"?`
+      <label class="f">Ondulação (m)<input name="${p}onda" inputmode="decimal" value="${esc(d.onda)}"></label>
+      <label class="f">Período (s)<input name="${p}periodo" inputmode="decimal" value="${esc(d.periodo)}"></label>
+      <label class="f">Direção da ondulação${dirSelect(p+"onda_dir", d.onda_dir)}</label>
+      <label class="f">Água (°C)<input name="${p}temp_agua" inputmode="decimal" value="${esc(d.temp_agua)}"></label>
+      <div class="full"><div class="hint" style="margin:6px 0">Maré</div>${m.map((x,i)=>`<div class="tiderow">
+        <label class="f">Hora<input name="${p}m_hora_${i}" type="time" value="${esc(x.hora)}"></label>
+        <label class="f">Altura (m)<input name="${p}m_alt_${i}" inputmode="decimal" value="${esc(x.altura)}"></label>
+        <label class="f">Tipo<select name="${p}m_tipo_${i}"><option value="">–</option><option ${x.tipo==="Preamar"?"selected":""}>Preamar</option><option ${x.tipo==="Baixa-mar"?"selected":""}>Baixa-mar</option></select></label></div>`).join("")}</div>
+      <label class="f full">Corrente (SISCORAR)<textarea name="${p}corrente" placeholder="Ex.: enchente forte na entrada da baía até 7h">${esc(d.corrente)}</textarea></label>`:""}
+      <label class="f full">Semáforo<select name="${p}decisao">
+        <option value="auto" ${!d.decisao||d.decisao==="auto"?"selected":""}>Automático (Beaufort e limites do clube)</option>
+        <option value="liberada" ${d.decisao==="liberada"?"selected":""}>Liberada, decisão do instrutor</option>
+        <option value="atencao" ${d.decisao==="atencao"?"selected":""}>Atenção, decisão do instrutor</option>
+        <option value="cancelada" ${d.decisao==="cancelada"?"selected":""}>Cancelada, decisão do instrutor</option></select></label>
+      <label class="f full">Motivo da decisão<input name="${p}decisao_motivo" value="${esc(d.decisao_motivo)}"></label>
+    </div></fieldset>`;
+  };
+  openSheet(`
+    <div class="head"><h2>Previsão de ${esc(dateLabel(S.day).toLowerCase())}</h2><button class="x" aria-label="Fechar">×</button></div>
+    <p class="hint">Copie do Windy os valores do horário da remada. A força Beaufort e o semáforo são calculados automaticamente.</p>
+    <form id="fb">${LOCAIS.map(campos).join("")}
+      <fieldset><legend>Geral</legend><div class="grid">
+        <label class="f full">Recado para os alunos<textarea name="obs">${esc(b.obs)}</textarea></label>
+        <label class="f full">Fonte<input name="fonte" value="${esc(b.fonte||"Windy e SISCORAR")}"></label></div></fieldset>
+      <div class="row" style="margin-top:18px">${S.boletins[S.day]?`<button type="button" class="btn danger small" id="delB">Apagar</button>`:""}<span class="spacer"></span><button type="button" class="btn ghost" id="cancelB">Cancelar</button><button type="submit" class="btn">Publicar previsão</button></div>
+    </form>`, root=>{
+      const prev = inp => { const base=inp.dataset.bf, out=root.querySelector("#bfp_"+base), bf=beaufort(num(inp.value.replace(",","."))); out.textContent = bf ? `Força ${bf.f} na escala Beaufort (${bf.n}, ${bf.faixa}): ${["liberada","atenção","cancelada"][bfTabela(base)[bf.f]]} na ${NOME_BASE[base]}.` : ""; };
+      root.querySelectorAll("[data-bf]").forEach(i=>{ i.addEventListener("input",()=>prev(i)); prev(i); });
+      root.querySelector("#cancelB").addEventListener("click", closeSheet);
+      const del=root.querySelector("#delB");
+      if(del) del.addEventListener("click", async()=>{ if(!await ask("Apagar a previsão deste dia?","Apagar previsão")) return; try{ await S.db.doc("boletins/"+S.day).delete(); closeSheet(); toast("Previsão apagada"); }catch(e){ failWrite(e); } });
+      root.querySelector("#fb").addEventListener("submit", async ev=>{
+        ev.preventDefault();
+        const f=new FormData(ev.target); const g=k=>(f.get(k)||"").toString().trim();
+        const nm=v=>v.replace(",",".");
+        const bases={};
+        for(const base of LOCAIS){
+          const p=base+"_", o={};
+          ["hora","temp_ar","chuva_prob","chuva_mm","vento","rajada","vento_dir","decisao"].forEach(k=>o[k]=nm(g(p+k)));
+          o.decisao_motivo=g(p+"decisao_motivo");
+          if(base==="Urca"){
+            ["onda","periodo","onda_dir","temp_agua"].forEach(k=>o[k]=nm(g(p+k)));
+            o.corrente=g(p+"corrente");
+            o.mares=[0,1,2,3].map(i=>({hora:g(p+"m_hora_"+i), altura:nm(g(p+"m_alt_"+i)), tipo:g(p+"m_tipo_"+i)})).filter(x=>x.hora);
+          }
+          bases[base]=o;
+        }
+        const doc={data:S.day, bases, obs:g("obs"), fonte:g("fonte"), atualizado:new Date().toISOString()};
+        try{ await S.db.doc("boletins/"+S.day).set(doc); closeSheet(); toast("Previsão publicada"); }catch(e){ failWrite(e); }
+      });
+    });
+}
+
+/* ---------- runtime: Claude ou versão de testes ---------- */
+const TESTE = (function(){
+  const KEY="pvv-teste-db", RKEY="pvv-teste-papel";
+  let store={}; try{ store=JSON.parse(localStorage.getItem(KEY)||"{}"); }catch(_){}
+  const ls=[]; const save=()=>{ try{ localStorage.setItem(KEY, JSON.stringify(store)); }catch(_){} };
+  const emit=()=>setTimeout(()=>ls.slice().forEach(f=>{ try{ f(); }catch(_){} }),0);
+  const clone=v=>v==null?v:JSON.parse(JSON.stringify(v));
+  const snapDoc=p=>{ const d=store[p]; return {id:p.split("/").pop(), exists:d!=null, data:()=>clone(d), metadata:{fromCache:false,hasPendingWrites:false}}; };
+  const merge=(a,b)=>{ for(const k in b){ if(b[k]&&typeof b[k]==="object"&&!Array.isArray(b[k])&&a[k]&&typeof a[k]==="object"&&!Array.isArray(a[k])) merge(a[k],b[k]); else a[k]=b[k]; } };
+  function doc(p){ return {id:p.split("/").pop(), path:p,
+    get:async()=>snapDoc(p),
+    set:async d=>{ store[p]=clone(d); save(); emit(); },
+    update:async d=>{ if(!store[p]) throw {code:"invalid_argument",message:"documento não existe"}; merge(store[p],clone(d)); save(); emit(); },
+    delete:async()=>{ delete store[p]; save(); emit(); },
+    onSnapshot:(n)=>{ const f=()=>n(snapDoc(p)); ls.push(f); setTimeout(f,0); return ()=>{ const i=ls.indexOf(f); if(i>=0) ls.splice(i,1); }; },
+    collection:c=>col(p+"/"+c) }; }
+  function col(c, f=[], ob=null, lim=null){
+    const run=()=>{ const n=c.split("/").length+1; let ds=Object.keys(store).filter(k=>k.startsWith(c+"/")&&k.split("/").length===n).map(snapDoc);
+      f.forEach(([a,o,v])=>{ ds=ds.filter(d=>{ const x=d.data()[a]; return o===">="?x>=v:o==="<="?x<=v:o===">"?x>v:o==="<"?x<v:o==="=="?x===v:o==="!="?x!==v:true; }); });
+      if(ob){ ds.sort((x,y)=>{ const a=x.data()[ob[0]], b=y.data()[ob[0]]; const r=a==null?1:b==null?-1:a<b?-1:a>b?1:0; return ob[1]==="desc"?-r:r; }); }
+      if(lim) ds=ds.slice(0,lim);
+      return {docs:ds,size:ds.length,empty:!ds.length,docChanges:()=>[],metadata:{}}; };
+    return { path:c, where:(a,o,v)=>col(c,f.concat([[a,o,v]]),ob,lim), orderBy:(a,d)=>col(c,f,[a,d||"asc"],lim), limit:n=>col(c,f,ob,n),
+      get:async()=>run(), onSnapshot:(n)=>{ const fn=()=>n(run()); ls.push(fn); setTimeout(fn,0); return ()=>{ const i=ls.indexOf(fn); if(i>=0) ls.splice(i,1); }; },
+      doc:id=>doc(c+"/"+(id||("t"+Date.now().toString(36)+Math.random().toString(36).slice(2,7)))),
+      add:async d=>{ const r=doc(c+"/t"+Date.now().toString(36)+Math.random().toString(36).slice(2,7)); await r.set(d); return r; } };
+  }
+  const papel = (()=>{ try{ return localStorage.getItem(RKEY)||"gestao"; }catch(_){ return "gestao"; } })();
+  const NOMES={"teste-gestao":"Coordenação (teste)","teste-instrutor":"Instrutor (teste)","teste-aluno":"Aluno (teste)"};
+  const uid="teste-"+papel;
+  const user={ isOwner:async()=>papel==="gestao", canEdit:async()=>papel!=="aluno", can:async()=>true, id:async()=>uid,
+    me:async()=>({id:uid,name:NOMES[uid],isOwner:papel==="gestao",canEdit:papel!=="aluno"}),
+    profiles:async ids=>Object.fromEntries(ids.map(i=>[i,{id:i,name:NOMES[i]||"",isMe:i===uid}])) };
+  const downloads={ save:async({filename,data})=>{ const b=data instanceof Blob?data:new Blob([data],{type:"text/csv"}); const a=document.createElement("a"); a.href=URL.createObjectURL(b); a.download=filename; a.click(); return {status:"saved"}; } };
+  return { papel, RKEY, KEY, use:async n=>({db:{doc,collection:c=>col(c)},user,downloads})[n]||null };
+})();
+const NA_CLAUDE = !!(window.claude && window.claude.use);
+const CL = NA_CLAUDE ? window.claude : TESTE;
+const AO_VIVO = !NA_CLAUDE;
+
+/* ---------- previsão ao vivo (Open-Meteo) ---------- */
+const COORD = { Urca:{lat:-22.9530, lon:-43.1640, mlat:-22.9640, mlon:-43.1560}, Lagoa:{lat:-22.9711, lon:-43.2105} };
+const LIVE = {}, LIVE_ST = {};
+async function buscarPrevisao(date){
+  if(!AO_VIVO || LIVE[date] || LIVE_ST[date]) return;
+  LIVE_ST[date]="carregando";
+  const hv="temperature_2m,apparent_temperature,relative_humidity_2m,precipitation_probability,precipitation,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m,uv_index,is_day";
+  const tz="America%2FSao_Paulo", rng=`&start_date=${date}&end_date=${date}`;
+  const get=async u=>{ const r=await fetch(u); const j=await r.json(); if(!r.ok||j.error) throw new Error(j.reason||("HTTP "+r.status)); return j.hourly; };
+  try{
+    const bases={};
+    for(const b of LOCAIS){
+      const c=COORD[b];
+      const w=await get(`https://api.open-meteo.com/v1/forecast?latitude=${c.lat}&longitude=${c.lon}&hourly=${hv}&wind_speed_unit=kn&timezone=${tz}${rng}`);
+      const h={temp:w.temperature_2m, feels:w.apparent_temperature, rh:w.relative_humidity_2m, prob:w.precipitation_probability, mm:w.precipitation, code:w.weather_code, wind:w.wind_speed_10m, dir:w.wind_direction_10m, gust:w.wind_gusts_10m, uv:w.uv_index, isday:w.is_day};
+      if(b==="Urca"){
+        try{ const m=await get(`https://marine-api.open-meteo.com/v1/marine?latitude=${c.mlat}&longitude=${c.mlon}&hourly=wave_height,wave_period,wave_direction,sea_level_height_msl,sea_surface_temperature&cell_selection=sea&timezone=${tz}${rng}`);
+          Object.assign(h,{wave:m.wave_height, wper:m.wave_period, wdir:m.wave_direction, sea:m.sea_level_height_msl, sst:m.sea_surface_temperature}); }catch(_){ h.semMar=true; }
+      }
+      bases[b]=h;
+    }
+    LIVE[date]={bases, atualizado:new Date().toISOString(), fonte:"Open-Meteo"}; LIVE_ST[date]="ok";
+  }catch(e){ LIVE_ST[date]="erro:"+(e&&e.message||"falha"); }
+  if(S.tab==="mar") renderMar(); else if(S.tab==="agenda") renderAgenda();
+}
+
+/* ---------- escalas universais ---------- */
+function calorCat(f){ if(f==null) return null; if(f>=54) return [4,"Perigo extremo"]; if(f>=41) return [3,"Perigo"]; if(f>=32) return [2,"Cautela extrema"]; if(f>=27) return [1,"Cautela"]; if(f<20) return [-1,"Fresco"]; return [0,"Confortável"]; }
+function chuvaCat(mm){ if(mm==null) return null; if(mm<0.1) return [0,"Sem chuva"]; if(mm<2.5) return [1,"Fraca"]; if(mm<7.6) return [2,"Moderada"]; if(mm<50) return [3,"Forte"]; return [4,"Violenta"]; }
+function marCat(h){ if(h==null) return null; if(h<0.1) return [1,"Calmo, encrespado"]; if(h<0.5) return [2,"Liso, pequenas ondas"]; if(h<1.25) return [3,"Pouco agitado"]; if(h<2.5) return [4,"Moderado"]; if(h<4) return [5,"Agitado"]; if(h<6) return [6,"Muito agitado"]; return [7,"Alto"]; }
+const COND_TXT = ["Condições favoráveis","Condições pedem atenção","Condições desfavoráveis"];
+const COND_CURTO = ["Favorável","Atenção","Desfavorável"];
+
+/* ---------- alertas de 12h ---------- */
+function alertasAtivos(){ const lim=Date.now()-12*3600e3; return Object.values(S.avisos||{}).filter(a=>a.tipo==="cancelamento" && a.criado && new Date(a.criado).getTime()>=lim).sort((a,b)=>(b.criado||"").localeCompare(a.criado||"")); }
+function alertaBanner(){ const al=alertasAtivos(); if(!al.length) return ""; return `<div class="alertbar" role="alert"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 3 L22 20 H2 Z" fill="#fff"/><path d="M12 9v5M12 16.5v.5" stroke="#C0392B" stroke-width="2.4" stroke-linecap="round"/></svg><div><b>${esc(al[0].titulo)}</b>${al[0].texto?`<span>${esc(al[0].texto)}</span>`:""}${al.length>1?`<span>Mais ${al.length-1} ${al.length===2?"alerta":"alertas"} no Mural</span>`:""}</div><button class="linkbtn" data-goalert>Ver</button></div>`; }
+function bindAlerta(el){ el.querySelectorAll("[data-goalert]").forEach(b=>b.addEventListener("click",()=>setTab("mural"))); }
+
+/* ---------- cancelamento de remada ---------- */
+const MOTIVOS = ["Vento forte","Chuva","Raios ou tempestade","Ondulação","Falta de instrutor","Outro"];
+function cancelarRemada(id, depois){
+  const t=S.turmas[id]; if(!t) return;
+  const nm=t.titulo||"Remada "+t.local;
+  openSheet(`<div class="head"><h2>Cancelar remada</h2><button class="x" aria-label="Fechar">×</button></div>
+    <p class="hint">${esc(nm)}, ${esc(dataCurta(t.data))}, ${esc(t.inicio)}. O cancelamento aparece na Agenda, nos cards do Mar e como alerta no Mural por 12 horas.</p>
+    <form id="fcx"><div class="grid">
+      <label class="f full">Motivo<select name="motivo">${MOTIVOS.map(m=>`<option>${m}</option>`).join("")}</select></label>
+      <label class="f full">Recado aos alunos (opcional)<textarea name="obs" placeholder="Ex.: rajadas acima de 25 nós previstas até as 8h"></textarea></label>
+    </div><div class="row" style="margin-top:16px"><span class="spacer"></span><button type="button" class="btn ghost" id="cxV">Voltar</button><button class="btn danger" type="submit">Cancelar remada</button></div></form>`, root=>{
+    root.querySelector("#cxV").addEventListener("click",()=> depois ? depois() : closeSheet());
+    root.querySelector("#fcx").addEventListener("submit",async ev=>{
+      ev.preventDefault(); const f=new FormData(ev.target); const motivo=f.get("motivo"), obs=(f.get("obs")||"").toString().trim();
+      try{
+        await S.db.doc("turmas/"+id).update({status:"cancelada", motivo, motivo_obs:obs, cancelada_por:S.uid||"", cancelada_em:new Date().toISOString()});
+        await S.db.doc("avisos/canc_"+id).set({tipo:"cancelamento", titulo:`${nm} de ${dataCurta(t.data)}, ${t.inicio}, cancelada`, texto:`Motivo: ${motivo.toLowerCase()}.${obs?" "+obs:""}`, data_evento:t.data, hora:t.inicio, local:t.local, link:"", expira:t.data, fixado:false, criado:new Date().toISOString(), turma:id});
+        toast("Remada cancelada. Alerta publicado."); if(depois) depois(); else closeSheet();
+      }catch(e){ failWrite(e); }
+    });
+  });
+}
+async function reabrirRemada(id){
+  try{ await S.db.doc("turmas/"+id).update({status:"aberta", motivo:"", motivo_obs:""}); await S.db.doc("avisos/canc_"+id).delete(); toast("Remada reaberta"); }catch(e){ failWrite(e); }
+}
+function remadasDe(base, date){ return Object.values(S.turmas||{}).filter(t=>t.data===date && t.local===base).sort((a,b)=>(a.inicio||"").localeCompare(b.inicio||"")); }
+
+/* ---------- MAR: cards automáticos ---------- */
+const REDUZ = (()=>{ try{ return matchMedia("(prefers-reduced-motion: reduce)").matches; }catch(_){ return false; } })();
+const DIR16 = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSO","SO","OSO","O","ONO","NO","NNO"];
+const DIR_DEG = {N:0,NE:45,E:90,SE:135,S:180,SO:225,O:270,NO:315};
+function dirTxt(deg){ return deg==null ? "" : DIR16[Math.round(((deg%360)+360)%360/22.5)%16]; }
+function skyDe(code){ if(code==null) return "parcial"; if(code>=95) return "tempestade"; if((code>=51&&code<=67)||(code>=80&&code<=82)) return "chuva"; if(code===45||code===48) return "neblina"; if(code===3) return "nublado"; if(code===2) return "parcial"; return "sol"; }
+const SKY_TXT = {sol:"Céu limpo", parcial:"Parcialmente nublado", nublado:"Tempo fechado", neblina:"Neblina", chuva:"Chuva", tempestade:"Possibilidade de raios"};
+function uvNivel(u){ if(u==null) return null; if(u<3) return ["Baixo","#3EA72D","#fff"]; if(u<6) return ["Moderado","#F5D90A","#3a2f00"]; if(u<8) return ["Alto","#F18B00","#fff"]; if(u<11) return ["Muito alto","#E53210","#fff"]; return ["Extremo","#9E4FA0","#fff"]; }
+
+/* ----- desenho ----- */
+function wavePath(y, A, L, W){ let d=`M0 ${y}`; for(let x=0;x<W;x+=L) d+=` q ${L/4} ${-A} ${L/2} 0 t ${L/2} 0`; return d+` V200 H0 Z`; }
+function nuvem(x,y,s,cor,cls){ return `<g class="${cls||""}"><g transform="translate(${x} ${y}) scale(${s})"><path d="M0 14 q-12 0 -12 -10 q0 -10 12 -10 q4 -12 18 -10 q12 -8 22 4 q14 0 14 12 q0 14 -14 14z" fill="${cor}"/></g></g>`; }
+function anim(type, vals, dur, extra){ if(REDUZ) return ""; return `<animateTransform attributeName="transform" type="${type}" values="${vals}" dur="${dur}s" repeatCount="indefinite" ${extra||"additive=\"sum\""}/>`; }
+function canoa(nivel, A, parada){
+  const remando = nivel<2 && !parada;
+  const pad=(x)=>`<g transform="translate(${x} -8)"><circle cx="0" cy="-9" r="3.6" fill="#B97A55"/><path d="M-3 -6 h6 v7 h-6z" fill="#FFF3E6"/><g>${anim("rotate","-25;20;-25",1.4)}<line x1="0" y1="-4" x2="9" y2="12" stroke="#5A3A22" stroke-width="1.6"/><path d="M9 12 l3 6 l-4 1 z" fill="#5A3A22"/></g></g>`;
+  return `<g transform="translate(70 ${nivel<2?150:156})"><g>${anim("translate",`0 0;0 ${-Math.min(3,A/2)};0 0`,2.4)}${anim("rotate","-1.2 90 0;1.2 90 0;-1.2 90 0",3.2)}
+    <path d="M42 -6 Q44 -20 50 -20 M128 -6 Q130 -20 136 -20" stroke="#5A3A22" stroke-width="2.2" fill="none"/>
+    <path d="M40 -22 Q90 -27 150 -22 Q148 -18 140 -18 Q90 -21 46 -18 Q40 -18 40 -22z" fill="#C93A0B"/>
+    ${remando?[28,58,88,118,148].map(pad).join(""):""}
+    <path d="M0 -8 Q12 9 42 9 L148 9 Q172 9 182 -9 Q150 -3 92 -3 Q32 -3 0 -8z" fill="#F04A12"/>
+    <path d="M12 0 Q92 7 170 0" stroke="#FFF3E6" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  </g></g>`;
+}
+function bandeira(nivel){ const cor=["#2C8A57","#F2C230","#D7261E"][nivel]; return `<g transform="translate(262 170)"><line x1="0" y1="0" x2="0" y2="-46" stroke="#5A4A3A" stroke-width="2"/><path d="M1 -46 q8 -3 16 0 q8 3 16 0 v14 q-8 3 -16 0 q-8 -3 -16 0z" fill="${cor}">${REDUZ?"":`<animate attributeName="d" values="M1 -46 q8 -3 16 0 q8 3 16 0 v14 q-8 3 -16 0 q-8 -3 -16 0z;M1 -46 q8 3 16 0 q8 -3 16 0 v14 q-8 -3 -16 0 q-8 3 -16 0z;M1 -46 q8 -3 16 0 q8 3 16 0 v14 q-8 3 -16 0 q-8 -3 -16 0z" dur="1.6s" repeatCount="indefinite"/>`}</path></g>`; }
+function boneca(p){
+  const skin="#B97A55", hair="#3B2416";
+  const roupa={calor:"#F04A12",ameno:"#F04A12",vento:"#F04A12",frio:"#1F3B57",chuva:"#F2C230",tempestade:"#1F3B57"}[p.look];
+  const longa = p.look==="frio"||p.look==="chuva"||p.look==="tempestade";
+  const braco=(cor,mangaLonga)=>`<rect x="-2.6" y="0" width="5.2" height="25" rx="2.6" fill="${skin}"/><rect x="-3.2" y="-1" width="6.4" height="${mangaLonga?24:9}" rx="3.2" fill="${cor}"/>`;
+  const garrafa=`<g transform="translate(0 25)"><rect x="-3" y="-2" width="6" height="12" rx="2" fill="#2E9BD6"/><rect x="-2" y="-5" width="4" height="3.5" rx="1" fill="#E8F6FF"/></g>`;
+  const placa=`<g transform="translate(0 25)"><line x1="0" y1="0" x2="0" y2="-26" stroke="#5A4A3A" stroke-width="1.6"/><rect x="-11" y="-40" width="22" height="16" rx="2" fill="#FFF3E6" stroke="#D7261E" stroke-width="1.6"/><path d="M1 -38 l-5 7 h4 l-2 6 l6 -8 h-4 l2 -5z" fill="#F2B705" stroke="#5A3A00" stroke-width=".4"/></g>`;
+  let armR="", armL="";
+  const proib=`<g transform="translate(0 25)"><line x1="0" y1="0" x2="0" y2="-26" stroke="#5A4A3A" stroke-width="1.6"/><circle cx="0" cy="-33" r="10" fill="#fff" stroke="#D7261E" stroke-width="2.6"/><path d="M-6 -31 q6 4 12 0" stroke="#F04A12" stroke-width="2.4" fill="none" stroke-linecap="round"/><line x1="-7" y1="-40" x2="7" y2="-26" stroke="#D7261E" stroke-width="2.6"/></g>`;
+  const gR={acena:anim("rotate","-140;-165;-140",1.1,""), bebe:anim("rotate","15;15;-150;-150;15",4,""), alerta:anim("rotate","-160;-150;-160",1.2,""), proibido:anim("rotate","-160;-150;-160",1.2,""), segura:"", abraca:"", capuz:""}[p.gesto];
+  const baseR={acena:-150, bebe:15, alerta:-160, proibido:-160, segura:-165, abraca:55, capuz:10}[p.gesto];
+  const baseL={acena:15, bebe:10, alerta:10, proibido:10, segura:12, abraca:-55, capuz:-10}[p.gesto];
+  armR=`<g transform="translate(10.5 -71)"><g transform="rotate(${baseR})">${gR}${braco(roupa,longa)}${p.gesto==="bebe"?garrafa:""}${p.gesto==="alerta"?placa:""}${p.gesto==="proibido"?proib:""}</g></g>`;
+  armL=`<g transform="translate(-10.5 -71)"><g transform="rotate(${baseL})">${braco(roupa,longa)}</g></g>`;
+  const rabo=`<g transform="translate(-7 -90)"><g>${anim("rotate",p.vento?"-10;-40;-10":"0;-8;0",p.vento?0.6:2.4,"")}<path d="M0 0 q-14 4 -11 22 q3 -9 10 -13z" fill="${hair}"/></g></g>`;
+  const rosto=(p.look==="tempestade"||p.gesto==="proibido")?`<path d="M-3 -80 Q0 -82.5 3 -80" stroke="#5A2E1A" stroke-width="1.3" fill="none" stroke-linecap="round"/>`:`<path d="M-3.2 -81.5 Q0 -78.3 3.2 -81.5" stroke="#5A2E1A" stroke-width="1.3" fill="none" stroke-linecap="round"/>`;
+  const olhos=p.oculos?`<rect x="-7.5" y="-89" width="6.3" height="4.2" rx="1.6" fill="#16202A"/><rect x="1.2" y="-89" width="6.3" height="4.2" rx="1.6" fill="#16202A"/><line x1="-1.2" y1="-87.5" x2="1.2" y2="-87.5" stroke="#16202A" stroke-width="1"/>`:`<circle cx="-3.6" cy="-86.5" r="1.15" fill="#1B1B1B"/><circle cx="3.6" cy="-86.5" r="1.15" fill="#1B1B1B"/>`;
+  let topo=`<path d="M-10.2 -86 Q-10 -98.5 0 -98.5 Q10 -98.5 10.2 -86 Q5 -93 -10.2 -86z" fill="${hair}"/>`;
+  if(p.look==="calor" && !p.viseira) topo+=`<path d="M-10.5 -90 Q-10 -101 0 -101 Q10 -101 10.5 -90z" fill="#F04A12"/><path d="M6 -91 h12 q2 2.2 -1 3.2 h-11z" fill="#C93A0B"/><path d="M-2 -97 q2 -2 4 0" stroke="#FFF3E6" stroke-width="1" fill="none"/>`;
+  if(p.viseira) topo+=`<path d="M-10.4 -93.5 h20.8 v3 h-20.8z" fill="#FFFFFF"/><path d="M5 -91 h13 q2 2.2 -1 3.2 h-12z" fill="#FFFFFF" stroke="#D9D9D9" stroke-width=".5"/>`;
+  if(p.look==="vento") topo+=`<path d="M-10.5 -90 Q-10 -101 0 -101 Q10 -101 10.5 -90z" fill="#F04A12"/><path d="M6 -91 h12 q2 2.2 -1 3.2 h-11z" fill="#C93A0B"/>`;
+  if(p.look==="chuva") topo=`<path d="M-13 -80 Q-14 -103 0 -103 Q14 -103 13 -80 Q11 -96 0 -96 Q-11 -96 -13 -80z" fill="#E0AE14"/>`+topo.replace("fill=\"#3B2416\"","fill=\"#3B2416\" opacity=\".9\"");
+  if(p.look==="frio") topo+=`<path d="M-10.6 -89 Q-10 -101 0 -101 Q10 -101 10.6 -89 z" fill="#2C557A"/><circle cx="0" cy="-102" r="3" fill="#F04A12"/>`;
+  const suor=p.look==="calor"?`<path d="M11 -93 q2.4 3.4 0 4.6 q-2.4 -1.2 0 -4.6z" fill="#8FD3FF">${REDUZ?"":`<animate attributeName="opacity" values="0;1;1;0" dur="2.2s" repeatCount="indefinite"/>`}</path>`:"";
+  const protetor=p.viseira?`<circle cx="-5.5" cy="-83" r="1" fill="#fff"/><circle cx="5.5" cy="-83" r="1" fill="#fff"/><circle cx="0" cy="-84.5" r=".9" fill="#fff"/>`:"";
+  const marca=(roupa==="#F04A12")?`<path d="M-3.5 -64 q3.5 -4 7 0 M0 -65 v11 M-2 -54 h4" stroke="#FFF3E6" stroke-width="1.2" fill="none" stroke-linecap="round"/>`:`<line x1="0" y1="-73" x2="0" y2="-47" stroke="rgba(0,0,0,.25)" stroke-width="1"/>`;
+  const treme=p.look==="frio"&&!REDUZ?`<animateTransform attributeName="transform" type="translate" values="0 0;.6 0;0 0;-.6 0;0 0" dur=".5s" repeatCount="indefinite" additive="sum"/>`:"";
+  return `<g transform="translate(318 186)"><g>${treme}
+    ${rabo}
+    <rect x="-7.5" y="-36" width="5.2" height="34" rx="2.4" fill="${skin}"/><rect x="2.3" y="-36" width="5.2" height="34" rx="2.4" fill="${skin}"/>
+    <rect x="-10" y="-3" width="8.5" height="4.2" rx="2" fill="#FFFFFF"/><rect x="1.5" y="-3" width="8.5" height="4.2" rx="2" fill="#FFFFFF"/>
+    <path d="M-10.5 -49 H10.5 L11.5 -33 H1.2 L0 -39 L-1.2 -33 H-11.5Z" fill="#1F3B57"/>
+    ${armL}
+    <path d="M-11.5 -73 Q0 -77 11.5 -73 L10.5 -46 H-10.5Z" fill="${roupa}"/>${marca}
+    <rect x="-2.2" y="-78" width="4.4" height="6" fill="${skin}"/>
+    <circle cx="0" cy="-87" r="10.2" fill="${skin}"/>
+    ${topo}${olhos}${rosto}${protetor}${suor}
+    ${armR}
+  </g></g>`;
+}
+function cena(base, c, nivel, hora, vazio){
+  const id="g"+base+hora;
+  const amanhecer = !c.night && hora<=6 && (c.sky==="sol"||c.sky==="parcial");
+  const noite = !vazio && c.night;
+  const ceu = vazio ? ["#C9D6DD","#E6EDF1"] : noite ? (c.sky==="sol"||c.sky==="parcial"?["#16233F","#41587E"]:["#1E2633","#3F4B5A"]) : amanhecer ? ["#7DB4DE","#FBCB9C"] : {sol:["#4FB0E6","#BFE6F7"],parcial:["#78B5D9","#D3EAF4"],nublado:["#8CA0AE","#CCD6DC"],neblina:["#A8B5BD","#DDE4E8"],chuva:["#5C7283","#A2B2BC"],tempestade:["#26323F","#56626F"]}[c.sky];
+  const agua = base==="Urca" ? ["#1D86AD","#0E5878"] : ["#3D958F","#1F6A66"];
+  const A = vazio?2: base==="Urca" ? Math.max(2, Math.min(10, (c.wave||0.6)*5)) : Math.max(1.2, 1+(c.bf?c.bf.f:1)*0.5);
+  const vel = vazio?14: Math.max(3, 12-(c.bf?c.bf.f:1)*1.4);
+  let g=`<svg viewBox="0 0 360 196" preserveAspectRatio="xMidYMid slice" class="wx-svg" role="img" aria-label="${vazio?"Sem previsão":esc(SKY_TXT[c.sky])+", "+NIVEL_TXT[nivel]}">
+    <defs><linearGradient id="${id}s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${ceu[0]}"/><stop offset="1" stop-color="${ceu[1]}"/></linearGradient>
+    <linearGradient id="${id}a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${agua[0]}"/><stop offset="1" stop-color="${agua[1]}"/></linearGradient></defs>
+    <rect width="360" height="196" fill="url(#${id}s)"/>`;
+  if(noite){ g+=`<circle cx="292" cy="40" r="13" fill="#F4F1DE"/><circle cx="298" cy="35" r="11" fill="${ceu[0]}"/>`+[[40,30],[90,18],[150,40],[210,22],[250,60],[120,64],[330,80]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="1.3" fill="#fff">${REDUZ?"":`<animate attributeName="opacity" values="1;.3;1" dur="${2+x%3}s" repeatCount="indefinite"/>`}</circle>`).join(""); }
+  else if(!vazio && (c.sky==="sol"||c.sky==="parcial")){
+    const sx=amanhecer?250:285, sy=amanhecer?104:44;
+    g+=`<g transform="translate(${sx} ${sy})"><g>${anim("rotate","0;360",28,"")}${[0,45,90,135,180,225,270,315].map(a=>`<line x1="0" y1="-24" x2="0" y2="-31" stroke="#FFD34D" stroke-width="3" stroke-linecap="round" transform="rotate(${a})"/>`).join("")}</g><circle r="17" fill="${amanhecer?"#FFB347":"#FFD34D"}"/></g>`;
+  }
+  // morros
+  g+= base==="Urca"
+    ? `<path d="M0 132 Q14 120 30 124 Q38 96 48 92 Q58 95 66 124 Q76 70 92 48 Q104 40 114 60 Q124 90 132 132Z" fill="#5E8AA0" opacity=".75"/><line x1="48" y1="92" x2="96" y2="47" stroke="#3E5E6E" stroke-width=".8"/><rect x="70" y="68" width="4" height="3" fill="#3E5E6E">${REDUZ?"":`<animateTransform attributeName="transform" type="translate" values="-20 18;18 -18;-20 18" dur="18s" repeatCount="indefinite"/>`}</rect>`
+    : `<path d="M150 134 L178 98 L192 112 L214 76 L236 104 L252 92 L290 134Z" fill="#5E8C86" opacity=".7"/><path d="M0 134 Q40 112 80 120 Q110 108 140 134Z" fill="#6E9A8F" opacity=".6"/>`;
+  if(!vazio){
+    const cN = c.sky==="tempestade"?"#3B4552":c.sky==="chuva"?"#7C8B96":"#FFFFFF";
+    const nn = {sol:0,parcial:2,nublado:4,neblina:2,chuva:4,tempestade:4}[c.sky];
+    const pos=[[150,40,1],[40,26,.8],[240,58,.9],[90,70,.7]];
+    for(let k=0;k<nn;k++){ const [x,y,s]=pos[k]; g+=`<g>${REDUZ?"":`<animateTransform attributeName="transform" type="translate" values="0 0;${k%2?-16:16} 0;0 0" dur="${10+k*3}s" repeatCount="indefinite"/>`}${nuvem(x,y,s,cN)}</g>`; }
+    if(c.sky==="chuva"||c.sky==="tempestade"){ let r=""; for(let k=0;k<26;k++){ const x=(k*37)%360, y=(k*53)%90+40; r+=`<line x1="${x}" y1="${y}" x2="${x-4}" y2="${y+10}" stroke="#D6E6F2" stroke-width="1.3" stroke-linecap="round"/>`; } g+=`<g opacity=".85">${REDUZ?"":`<animateTransform attributeName="transform" type="translate" values="0 -30;-8 30" dur=".7s" repeatCount="indefinite"/>`}${r}</g>`; }
+    if(c.thunder) g+=`<path d="M196 56 l-14 26 h11 l-8 24 l22 -32 h-11 l9 -18z" fill="#FFE14D" stroke="#7A5A00" stroke-width=".6">${REDUZ?"":`<animate attributeName="opacity" values="0;0;1;0;1;0;0" dur="3.4s" repeatCount="indefinite"/>`}</path>`;
+    if(c.sky==="neblina") g+=[96,112,126].map((y,k)=>`<rect x="-40" y="${y}" width="440" height="6" rx="3" fill="#fff" opacity=".45"/>`).join("");
+    if(c.bf && c.bf.f>=4 && !REDUZ) g+=[30,62,84].map((y,k)=>`<path d="M-40 ${y} q20 -6 40 0 t40 0" stroke="#fff" stroke-width="1.6" fill="none" opacity=".7"><animateTransform attributeName="transform" type="translate" values="0 0;440 0" dur="${3-k*0.4}s" repeatCount="indefinite"/></path>`).join("");
+  }
+  g+=`<g>${REDUZ?"":`<animateTransform attributeName="transform" type="translate" values="0 0;-120 0" dur="${vel}s" repeatCount="indefinite"/>`}<path d="${wavePath(136,A*0.6,60,480)}" fill="url(#${id}a)" opacity=".65"/></g>`;
+  g+= vazio ? "" : canoa(nivel, A, c.cancelada);
+  g+=`<g>${REDUZ?"":`<animateTransform attributeName="transform" type="translate" values="-120 0;0 0" dur="${vel*0.8}s" repeatCount="indefinite"/>`}<path d="${wavePath(160,A,60,480)}" fill="url(#${id}a)"/></g>`;
+  g+=`<path d="M248 196 Q262 166 300 160 Q330 156 360 158 V196Z" fill="#EAD7AE"/>`;
+  if(!vazio){ g+=bandeira(nivel)+boneca(c.look); }
+  return g+`</svg>`;
+}
+function iconeTempo(sky){
+  const sol=`<circle cx="12" cy="12" r="5" fill="#FFC21A"/>${[0,45,90,135,180,225,270,315].map(a=>`<line x1="12" y1="2.5" x2="12" y2="5" stroke="#FFC21A" stroke-width="1.8" stroke-linecap="round" transform="rotate(${a} 12 12)"/>`).join("")}`;
+  const nv=(c,x,y)=>`<path transform="translate(${x||0} ${y||0})" d="M7 19 h10 a4 4 0 0 0 0 -8 a5.5 5.5 0 0 0 -10.5 1.5 a3.3 3.3 0 0 0 .5 6.5z" fill="${c}"/>`;
+  const svg={sol, parcial:`<g transform="translate(-3 -3) scale(.8)">${sol}</g>${nv("#E3EAF0",2,1)}`, nublado:nv("#9AA9B4",0,-1), neblina:`${nv("#B6C2CA",0,-4)}<path d="M4 19h16M6 22h12" stroke="#8796A1" stroke-width="1.6" stroke-linecap="round"/>`,
+    chuva:`${nv("#7F909C",0,-4)}<path d="M8 18l-1.5 3.5M12 18l-1.5 3.5M16 18l-1.5 3.5" stroke="#2E9BD6" stroke-width="1.8" stroke-linecap="round"/>`,
+    tempestade:`${nv("#55626D",0,-4)}<path d="M12.5 15l-3 5h2.5l-1.5 4 4.5-6h-2.6l1.6-3z" fill="#FFD21A"/>`}[sky];
+  return `<svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">${svg}</svg>`;
+}
+function mareGrafico(dia, i){
+  const s=dia.h.sea; if(!s || s.filter(v=>v!=null).length<12) return null;
+  const vals=s.map(v=>v==null?null:+v), ok=vals.filter(v=>v!=null), mn=Math.min(...ok), mx=Math.max(...ok), W=150, H=40;
+  const X=k=>k/23*W, Y=v=>H-4-(v-mn)/((mx-mn)||1)*(H-8);
+  const pts=vals.map((v,k)=>v==null?null:`${X(k).toFixed(1)},${Y(v).toFixed(1)}`).filter(Boolean).join(" ");
+  const ext=[]; for(let k=1;k<23;k++){ if(vals[k]==null||vals[k-1]==null||vals[k+1]==null) continue; if(vals[k]>=vals[k-1]&&vals[k]>vals[k+1]) ext.push(["Preamar",k,vals[k]]); if(vals[k]<=vals[k-1]&&vals[k]<vals[k+1]) ext.push(["Baixa-mar",k,vals[k]]); }
+  const sobe = vals[i+1]!=null && vals[i]!=null ? vals[i+1]>vals[i] : null;
+  return {svg:`<svg viewBox="0 0 ${W} ${H}" class="tide" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="var(--ocean)" stroke-width="2"/>${ext.map(e=>`<circle cx="${X(e[1])}" cy="${Y(e[2])}" r="2.2" fill="${e[0]==="Preamar"?"var(--ocean)":"var(--muted)"}"/>`).join("")}<line x1="${X(i)}" y1="0" x2="${X(i)}" y2="${H}" stroke="var(--brand)" stroke-width="1.4" stroke-dasharray="2 2"/><circle cx="${X(i)}" cy="${Y(vals[i]??mn)}" r="3.4" fill="var(--brand)"/></svg>`,
+    txt: (sobe==null?"":sobe?"Enchendo":"Vazando")+(ext.length?`. ${ext.slice(0,3).map(e=>`${e[0]} ${String(e[1]).padStart(2,"0")}h`).join(", ")}`:"")};
+}
+/* ----- simulação ----- */
+const SIMS = {calor:"Calor e UV alto", ameno:"Ameno", vento:"Vento forte", chuva:"Chuva", raios:"Raios", frio:"Manhã fria"};
+function simDia(k, base){
+  const z=f=>Array.from({length:24},(_,i)=>f(i));
+  const sol=i=>Math.max(0,Math.sin((i-5.5)/13*Math.PI));
+  const cfg={calor:{t:[26,35],uv:12,code:0,w:7,g:11,mm:0,p:5,wave:0.6},ameno:{t:[21,26],uv:7,code:1,w:8,g:12,mm:0,p:10,wave:0.8},vento:{t:[22,25],uv:5,code:3,w:19,g:27,mm:0,p:20,wave:1.9},chuva:{t:[20,22],uv:2,code:63,w:11,g:17,mm:2.4,p:90,wave:1.2},raios:{t:[23,26],uv:2,code:95,w:14,g:31,mm:6,p:95,wave:1.4},frio:{t:[16,19],uv:4,code:3,w:12,g:16,mm:0,p:20,wave:1.0}}[k];
+  const lag=base==="Lagoa"?0.7:1;
+  return {temp:z(i=>+(cfg.t[0]+(cfg.t[1]-cfg.t[0])*sol(i)).toFixed(1)), prob:z(()=>cfg.p), mm:z(()=>cfg.mm), code:z(()=>cfg.code), wind:z(i=>Math.round(cfg.w*lag+(i>9?2:0))), dir:z(()=>k==="vento"?190:160), gust:z(i=>Math.round(cfg.g*lag+(i>9?2:0))), uv:z(i=>+(cfg.uv*sol(i)).toFixed(1)), wave:z(()=>cfg.wave), wper:z(()=>9), wdir:z(()=>160), sst:z(()=>22), feels:z(i=>+(cfg.t[0]+(cfg.t[1]-cfg.t[0])*sol(i)+(k==="calor"?4:k==="frio"?-1:1)).toFixed(1)), isday:z(i=>i>=6&&i<=18?1:0), sea:z(i=>+(0.55*Math.cos((i-4.2)/12.42*2*Math.PI)+0.1*Math.cos((i-4.2)/24.8*2*Math.PI)).toFixed(2))};
+}
+
+
+function getDia(base, date, real){
+  if(S.marSim && !real) return {fonte:"sim", h:simDia(S.marSim, base)};
+  const lv=LIVE[date]; if(lv && lv.bases && lv.bases[base]) return {fonte:"auto", h:lv.bases[base], atualizado:lv.atualizado};
+  const p=S.previsoes[date]; const pb=p && p.bases && p.bases[base];
+  if(pb && pb.temp) return {fonte:"auto", h:pb, atualizado:p.atualizado};
+  const d=baseData(S.boletins[date], base);
+  if(!temDados(d)) return null;
+  const i=parseInt((d.hora||"06").slice(0,2),10), z=()=>Array(24).fill(null), h={temp:z(),feels:z(),prob:z(),mm:z(),code:z(),wind:z(),dir:z(),gust:z(),uv:z(),wave:z(),wper:z(),wdir:z(),sea:z(),sst:z(),isday:z()};
+  h.temp[i]=num(d.temp_ar); h.prob[i]=num(d.chuva_prob); h.mm[i]=num(d.chuva_mm); h.wind[i]=num(d.vento); h.gust[i]=num(d.rajada); h.dir[i]=d.vento_dir?DIR_DEG[d.vento_dir]:null;
+  h.wave[i]=num(d.onda); h.wper[i]=num(d.periodo); h.wdir[i]=d.onda_dir?DIR_DEG[d.onda_dir]:null; h.sst[i]=num(d.temp_agua);
+  const mm=h.mm[i]||0, pr=h.prob[i]||0; h.code[i]= mm>=0.5||pr>=70 ? 61 : pr>=40 ? 3 : pr>=20 ? 2 : 1;
+  return {fonte:"manual", h, mares:d.mares||[], horas:[i], atualizado:S.boletins[date].atualizado};
+}
+function horasDe(dia, base){
+  const rem=remadasDe(base, S.day).map(t=>parseInt((t.inicio||"06").slice(0,2),10));
+  if(dia.horas) return [...new Set(dia.horas.concat(rem))].sort((a,b)=>a-b);
+  const out=new Set(); for(let i=5;i<=11;i++) if(dia.h.temp && dia.h.temp[i]!=null) out.add(i);
+  rem.forEach(h=>{ if(dia.h.temp && dia.h.temp[h]!=null) out.add(h); });
+  return out.size?[...out].sort((a,b)=>a-b):[6];
+}
+function condicao(dia, base, i, rem){
+  const h=dia.h, g=k=>h[k]?h[k][i]:null;
+  const c={temp:g("temp"),feels:g("feels"),prob:g("prob"),mm:g("mm"),code:g("code"),wind:g("wind"),dir:g("dir"),gust:g("gust"),uv:g("uv"),wave:base==="Urca"?g("wave"):null,wper:g("wper"),wdir:g("wdir"),sst:g("sst"),isday:g("isday")};
+  c.night = c.isday===0;
+  c.sky=skyDe(c.code); c.thunder=c.code!=null&&c.code>=95;
+  const uvs=(h.uv||[]).map((u,k)=>[u,k]).filter(x=>x[0]!=null); if(uvs.length){ const m=uvs.reduce((a,b)=>b[0]>a[0]?b:a); c.uvMax=m[0]; c.uvMaxH=m[1]; }
+  c.bf=beaufort(c.wind);
+  c.cal=calorCat(c.feels!=null?c.feels:c.temp); c.chuva=chuvaCat(c.mm); c.mar=base==="Urca"?marCat(c.wave):null;
+  const ev=avaliarBase({vento:c.wind,rajada:c.gust,onda:c.wave,chuva_mm:c.mm,chuva_prob:c.prob}, base);
+  if(c.thunder){ ev.nivel=2; ev.motivos.unshift("Possibilidade de raios (código WMO de trovoada)"); }
+  if(c.chuva && c.chuva[0]>=3 && ev.nivel<2){ ev.nivel=2; ev.motivos.push(`Chuva ${c.chuva[1].toLowerCase()} no horário`); }
+  if(c.cal && c.cal[0]>=3 && ev.nivel<2){ ev.nivel=2; ev.motivos.push(`Sensação térmica em nível de ${c.cal[1].toLowerCase()} (NOAA)`); }
+  else if(c.cal && c.cal[0]===2 && ev.nivel<1){ ev.nivel=1; ev.motivos.push("Sensação térmica em cautela extrema (NOAA)"); }
+  c.ev=ev; c.rem=rem||null; c.cancelada=!!(rem && rem.status==="cancelada");
+  c.look=personagem(c, i); return c;
+}
+function personagem(c, hora){
+  const t=c.feels!=null?c.feels:c.temp, uv=c.uv||0, f=c.bf?c.bf.f:0, cal=c.cal?c.cal[0]:0;
+  const hh=String(hora).padStart(2,"0")+"h";
+  const uvTxt=uv>=1?` e UV ${fmtN(uv,0)} (${uvNivel(uv)[0].toLowerCase()})`:"";
+  if(c.cancelada) return {look:c.thunder?"tempestade":c.sky==="chuva"?"chuva":t!=null&&t<20?"frio":"ameno", gesto:"proibido", fala:`Remada das ${hh} cancelada pelos instrutores${c.rem.motivo?`: ${c.rem.motivo.toLowerCase()}`:""}.${c.rem.motivo_obs?" "+c.rem.motivo_obs:""}`};
+  if(c.thunder) return {look:"tempestade", gesto:"alerta", fala:"Possibilidade de raios: ninguém na água até a tempestade passar."};
+  if(c.chuva && c.chuva[0]>=1) return {look:"chuva", gesto:"capuz", fala:`Chuva ${c.chuva[1].toLowerCase()} (${fmtN(c.mm)} mm/h): corta-vento e atenção à visibilidade.`};
+  if(f>=5) return {look:"vento", gesto:"segura", vento:true, fala:`Vento ${c.bf.n.toLowerCase()}, força ${f} Beaufort (${fmtN(c.wind,0)} nós): mar mexido, siga a orientação do instrutor.`};
+  if(cal>=1 || (uv>=6 && !c.night)) return {look:"calor", gesto:"bebe", viseira:uv>=8, oculos:uv>=6, vento:f>=4, fala:`Sensação de ${fmtN(t,0)} °C (${c.cal?c.cal[1].toLowerCase():"calor"})${uvTxt}: ${uv>=8?"viseira e óculos escuros":"boné"}, protetor solar e água.${cal>=2?" Faça pausas na sombra.":" Beba a cada 20 minutos."}`};
+  if(cal===-1) return {look:"frio", gesto:"abraca", vento:f>=4, fala:`Sensação de ${fmtN(t,0)} °C: corta-vento no aquecimento e camiseta do clube por baixo.`};
+  const uvMax=c.uvMax||0;
+  return {look:"ameno", gesto:"acena", vento:f>=4, oculos:uv>=6, fala:`${c.night?"Ainda escuro, ":"Tempo agradável, "}sensação de ${fmtN(t,0)} °C: camiseta do clube e bora remar!${uvMax>=6?` O UV chega a ${fmtN(uvMax,0)} às ${c.uvMaxH}h.`:""}`};
+}
+function cardWx(base){
+  const dia=getDia(base, S.day);
+  const nome = base==="Urca" ? "Praia da Urca" : "Lagoa Rodrigo de Freitas";
+  const rems=remadasDe(base, S.day);
+  if(!dia){
+    const st=LIVE_ST[S.day]||"";
+    const msg = AO_VIVO ? (st==="carregando"?"Buscando a previsão…":st.startsWith("erro")?"Não foi possível buscar a previsão agora. Tente de novo em instantes.":"Previsão disponível para até 16 dias à frente.")
+      : "Dentro do Claude a previsão não é buscada automaticamente. Use a versão de testes.";
+    return `<article class="wx"><div class="wx-scene">${cena(base,{sky:"parcial"},0,6,true)}</div>
+      <div class="wx-head"><div><div class="wx-name">${nome}</div><div class="wx-cond">${esc(msg)}</div></div></div>${rems.length?`<p class="hint" style="padding:0 16px 14px;margin:0">${rems.map(t=>`Remada ${esc(t.inicio)}: ${t.status==="cancelada"?"cancelada":"agendada"}`).join(", ")}</p>`:""}</article>`;
+  }
+  const horas=horasDe(dia, base);
+  let hora=S.marHora[base];
+  if(hora==null || !horas.includes(hora)){ const r=rems.map(t=>parseInt(t.inicio,10)).find(h=>horas.includes(h)); hora = r!=null ? r : horas.includes(6)?6:horas[0]; }
+  const rem=rems.find(t=>parseInt(t.inicio,10)===hora)||null;
+  const c=condicao(dia, base, hora, rem), ev=c.ev, uvn=uvNivel(c.uv), mare=mareGrafico(dia, hora);
+  const nivelCena = c.cancelada ? 2 : ev.nivel;
+  const seta=deg=>deg==null?"":`<svg viewBox="0 0 24 24" width="22" height="22" class="arrow" style="transform:rotate(${(deg+180)%360}deg)" aria-hidden="true"><path d="M12 3 l6 9 h-4 v9 h-4 v-9 h-4z" fill="currentColor"/></svg>`;
+  const tile=(k,v,d,cls,extra)=>`<div class="wt ${cls||""}"><div class="k">${k}</div><div class="v">${v}</div>${d?`<div class="d">${d}</div>`:""}${extra||""}</div>`;
+  const pill=(txt,cls)=>`<span class="pill ${cls}">${txt}</span>`;
+  const pills=[
+    c.bf?pill(`Beaufort ${c.bf.f}, ${c.bf.n}`, "p"+bfTabela(base)[c.bf.f]):"",
+    uvn?pill(`UV ${uvn[0].toLowerCase()} (OMS)`, c.uv>=8?"p2":c.uv>=6?"p1":"p0"):"",
+    c.cal?pill(`Sensação: ${c.cal[1].toLowerCase()} (NOAA)`, c.cal[0]>=2?"p2":c.cal[0]===1?"p1":"p0"):"",
+    c.chuva?pill(`Chuva ${c.chuva[1].toLowerCase()}`, c.chuva[0]>=3?"p2":c.chuva[0]>=1?"p1":"p0"):"",
+    c.mar?pill(`Mar ${c.mar[1].toLowerCase()} (Douglas ${c.mar[0]})`, c.mar[0]>=5?"p2":c.mar[0]>=4?"p1":"p0"):"",
+    c.thunder?pill("Raios","p2"):""
+  ].join("");
+  const remLinha = rem ? (c.cancelada ? `<div class="remline cx"><b>Remada das ${esc(rem.inicio)} cancelada pelos instrutores</b>${rem.motivo?`<span>${esc(rem.motivo)}${rem.motivo_obs?": "+esc(rem.motivo_obs):""}</span>`:""}</div>`
+      : `<div class="remline ok"><b>Remada das ${esc(rem.inicio)} confirmada</b><span>Cancelamento só pelos instrutores, na Agenda</span></div>`)
+    : `<div class="remline"><span>Sem remada agendada às ${String(hora).padStart(2,"0")}h nesta base</span></div>`;
+  return `<article class="wx l${nivelCena}" data-base="${base}">
+    <div class="wx-scene">${cena(base,c,nivelCena,hora,false)}<div class="bubble">${esc(c.look.fala)}</div></div>
+    <div class="wx-head">${iconeTempo(c.night&&(c.sky==="sol"||c.sky==="parcial")?"nublado":c.sky)}<div><div class="wx-name">${nome}</div><div class="wx-cond">${c.night&&c.sky==="sol"?"Céu limpo, antes do nascer do sol":SKY_TXT[c.sky]}, ${String(hora).padStart(2,"0")}h</div></div><div class="wx-stat">${c.cancelada?"Cancelada":COND_CURTO[ev.nivel]}</div></div>
+    ${remLinha}
+    <div class="wx-hours" role="group" aria-label="Horário">${horas.map(h=>`<button data-wh="${base}:${h}" aria-pressed="${h===hora}" class="${rems.some(t=>parseInt(t.inicio,10)===h)?(rems.find(t=>parseInt(t.inicio,10)===h).status==="cancelada"?"rem cx":"rem"):""}">${String(h).padStart(2,"0")}h</button>`).join("")}</div>
+    <div class="pills" aria-label="Análise automática">${pills}</div>
+    <div class="wx-grid">
+      ${tile("Temperatura",`${fmtN(c.temp,0)}<small>°C</small>`, `${c.feels!=null?`sensação ${fmtN(c.feels,0)} °C`:""}${c.sst!=null?`${c.feels!=null?", ":""}água ${fmtN(c.sst,0)} °C`:""}`)}
+      ${tile("Vento",`<span class="wind">${seta(c.dir)}${fmtN(c.wind,0)}</span><small>nós</small>`, `${c.dir!=null?"de "+dirTxt(c.dir):""}${c.gust!=null?`${c.dir!=null?", ":""}rajada ${fmtN(c.gust,0)}`:""}`, "flag-"+Math.max(ev.flags.vento||0,ev.flags.rajada||0))}
+      ${c.bf?tile("Escala Beaufort",`${c.bf.f}<small>${c.bf.n}</small>`, c.bf.faixa, "flag-"+(bfTabela(base)[c.bf.f]||0), bfStrip(base,c.bf.f)):tile("Escala Beaufort","–","")}
+      ${tile("Chuva no horário",`${fmtN(c.mm)}<small>mm</small>`, c.prob!=null?`${fmtN(c.prob,0)}% de chance`:"", "flag-"+Math.max(ev.flags.chuva_mm||0,ev.flags.chuva_prob||0))}
+      ${base==="Urca"?tile("Ondulação",`${fmtN(c.wave)}<small>m</small>`, `${c.wper!=null?fmtN(c.wper,0)+" s":""}${c.wdir!=null?`${c.wper!=null?", ":""}de ${dirTxt(c.wdir)}`:""}`, "flag-"+(ev.flags.onda||0)):tile("Água","Abrigada","sem ondulação de mar")}
+      ${tile("Índice UV", uvn?`<span class="uv" style="background:${uvn[1]};color:${uvn[2]}">${fmtN(c.uv,0)}</span><small>${uvn[0]}</small>`:"–", c.uvMax!=null?`máximo ${fmtN(c.uvMax,0)} às ${c.uvMaxH}h`:"")}
+      ${base==="Urca" ? (mare?`<div class="wt wide"><div class="k">Maré (modelo, referência: tábua da Marinha)</div>${mare.svg}<div class="d">${esc(mare.txt)}</div></div>`
+        : dia.mares&&dia.mares.length?tile("Maré",dia.mares.map(m=>`${esc(m.tipo||"")} ${esc(m.hora)}`).join("<br>"),"", "wide"):tile("Maré","–","consulte a tábua da Marinha","wide")) : ""}
+    </div>
+    <ul class="why"><li class="hint" style="margin:0">${COND_TXT[ev.nivel]} pela análise automática. A decisão de remar é dos instrutores.</li>${ev.motivos.map(m=>`<li>${esc(m)}</li>`).join("")}</ul>
+    ${S.canAgenda&&rem?`<div class="row" style="padding:0 16px 14px">${c.cancelada?`<button class="btn ghost small" data-reabre="${esc(rem.id)}">Reabrir remada</button>`:`<button class="btn danger small" data-cancela="${esc(rem.id)}">Cancelar remada das ${esc(rem.inicio)}</button>`}</div>`:""}
+  </article>`;
+}
+function renderMar(){
+  $("#dayTitle").textContent = dateLabel(S.day);
+  $("#dayPick").value = S.day;
+  if(AO_VIVO && !S.marSim) buscarPrevisao(S.day);
+  const el=$("#marBody");
+  let html=alertaBanner();
+  if(S.marSim) html+=`<div class="notice"><b>Simulação.</b> Dados de exemplo para ver como o card reage. Não use para decidir a remada. <button class="linkbtn" id="simOff">Sair da simulação</button></div>
+    <div class="filters" role="group" aria-label="Cenário">${Object.entries(SIMS).map(([k,v])=>`<button data-sim="${k}" aria-pressed="${S.marSim===k}">${v}</button>`).join("")}</div>`;
+  else {
+    const f=LOCAIS.map(l=>getDia(l,S.day)).find(Boolean);
+    const st=LIVE_ST[S.day]||"";
+    const txt = f ? (f.fonte==="auto"?`Previsão automática Open-Meteo, atualizada ${esc(quando(f.atualizado))}`:`Ajuste manual dos instrutores`) : (st==="carregando"?"Buscando previsão…":"");
+    html+=`<div class="row" style="margin-bottom:10px"><span class="hint" style="margin:0">${txt}</span><span class="spacer"></span>${AO_VIVO&&f&&f.fonte==="auto"?`<button class="btn ghost small" id="refr">Atualizar</button>`:""}${S.canAgenda?`<button class="btn ghost small" id="simOn">Ver simulação</button>`:""}</div>`;
+  }
+  html+=`<div class="wxs">${LOCAIS.map(cardWx).join("")}</div>`;
+  if(!AO_VIVO && !S.marSim) html+=`<div class="panel"><h3>Previsão automática</h3><p style="margin:0">Dentro do Claude o app não pode buscar dados em sites externos. A <b>versão de testes</b>, o mesmo app publicado em um endereço gratuito, busca a previsão do Open-Meteo sozinha para o dia e o horário escolhidos.${S.canAgenda?" Aqui, a equipe pode ajustar manualmente, se quiser.":""}</p>${S.canAgenda?`<div class="row" style="margin-top:10px"><button class="btn ghost small" id="editB">Ajustar manualmente</button></div>`:""}</div>`;
+  html+=`<div class="panel"><h3>Fontes de consulta</h3><div class="links">
+      <a href="https://www.windy.com/-22.955/-43.163?-22.955,-43.163,12" target="_blank" rel="noopener">Windy na Urca</a>
+      <a href="https://www.windy.com/-22.973/-43.212?-22.973,-43.212,13" target="_blank" rel="noopener">Windy na Lagoa</a>
+      <a href="https://www.marinha.mil.br/chm/tabuas-de-mare" target="_blank" rel="noopener">Tábua de marés</a>
+      <a href="https://www.marinha.mil.br/chm/dados-do-smm/corrente-de-mare" target="_blank" rel="noopener">SISCORAR</a></div>
+      <p class="hint" style="margin:8px 0 0">Dados de previsão: Open-Meteo, com modelos de serviços meteorológicos nacionais e Copernicus Marine. A maré do modelo é aproximada; para navegação, vale a tábua da Marinha.</p></div>`;
+  const tu=bfTabela("Urca"), tl=bfTabela("Lagoa");
+  html+=`<details class="panel"><summary><h3 style="display:inline">Escalas usadas na análise</h3></summary>
+    <p class="hint">Vento: escala Beaufort (rajadas contam uma força a menos). UV: escala da OMS. Calor: categorias do índice de calor da NOAA aplicadas à sensação térmica. Chuva: intensidade por hora (fraca abaixo de 2,5 mm, moderada até 7,6 mm, forte acima). Mar: escala Douglas pela altura das ondas. Raios: códigos de trovoada da OMM.</p>
+    <div class="scroll-x"><table class="limits"><tr><th>Força</th><th>Nome</th><th>Vento</th><th>Urca</th><th>Lagoa</th></tr>
+    ${BEAUFORT.map((r,i)=>`<tr><td><b>${i}</b></td><td>${r[1]}</td><td>${r[2]}</td><td class="c${tu[i]}">${COND_CURTO[tu[i]]}</td><td class="c${tl[i]}">${COND_CURTO[tl[i]]}</td></tr>`).join("")}</table></div></details>`;
+  el.innerHTML=html;
+  bindAlerta(el);
+  el.querySelectorAll("[data-wh]").forEach(b=>b.addEventListener("click",()=>{ const [base,h]=b.dataset.wh.split(":"); S.marHora[base]=+h; renderMar(); }));
+  el.querySelectorAll("[data-sim]").forEach(b=>b.addEventListener("click",()=>{ S.marSim=b.dataset.sim; renderMar(); }));
+  el.querySelectorAll("[data-cancela]").forEach(b=>b.addEventListener("click",()=>cancelarRemada(b.dataset.cancela)));
+  el.querySelectorAll("[data-reabre]").forEach(b=>b.addEventListener("click",()=>reabrirRemada(b.dataset.reabre)));
+  const so=$("#simOn"); if(so) so.addEventListener("click",()=>{ S.marSim="calor"; renderMar(); });
+  const sf=$("#simOff"); if(sf) sf.addEventListener("click",()=>{ S.marSim=null; renderMar(); });
+  const rf=$("#refr"); if(rf) rf.addEventListener("click",()=>{ delete LIVE[S.day]; delete LIVE_ST[S.day]; renderMar(); });
+  const eb=$("#editB"); if(eb) eb.addEventListener("click", editBoletim);
+}
+
+/* ---------- ALUNOS / FICHA ---------- */
+const STATUS = {ativo:"Ativo", pendente:"Matrícula pendente", trancado:"Trancado", inativo:"Inativo"};
+const NIVEL = {iniciante:"Iniciante", intermediario:"Intermediário", avancado:"Avançado"};
+const PARQ = [
+  "Algum médico já disse que você possui algum problema de coração e que só deveria realizar atividade física supervisionada por profissionais de saúde?",
+  "Você sente dores no peito quando pratica atividade física?",
+  "No último mês, você sentiu dores no peito quando praticou atividade física?",
+  "Você apresenta desequilíbrio devido a tontura e/ou perda de consciência?",
+  "Você possui algum problema ósseo ou articular que poderia ser piorado pela atividade física?",
+  "Você toma atualmente algum medicamento para pressão arterial e/ou problema de coração?",
+  "Sabe de alguma outra razão pela qual você não deve praticar atividade física?"
+];
+const ANAM = [
+  ["tem_condicao","condicoes","Tem alguma doença ou condição de saúde? (ex.: asma, diabetes, hipertensão, epilepsia)","Doenças e condições"],
+  ["tem_cirurgia","cirurgias","Já fez alguma cirurgia?","Cirurgias"],
+  ["tem_dor","dores","Sente dores ou tem alguma lesão atual? (ombro, coluna, punho…)","Dores e lesões"],
+  ["tem_medicacao","medicacoes","Toma algum remédio de uso contínuo?","Remédios de uso contínuo"],
+  ["tem_alergia","alergias","Tem alergia a algum medicamento, alimento ou picada de inseto?","Alergias"]
+];
+function initials(n){ return (n||"?").trim().split(/\s+/).filter(Boolean).slice(0,2).map(p=>p[0]).join("").toUpperCase(); }
+function faltando(a){
+  const f=[]; const v=k=>(a[k]||"").toString().trim();
+  if(!v("nome")) f.push("Nome completo"); if(!v("telefone")) f.push("Telefone"); if(!v("nascimento")) f.push("Data de nascimento");
+  if(!v("emerg1_nome")||!v("emerg1_tel")) f.push("Contato de emergência");
+  if(!v("plano")) f.push("Plano de saúde (ou “Não possuo”)");
+  if(!v("nada")) f.push("Se sabe nadar");
+  ANAM.forEach(([k,t,l,c])=>{ if(!v(k)) f.push("Anamnese: "+c.toLowerCase()); else if(v(k)==="sim" && !v(t)) f.push("Anamnese: descreva "+c.toLowerCase()); });
+  if(!v("fuma")) f.push("Anamnese: fumante");
+  if(!v("atividade")) f.push("Anamnese: frequência de atividade física");
+  const pq=a.parq||[]; if(PARQ.some((_,i)=>!pq[i])) f.push("Todas as 7 perguntas do PAR-Q");
+  if(!a.termo || !v("termo_nome")) f.push("Termo de responsabilidade assinado");
+  if(!a.lgpd) f.push("Autorização de uso dos dados (LGPD)");
+  return f;
+}
+function fichaStatus(a){
+  if(!a) return {s:"incompleta", label:"Ficha não preenchida", f:["Ficha completa"]};
+  const f=faltando(a);
+  if(f.length || !a.ficha_em) return {s:"incompleta", label:"Ficha incompleta", f};
+  const desde=a.ficha_em.slice(0,10), ate=addDays(desde,365), dias=diasAte(ate);
+  if(dias<0) return {s:"vencida", label:"Revisão anual vencida", ate, dias};
+  if((a.parq||[]).includes("sim") && !(a.liberacao && a.liberacao>=desde)) return {s:"liberacao", label:"Aguardando liberação médica", ate, dias};
+  if(dias<=30) return {s:"vence", label:`Revisão anual em ${dias} ${dias===1?"dia":"dias"}`, ate, dias};
+  return {s:"ok", label:"Ficha em dia", ate, dias};
+}
+const podeAgendar = st => st.s==="ok" || st.s==="vence";
+function alertas(a){
+  const out=[]; const st=fichaStatus(a);
+  if(st.s==="incompleta"||st.s==="vencida"||st.s==="liberacao") out.push(["red",st.label]); else if(st.s==="vence") out.push(["amb",st.label]);
+  if(a.tem_alergia==="sim"||(a.alergias||"").trim()) out.push(["red","Alergia"]);
+  if(a.tem_condicao==="sim") out.push(["red","Condição de saúde"]);
+  if(a.nada==="nao") out.push(["red","Não sabe nadar"]);
+  if(a.mensalidade==="pendente") out.push(["amb","Mensalidade pendente"]);
+  return out;
+}
+function precisaRevisao(a){ return a.status!=="inativo" && fichaStatus(a).s!=="ok"; }
+function fichaResumoHTML(a){
+  const st=fichaStatus(a), tel=t=>(t||"").replace(/[^\d+]/g,"");
+  const sim=(a.parq||[]).map((r,i)=>r==="sim"?i:-1).filter(i=>i>=0);
+  return `
+    <div class="fstat s-${st.s}"><b>${esc(st.label)}</b>${st.ate?`<span>Revisada em ${new Date(a.ficha_em).toLocaleDateString("pt-BR")}, válida até ${new Date(st.ate+"T12:00").toLocaleDateString("pt-BR")}</span>`:""}${st.f&&st.f.length?`<span>Falta: ${esc(st.f.slice(0,4).join("; "))}${st.f.length>4?"…":""}</span>`:""}</div>
+    <div class="section"><h3>Emergência</h3>
+      ${(a.emerg1_tel||"").trim()?`<a class="call" href="tel:${esc(tel(a.emerg1_tel))}"><div><strong>${esc(a.emerg1_nome||"Contato 1")}</strong><span>${esc(a.emerg1_par||"")}</span></div><span class="ph">${esc(a.emerg1_tel)}</span></a>`:`<p class="hint">Nenhum contato de emergência cadastrado.</p>`}
+      ${(a.emerg2_tel||"").trim()?`<a class="call" href="tel:${esc(tel(a.emerg2_tel))}"><div><strong>${esc(a.emerg2_nome||"Contato 2")}</strong><span>${esc(a.emerg2_par||"")}</span></div><span class="ph">${esc(a.emerg2_tel)}</span></a>`:""}
+      <dl class="kv" style="margin-top:8px"><dt>Plano de saúde</dt><dd>${esc(a.plano||"–")}</dd><dt>Tipo sanguíneo</dt><dd>${esc(a.sangue||"–")}</dd><dt>Sabe nadar</dt><dd>${a.nada==="sim"?"Sim":a.nada==="nao"?"Não":"Não informado"}</dd></dl>
+    </div>
+    <div class="section"><h3>Anamnese</h3><div class="health ${ANAM.some(([k])=>a[k]==="sim")?"":"none"}"><dl class="kv">
+      ${ANAM.map(([k,t,l,c])=>`<dt>${esc(c)}</dt><dd>${a[k]==="sim"?esc(a[t]||"Sim"):a[k]==="nao"?"Não":(a[t]?esc(a[t]):"Não informado")}</dd>`).join("")}
+      <dt>Fumante</dt><dd>${a.fuma==="sim"?"Sim":a.fuma==="nao"?"Não":"–"}</dd>
+      <dt>Atividade física</dt><dd>${esc({sedentario:"Não pratica",leve:"1 a 2 vezes por semana",regular:"3 ou mais vezes por semana"}[a.atividade]||"–")}</dd>
+      ${a.gestante==="sim"?`<dt>Gestante</dt><dd>Sim</dd>`:""}
+    </dl></div></div>
+    <div class="section"><h3>PAR-Q</h3>${(a.parq||[]).length?(sim.length?`<div class="health"><p style="margin:0 0 6px"><b>${sim.length} ${sim.length===1?"resposta “sim”":"respostas “sim”"}: exige liberação médica.</b>${a.liberacao?` Liberação registrada em ${new Date(a.liberacao+"T12:00").toLocaleDateString("pt-BR")}.`:""}</p>${sim.map(i=>`<p style="margin:2px 0">${i+1}. ${esc(PARQ[i])}</p>`).join("")}</div>`:`<div class="health none">Todas as respostas “não”.</div>`):`<p class="hint">Não respondido.</p>`}</div>`;
+}
+function ynRow(name, label, val, hint){
+  return `<div class="yn"><div class="ynq">${esc(label)}${hint?`<span class="hint">${esc(hint)}</span>`:""}</div><div class="ynb" role="radiogroup"><label><input type="radio" name="${name}" value="sim" ${val==="sim"?"checked":""}><span>Sim</span></label><label><input type="radio" name="${name}" value="nao" ${val==="nao"?"checked":""}><span>Não</span></label></div></div>`;
+}
+function fichaForm(a, gestao, onSave, onCancel){
+  const sel=(name,opts,val)=>`<select name="${name}">${Object.entries(opts).map(([k,v])=>`<option value="${k}" ${k===(val||"")?"selected":""}>${v}</option>`).join("")}</select>`;
+  const inp=(name,label,type="text",extra="",ph="")=>`<label class="f ${extra}">${label}<input name="${name}" type="${type}" value="${esc(a[name])}" ${ph?`placeholder="${esc(ph)}"`:""}></label>`;
+  openSheet(`
+    <div class="head"><h2>${gestao?(a.nome?"Ficha de "+esc(a.nome.split(" ")[0]):"Novo aluno"):"Minha ficha"}</h2><button class="x" aria-label="Fechar">×</button></div>
+    <p class="hint">${gestao?"A gestão pode salvar a ficha parcialmente. O aluno só agenda remadas com a ficha completa e revisada no último ano.":"Obrigatória para agendar remadas. Revise todo ano: contatos, plano de saúde, anamnese e PAR-Q."}</p>
+    <div id="ferr" class="errbox" hidden></div>
+    <form id="ff">
+      <fieldset><legend>1. Dados pessoais</legend><div class="grid">
+        <label class="f full">Nome completo<input name="nome" value="${esc(a.nome)}"></label>
+        ${inp("telefone","Telefone","tel")}${inp("email","E-mail","email")}
+        ${inp("nascimento","Nascimento","date")}
+        <label class="f">Naipe${sel("naipe",{"":"–",Feminino:"Feminino",Masculino:"Masculino"},a.naipe)}</label>
+      </div></fieldset>
+      <fieldset><legend>2. Emergência e plano de saúde</legend><div class="grid">
+        ${inp("emerg1_nome","Contato de emergência")}${inp("emerg1_par","Parentesco")}
+        ${inp("emerg1_tel","Telefone do contato","tel","full")}
+        ${inp("emerg2_nome","2º contato (opcional)")}${inp("emerg2_par","Parentesco")}
+        ${inp("emerg2_tel","Telefone do 2º contato","tel","full")}
+        ${inp("plano","Plano de saúde e número da carteirinha","text","full","Ou escreva “Não possuo”")}
+        <label class="f">Tipo sanguíneo${sel("sangue",{"":"–","A+":"A+","A-":"A−","B+":"B+","B-":"B−","AB+":"AB+","AB-":"AB−","O+":"O+","O-":"O−","nao_sei":"Não sei"},a.sangue)}</label>
+        <label class="f">Sabe nadar?${sel("nada",{"":"Selecione",sim:"Sim",nao:"Não"},a.nada)}</label>
+      </div></fieldset>
+      <fieldset><legend>3. Anamnese</legend>
+        <p class="hint" style="margin:0 0 8px">Histórico de saúde, remédios e hábitos. Se responder “sim”, descreva.</p>
+        ${ANAM.map(([k,t,l])=>`${ynRow(k,l,a[k]||((a[t]||"").trim()?"sim":""))}<label class="f yt"><textarea name="${t}" placeholder="Descreva">${esc(a[t])}</textarea></label>`).join("")}
+        ${ynRow("fuma","É fumante?",a.fuma)}
+        ${ynRow("gestante","Está gestante? (se não se aplica, marque “não”)",a.gestante)}
+        <label class="f" style="margin-top:8px">Pratica outra atividade física?${sel("atividade",{"":"Selecione",sedentario:"Não pratica",leve:"1 a 2 vezes por semana",regular:"3 ou mais vezes por semana"},a.atividade)}</label>
+      </fieldset>
+      <fieldset><legend>4. PAR-Q</legend>
+        <p class="hint" style="margin:0 0 8px">Questionário internacional de prontidão para atividade física. Qualquer “sim” exige liberação médica antes de remar.</p>
+        ${PARQ.map((q,i)=>ynRow("parq_"+i, `${i+1}. ${q}`, (a.parq||[])[i])).join("")}
+      </fieldset>
+      <fieldset><legend>5. Termo de responsabilidade</legend>
+        <div class="termo">Declaro que as informações acima são verdadeiras, que estou apto a praticar canoa havaiana e que conheço os riscos da atividade no mar. Comprometo-me a usar colete quando orientado, seguir as instruções dos instrutores e informar ao clube qualquer mudança no meu estado de saúde.</div>
+        <label class="chk"><input type="checkbox" name="termo" ${a.termo?"checked":""}> Li e aceito o termo de responsabilidade</label>
+        <label class="f" style="margin-top:8px">Assinatura (digite seu nome completo)<input name="termo_nome" value="${esc(a.termo_nome)}"></label>
+        <label class="chk" style="margin-top:8px"><input type="checkbox" name="lgpd" ${a.lgpd?"checked":""}> Autorizo o clube a usar meus dados de saúde e contatos apenas para a segurança nas remadas (LGPD)</label>
+      </fieldset>
+      ${gestao?`<fieldset><legend>Gestão</legend><div class="grid">
+        <label class="f">Situação${sel("status",STATUS,a.status||"ativo")}</label>
+        <label class="f">Nível${sel("nivel",NIVEL,a.nivel||"iniciante")}</label>
+        <label class="f">Mensalidade${sel("mensalidade",{em_dia:"Em dia",pendente:"Pendente"},a.mensalidade||"em_dia")}</label>
+        ${inp("inicio","Início no clube","date")}
+        ${inp("liberacao","Liberação médica recebida em","date")}
+        ${inp("atestado","Atestado válido até","date")}
+        <label class="chk full"><input type="checkbox" name="equipe" ${a.equipe?"checked":""}> Equipe de competição</label>
+        <label class="chk full"><input type="checkbox" name="revisao" ${!a.ficha_em?"checked":""}> Registrar como revisão anual da ficha (feita com o aluno hoje)</label>
+      </div></fieldset>`:""}
+      <div class="row" style="margin-top:18px"><span class="spacer"></span><button type="button" class="btn ghost" id="fCancel">Cancelar</button><button class="btn" type="submit">${gestao?"Salvar ficha":"Enviar ficha"}</button></div>
+    </form>`, root=>{
+      root.querySelector("#fCancel").addEventListener("click", onCancel||closeSheet);
+      root.querySelector("#ff").addEventListener("submit", async ev=>{
+        ev.preventDefault();
+        const f=new FormData(ev.target), o=JSON.parse(JSON.stringify(a)); delete o._id;
+        const g=k=>(f.get(k)||"").toString().trim();
+        ["nome","telefone","email","nascimento","naipe","emerg1_nome","emerg1_par","emerg1_tel","emerg2_nome","emerg2_par","emerg2_tel","plano","sangue","nada","fuma","gestante","atividade","termo_nome"].forEach(k=>o[k]=g(k));
+        ANAM.forEach(([k,t])=>{ o[k]=g(k); o[t]=g(t); });
+        o.parq=PARQ.map((_,i)=>g("parq_"+i));
+        o.termo=!!f.get("termo"); o.lgpd=!!f.get("lgpd");
+        if(gestao){ ["status","nivel","mensalidade","inicio","liberacao","atestado"].forEach(k=>o[k]=g(k)); o.equipe=!!f.get("equipe"); }
+        const falta=faltando(o);
+        if(!gestao && falta.length){ const e=root.querySelector("#ferr"); e.hidden=false; e.innerHTML=`<b>Complete para enviar:</b><ul>${falta.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`; root.scrollTop=0; return; }
+        if(!o.nome){ toast("Informe o nome"); return; }
+        const agora=new Date().toISOString();
+        if(!gestao || f.get("revisao")){ if(!falta.length){ o.ficha_em=agora; if(o.lgpd && !o.lgpd_data) o.lgpd_data=agora; } }
+        o.atualizado=agora;
+        try{ await onSave(o, falta); }catch(e){ failWrite(e); }
+      });
+    });
+}
+function renderMinhaFicha(el){
+  const a=S.minhaFicha, st=fichaStatus(a);
+  el.innerHTML = `<div class="ag-head"><div><h2>Minha ficha</h2><p class="hint">Cadastro, saúde e termo de responsabilidade. Revisão obrigatória todo ano.</p></div><span class="spacer"></span><button class="btn small" id="edMF">${a?"Revisar ficha":"Preencher ficha"}</button></div>
+    ${a?`<div class="panel">${fichaResumoHTML(a)}</div>`:`<div class="empty" style="margin-top:14px"><p>Você ainda não preencheu sua ficha.</p><p>Ela é obrigatória para agendar remadas.</p></div>`}
+    ${st.s==="liberacao"?`<div class="notice" style="margin-top:14px">Você respondeu “sim” no PAR-Q. Entregue a liberação médica à coordenação para voltar a agendar.</div>`:""}`;
+  $("#edMF").addEventListener("click", editMinhaFicha);
+}
+function editMinhaFicha(){
+  const a = S.minhaFicha || {status:"ativo", inicio:todaySP()};
+  if(!a.nome && S.me && S.me.name) a.nome=S.me.name;
+  fichaForm(a, false, async (o)=>{
+    if(!o.status) o.status="ativo"; o.origem="app";
+    await S.db.doc("alunos/"+S.uid).set(o); S.minhaFicha=o; closeSheet();
+    const st=fichaStatus(o); toast(st.s==="liberacao"?"Ficha enviada. Falta a liberação médica.":"Ficha enviada, você já pode agendar");
+    render();
+  });
+}
+function renderAlunos(){
+  const el = $("#alunosBody");
+  if(!S.db){ el.innerHTML = `<div class="locked"><h3>Portal indisponível aqui</h3><p>Abra este app pelo Claude, conectado à sua conta.</p></div>`; return; }
+  if(S.role==="aluno"){ renderMinhaFicha(el); return; }
+  if(!S.canAgenda){ el.innerHTML = `<div class="locked"><h3>Entre com sua conta</h3><p>Faça login no Claude para preencher sua ficha e agendar remadas.</p></div>`; return; }
+  if(!S.alunosLoaded){ el.innerHTML = `<div class="empty">Carregando alunos…</div>`; return; }
+  const all = S.alunos, ativos=all.filter(a=>a.status!=="inativo");
+  const emDia = ativos.filter(a=>fichaStatus(a).s==="ok").length;
+  const revisar = ativos.filter(precisaRevisao).length;
+  const saude = ativos.filter(a=>alertas(a).some(x=>["Alergia","Condição de saúde","Não sabe nadar"].includes(x[1]))).length;
+  const q = S.alunosSearch.toLowerCase();
+  let list = all.filter(a=>!q || (a.nome||"").toLowerCase().includes(q) || (a.telefone||"").includes(q));
+  if(S.alunosFilter==="revisar") list=list.filter(precisaRevisao);
+  else if(S.alunosFilter==="saude") list=list.filter(a=>alertas(a).some(x=>["Alergia","Condição de saúde","Não sabe nadar"].includes(x[1])));
+  else if(S.alunosFilter!=="todos") list=list.filter(a=>(a.status||"ativo")===S.alunosFilter);
+  list.sort((a,b)=>(a.nome||"").localeCompare(b.nome||"","pt-BR"));
+  let html = `<div class="stats"><div><div class="n">${ativos.length}</div><div class="l">alunos</div></div><div><div class="n">${emDia}</div><div class="l">fichas em dia</div></div><div><div class="n" style="color:${revisar?"var(--stop)":"inherit"}">${revisar}</div><div class="l">a revisar</div></div><div><div class="n">${saude}</div><div class="l">atenção à saúde</div></div></div>
+  ${!S.canEdit?`<div class="notice">Visão de instrutor: consulta de contatos de emergência e saúde. Alterações são feitas pela gestão.</div>`:""}
+  <div class="tools">
+    <input type="search" id="qA" placeholder="Buscar por nome ou telefone" value="${esc(S.alunosSearch)}" aria-label="Buscar aluno">
+    <select id="fA" aria-label="Filtrar"><option value="todos">Todos</option><option value="revisar">Ficha a revisar</option><option value="saude">Atenção à saúde</option><option value="ativo">Ativos</option><option value="pendente">Matrícula pendente</option><option value="trancado">Trancados</option><option value="inativo">Inativos</option></select>
+    ${S.canEdit?`<button class="btn" id="addA">Novo aluno</button>`:""}
+    ${S.canEdit&&revisar?`<button class="btn ghost" id="lemA">Copiar lembrete</button>`:""}
+    ${S.canEdit&&all.length?`<button class="btn ghost" id="csvA">Exportar</button>`:""}
+  </div>`;
+  if(!all.length) html += `<div class="empty"><p>Nenhum aluno cadastrado ainda.</p><p>Os alunos aparecem aqui quando preenchem a ficha no app, ou quando a gestão cadastra.</p></div>`;
+  else if(!list.length) html += `<div class="empty">Nenhum aluno encontrado com esse filtro.</div>`;
+  else html += `<div class="list">${list.map(a=>{const al=alertas(a);return `<button class="item" data-id="${esc(a._id)}"><span class="av">${esc(initials(a.nome))}</span><span style="min-width:0"><span class="nm">${esc(a.nome||"Sem nome")}</span><span class="sub"> ${esc(NIVEL[a.nivel]||"")}${a.equipe?", equipe "+esc(CAT_LABEL[catPrincipal(catsPorAno((a.nascimento||"").slice(0,4)))]||""):""}${a.status&&a.status!=="ativo"?", "+esc(STATUS[a.status]):""}</span>${al.length?`<span class="badges">${al.map(x=>`<span class="b ${x[0]}">${esc(x[1])}</span>`).join("")}</span>`:`<span class="badges"><span class="b grn">Ficha em dia</span></span>`}</span></button>`}).join("")}</div>`;
+  el.innerHTML = html;
+  const qA=$("#qA"); qA.addEventListener("input", e=>{S.alunosSearch=e.target.value; const pos=e.target.selectionStart; renderAlunos(); const n=$("#qA"); n.focus(); n.setSelectionRange(pos,pos);});
+  $("#fA").value = S.alunosFilter;
+  $("#fA").addEventListener("change", e=>{S.alunosFilter=e.target.value; renderAlunos();});
+  const ad=$("#addA"); if(ad) ad.addEventListener("click", ()=>editAluno(null));
+  const lm=$("#lemA"); if(lm) lm.addEventListener("click", ()=>{
+    const pend=ativos.filter(precisaRevisao).sort((a,b)=>(a.nome||"").localeCompare(b.nome||""));
+    copiar(`*REVISÃO ANUAL DA FICHA*\nPara remar com segurança, a ficha de saúde (anamnese, PAR-Q, contatos de emergência e plano de saúde) precisa ser revisada todo ano no app do clube, na aba Minha ficha.\n\nPendentes:\n${pend.map(a=>`– ${a.nome}: ${fichaStatus(a).label.toLowerCase()}`).join("\n")}\n\nSem a ficha em dia o agendamento fica bloqueado.`);
+  });
+  const csv=$("#csvA"); if(csv) csv.addEventListener("click", exportCSV);
+  el.querySelectorAll(".item").forEach(b=>b.addEventListener("click",()=>verAluno(b.dataset.id)));
+}
+function verAluno(id){
+  const a=S.alunos.find(x=>x._id===id); if(!a) return;
+  const al=alertas(a), st=fichaStatus(a);
+  openSheet(`
+    <div class="head"><span class="av">${esc(initials(a.nome))}</span><div><h2>${esc(a.nome||"Sem nome")}</h2><div class="hint" style="margin:0">${esc(STATUS[a.status]||"Ativo")}${a.nivel?", "+esc(NIVEL[a.nivel]):""}${a.telefone?", "+esc(a.telefone):""}</div></div><button class="x" aria-label="Fechar">×</button></div>
+    ${al.length?`<div class="badges">${al.map(x=>`<span class="b ${x[0]}">${esc(x[1])}</span>`).join("")}</div>`:""}
+    ${fichaResumoHTML(a)}
+    ${S.canEdit?`<div class="section"><h3>Gestão</h3><dl class="kv">
+      <dt>Mensalidade</dt><dd>${a.mensalidade==="pendente"?"Pendente":"Em dia"}</dd>
+      <dt>Início no clube</dt><dd>${a.inicio?new Date(a.inicio+"T12:00").toLocaleDateString("pt-BR"):"–"}</dd>
+      <dt>Atestado até</dt><dd>${a.atestado?new Date(a.atestado+"T12:00").toLocaleDateString("pt-BR"):"–"}</dd>
+      <dt>Origem</dt><dd>${a.origem==="app"?"Preenchida pelo aluno no app":"Cadastrada pela gestão"}</dd></dl></div>`:""}
+    ${S.canEdit?`<div class="row" style="margin-top:18px">${st.s==="liberacao"?`<button class="btn ghost small" id="libA">Registrar liberação médica</button>`:""}<button class="btn danger small" id="delA">Excluir</button><span class="spacer"></span><button class="btn" id="edA">Editar ficha</button></div>`:""}
+  `, root=>{
+    const ed=root.querySelector("#edA"); if(ed) ed.addEventListener("click",()=>editAluno(id));
+    const lb=root.querySelector("#libA"); if(lb) lb.addEventListener("click",async()=>{ try{ await S.db.doc("alunos/"+id).update({liberacao:todaySP()}); toast("Liberação médica registrada"); closeSheet(); }catch(e){ failWrite(e); } });
+    const dl=root.querySelector("#delA"); if(dl) dl.addEventListener("click",async()=>{ if(!await ask("Excluir o cadastro de "+(a.nome||"este aluno")+"? Isso não pode ser desfeito.","Excluir cadastro")) return; try{ await S.db.doc("alunos/"+id).delete(); closeSheet(); toast("Cadastro excluído"); }catch(e){ failWrite(e); } });
+  });
+}
+function editAluno(id){
+  const a = id ? S.alunos.find(x=>x._id===id) : {status:"ativo", mensalidade:"em_dia", nivel:"iniciante", inicio:todaySP()};
+  fichaForm(a, true, async (o, falta)=>{
+    const ref = id ? S.db.doc("alunos/"+id) : S.db.collection("alunos").doc();
+    await ref.set(o);
+    toast(falta.length?"Ficha salva, ainda incompleta":"Ficha salva");
+    setTimeout(()=>verAluno(ref.id), 80);
+  }, ()=> id ? verAluno(id) : closeSheet());
+}
+
+async function exportCSV(){
+  const cols=[["nome","Nome"],["status","Situação"],["nivel","Nível"],["telefone","Telefone"],["email","E-mail"],["nascimento","Nascimento"],["mensalidade","Mensalidade"],["atestado","Atestado até"],["emerg1_nome","Emergência 1"],["emerg1_tel","Tel. emergência 1"],["emerg2_nome","Emergência 2"],["emerg2_tel","Tel. emergência 2"],["alergias","Alergias"],["medicacoes","Medicações"],["condicoes","Condições"],["nada","Sabe nadar"],["sangue","Tipo sanguíneo"]];
+  const q = v => `"${String(v??"").replace(/"/g,'""')}"`;
+  const rows=[cols.map(c=>q(c[1])).join(";")].concat(S.alunos.map(a=>cols.map(c=>q(a[c[0]])).join(";")));
+  try{
+    const dl = await CL.use("downloads");
+    if(!dl){ toast("Exportação indisponível nesta visualização"); return; }
+    await dl.save({filename:`alunos-pvv-${todaySP()}.csv`, data:"\ufeff"+rows.join("\n")});
+  }catch(e){ /* recusado pelo usuário */ }
+}
+
+/* ---------- AGENDA ---------- */
+function addDays(iso,n){ const d=new Date(iso+"T12:00:00Z"); d.setUTCDate(d.getUTCDate()+n); return d.toISOString().slice(0,10); }
+function weekday(iso){ return new Date(iso+"T12:00:00Z").getUTCDay(); }
+function startMs(t){ return new Date(`${t.data}T${t.inicio||"06:00"}:00-03:00`).getTime(); }
+function encerrada(t){ return Date.now() >= startMs(t); }
+function rid(){ return Math.random().toString(36).slice(2,10); }
+function vagasDe(t){
+  if(t.vagas!=null && t.vagas!=="" && !isNaN(+t.vagas)) return +t.vagas;
+  const v=(S.config.canoas||[]).filter(c=>c.status!=="manutencao" && (c.local||"Urca")===t.local).reduce((a,c)=>a+(+c.lugares||0),0);
+  return v>0?v:null;
+}
+function entradas(t){
+  const out=[];
+  for(const [uid,doc] of Object.entries(S.insc)){ const r=doc && doc.r && doc.r[t.id]; if(r && r.s) out.push({key:"u_"+uid, uid, s:r.s, t:r.t||""}); }
+  for(const [mid,m] of Object.entries(t.manual||{})){ if(m && m.s) out.push({key:"m_"+mid, mid, nome:m.nome, s:m.s, t:m.t||"", manual:true}); }
+  const cap=vagasDe(t);
+  const vou=out.filter(e=>e.s==="vou").sort((a,b)=>a.t.localeCompare(b.t));
+  return {cap, conf: cap==null?vou:vou.slice(0,cap), espera: cap==null?[]:vou.slice(cap),
+    talvez: out.filter(e=>e.s==="talvez").sort((a,b)=>a.t.localeCompare(b.t)), nao: out.filter(e=>e.s==="nao")};
+}
+function nomeDe(e){
+  if(e.manual) return e.nome||"Aluno";
+  const d=S.insc[e.uid]; if(d && d.apelido) return d.apelido;
+  const p=S.names[e.uid]; return (p && p.name) || "Aluno";
+}
+function meuStatus(t,E){
+  if(!S.uid) return null;
+  const r=S.insc[S.uid] && S.insc[S.uid].r && S.insc[S.uid].r[t.id]; if(!r) return null;
+  if(r.s==="vou"){ const i=E.espera.findIndex(e=>e.uid===S.uid); if(i>=0) return {s:"espera", pos:i+1}; }
+  return {s:r.s};
+}
+async function resolveNames(){
+  if(!S.user) return;
+  const ids=[...new Set(Object.keys(S.insc).concat(Object.keys(S.atletas)).concat(Object.keys(S.equipe)))]; if(!ids.length) return;
+  try{ const ps=await S.user.profiles(ids); S.names=ps||{}; if(S.tab==="agenda") renderAgenda(); else if(S.tab==="competicao") renderCompeticao(); else if(S.tab==="clube") renderClube(); refreshSheet(); }catch(_){}
+}
+function refreshSheet(){ if(S.openTurma && !$("#ov").hidden) verTurma(S.openTurma, true); }
+function dayHeader(iso){
+  const d=new Date(iso+"T12:00:00"); const rel=dateLabel(iso);
+  const wd=d.toLocaleDateString("pt-BR",{weekday:"long"}); const dm=d.toLocaleDateString("pt-BR",{day:"numeric",month:"long"});
+  const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+  return ["Hoje","Amanhã","Ontem"].includes(rel) ? `${rel}<span>${wd}, ${dm}</span>` : `${cap(wd)}<span>${dm}</span>`;
+}
+function seaChip(t){
+  const dia=getDia(t.local, t.data, true); if(!dia) return "";
+  const hs=horasDe(dia), h0=parseInt((t.inicio||"06").slice(0,2),10), h=hs.includes(h0)?h0:hs[0];
+  const c=condicao(dia, t.local, h, null), n=c.ev.nivel;
+  return `<span class="b ${["grn","amb","red"][n]}">${COND_TXT[n]}${c.bf?`, Beaufort ${c.bf.f}`:""}${c.thunder?", raios":""}</span>`;
+}
+function cardTurma(t){
+  const E=entradas(t), off=t.status==="cancelada", closed=encerrada(t), n=E.conf.length, cap=E.cap;
+  const pct=cap?Math.min(100,Math.round(n/cap*100)):0, me=meuStatus(t,E);
+  const mc=meusCats(), elig=!t.categoria || S.canAgenda || (mc && mc.includes(t.categoria));
+  const fichaOk = S.role!=="aluno" || podeAgendar(fichaStatus(S.minhaFicha));
+  const canR=S.uid && S.canWrite!==false && !off && !closed && elig && fichaOk;
+  const cheio=cap && n>=cap && !(me && (me.s==="vou"||me.s==="espera"));
+  const chips=[]; if(off) chips.push(`<span class="b red">Cancelada pelos instrutores${t.motivo?": "+esc(t.motivo.toLowerCase()):""}</span>`); else if(closed) chips.push(`<span class="b">Encerrada</span>`);
+  if(t.categoria) chips.push(`<span class="b" style="background:var(--ocean-soft);color:var(--ocean)">Treino ${esc(CAT_LABEL[t.categoria]||t.categoria)}</span>`);
+  const sc=seaChip(t); if(sc && !off) chips.push(sc);
+  const resumo=[]; if(E.espera.length) resumo.push(`${E.espera.length} na espera`); if(E.talvez.length) resumo.push(`${E.talvez.length} talvez`);
+  return `<article class="turma ${off?"off":""}">
+    <button class="t-main" data-open="${esc(t.id)}">
+      <div class="t-time">${esc(t.inicio)}<small>até ${esc(t.fim||"–")}</small></div>
+      <div><div class="t-title">${esc(t.titulo||(t.categoria?"Treino "+(CAT_LABEL[t.categoria]||""):"Remada "+t.local))}</div>
+        <div class="t-sub">${esc(t.local)}${t.obs?", "+esc(t.obs):""}</div>
+        ${chips.length?`<div class="chips">${chips.join("")}</div>`:""}
+        <div class="cap">${cap?`<div class="bar"><i class="${n>=cap?"full":""}" style="width:${pct}%"></i></div>`:""}
+          <div class="txt"><b>${n}</b> ${cap?`de ${cap} vagas`:(n===1?"confirmado":"confirmados")}${resumo.length?", "+resumo.join(", "):""}</div></div>
+      </div>
+      <span aria-hidden="true" style="color:var(--muted);font-size:24px;line-height:1">›</span>
+    </button>
+    ${me?`<div class="mine ${me.s==="espera"?"esp":""}">${{vou:"Você está confirmado",talvez:"Você marcou talvez",nao:"Você avisou que não vai",espera:`Você está na lista de espera, posição ${me.pos}`}[me.s]}</div>`:""}
+    ${S.uid && elig && !fichaOk && !off && !closed?`<div class="mine esp">Ficha de saúde pendente. <button class="linkbtn" data-goficha>Preencher ficha</button> para agendar.</div>`:""}
+    ${S.uid && !elig && !off && !closed?`<div class="mine">${mc?`Treino exclusivo para ${esc(CAT_LABEL[t.categoria])}`:"Informe seu ano de nascimento na aba Competição para confirmar este treino"}</div>`:""}
+    ${S.canAgenda&&!closed?`<div class="staffrow">${off?`<button class="btn ghost small" data-reabre="${esc(t.id)}">Reabrir remada</button>`:`<button class="btn danger small" data-cancela="${esc(t.id)}">Cancelar remada</button>`}</div>`:""}
+    ${canR?`<div class="rsvp" data-t="${esc(t.id)}">${[["vou",cheio?"Entrar na espera":"Vou"],["talvez","Talvez"],["nao","Não vou"]].map(([k,l])=>`<button class="${k}" data-s="${k}" aria-pressed="${me&&(me.s===k||(k==="vou"&&me.s==="espera"))?"true":"false"}" ${S.pending?"disabled":""}>${l}</button>`).join("")}</div>`:""}
+  </article>`;
+}
+function renderAgenda(){
+  const el=$("#agendaBody");
+  if(!S.db){ el.innerHTML=`<div class="locked"><h3>Agenda indisponível aqui</h3><p>Abra este app pelo Claude, conectado à sua conta, para ver e confirmar remadas.</p></div>`; return; }
+  if(!S.turmasLoaded){ el.innerHTML=`<div class="empty">Carregando remadas…</div>`; return; }
+  const hoje=todaySP(), grade=S.config.grade||[];
+  const all=Object.values(S.turmas).sort((a,b)=>(a.data+a.inicio).localeCompare(b.data+b.inicio) || LOCAIS.indexOf(a.local)-LOCAIS.indexOf(b.local));
+  const ativa=t=>t.data>hoje || (t.data===hoje && Date.now()<startMs(t)+3*3600e3);
+  const fb=t=>S.agendaBase==="todas"||t.local===S.agendaBase;
+  const prox=all.filter(ativa).filter(fb), past=all.filter(t=>!ativa(t)).filter(fb).reverse().slice(0,14);
+  let html=alertaBanner()+`<div class="ag-head"><div><h2>Próximas remadas</h2><p class="hint">Confirme até o horário de saída. A divisão nas canoas é feita na praia.</p></div><span class="spacer"></span>
+    ${S.canAgenda?`<div class="row">${grade.length?`<button class="btn ghost small" id="genW">Abrir agenda</button>`:""}<button class="btn small" id="newT">Nova remada</button></div>`:""}</div>`;
+  if(S.role==="aluno"){ const st=fichaStatus(S.minhaFicha); if(!podeAgendar(st)) html+=`<div class="notice" style="margin-top:12px"><b>${esc(st.label)}.</b> ${st.s==="liberacao"?"Entregue a liberação médica à coordenação para agendar.":"Preencha e revise sua ficha de saúde para agendar remadas."} <button class="linkbtn" data-goficha>Abrir minha ficha</button></div>`; else if(st.s==="vence") html+=`<div class="notice" style="margin-top:12px">Sua ficha vence em ${st.dias} ${st.dias===1?"dia":"dias"}. <button class="linkbtn" data-goficha>Revisar agora</button></div>`; }
+  html+=`<div class="filters" role="group" aria-label="Filtrar por base">${["todas",...LOCAIS].map(k=>`<button data-ab="${k}" aria-pressed="${S.agendaBase===k}">${k==="todas"?"Todas as bases":NOME_BASE[k]}</button>`).join("")}</div>`;
+  if(S.uid && S.canWrite===false) html+=`<div class="notice" style="margin-top:12px">Seu acesso é só de leitura. Para confirmar presença, peça à coordenação acesso de Colaborador ou que confirme por você.</div>`;
+  if(!prox.length) html+=`<div class="empty" style="margin-top:14px"><p>Nenhuma remada aberta.</p>${S.canAgenda?`<p>${grade.length?"Toque em “Abrir agenda” para criar as remadas da grade.":"Cadastre a grade semanal na aba Clube ou crie uma remada avulsa."}</p>`:"<p>A coordenação abre as remadas da semana por aqui.</p>"}</div>`;
+  let last=null;
+  for(const t of prox){ if(t.data!==last){ last=t.data; html+=`<div class="dayhdr">${dayHeader(t.data)}</div>`; } html+=cardTurma(t); }
+  if(past.length){
+    html+=`<div class="row" style="margin-top:22px"><button class="btn ghost small" id="pastT">${S.showPast?"Ocultar remadas anteriores":"Ver remadas anteriores"}</button></div>`;
+    if(S.showPast){ last=null; for(const t of past){ if(t.data!==last){ last=t.data; html+=`<div class="dayhdr">${dayHeader(t.data)}</div>`; } html+=cardTurma(t); } }
+  }
+  el.innerHTML=html;
+  const nt=$("#newT"); if(nt) nt.addEventListener("click",()=>editTurma(null));
+  bindAlerta(el);
+  el.querySelectorAll("[data-cancela]").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); cancelarRemada(b.dataset.cancela); }));
+  el.querySelectorAll("[data-reabre]").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); reabrirRemada(b.dataset.reabre); }));
+  const gw=$("#genW"); if(gw) gw.addEventListener("click",abrirAgenda);
+  el.querySelectorAll("[data-ab]").forEach(b=>b.addEventListener("click",()=>{ S.agendaBase=b.dataset.ab; renderAgenda(); }));
+  el.querySelectorAll("[data-goficha]").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); setTab("alunos"); }));
+  const pt=$("#pastT"); if(pt) pt.addEventListener("click",()=>{S.showPast=!S.showPast; renderAgenda();});
+  el.querySelectorAll("[data-open]").forEach(b=>b.addEventListener("click",()=>verTurma(b.dataset.open)));
+  el.querySelectorAll(".rsvp").forEach(r=>r.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>rsvp(r.dataset.t,b.dataset.s))));
+}
+async function rsvp(tid,s){
+  if(!S.uid || S.pending) return;
+  const mine=S.insc[S.uid]||{};
+  let apelido=mine.apelido||"";
+  if(!apelido && !(S.names[S.uid] && S.names[S.uid].name)){
+    const v=await askText("Seu nome na lista","Como você quer aparecer na lista de presença?");
+    if(!v || !v.trim()) return; apelido=v.trim().slice(0,60);
+  }
+  const r=JSON.parse(JSON.stringify(mine.r||{}));
+  const cut=addDays(todaySP(),-21);
+  Object.keys(r).forEach(k=>{ if(k.slice(0,10)<cut) delete r[k]; });
+  const cur=r[tid]; if(cur && cur.s===s) return;
+  r[tid]={s, t:new Date().toISOString()};
+  const body={r}; if(apelido) body.apelido=apelido;
+  S.pending=true; renderAgenda();
+  try{ await S.db.doc("inscricoes/"+S.uid).set(body); toast({vou:"Presença confirmada",talvez:"Marcado como talvez",nao:"Ausência registrada"}[s]); }
+  catch(e){ if(e && e.code==="invalid_argument"){ S.canWrite=false; toast("Seu acesso é só de leitura"); } else failWrite(e); }
+  finally{ S.pending=false; renderAgenda(); refreshSheet(); }
+}
+function textoLista(t,E){
+  const d=new Date(t.data+"T12:00:00").toLocaleDateString("pt-BR",{weekday:"short",day:"numeric",month:"short"});
+  let s=`${(t.titulo||"Remada "+t.local).toUpperCase()}\n${d}, ${t.inicio}–${t.fim||""}\n\nConfirmados (${E.conf.length}${E.cap?"/"+E.cap:""}):\n`;
+  s+=E.conf.map((e,i)=>`${i+1}. ${nomeDe(e)}`).join("\n")||"–";
+  if(E.espera.length) s+=`\n\nLista de espera:\n`+E.espera.map((e,i)=>`${i+1}. ${nomeDe(e)}`).join("\n");
+  if(E.talvez.length) s+=`\n\nTalvez:\n`+E.talvez.map(e=>`– ${nomeDe(e)}`).join("\n");
+  return s;
+}
+function verTurma(id, keep){
+  const t=S.turmas[id]; if(!t){ closeSheet(); return; }
+  const E=entradas(t), ck=t.checkin||{}, off=t.status==="cancelada";
+  const sc=keep?$("#sheet").scrollTop:0;
+  const prevIn=keep && $("#addIn") ? $("#addIn").value : "", hadFocus=keep && document.activeElement && document.activeElement.id==="addIn";
+  const person=(e,i,showCk)=>`<li>${i!=null?`<span class="pos">${i+1}</span>`:""}<span class="av">${esc(initials(nomeDe(e)))}</span><span>${esc(nomeDe(e))}${e.manual?`<br><span class="tag">incluído pela coordenação</span>`:""}${e.uid&&e.uid===S.uid?`<br><span class="tag">você</span>`:""}</span>${S.canAgenda&&showCk?`<button class="ck" data-ck="${esc(e.key)}" aria-pressed="${ck[e.key]?"true":"false"}">${ck[e.key]?"Presente":"Check-in"}</button>`:""}${S.canAgenda&&e.manual?`<button class="rm" data-rm="${esc(e.mid)}" aria-label="Remover">×</button>`:""}</li>`;
+  const block=(title,arr,numbered,showCk)=>arr.length?`<div class="section"><h3>${title} (${arr.length})</h3><ul class="people">${arr.map((e,i)=>person(e,numbered?i:null,showCk)).join("")}</ul></div>`:"";
+  const presentes=[...E.conf,...E.espera,...E.talvez].filter(e=>ck[e.key]).length;
+  const d=new Date(t.data+"T12:00:00").toLocaleDateString("pt-BR",{weekday:"long",day:"numeric",month:"long"});
+  openSheet(`
+    <div class="head"><div><h2>${esc(t.titulo||"Remada "+t.local)}</h2><div class="hint" style="margin:0">${esc(d)}, ${esc(t.inicio)}–${esc(t.fim||"")}, ${esc(t.local)}</div></div><button class="x" aria-label="Fechar">×</button></div>
+    ${off?`<div class="notice">Esta remada foi cancelada.</div>`:""}
+    <div class="stats" style="margin-top:8px"><div><div class="n">${E.conf.length}${E.cap?`<span style="font-size:18px;color:var(--muted)">/${E.cap}</span>`:""}</div><div class="l">confirmados</div></div><div><div class="n">${E.espera.length}</div><div class="l">na espera</div></div>${S.canAgenda?`<div><div class="n">${presentes}</div><div class="l">presentes na praia</div></div>`:`<div><div class="n">${E.talvez.length}</div><div class="l">talvez</div></div>`}</div>
+    ${t.obs?`<p style="margin:0 0 6px">${esc(t.obs)}</p>`:""}
+    ${S.canAgenda&&!off?`<form id="addP" class="row" style="margin-top:6px"><input id="addIn" list="alList" placeholder="Incluir aluno pelo nome" autocomplete="off" style="flex:1;min-width:150px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:9px 12px"><datalist id="alList">${S.alunos.filter(a=>a.status!=="inativo").map(a=>`<option value="${esc(a.nome)}"></option>`).join("")}</datalist><button class="btn small" type="submit">Incluir</button></form>`:""}
+    ${block("Confirmados",E.conf,true,true)}
+    ${block("Lista de espera",E.espera,true,true)}
+    ${block("Talvez",E.talvez,false,true)}
+    ${S.canAgenda?block("Não vão",E.nao,false,false):""}
+    ${!E.conf.length&&!E.espera.length&&!E.talvez.length?`<div class="empty" style="margin-top:14px">Ninguém confirmou ainda.</div>`:""}
+    <div class="row" style="margin-top:18px">
+      ${S.canAgenda?`<button class="btn ghost small" id="edT">Editar</button><button class="btn ${off?"ghost":"danger"} small" id="cxT">${off?"Reabrir remada":"Cancelar remada"}</button>`:""}
+      <span class="spacer"></span><button class="btn small" id="cpT">Copiar lista</button>
+    </div>
+    <textarea id="cpBox" readonly hidden style="width:100%;min-height:160px;margin-top:10px;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:8px;color:var(--ink)"></textarea>
+  `, root=>{
+    S.openTurma=id;
+    root.scrollTop=sc;
+    const ai=root.querySelector("#addIn"); if(ai){ ai.value=prevIn; if(hadFocus) ai.focus(); }
+    root.querySelector("#cpT").addEventListener("click",async()=>{
+      const txt=textoLista(t,E);
+      try{ await navigator.clipboard.writeText(txt); toast("Lista copiada, é só colar no WhatsApp"); }
+      catch(_){ const b=root.querySelector("#cpBox"); b.hidden=false; b.value=txt; b.focus(); b.select(); toast("Selecione e copie o texto"); }
+    });
+    const ed=root.querySelector("#edT"); if(ed) ed.addEventListener("click",()=>editTurma(id));
+    const cx=root.querySelector("#cxT"); if(cx) cx.addEventListener("click",async()=>{
+      if(!off){ cancelarRemada(id, ()=>verTurma(id)); return; }
+      await reabrirRemada(id); verTurma(id); return;
+      try{
+        await S.db.doc("turmas/"+id).update({status: off?"aberta":"cancelada"});
+        const nm=t.titulo||"Remada "+t.local;
+        if(off){ await S.db.doc("avisos/canc_"+id).delete(); toast("Remada reaberta"); }
+        else{ await S.db.doc("avisos/canc_"+id).set({tipo:"cancelamento", titulo:`${nm} cancelada`, texto:`A ${nm.toLowerCase()} de ${dataCurta(t.data)}, ${t.inicio}, foi cancelada.`, data_evento:t.data, hora:t.inicio, local:t.local, link:"", expira:t.data, fixado:false, criado:new Date().toISOString(), turma:id}); toast("Remada cancelada e aviso publicado no Mural"); }
+        verTurma(id);
+      }catch(e){ failWrite(e); }
+    });
+    root.querySelectorAll("[data-ck]").forEach(b=>b.addEventListener("click",async()=>{
+      const k=b.dataset.ck; b.disabled=true;
+      try{ await S.db.doc("turmas/"+id).update({checkin:{[k]:!ck[k]}}); }catch(e){ failWrite(e); b.disabled=false; }
+    }));
+    root.querySelectorAll("[data-rm]").forEach(b=>b.addEventListener("click",async()=>{
+      const body=JSON.parse(JSON.stringify(t)); delete body.id;
+      if(body.manual) delete body.manual[b.dataset.rm]; if(body.checkin) delete body.checkin["m_"+b.dataset.rm];
+      try{ await S.db.doc("turmas/"+id).set(body); }catch(e){ failWrite(e); }
+    }));
+    const ap=root.querySelector("#addP"); if(ap) ap.addEventListener("submit",async ev=>{
+      ev.preventDefault(); const nome=ai.value.trim(); if(!nome) return;
+      const al=S.alunos.find(a=>(a.nome||"").toLowerCase()===nome.toLowerCase());
+      ai.value="";
+      try{ await S.db.doc("turmas/"+id).update({manual:{[rid()]:{nome: al?al.nome:nome, s:"vou", t:new Date().toISOString(), aluno: al?al._id:""}}}); toast("Aluno incluído"); }catch(e){ failWrite(e); }
+    });
+  });
+}
+function editTurma(id){
+  const t = id ? S.turmas[id] : {data:addDays(todaySP(),1), inicio:"06:00", fim:"07:30", local:"Urca", titulo:"", vagas:"", obs:""};
+  const auto = vagasDe(Object.assign({},t,{vagas:""}));
+  openSheet(`
+    <div class="head"><h2>${id?"Editar remada":"Nova remada"}</h2><button class="x" aria-label="Fechar">×</button></div>
+    <form id="ft"><div class="grid">
+      <label class="f full">Título<input name="titulo" value="${esc(t.titulo)}" placeholder="Ex.: Remada Urca, 6h"></label>
+      <label class="f">Data<input name="data" type="date" required value="${esc(t.data)}"></label>
+      <label class="f">Base<select name="local">${LOCAIS.map(l=>`<option ${l===t.local?"selected":""}>${l}</option>`).join("")}</select></label>
+      <label class="f">Saída<input name="inicio" type="time" required value="${esc(t.inicio)}"></label>
+      <label class="f">Retorno<input name="fim" type="time" value="${esc(t.fim)}"></label>
+      <label class="f full">Tipo<select name="categoria"><option value="">Remada aberta a todos</option>${CATS.map(c=>`<option value="${c[0]}" ${t.categoria===c[0]?"selected":""}>Treino ${c[1]}</option>`).join("")}</select></label>
+      <label class="f full">Vagas<input name="vagas" inputmode="numeric" value="${esc(t.vagas)}" placeholder="${auto?`Automático pela frota: ${auto}`:"Cadastre a frota ou informe aqui"}"></label>
+      <label class="f full">Observação<input name="obs" value="${esc(t.obs)}" placeholder="Ex.: travessia até a Praia Vermelha"></label>
+    </div>
+    <p class="hint">Deixe as vagas em branco para usar a soma dos lugares das canoas disponíveis da base.</p>
+    <div class="row" style="margin-top:18px">${id?`<button type="button" class="btn danger small" id="dT">Excluir</button>`:""}<span class="spacer"></span><button type="button" class="btn ghost" id="cT">Voltar</button><button type="submit" class="btn">${id?"Salvar remada":"Criar remada"}</button></div>
+    </form>`, root=>{
+      root.querySelector("#cT").addEventListener("click",()=> id ? verTurma(id) : closeSheet());
+      const d=root.querySelector("#dT"); if(d) d.addEventListener("click",async()=>{
+        if(!await ask("Excluir esta remada e as confirmações dela?","Excluir remada")) return;
+        try{ await S.db.doc("turmas/"+id).delete(); closeSheet(); toast("Remada excluída"); }catch(e){ failWrite(e); }
+      });
+      root.querySelector("#ft").addEventListener("submit",async ev=>{
+        ev.preventDefault(); const f=new FormData(ev.target);
+        const o={titulo:f.get("titulo").toString().trim(), data:f.get("data"), local:f.get("local"), inicio:f.get("inicio"), fim:f.get("fim"), obs:f.get("obs").toString().trim(), categoria:f.get("categoria")||""};
+        const v=f.get("vagas").toString().trim(); o.vagas = v==="" ? "" : Math.max(1, parseInt(v,10)||1);
+        try{
+          if(id){ await S.db.doc("turmas/"+id).update(o); toast("Remada salva"); verTurma(id); }
+          else{
+            let nid=`${o.data}_${o.local}_${o.inicio.replace(":","")}${o.categoria?"_"+o.categoria:""}`; if(S.turmas[nid]) nid+="_"+rid();
+            await S.db.doc("turmas/"+nid).set(Object.assign(o,{status:"aberta", manual:{}, checkin:{}, criado:new Date().toISOString()}));
+            closeSheet(); toast("Remada criada");
+          }
+        }catch(e){ failWrite(e); }
+      });
+    });
+}
+/* ---------- GRADE / ABERTURA DA AGENDA ---------- */
+const DIAS_C = ["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
+function gNorm(g){ return Object.assign({}, g, {dias: g.dias || (g.dia!=null?[+g.dia]:[]), locais: g.locais || (g.local?[g.local]:["Urca"])}); }
+function diasTxt(ds){
+  const s=[...new Set(ds.map(Number))].sort((a,b)=>a-b);
+  if(s.length>=3 && s[s.length-1]-s[0]===s.length-1) return `${DIAS_C[s[0]]} a ${DIAS_C[s[s.length-1]]}`;
+  return s.map(d=>DIAS_C[d]).join(s.length===2?" e ":", ");
+}
+function locaisTxt(ls){ return ls.length>1 ? "Urca e Lagoa" : (ls[0]||""); }
+async function abrirAgenda(){
+  const grade=(S.config.grade||[]).map(gNorm);
+  openSheet(`
+    <div class="head"><h2>Abrir agenda</h2><button class="x" aria-label="Fechar">×</button></div>
+    <p class="hint">Cria as remadas da grade semanal para as bases e o período escolhidos. Remadas que já existem não são duplicadas.</p>
+    <form id="fa2"><div class="grid">
+      <div class="full"><div class="hint" style="margin:0 0 6px">Bases</div><div class="row" style="gap:16px">${LOCAIS.map(l=>`<label class="chk"><input type="checkbox" name="b_${l}" checked> ${NOME_BASE[l]}</label>`).join("")}</div></div>
+      <label class="f full">Período<select name="dias"><option value="7">Próximos 7 dias</option><option value="14">Próximos 14 dias</option><option value="28">Próximas 4 semanas</option></select></label>
+    </div>
+    <p class="hint" id="prevA"></p>
+    <div class="row" style="margin-top:14px"><span class="spacer"></span><button type="button" class="btn ghost" id="cA2">Cancelar</button><button class="btn" type="submit">Abrir agenda</button></div></form>`, root=>{
+      const form=root.querySelector("#fa2");
+      const plano=()=>{ const f=new FormData(form); const bases=LOCAIS.filter(l=>f.get("b_"+l)); const n=+f.get("dias"); const hoje=todaySP(); const out=[];
+        for(let i=0;i<n;i++){ const d=addDays(hoje,i), wd=weekday(d);
+          for(const g of grade){ if(!g.dias.includes(wd)) continue;
+            for(const l of g.locais){ if(!bases.includes(l)) continue;
+              const id=`${d}_${l}_${g.inicio.replace(":","")}${g.categoria?"_"+g.categoria:""}`;
+              const t={data:d, inicio:g.inicio, fim:g.fim, local:l, titulo:g.titulo||"", categoria:g.categoria||"", vagas:"", obs:"", status:"aberta", manual:{}, checkin:{}};
+              if(S.turmas[id] || (d===hoje && encerrada(t))) continue; out.push([id,t]); } } }
+        return out; };
+      const upd=()=>{ const p=plano(); root.querySelector("#prevA").textContent = p.length ? `${p.length} ${p.length===1?"remada será aberta":"remadas serão abertas"}.` : "Nenhuma remada nova para abrir com essa escolha."; };
+      form.addEventListener("change",upd); upd();
+      root.querySelector("#cA2").addEventListener("click",closeSheet);
+      form.addEventListener("submit",async ev=>{ ev.preventDefault(); const p=plano(); let n=0;
+        for(const [id,t] of p){ try{ t.criado=new Date().toISOString(); await S.db.doc("turmas/"+id).set(t); n++; }catch(e){ failWrite(e); break; } }
+        closeSheet(); toast(n?`${n} ${n===1?"remada aberta":"remadas abertas"}`:"Nada novo para abrir"); });
+    });
+}
+function editGrade(gid){
+  const grade=(S.config.grade||[]).map(gNorm);
+  const i=grade.findIndex(g=>g.id===gid);
+  const g = i>=0 ? grade[i] : {dias:[1,2,3,4,5,6], locais:["Urca"], inicio:"06:00", fim:"07:30", titulo:"", categoria:""};
+  openSheet(`
+    <div class="head"><h2>${i>=0?"Editar horário":"Novo horário fixo"}</h2><button class="x" aria-label="Fechar">×</button></div>
+    <form id="fg"><div class="grid">
+      <div class="full"><div class="hint" style="margin:0 0 6px">Dias da semana</div><div class="daypick">${[1,2,3,4,5,6,0].map(k=>`<label><input type="checkbox" name="d_${k}" ${g.dias.includes(k)?"checked":""}><span>${DIAS_C[k]}</span></label>`).join("")}</div></div>
+      <div class="full"><div class="hint" style="margin:6px 0">Bases</div><div class="row" style="gap:16px">${LOCAIS.map(l=>`<label class="chk"><input type="checkbox" name="l_${l}" ${g.locais.includes(l)?"checked":""}> ${NOME_BASE[l]}</label>`).join("")}</div></div>
+      <label class="f">Saída<input name="inicio" type="time" required value="${esc(g.inicio)}"></label>
+      <label class="f">Retorno<input name="fim" type="time" value="${esc(g.fim)}"></label>
+      <label class="f full">Tipo<select name="categoria"><option value="">Remada aberta a todos</option>${CATS.map(c=>`<option value="${c[0]}" ${g.categoria===c[0]?"selected":""}>Treino ${c[1]}</option>`).join("")}</select></label>
+      <label class="f full">Título (opcional)<input name="titulo" value="${esc(g.titulo)}" placeholder="Ex.: Remada das 6h"></label>
+    </div>
+    <div class="row" style="margin-top:18px">${i>=0?`<button type="button" class="btn danger small" id="dG">Remover</button>`:""}<span class="spacer"></span><button type="button" class="btn ghost" id="cG">Cancelar</button><button class="btn" type="submit">Salvar horário</button></div>
+    </form>`, root=>{
+      root.querySelector("#cG").addEventListener("click",closeSheet);
+      const d=root.querySelector("#dG"); if(d) d.addEventListener("click",async()=>{ grade.splice(i,1); await saveConfig({grade}); closeSheet(); toast("Horário removido"); });
+      root.querySelector("#fg").addEventListener("submit",async ev=>{
+        ev.preventDefault(); const f=new FormData(ev.target);
+        const o={id:g.id||rid(), dias:[0,1,2,3,4,5,6].filter(k=>f.get("d_"+k)), locais:LOCAIS.filter(l=>f.get("l_"+l)), inicio:f.get("inicio"), fim:f.get("fim"), titulo:f.get("titulo").toString().trim(), categoria:f.get("categoria")||""};
+        if(!o.dias.length || !o.locais.length){ toast("Escolha ao menos um dia e uma base"); return; }
+        if(i>=0) grade[i]=o; else grade.push(o);
+        await saveConfig({grade}); closeSheet(); toast("Horário salvo");
+      });
+    });
+}
+
+/* ---------- utilidades ---------- */
+function lsGet(k){ try{ return localStorage.getItem(k); }catch(_){ return null; } }
+function lsSet(k,v){ try{ localStorage.setItem(k,v); }catch(_){} }
+function quando(iso){
+  if(!iso) return ""; const d=new Date(iso), m=Math.round((Date.now()-d.getTime())/60000);
+  if(m<1) return "agora"; if(m<60) return `há ${m} min`; if(m<24*60) return `há ${Math.round(m/60)} h`;
+  if(m<48*60) return "ontem"; return d.toLocaleDateString("pt-BR",{day:"numeric",month:"short"}).replace(".","");
+}
+function dataCurta(iso){ return iso ? new Date(iso+"T12:00:00").toLocaleDateString("pt-BR",{weekday:"short",day:"numeric",month:"short"}).replace(/\./g,"") : ""; }
+function linkOk(u){ return /^https?:\/\//i.test(u||""); }
+async function copiar(txt){
+  try{ await navigator.clipboard.writeText(txt); toast("Copiado, é só colar no WhatsApp"); }
+  catch(_){ openSheet(`<div class="head"><h2>Copiar texto</h2><button class="x" aria-label="Fechar">×</button></div><p class="hint">Selecione o texto e copie.</p><textarea readonly style="width:100%;min-height:200px;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:8px;color:var(--ink)">${esc(txt)}</textarea>`, root=>{ const t=root.querySelector("textarea"); t.focus(); t.select(); }); }
+}
+
+/* ---------- MURAL ---------- */
+const TIPOS_AV = {geral:"Comunicado", cancelamento:"Cancelamento", passeio:"Passeio", competicao:"Competição", evento:"Evento", viagem:"Viagem"};
+function avisosVisiveis(){ const h=todaySP(); return Object.values(S.avisos).filter(a=>S.canEdit || !a.expira || a.expira>=h); }
+function naoLidos(){ const v=lsGet("pvv-mural-visto")||""; return avisosVisiveis().filter(a=>(a.criado||"")>v).length; }
+function marcarLido(){ const max=avisosVisiveis().reduce((m,a)=>(a.criado||"")>m?a.criado:m,""); if(max) lsSet("pvv-mural-visto",max); }
+function badgeAlunos(){
+  let n=0;
+  if(S.role==="aluno"){ n = podeAgendar(fichaStatus(S.minhaFicha)) && fichaStatus(S.minhaFicha).s==="ok" ? 0 : 1; }
+  else if(S.canEdit){ n = S.alunos.filter(precisaRevisao).length; }
+  document.querySelectorAll('[data-tab="alunos"]').forEach(b=>{ let d=b.querySelector(".dotn"); if(n && S.tab!=="alunos"){ if(!d){ d=document.createElement("span"); d.className="dotn"; b.appendChild(d); } d.textContent=S.role==="aluno"?"!":(n>9?"9+":String(n)); } else if(d) d.remove(); });
+}
+function updateBadge(){
+  badgeAlunos();
+  const al=alertasAtivos().length>0;
+  document.querySelectorAll('[data-tab="mural"]').forEach(b=>b.classList.toggle("alerta", al));
+  const n = S.tab==="mural" ? 0 : naoLidos();
+  document.querySelectorAll('[data-tab="mural"]').forEach(b=>{ let d=b.querySelector(".dotn"); if(n){ if(!d){ d=document.createElement("span"); d.className="dotn"; b.appendChild(d); } d.textContent=n>9?"9+":String(n); } else if(d) d.remove(); });
+}
+function textoAviso(a){
+  let s=`*${(a.titulo||"").toUpperCase()}*\n${TIPOS_AV[a.tipo]||"Comunicado"}\n\n${a.texto||""}`;
+  const q=[a.data_evento?dataCurta(a.data_evento):"", a.hora||""].filter(Boolean).join(", ");
+  if(q) s+=`\n\nQuando: ${q}`; if(a.local) s+=`\nOnde: ${a.local}`; if(linkOk(a.link)) s+=`\n${a.link}`;
+  return s;
+}
+function renderMural(){
+  const el=$("#muralBody");
+  if(!S.db){ el.innerHTML=`<div class="locked"><h3>Mural indisponível aqui</h3><p>Abra este app pelo Claude, conectado à sua conta.</p></div>`; return; }
+  if(!S.avisosLoaded){ el.innerHTML=`<div class="empty">Carregando avisos…</div>`; return; }
+  const h=todaySP(), all=avisosVisiveis();
+  const tipos=Object.keys(TIPOS_AV).filter(k=>all.some(a=>a.tipo===k));
+  const list=all.filter(a=>S.muralFiltro==="todos"||a.tipo===S.muralFiltro)
+    .sort((a,b)=>((b.fixado?1:0)-(a.fixado?1:0)) || (b.criado||"").localeCompare(a.criado||""));
+  let html=`<div class="ag-head"><div><h2>Mural</h2><p class="hint">Passeios, provas, eventos, viagens e cancelamentos.</p></div><span class="spacer"></span>${S.canEdit?`<button class="btn small" id="newAv">Novo aviso</button>`:""}</div>`;
+  if(tipos.length>1) html+=`<div class="filters" role="group" aria-label="Filtrar avisos"><button data-f="todos" aria-pressed="${S.muralFiltro==="todos"}">Todos</button>${tipos.map(k=>`<button data-f="${k}" aria-pressed="${S.muralFiltro===k}">${TIPOS_AV[k]}</button>`).join("")}</div>`;
+  else html+=`<div style="height:12px"></div>`;
+  if(!list.length) html+=`<div class="empty"><p>Nenhum aviso por aqui.</p>${S.canEdit?"<p>Publique o primeiro comunicado do clube.</p>":""}</div>`;
+  html+=list.map(a=>{
+    const longo=(a.texto||"").length>260, aberto=S.muralAberto[a._id];
+    const qd=[a.data_evento?dataCurta(a.data_evento):"", a.hora||"", a.local||""].filter(Boolean).join(", ");
+    const exp=a.expira && a.expira<h;
+    return `<article class="aviso k-${esc(a.tipo||"geral")}">
+      <div class="row" style="gap:8px"><span class="tp">${esc(TIPOS_AV[a.tipo]||"Comunicado")}</span>${a.fixado?`<span class="b">Fixado</span>`:""}${exp?`<span class="b">Expirado</span>`:""}<span class="spacer"></span><span class="when">${esc(quando(a.criado))}</span></div>
+      <h3>${esc(a.titulo)}</h3>
+      ${qd?`<div class="qd">${esc(qd)}</div>`:""}
+      ${a.texto?`<p class="tx ${longo&&!aberto?"clamp":""}">${esc(a.texto)}</p>`:""}
+      ${longo?`<button class="more" data-more="${esc(a._id)}">${aberto?"Ver menos":"Ver mais"}</button>`:""}
+      ${linkOk(a.link)||S.canEdit?`<div class="row" style="margin-top:10px;gap:8px">${linkOk(a.link)?`<a class="btn ghost small" href="${esc(a.link)}" target="_blank" rel="noopener">Abrir link</a>`:""}<span class="spacer"></span>${S.canEdit?`<button class="btn ghost small" data-cp="${esc(a._id)}">Copiar para WhatsApp</button><button class="btn ghost small" data-ed="${esc(a._id)}">Editar</button>`:""}</div>`:""}
+    </article>`;}).join("");
+  el.innerHTML=html;
+  const na=$("#newAv"); if(na) na.addEventListener("click",()=>editAviso(null));
+  el.querySelectorAll("[data-f]").forEach(b=>b.addEventListener("click",()=>{ S.muralFiltro=b.dataset.f; renderMural(); }));
+  el.querySelectorAll("[data-more]").forEach(b=>b.addEventListener("click",()=>{ const k=b.dataset.more; S.muralAberto[k]=!S.muralAberto[k]; renderMural(); }));
+  el.querySelectorAll("[data-cp]").forEach(b=>b.addEventListener("click",()=>copiar(textoAviso(S.avisos[b.dataset.cp]))));
+  el.querySelectorAll("[data-ed]").forEach(b=>b.addEventListener("click",()=>editAviso(b.dataset.ed)));
+}
+function editAviso(id){
+  const a = id ? S.avisos[id] : {tipo:"geral", titulo:"", texto:"", fixado:false};
+  openSheet(`
+    <div class="head"><h2>${id?"Editar aviso":"Novo aviso"}</h2><button class="x" aria-label="Fechar">×</button></div>
+    <form id="fav"><div class="grid">
+      <label class="f full">Tipo<select name="tipo">${Object.entries(TIPOS_AV).map(([k,v])=>`<option value="${k}" ${k===a.tipo?"selected":""}>${v}</option>`).join("")}</select></label>
+      <label class="f full">Título<input name="titulo" required maxlength="90" value="${esc(a.titulo)}" placeholder="Ex.: Passeio até as Cagarras"></label>
+      <label class="f full">Texto<textarea name="texto" style="min-height:120px">${esc(a.texto)}</textarea></label>
+      <label class="f">Data<input name="data_evento" type="date" value="${esc(a.data_evento)}"></label>
+      <label class="f">Hora<input name="hora" type="time" value="${esc(a.hora)}"></label>
+      <label class="f full">Local<input name="local" value="${esc(a.local)}" placeholder="Ex.: Praia Vermelha"></label>
+      <label class="f full">Link (inscrição, formulário, regulamento)<input name="link" type="url" value="${esc(a.link)}" placeholder="https://"></label>
+      <label class="f full">Sai do mural depois de<input name="expira" type="date" value="${esc(a.expira)}"></label>
+      <label class="chk full"><input type="checkbox" name="fixado" ${a.fixado?"checked":""}> Fixar no topo do mural</label>
+    </div>
+    <div class="row" style="margin-top:18px">${id?`<button type="button" class="btn danger small" id="dAv">Apagar</button>`:""}<span class="spacer"></span><button type="button" class="btn ghost" id="cAv">Cancelar</button><button class="btn" type="submit">${id?"Salvar aviso":"Publicar aviso"}</button></div>
+    </form>`, root=>{
+      root.querySelector("#cAv").addEventListener("click",closeSheet);
+      const d=root.querySelector("#dAv"); if(d) d.addEventListener("click",async()=>{ if(!await ask("Apagar este aviso do mural?","Apagar aviso")) return; try{ await S.db.doc("avisos/"+id).delete(); closeSheet(); toast("Aviso apagado"); }catch(e){ failWrite(e); } });
+      root.querySelector("#fav").addEventListener("submit",async ev=>{
+        ev.preventDefault(); const f=new FormData(ev.target); const o={};
+        ["tipo","titulo","texto","data_evento","hora","local","link","expira"].forEach(k=>o[k]=(f.get(k)||"").toString().trim());
+        o.fixado=!!f.get("fixado"); o.criado=a.criado||new Date().toISOString(); o.atualizado=new Date().toISOString();
+        if(a.turma) o.turma=a.turma;
+        try{ await S.db.doc("avisos/"+(id||("a"+Date.now().toString(36)+rid()))).set(o); closeSheet(); toast(id?"Aviso salvo":"Aviso publicado"); }catch(e){ failWrite(e); }
+      });
+    });
+}
+
+/* ---------- COMPETIÇÃO ---------- */
+const CATS = [["OPEN","Open",0],["M40","Master 40+",40],["M50","Master 50+",50],["M60","Master 60+",60]];
+const CAT_LABEL = Object.fromEntries(CATS.map(c=>[c[0],c[1]]));
+function catsPorAno(ano, ref){ ano=+ano; if(!ano) return null; const idade=(ref||+todaySP().slice(0,4))-ano; return CATS.filter(c=>idade>=c[2]).map(c=>c[0]); }
+function catPrincipal(cs){ return cs && cs.length ? cs[cs.length-1] : null; }
+function meusCats(ref){ const m=S.atletaMe; return m ? catsPorAno(m.ano, ref) : null; }
+function nomeAtleta(uid){ const d=S.atletas[uid]||(uid===S.uid?S.atletaMe:null); if(d && d.apelido) return d.apelido; const i=S.insc[uid]; if(i && i.apelido) return i.apelido; const p=S.names[uid]; return (p && p.name) || "Atleta"; }
+function diasAte(iso){ return Math.round((new Date(iso+"T12:00:00")-new Date(todaySP()+"T12:00:00"))/86400000); }
+
+function renderCompeticao(){
+  const el=$("#compBody");
+  if(!S.db){ el.innerHTML=`<div class="locked"><h3>Competição indisponível aqui</h3><p>Abra este app pelo Claude, conectado à sua conta.</p></div>`; return; }
+  const h=todaySP();
+  const provas=Object.values(S.provas).sort((a,b)=>(a.data||"").localeCompare(b.data||""));
+  const futuras=provas.filter(p=>(p.data_fim||p.data)>=h), passadas=provas.filter(p=>(p.data_fim||p.data)<h).reverse();
+  const prox=futuras.find(p=>p.status!=="cancelada");
+  let html=`<div class="ag-head"><div><h2>Competição</h2><p class="hint">Provas, treinos por categoria e equipe.</p></div><span class="spacer"></span>${S.canEdit?`<button class="btn small" id="newPv">Nova prova</button>`:""}</div>`;
+  if(prox){
+    const dd=diasAte(prox.data), insc=prox.inscricao_ate?diasAte(prox.inscricao_ate):null;
+    html+=`<button class="hero" data-pv="${esc(prox._id)}"><div class="hk">Próxima prova</div><div class="hn">${dd===0?"Hoje":dd===1?"Amanhã":`Faltam ${dd} dias`}</div>
+      <div class="ht">${esc(prox.nome)}</div><div class="hs">${esc(dataCurta(prox.data))}${prox.local?", "+esc(prox.local):""}</div>
+      ${insc!=null&&insc>=0?`<div class="hs ${insc<=7?"warn":""}">Inscrições até ${esc(dataCurta(prox.inscricao_ate))}${insc<=7?` (${insc===0?"hoje":`faltam ${insc} dias`})`:""}</div>`:""}
+      ${(prox.categorias||[]).length?`<div class="chips">${prox.categorias.map(c=>`<span class="b">${esc(CAT_LABEL[c]||c)}</span>`).join("")}</div>`:""}</button>`;
+  }
+  // perfil
+  if(S.uid){
+    const cs=meusCats();
+    html+=`<div class="panel"><div class="row"><h3 style="margin:0">Minha categoria</h3><span class="spacer"></span><button class="btn ghost small" id="edAt">${cs?"Editar":"Preencher"}</button></div>
+      ${cs?`<div class="catline"><span class="catbig">${esc(CAT_LABEL[catPrincipal(cs)])}</span><span class="hint" style="margin:0">${cs.length>1?"Também pode competir em "+cs.slice(0,-1).map(c=>CAT_LABEL[c]).join(" e "):"Categoria aberta a todas as idades"}${S.atletaMe.naipe?`, naipe ${esc(S.atletaMe.naipe.toLowerCase())}`:""}</span></div>`
+        :`<p class="hint" style="margin:6px 0 0">Informe seu ano de nascimento para ver sua categoria e confirmar os treinos dela.</p>`}
+      <p class="hint">Categoria pela idade que você completa no ano.</p></div>`;
+  }
+  // treinos
+  const treinos=Object.values(S.turmas).filter(t=>t.categoria && (t.data>h || (t.data===h && Date.now()<startMs(t)+3*3600e3)))
+    .sort((a,b)=>(a.data+a.inicio).localeCompare(b.data+b.inicio));
+  html+=`<div class="dayhdr" style="margin-top:24px">Treinos da equipe</div>`;
+  if(!treinos.length) html+=`<div class="empty">${S.canEdit?"Nenhum treino aberto. Na Agenda, crie uma remada do tipo treino e escolha a categoria.":"Nenhum treino aberto no momento."}</div>`;
+  else { let last=null; for(const t of treinos){ if(t.data!==last){ last=t.data; html+=`<div class="subday">${dayHeader(t.data)}</div>`; } html+=cardTurma(t); } }
+  // provas
+  html+=`<div class="dayhdr" style="margin-top:24px">Calendário de provas</div>`;
+  if(!futuras.length) html+=`<div class="empty">${S.canEdit?"Cadastre as próximas provas do calendário.":"Nenhuma prova cadastrada ainda."}</div>`;
+  else html+=`<div class="list">${futuras.map(rowProva).join("")}</div>`;
+  if(passadas.length){
+    html+=`<div class="row" style="margin-top:12px"><button class="btn ghost small" id="pastPv">${S.showPastProvas?"Ocultar provas anteriores":"Ver provas anteriores"}</button></div>`;
+    if(S.showPastProvas) html+=`<div class="list" style="margin-top:10px">${passadas.slice(0,20).map(rowProva).join("")}</div>`;
+  }
+  // equipe (admin)
+  if(S.canEdit){
+    const eq=S.alunos.filter(a=>a.equipe && a.status!=="inativo");
+    const grupos=CATS.map(c=>({c, l:eq.filter(a=>catPrincipal(catsPorAno((a.nascimento||"").slice(0,4)))===c[0])}));
+    const semData=eq.filter(a=>!a.nascimento);
+    html+=`<div class="dayhdr" style="margin-top:24px">Equipe por categoria</div><div class="panel" style="margin-top:0">
+      ${eq.length?`<div class="stats" style="margin:0 0 6px">${grupos.map(g=>`<div><div class="n">${g.l.length}</div><div class="l">${g.c[1]}</div></div>`).join("")}</div>
+      ${grupos.filter(g=>g.l.length).map(g=>`<details><summary>${g.c[1]} (${g.l.length})</summary><p style="margin:4px 0 8px">${g.l.map(a=>esc(a.nome)+(a.naipe?` <span class="hint">${esc(a.naipe[0])}</span>`:"")).sort().join(", ")}</p></details>`).join("")}
+      ${semData.length?`<p class="hint">Sem data de nascimento: ${semData.map(a=>esc(a.nome)).join(", ")}</p>`:""}`
+      :`<p class="hint" style="margin:0">Marque “Equipe de competição” no cadastro dos atletas (aba Alunos) para montar a equipe por categoria.</p>`}
+    </div>`;
+  }
+  el.innerHTML=html;
+  const np=$("#newPv"); if(np) np.addEventListener("click",()=>editProva(null));
+  const ea=$("#edAt"); if(ea) ea.addEventListener("click",editAtleta);
+  const pp=$("#pastPv"); if(pp) pp.addEventListener("click",()=>{ S.showPastProvas=!S.showPastProvas; renderCompeticao(); });
+  el.querySelectorAll("[data-pv]").forEach(b=>b.addEventListener("click",()=>verProva(b.dataset.pv)));
+  el.querySelectorAll("[data-open]").forEach(b=>b.addEventListener("click",()=>verTurma(b.dataset.open)));
+  el.querySelectorAll("[data-goficha]").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); setTab("alunos"); }));
+  el.querySelectorAll("[data-cancela]").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); cancelarRemada(b.dataset.cancela); }));
+  el.querySelectorAll("[data-reabre]").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); reabrirRemada(b.dataset.reabre); }));
+  el.querySelectorAll(".rsvp").forEach(r=>r.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>rsvp(r.dataset.t,b.dataset.s))));
+}
+function rowProva(p){
+  const d=new Date(p.data+"T12:00:00"), me=S.atletaMe && S.atletaMe.provas && S.atletaMe.provas[p._id];
+  const n=S.canEdit ? Object.values(S.atletas).filter(a=>a.provas && a.provas[p._id] && a.provas[p._id].s==="quero").length : 0;
+  return `<button class="item" data-pv="${esc(p._id)}"><span class="datebox"><b>${d.getDate()}</b>${d.toLocaleDateString("pt-BR",{month:"short"}).replace(".","")}</span>
+    <span style="min-width:0"><span class="nm">${esc(p.nome)}</span><span class="sub"> ${esc(p.local||"")}</span>
+    <span class="badges">${p.status==="cancelada"?`<span class="b red">Cancelada</span>`:""}${(p.categorias||[]).map(c=>`<span class="b">${esc(CAT_LABEL[c]||c)}</span>`).join("")}${me&&me.s==="quero"?`<span class="b grn">Você quer competir${me.cat?" ("+esc(CAT_LABEL[me.cat])+")":""}</span>`:""}${S.canEdit&&n?`<span class="b grn">${n} ${n===1?"interessado":"interessados"}</span>`:""}</span></span></button>`;
+}
+function verProva(id){
+  const p=S.provas[id]; if(!p){ closeSheet(); return; }
+  const ano=+(p.data||"").slice(0,4), cs=meusCats(ano)||[], elig=(p.categorias&&p.categorias.length?p.categorias:CATS.map(c=>c[0])).filter(c=>cs.includes(c));
+  const me=S.atletaMe && S.atletaMe.provas && S.atletaMe.provas[id];
+  const fechada=p.status==="cancelada" || (p.data_fim||p.data)<todaySP();
+  const podeMarcar=S.uid && S.canWrite!==false && !fechada;
+  let interesse="";
+  if(S.canEdit){
+    const regs=Object.entries(S.atletas).map(([uid,a])=>({uid, r:a.provas&&a.provas[id]})).filter(x=>x.r);
+    const quero=regs.filter(x=>x.r.s==="quero"), talvez=regs.filter(x=>x.r.s==="talvez");
+    const porCat=CATS.map(c=>({c, l:quero.filter(x=>x.r.cat===c[0])})).filter(g=>g.l.length);
+    interesse=`<div class="section"><h3>Atletas interessados (${quero.length})</h3>${quero.length?porCat.map(g=>`<p style="margin:4px 0"><b>${g.c[1]}:</b> ${g.l.map(x=>esc(nomeAtleta(x.uid))).join(", ")}</p>`).join(""):`<p class="hint">Ninguém marcou interesse ainda.</p>`}${talvez.length?`<p class="hint">Talvez: ${talvez.map(x=>esc(nomeAtleta(x.uid))).join(", ")}</p>`:""}</div>`;
+  }
+  openSheet(`
+    <div class="head"><div><h2>${esc(p.nome)}</h2><div class="hint" style="margin:0">${esc(dataCurta(p.data))}${p.data_fim&&p.data_fim!==p.data?" a "+esc(dataCurta(p.data_fim)):""}${p.local?", "+esc(p.local):""}</div></div><button class="x" aria-label="Fechar">×</button></div>
+    ${p.status==="cancelada"?`<div class="notice">Esta prova foi cancelada.</div>`:""}
+    <dl class="kv" style="margin-top:8px">
+      ${p.distancia?`<dt>Percurso</dt><dd>${esc(p.distancia)}</dd>`:""}
+      <dt>Categorias</dt><dd>${(p.categorias||[]).length?p.categorias.map(c=>esc(CAT_LABEL[c]||c)).join(", "):"A confirmar"}</dd>
+      ${p.inscricao_ate?`<dt>Inscrições até</dt><dd>${esc(dataCurta(p.inscricao_ate))}</dd>`:""}
+    </dl>
+    ${p.obs?`<p style="white-space:pre-wrap">${esc(p.obs)}</p>`:""}
+    ${linkOk(p.link)?`<a class="btn ghost small" href="${esc(p.link)}" target="_blank" rel="noopener">Regulamento e inscrição</a>`:""}
+    ${podeMarcar?`<div class="section"><h3>Você vai competir?</h3>
+      ${!cs.length?`<p class="hint">Preencha sua categoria primeiro.</p><button class="btn small" id="pAt">Informar ano de nascimento</button>`:
+      `${elig.length?`<label class="f" style="max-width:260px">Categoria<select id="pCat">${elig.map(c=>`<option value="${c}" ${me&&me.cat===c||(!me&&c===catPrincipal(elig))?"selected":""}>${CAT_LABEL[c]}</option>`).join("")}</select></label>`:`<p class="hint">Pela sua idade, nenhuma das categorias desta prova se aplica.</p>`}
+      <div class="rsvp" style="border:1px solid var(--line);border-radius:10px;margin-top:10px;overflow:hidden">${[["quero","Quero competir"],["talvez","Talvez"],["nao","Não vou"]].map(([k,l])=>`<button class="${k==="quero"?"vou":k}" data-ps="${k}" aria-pressed="${me&&me.s===k?"true":"false"}" ${k==="quero"&&!elig.length?"disabled":""}>${l}</button>`).join("")}</div>`}
+    </div>`:""}
+    ${interesse}
+    ${S.canEdit?`<div class="row" style="margin-top:18px"><button class="btn ghost small" id="edPv">Editar</button><span class="spacer"></span><button class="btn small" id="cpPv">Copiar convocação</button></div>`:""}
+  `, root=>{
+    const pa=root.querySelector("#pAt"); if(pa) pa.addEventListener("click",editAtleta);
+    root.querySelectorAll("[data-ps]").forEach(b=>b.addEventListener("click",async()=>{
+      const sel=root.querySelector("#pCat");
+      const base=JSON.parse(JSON.stringify(S.atletaMe||{})); base.provas=base.provas||{};
+      base.provas[id]={s:b.dataset.ps, cat: sel?sel.value:"", t:new Date().toISOString()};
+      try{ await S.db.doc("atletas/"+S.uid).set(base); S.atletaMe=base; verProva(id); toast({quero:"Interesse registrado",talvez:"Marcado como talvez",nao:"Resposta registrada"}[b.dataset.ps]); }
+      catch(e){ if(e&&e.code==="invalid_argument"){ S.canWrite=false; toast("Seu acesso é só de leitura"); } else failWrite(e); }
+    }));
+    const ep=root.querySelector("#edPv"); if(ep) ep.addEventListener("click",()=>editProva(id));
+    const cp=root.querySelector("#cpPv"); if(cp) cp.addEventListener("click",()=>{
+      let s=`*${(p.nome||"").toUpperCase()}*\n${dataCurta(p.data)}${p.local?", "+p.local:""}\n`;
+      if((p.categorias||[]).length) s+=`Categorias: ${p.categorias.map(c=>CAT_LABEL[c]).join(", ")}\n`;
+      if(p.inscricao_ate) s+=`Inscrições até ${dataCurta(p.inscricao_ate)}\n`;
+      if(p.obs) s+=`\n${p.obs}\n`; s+=`\nMarque seu interesse no app do clube, na aba Competição.`; if(linkOk(p.link)) s+=`\n${p.link}`;
+      copiar(s);
+    });
+  });
+}
+function editProva(id){
+  const p = id ? S.provas[id] : {nome:"", data:"", categorias:CATS.map(c=>c[0]), status:"confirmada"};
+  openSheet(`
+    <div class="head"><h2>${id?"Editar prova":"Nova prova"}</h2><button class="x" aria-label="Fechar">×</button></div>
+    <form id="fpv"><div class="grid">
+      <label class="f full">Nome da prova<input name="nome" required value="${esc(p.nome)}" placeholder="Ex.: Campeonato Estadual de Va’a, 2ª etapa"></label>
+      <label class="f">Início<input name="data" type="date" required value="${esc(p.data)}"></label>
+      <label class="f">Fim<input name="data_fim" type="date" value="${esc(p.data_fim)}"></label>
+      <label class="f full">Local<input name="local" value="${esc(p.local)}" placeholder="Ex.: Praia de Copacabana, Rio"></label>
+      <label class="f full">Percurso<input name="distancia" value="${esc(p.distancia)}" placeholder="Ex.: OC6, 12 km; V1, 500 m"></label>
+      <div class="full"><div class="hint" style="margin:0 0 6px">Categorias</div><div class="row" style="gap:14px">${CATS.map(c=>`<label class="chk"><input type="checkbox" name="cat_${c[0]}" ${(p.categorias||[]).includes(c[0])?"checked":""}> ${c[1]}</label>`).join("")}</div></div>
+      <label class="f">Inscrições até<input name="inscricao_ate" type="date" value="${esc(p.inscricao_ate)}"></label>
+      <label class="f">Situação<select name="status"><option value="confirmada" ${p.status!=="cancelada"?"selected":""}>Confirmada</option><option value="cancelada" ${p.status==="cancelada"?"selected":""}>Cancelada</option></select></label>
+      <label class="f full">Link do regulamento ou inscrição<input name="link" type="url" value="${esc(p.link)}" placeholder="https://"></label>
+      <label class="f full">Observações<textarea name="obs" placeholder="Transporte, uniforme, taxa de inscrição…">${esc(p.obs)}</textarea></label>
+      ${id?"":`<label class="chk full"><input type="checkbox" name="mural" checked> Publicar também no Mural</label>`}
+    </div>
+    <div class="row" style="margin-top:18px">${id?`<button type="button" class="btn danger small" id="dPv">Excluir</button>`:""}<span class="spacer"></span><button type="button" class="btn ghost" id="cPv">Cancelar</button><button class="btn" type="submit">${id?"Salvar prova":"Cadastrar prova"}</button></div>
+    </form>`, root=>{
+      root.querySelector("#cPv").addEventListener("click",()=> id ? verProva(id) : closeSheet());
+      const d=root.querySelector("#dPv"); if(d) d.addEventListener("click",async()=>{ if(!await ask("Excluir esta prova do calendário?","Excluir prova")) return; try{ await S.db.doc("provas/"+id).delete(); closeSheet(); toast("Prova excluída"); }catch(e){ failWrite(e); } });
+      root.querySelector("#fpv").addEventListener("submit",async ev=>{
+        ev.preventDefault(); const f=new FormData(ev.target); const o={};
+        ["nome","data","data_fim","local","distancia","inscricao_ate","status","link","obs"].forEach(k=>o[k]=(f.get(k)||"").toString().trim());
+        o.categorias=CATS.map(c=>c[0]).filter(c=>f.get("cat_"+c));
+        const nid=id||("p"+Date.now().toString(36)+rid());
+        try{
+          await S.db.doc("provas/"+nid).set(o);
+          if(!id && f.get("mural")){
+            await S.db.doc("avisos/prova_"+nid).set({tipo:"competicao", titulo:o.nome, texto:[o.categorias.length?"Categorias: "+o.categorias.map(c=>CAT_LABEL[c]).join(", "):"", o.inscricao_ate?"Inscrições até "+dataCurta(o.inscricao_ate):"", o.obs, "Marque seu interesse na aba Competição."].filter(Boolean).join("\n"), data_evento:o.data, hora:"", local:o.local, link:o.link, expira:o.data_fim||o.data, fixado:false, criado:new Date().toISOString()});
+          }
+          toast(id?"Prova salva":"Prova cadastrada"); verProva(nid);
+        }catch(e){ failWrite(e); }
+      });
+    });
+}
+function editAtleta(){
+  const m=S.atletaMe||{};
+  const ref=+todaySP().slice(0,4);
+  openSheet(`
+    <div class="head"><h2>Minha categoria</h2><button class="x" aria-label="Fechar">×</button></div>
+    <form id="fat"><div class="grid">
+      <label class="f full">Seu nome nas listas<input name="apelido" maxlength="60" value="${esc(m.apelido||(S.insc[S.uid]&&S.insc[S.uid].apelido)||"")}"></label>
+      <label class="f">Ano de nascimento<input name="ano" type="number" inputmode="numeric" min="1930" max="${ref}" required value="${esc(m.ano)}"></label>
+      <label class="f">Naipe<select name="naipe"><option value="">–</option>${["Feminino","Masculino"].map(n=>`<option ${n===m.naipe?"selected":""}>${n}</option>`).join("")}</select></label>
+    </div>
+    <p class="hint" id="catPrev"></p>
+    <div class="row" style="margin-top:18px"><span class="spacer"></span><button type="button" class="btn ghost" id="cAt">Cancelar</button><button class="btn" type="submit">Salvar</button></div>
+    </form>`, root=>{
+      const ai=root.querySelector("[name=ano]"), pv=root.querySelector("#catPrev");
+      const upd=()=>{ const cs=catsPorAno(ai.value); pv.textContent = cs && +ai.value>1900 ? `Sua categoria em ${ref}: ${CAT_LABEL[catPrincipal(cs)]}.` : ""; };
+      ai.addEventListener("input",upd); upd();
+      root.querySelector("#cAt").addEventListener("click",closeSheet);
+      root.querySelector("#fat").addEventListener("submit",async ev=>{
+        ev.preventDefault(); const f=new FormData(ev.target);
+        const body=JSON.parse(JSON.stringify(m)); body.ano=+f.get("ano"); body.naipe=f.get("naipe")||""; const ap=(f.get("apelido")||"").toString().trim(); if(ap) body.apelido=ap;
+        try{ await S.db.doc("atletas/"+S.uid).set(body); closeSheet(); toast("Categoria salva"); }
+        catch(e){ if(e&&e.code==="invalid_argument"){ S.canWrite=false; toast("Seu acesso é só de leitura"); } else failWrite(e); }
+      });
+    });
+}
+
+/* ---------- CLUBE ---------- */
+
+function renderClube(){
+  const el=$("#clubeBody");
+  const c=S.config; const canoas=c.canoas||[];
+  const ativas=canoas.filter(x=>x.status!=="manutencao");
+  const L=lim();
+  const porBase=LOCAIS.map(l=>{const cs=ativas.filter(x=>(x.local||"Urca")===l);return {l, n:cs.length, v:cs.reduce((s,x)=>s+(+x.lugares||0),0)};});
+  const grade=(c.grade||[]).map(gNorm).sort((a,b)=>(a.locais.join()+a.inicio).localeCompare(b.locais.join()+b.inicio));
+  const tu=bfTabela("Urca"), tl=bfTabela("Lagoa");
+  const optN=(v,dis)=>`${[0,1,2].map(k=>`<option value="${k}" ${+v===k?"selected":""}>${NIVEL_TXT[k]}</option>`).join("")}`;
+  let html=`<div class="panel" style="margin-top:0"><h3>Vagas por turno</h3>
+    <div class="row" style="gap:28px">${porBase.map(b=>`<div class="capacity"><span class="n">${b.v}</span><span>${b.l}<br><span class="hint">${b.n} ${b.n===1?"canoa":"canoas"}</span></span></div>`).join("")}</div>
+    <p class="hint">Cada remada usa as vagas da sua base. A divisão de quem vai em qual canoa continua sendo feita na praia.</p></div>
+  <div class="panel"><div class="row"><h3 style="margin:0">Grade semanal</h3><span class="spacer"></span>${S.canAgenda?`<button class="btn small" id="addG">Adicionar horário</button>`:""}</div>
+    ${grade.length?grade.map(g=>`<div class="grade-row"><div><div style="font-weight:600">${diasTxt(g.dias)}, ${esc(g.inicio)}–${esc(g.fim)}</div><div class="hint" style="margin:0">${esc(locaisTxt(g.locais))}${g.categoria?", treino "+esc(CAT_LABEL[g.categoria]):""}${g.titulo?", "+esc(g.titulo):""}</div></div><span class="spacer"></span>${S.canAgenda?`<button class="btn ghost small" data-gi="${esc(g.id)}">Editar</button>`:""}</div>`).join("")
+      :`<p class="hint">Nenhum horário fixo cadastrado.</p>${S.canAgenda?`<button class="btn ghost small" id="gPadrao">Usar a grade atual: Urca de segunda a sábado e Lagoa terça e quinta, às 6h</button>`:""}`}
+  </div>
+  <div class="panel"><div class="row"><h3 style="margin:0">Frota</h3><span class="spacer"></span>${S.canEdit?`<button class="btn small" id="addC">Adicionar canoa</button>`:""}</div>
+    ${canoas.length?canoas.map((x,i)=>`<div class="canoe"><div><div class="nm">${esc(x.nome)}</div><div class="sub">${esc(x.local||"Urca")}, ${esc(x.tipo)}, ${x.lugares} ${+x.lugares===1?"lugar":"lugares"}${x.status==="manutencao"?", em manutenção":""}</div></div><span class="spacer"></span>${S.canEdit?`<button class="btn ghost small" data-ci="${i}">Editar</button>`:""}</div>`).join(""):`<p class="hint">Nenhuma canoa cadastrada. Cadastre a frota para calcular as vagas.</p>`}
+  </div>
+  <div class="panel"><h3>Vento: escala Beaufort por base</h3>
+    <p class="hint" style="margin:0 0 8px">Defina o que cada força significa em cada base. Rajadas contam com uma força a menos. Valores iniciais sugeridos para canoa havaiana; ajuste com os instrutores.</p>
+    <div class="scroll-x"><table class="limits"><tr><th>Força</th><th>Vento</th><th>Urca</th><th>Lagoa</th></tr>
+    ${BEAUFORT.map((r,i)=>`<tr><td><b>${i}</b> ${r[1]}</td><td>${r[2]}</td><td><select data-bfu="${i}" ${S.canEdit?"":"disabled"}>${optN(tu[i])}</select></td><td><select data-bfl="${i}" ${S.canEdit?"":"disabled"}>${optN(tl[i])}</select></td></tr>`).join("")}</table></div>
+    <h3 style="margin-top:16px">Ondulação e chuva</h3>
+    <div class="scroll-x"><table class="limits"><tr><th>Leitura</th><th>Atenção a partir de</th><th>Cancelar a partir de</th></tr>
+      ${[["onda","Ondulação na Urca (m)"],["chuva_mm","Chuva no horário (mm)"],["chuva_prob","Chance de chuva (%)"]].map(([k,l])=>`<tr><td>${l}</td><td><input data-l="${k}.a" inputmode="decimal" value="${L[k]?.a??""}" ${S.canEdit?"":"disabled"} aria-label="${l}, atenção"></td><td><input data-l="${k}.c" inputmode="decimal" value="${L[k]?.c??""}" ${S.canEdit?"":"disabled"} aria-label="${l}, cancelar"></td></tr>`).join("")}
+    </table></div>
+    ${S.canEdit?`<div class="row" style="margin-top:12px"><span class="spacer"></span><button class="btn" id="saveL">Salvar regras</button></div>`:""}
+  </div>`;
+  if(S.canEdit){
+    const ids=Object.keys(S.equipe);
+    html+=`<div class="panel"><h3>Equipe e permissões</h3>
+      <p class="hint" style="margin:0 0 8px">Quem tem acesso de editor ao app aparece aqui ao abrir o app pela primeira vez. Gestão altera tudo; instrutores abrem e gerenciam a agenda, fazem check-in e lançam a previsão do mar. Alunos entram como colaboradores e só editam a própria ficha e os agendamentos.</p>
+      ${ids.length?ids.map(id=>{ const p=S.names[id], nm=(p&&p.name)||"Membro da equipe", dono=S.ownerIds.includes(id); return `<div class="grade-row"><div><div style="font-weight:600">${esc(nm)}${id===S.uid?" (você)":""}</div><div class="hint" style="margin:0">${dono?"Responsável pelo app":"Acesso de editor"}</div></div><span class="spacer"></span>${dono?`<span class="b grn">Gestão</span>`:`<select data-papel="${esc(id)}"><option value="instrutor" ${(c.papeis||{})[id]!=="gestao"?"selected":""}>Instrutor</option><option value="gestao" ${(c.papeis||{})[id]==="gestao"?"selected":""}>Gestão</option></select>`}</div>`; }).join(""):`<p class="hint">Ninguém da equipe abriu o app ainda.</p>`}
+    </div>`;
+  }
+  el.innerHTML=html;
+  const ac=$("#addC"); if(ac) ac.addEventListener("click",()=>editCanoa(-1));
+  const ag=$("#addG"); if(ag) ag.addEventListener("click",()=>editGrade(null));
+  const gp=$("#gPadrao"); if(gp) gp.addEventListener("click",async()=>{ await saveConfig({grade:[{id:rid(),dias:[1,2,3,4,5,6],locais:["Urca"],inicio:"06:00",fim:"07:30",titulo:"",categoria:""},{id:rid(),dias:[2,4],locais:["Lagoa"],inicio:"06:00",fim:"07:30",titulo:"",categoria:""}]}); toast("Grade cadastrada"); });
+  el.querySelectorAll("[data-gi]").forEach(b=>b.addEventListener("click",()=>editGrade(b.dataset.gi)));
+  el.querySelectorAll("[data-ci]").forEach(b=>b.addEventListener("click",()=>editCanoa(+b.dataset.ci)));
+  el.querySelectorAll("[data-papel]").forEach(s=>s.addEventListener("change",async()=>{ const p=Object.assign({}, c.papeis||{}); p[s.dataset.papel]=s.value; await saveConfig({papeis:p}); toast("Permissão atualizada"); }));
+  const sl=$("#saveL"); if(sl) sl.addEventListener("click",async()=>{
+    const nl=JSON.parse(JSON.stringify(L));
+    el.querySelectorAll("[data-l]").forEach(i=>{const [k,p]=i.dataset.l.split("."); nl[k]=nl[k]||{}; nl[k][p]=num(i.value.replace(",","."));});
+    const bf={Urca:[...el.querySelectorAll("[data-bfu]")].map(s=>+s.value), Lagoa:[...el.querySelectorAll("[data-bfl]")].map(s=>+s.value)};
+    await saveConfig({limites:nl, beaufort:bf}); toast("Regras salvas");
+  });
+}
+
+function editCanoa(i){
+  const canoas = (S.config.canoas||[]).slice();
+  const c = i>=0 ? canoas[i] : {nome:"", tipo:"OC6", lugares:6, status:"ativa"};
+  openSheet(`
+    <div class="head"><h2>${i>=0?"Editar canoa":"Nova canoa"}</h2><button class="x" aria-label="Fechar">×</button></div>
+    <form id="fc"><div class="grid">
+      <label class="f full">Nome<input name="nome" required value="${esc(c.nome)}" placeholder="Ex.: Iemanjá"></label>
+      <label class="f">Tipo<select name="tipo">${Object.keys(TIPOS).map(t=>`<option ${t===c.tipo?"selected":""}>${t}</option>`).join("")}</select></label>
+      <label class="f">Lugares<input name="lugares" type="number" min="1" max="12" value="${esc(c.lugares)}"></label>
+      <label class="f full">Base<select name="local">${LOCAIS.map(l=>`<option ${l===(c.local||"Urca")?"selected":""}>${l}</option>`).join("")}</select></label>
+      <label class="f full">Situação<select name="status"><option value="ativa" ${c.status!=="manutencao"?"selected":""}>Disponível</option><option value="manutencao" ${c.status==="manutencao"?"selected":""}>Em manutenção</option></select></label>
+    </div>
+    <div class="row" style="margin-top:18px">${i>=0?`<button type="button" class="btn danger small" id="dC">Remover</button>`:""}<span class="spacer"></span><button type="button" class="btn ghost" id="cC">Cancelar</button><button class="btn" type="submit">Salvar canoa</button></div>
+    </form>`, root=>{
+      const tipo=root.querySelector("[name=tipo]"), lug=root.querySelector("[name=lugares]");
+      tipo.addEventListener("change",()=>lug.value=TIPOS[tipo.value]);
+      root.querySelector("#cC").addEventListener("click",closeSheet);
+      const d=root.querySelector("#dC"); if(d) d.addEventListener("click",async()=>{ if(!await ask("Remover "+c.nome+" da frota?","Remover canoa"))return; canoas.splice(i,1); await saveConfig({canoas}); closeSheet(); toast("Canoa removida"); });
+      root.querySelector("#fc").addEventListener("submit",async ev=>{
+        ev.preventDefault(); const f=new FormData(ev.target);
+        const o={nome:f.get("nome").toString().trim(), tipo:f.get("tipo"), lugares:Math.max(1,+f.get("lugares")||1), status:f.get("status"), local:f.get("local")||"Urca"};
+        if(!o.nome) return;
+        if(i>=0) canoas[i]=o; else canoas.push(o);
+        await saveConfig({canoas}); closeSheet(); toast("Canoa salva");
+      });
+    });
+}
+async function saveConfig(patch){
+  const next = Object.assign({}, S.config, patch);
+  try{ await S.db.doc("config/clube").set(next); }catch(e){ failWrite(e); }
+}
+
+function failWrite(e){
+  const code = e && e.code;
+  if(code==="invalid_argument") toast("Você não tem permissão para alterar esses dados");
+  else if(code==="quota_exceeded") toast("Limite de armazenamento atingido");
+  else toast("Não foi possível salvar. Tente de novo.");
+}
+
+/* ---------- render ---------- */
+function render(){
+  if(S.tab==="mural"){ marcarLido(); }
+  updateBadge();
+  if(S.tab==="agenda") renderAgenda(); else if(S.tab==="mar") renderMar(); else if(S.tab==="mural") renderMural(); else if(S.tab==="competicao") renderCompeticao(); else if(S.tab==="alunos") renderAlunos(); else renderClube();
+}
+
+const h0 = location.hash.slice(1);
+setTab(TABS.includes(h0)?h0:"agenda");
+
+/* ---------- capabilities ---------- */
+function computeRole(){
+  const p=S.config.papeis||{};
+  S.role = S.isOwner ? "gestao" : S.platAdmin ? (p[S.uid]==="gestao"?"gestao":"instrutor") : (S.uid ? "aluno" : "visitante");
+  S.canEdit = S.role==="gestao"; S.canAgenda = S.canEdit || S.role==="instrutor";
+  const nome = S.me && S.me.name ? S.me.name.split(" ")[0] : "";
+  $("#who").textContent = nome ? `${nome} (${{gestao:"gestão",instrutor:"instrutor",aluno:"aluno",visitante:"visitante"}[S.role]})` : "";
+  document.querySelectorAll('[data-tab="alunos"] .lbl').forEach(l=>l.textContent = S.role==="aluno" ? (l.closest("nav.bottom")?"Ficha":"Minha ficha") : "Alunos");
+}
+(async function boot(){
+  if(!NA_CLAUDE) montarBarraTeste();
+  const [db, user] = await Promise.all([CL.use("db"), CL.use("user")]);
+  S.db = db; S.user = user;
+  if(user){
+    try{ S.platAdmin = await user.canEdit(); }catch(_){}
+    try{ S.isOwner = await user.isOwner(); }catch(_){}
+    try{ S.uid = await user.id(); }catch(_){}
+    try{ S.canWrite = await user.can("data.write"); }catch(_){}
+    try{ S.me = await user.me(); }catch(_){}
+  }
+  S.ownerIds = S.isOwner && S.uid ? [S.uid] : [];
+  computeRole();
+  if(!db){ showNoDb(); return; }
+  db.doc("config/clube").onSnapshot(s=>{ S.config = s.exists ? Object.assign({}, DEFAULT_CONFIG, s.data()) : DEFAULT_CONFIG; S.configLoaded=true; computeRole(); if(S.tab!=="alunos") render(); else updateBadge(); }, ()=>{});
+  db.collection("boletins").orderBy("data","desc").limit(30).onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{const x=d.data(); if(x&&x.data) m[x.data]=x;}); S.boletins=m; S.boletinsLoaded=true; if(S.tab==="mar") renderMar(); else if(S.tab==="agenda") renderAgenda(); }, ()=>{ S.boletinsLoaded=true; renderMar(); });
+  db.collection("previsoes").where("data",">=",addDays(todaySP(),-2)).orderBy("data","asc").limit(30).onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ const x=d.data(); if(x&&x.data) m[x.data]=x; }); S.previsoes=m; S.previsaoConectada=s.docs.length>0; if(S.tab==="mar") renderMar(); else if(S.tab==="agenda") renderAgenda(); }, ()=>{});
+  const desde = addDays(todaySP(), -14);
+  db.collection("turmas").where("data",">=",desde).orderBy("data","asc").limit(300).onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{const x=d.data(); if(x) m[d.id]=Object.assign({id:d.id},x);}); S.turmas=m; S.turmasLoaded=true; if(S.tab==="agenda") renderAgenda(); else if(S.tab==="competicao") renderCompeticao(); else if(S.tab==="mar") renderMar(); refreshSheet(); }, ()=>{ S.turmasLoaded=true; renderAgenda(); });
+  db.collection("inscricoes").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data()||{}; }); S.insc=m; resolveNames(); if(S.tab==="agenda") renderAgenda(); else if(S.tab==="competicao") renderCompeticao(); refreshSheet(); }, ()=>{});
+  db.collection("avisos").orderBy("criado","desc").limit(150).onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=Object.assign({_id:d.id}, d.data()); }); S.avisos=m; S.avisosLoaded=true; if(S.tab==="mural"){ marcarLido(); renderMural(); } else if(S.tab==="agenda") renderAgenda(); else if(S.tab==="mar") renderMar(); updateBadge(); }, ()=>{ S.avisosLoaded=true; });
+  db.collection("provas").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=Object.assign({_id:d.id}, d.data()); }); S.provas=m; if(S.tab==="competicao") renderCompeticao(); }, ()=>{});
+  if(S.platAdmin){
+    db.collection("atletas").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data()||{}; }); S.atletas=m; S.atletaMe=S.uid?(m[S.uid]||null):null; resolveNames(); if(S.tab==="competicao") renderCompeticao(); }, ()=>{});
+    db.collection("alunos").onSnapshot(s=>{ S.alunos = s.docs.map(d=>Object.assign({_id:d.id}, d.data())); S.alunosLoaded=true; S.minhaFicha = S.uid ? (S.alunos.find(a=>a._id===S.uid)||null) : null; updateBadge(); if(S.tab==="alunos") renderAlunos(); else if(S.tab==="competicao") renderCompeticao(); }, ()=>{ S.alunosLoaded=true; renderAlunos(); });
+    db.collection("equipe").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data()||{}; }); S.equipe=m; resolveNames(); if(S.tab==="clube") renderClube(); }, ()=>{});
+    if(S.uid){ try{ const me=await db.doc("equipe/"+S.uid).get(); if(!me.exists) await db.doc("equipe/"+S.uid).set({desde:new Date().toISOString()}); }catch(_){} }
+  } else if(S.uid){
+    db.doc("atletas/"+S.uid).onSnapshot(s=>{ S.atletaMe=s.exists?s.data():null; if(S.tab==="competicao"||S.tab==="agenda") render(); }, ()=>{});
+    db.doc("alunos/"+S.uid).onSnapshot(s=>{ S.minhaFicha=s.exists?s.data():null; S.alunosLoaded=true; render(); }, ()=>{ S.alunosLoaded=true; });
+  }
+  render();
+})();
+function montarBarraTeste(){
+  const b=document.createElement("div"); b.className="testbar";
+  b.innerHTML=`<span><b>Versão de testes.</b> Previsão ao vivo; dados salvos só neste aparelho.</span><label>Ver como <select id="tbPapel"><option value="gestao">Gestão</option><option value="instrutor">Instrutor</option><option value="aluno">Aluno</option></select></label><button class="linkbtn" id="tbLimpa">Apagar dados de teste</button>`;
+  document.querySelector("main").prepend(b);
+  const sel=b.querySelector("#tbPapel"); sel.value=TESTE.papel;
+  sel.addEventListener("change",()=>{ try{ localStorage.setItem(TESTE.RKEY, sel.value); }catch(_){} location.reload(); });
+  b.querySelector("#tbLimpa").addEventListener("click",async()=>{ if(!await ask("Apagar todos os dados salvos nesta versão de testes?","Apagar")) return; try{ localStorage.removeItem(TESTE.KEY); }catch(_){} location.reload(); });
+}
+setInterval(()=>{ try{ updateBadge(); }catch(_){} }, 60000);
+function showNoDb(){
+  const n=$("#dbnotice"); n.hidden=false;
+  n.textContent="Abra este app pelo Claude, conectado à sua conta, para salvar boletins e cadastros.";
+  S.boletinsLoaded=true; S.alunosLoaded=true; S.turmasLoaded=true; S.avisosLoaded=true; render();
+}
+})();
+</script>
+</body>
+</html>
