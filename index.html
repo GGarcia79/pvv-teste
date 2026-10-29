@@ -406,6 +406,9 @@ nav.bottom button.novo{background:#FFD21A;color:#3A2F00}
 nav.bottom button.novo svg{color:#3A2F00}
 nav.tabs button.novo{background:#FFD21A;color:#3A2F00}
 .btn:disabled{opacity:.45;cursor:not-allowed}
+.mine.cxl{background:var(--stop-soft);color:var(--stop)}
+.mine.cxl b{display:block;font-size:16px}
+.mine.cxl span{display:block;font-weight:500;color:var(--ink);font-size:14px}
 .backbtn{background:none;border:0;color:var(--ocean);font-weight:600;font-size:15px;padding:4px 0 10px;cursor:pointer}
 .sech{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:21px;font-weight:600;margin:22px 0 8px}
 .ptitle{margin:0 0 12px;font-size:26px}
@@ -2306,13 +2309,22 @@ const IC = {
   clube:`<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 14h20l-2.5 3.5h-15z"/><path d="M5 14V9M19 14V9M5 9h14"/></svg>`,
   audit:`<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg>`
 };
+function minhasRemadasHTML(){
+  const r=(S.insc[S.uid]&&S.insc[S.uid].r)||{}, desde=addDays(todaySP(),-1);
+  const itens=Object.entries(r).map(([id,x])=>[S.turmas[id],x]).filter(([t,x])=>t && t.data>=desde && (x.s==="vou"||x.s==="talvez")).sort((a,b)=>(a[0].data+a[0].inicio).localeCompare(b[0].data+b[0].inicio));
+  const linha=([t,x])=>{ let st, cls;
+    if(t.status==="cancelada"){ st=`Remada cancelada${t.motivo?`: ${t.motivo.toLowerCase()}`:""}`; cls="red"; }
+    else { const me=meuStatus(t, entradas(t)); st={vou:"Confirmado", talvez:"Talvez", espera:`Na fila, posição ${me&&me.pos}`, oferta:"Vaga aberta para você: confirme", expirou:"Prazo da vaga terminou"}[me&&me.s]||"Agendado"; cls={vou:"grn", oferta:"amb", espera:"amb", expirou:"amb"}[me&&me.s]||""; }
+    return `<button class="item" data-goag><span style="min-width:0;flex:1"><span class="nm">${esc(dataCurta(t.data))}, ${esc(t.inicio)}</span><span class="sub"> ${esc(NOME_BASE[t.local]||t.local)}</span><span class="badges"><span class="b ${cls}">${esc(st)}</span></span></span></button>`; };
+  return `<h3 class="sech">Minhas remadas</h3>${itens.length?`<div class="list">${itens.map(linha).join("")}</div>`:`<div class="empty">Nenhuma remada agendada. <button class="linkbtn" data-goag>Ver agenda</button></div>`}`;
+}
 function renderPerfil(){
   const el=$("#perfilBody");
   if(!S.db){ el.innerHTML=`<div class="locked"><h3>Indisponível aqui</h3><p>Abra o app conectado à sua conta.</p></div>`; return; }
   if(S.role==="visitante"){ el.innerHTML=`<div class="locked"><h3>Entre com sua conta</h3><p>Faça login para preencher sua ficha e agendar.</p></div>`; return; }
   if(S.gsub && S.canEdit){ const f={painel:renderPainel, painelcomp:renderPainelComp, auditoria:renderAuditoria}[S.gsub];
     el.innerHTML=`<button class="backbtn" data-gback>‹ Gestão</button><div id="gsubBody"></div>`; f($("#gsubBody")); el.querySelector("[data-gback]").addEventListener("click",()=>{ S.gsub=null; renderPerfil(); }); return; }
-  if(S.role==="aluno"){ el.innerHTML=cartaoPerfil()+`<div id="fichaBox"></div>`+painelSeguranca(); renderFichaAluno($("#fichaBox")); bindPerfil(el); return; }
+  if(S.role==="aluno"){ el.innerHTML=cartaoPerfil()+minhasRemadasHTML()+`<div id="fichaBox"></div>`+painelSeguranca(); renderFichaAluno($("#fichaBox")); bindPerfil(el); el.querySelectorAll("[data-goag]").forEach(b=>b.addEventListener("click",()=>setTab("agenda"))); return; }
   const revisar=S.alunos.filter(precisaRevisao).length;
   el.innerHTML=cartaoPerfil()+`<h3 class="sech">${S.role==="agencia"?"Comunicação":"Gestão"}</h3>
     <div class="gtiles">
@@ -2733,10 +2745,10 @@ function cardTurma(t){
     </button>
     ${cap!=null?`<div class="vagasw"><div class="vagas"><div><b>${cap}</b><span>vagas</span></div><div><b>${n}</b><span>agendados</span></div><div class="${disp?"ok":"zero"}"><b>${disp}</b><span>disponíveis</span></div>${fila?`<div><b>${fila}</b><span>na fila</span></div>`:""}</div><div class="cap"><div class="bar"><i class="${n>=cap?"full":""}" style="width:${pct}%"></i></div></div></div>`:""}
     ${me&&me.s==="oferta"?`<div class="oferta"><b>Abriu uma vaga para você!</b><span>Confirme em até ${esc(minRest(me.ate))}, ou ela passa para o próximo da fila.</span><div class="row" style="gap:8px;margin-top:8px"><button class="btn small" data-aceita="${esc(t.id)}">Quero a vaga</button><button class="btn ghost small" data-recusa="${esc(t.id)}">Não vou mais</button></div></div>`:""}
-    ${meTxt?`<div class="mine ${me.s==="espera"||me.s==="expirou"?"esp":""}">${meTxt}</div>`:""}
+    ${off&&me&&me.s!=="nao" ? `<div class="mine cxl"><b>Remada cancelada</b><span>${t.motivo?`Motivo: ${esc(t.motivo.toLowerCase())}.`:"Cancelada pelo clube."}${t.motivo_obs?" "+esc(t.motivo_obs):""} Seu agendamento foi cancelado automaticamente.</span></div>` : meTxt?`<div class="mine ${me.s==="espera"||me.s==="expirou"?"esp":""}">${meTxt}</div>`:""}
     ${S.uid && elig && !fichaOk && !off && !closed?`<div class="mine esp">Ficha de saúde pendente. <button class="linkbtn" data-goficha>Preencher ficha</button> para agendar.</div>`:""}
     ${S.uid && !elig && !off && !closed?`<div class="mine">${mc?`Treino exclusivo para ${esc(CAT_LABEL[t.categoria])}`:"Informe seu ano de nascimento na aba Provas para confirmar este treino"}</div>`:""}
-    ${S.canAgenda&&!closed?`<div class="staffrow">${off?`<button class="btn ghost small" data-reabre="${esc(t.id)}">Reabrir remada</button>`:`<button class="btn danger small" data-cancela="${esc(t.id)}">Cancelar remada (instrutor)</button>`}</div>`:""}
+    ${S.canAgenda&&!closed?`<div class="staffrow">${off?`<button class="btn ghost small" data-reabre="${esc(t.id)}">Reabrir remada</button>`:`<button class="btn danger small" data-cancela="${esc(t.id)}">Cancelar remada</button>`}</div>`:""}
     ${canR&&!(me&&me.s==="oferta")?`<div class="rsvp" data-t="${esc(t.id)}">${[["vou",cheio?"Entrar na fila":"Vou"],["talvez","Talvez"],["nao","Não vou"]].map(([k,l])=>`<button class="${k}" data-s="${k}" aria-pressed="${me&&(me.s===k||(k==="vou"&&me.s==="espera"))?"true":"false"}" ${S.pending?"disabled":""}>${l}</button>`).join("")}</div>`:""}
   </article>`;
 }
