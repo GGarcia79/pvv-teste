@@ -399,6 +399,140 @@ nav.tabs button.alerta{background:#fff;color:var(--stop)}
 .lightbox{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:20px}
 .lightbox img{max-width:100%;max-height:100%;border-radius:8px}
 .lightbox .x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;background:#fff;border:0;width:40px;height:40px;border-radius:50%;font-size:22px}
+/* ---------- v8 ---------- */
+nav.bottom button{font-size:10.5px}
+nav.bottom button svg{width:22px;height:22px}
+nav.bottom button.novo{background:#FFD21A;color:#3A2F00}
+nav.bottom button.novo svg{color:#3A2F00}
+nav.tabs button.novo{background:#FFD21A;color:#3A2F00}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.backbtn{background:none;border:0;color:var(--ocean);font-weight:600;font-size:15px;padding:4px 0 10px;cursor:pointer}
+.sech{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:21px;font-weight:600;margin:22px 0 8px}
+.ptitle{margin:0 0 12px;font-size:26px}
+.gtiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (min-width:760px){.gtiles{grid-template-columns:repeat(3,1fr)}}
+.gtile{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;cursor:pointer;min-height:132px}
+.gtile b{font-size:17px}
+.gtile span:last-child{font-size:13.5px;color:var(--muted);line-height:1.3}
+.gic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px}
+@media (min-width:760px){.kpis{grid-template-columns:repeat(4,1fr)}}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.kpi .n{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:34px;font-weight:700;line-height:1}
+.kpi .n small{font-size:18px;color:var(--muted)}
+.kpi .l{font-size:13px;color:var(--muted);margin-top:2px}
+.kpi.warn .n{color:var(--warn)}
+.bars{display:grid;gap:6px}
+.barrow{display:grid;grid-template-columns:minmax(90px,38%) 1fr auto;gap:8px;align-items:center;font-size:14px}
+.bl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bt{height:10px;background:var(--surface-2);border-radius:5px;overflow:hidden}
+.bt i{display:block;height:100%;border-radius:5px}
+.bv{font-weight:600;min-width:28px;text-align:right}
+.bv small{font-weight:400;color:var(--muted)}
+.wk{display:flex;gap:6px;align-items:flex-end;height:130px;padding-top:6px}
+.wkc{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%}
+.wkb{flex:1;width:100%;display:flex;flex-direction:column-reverse;border-radius:6px 6px 0 0;overflow:hidden;background:var(--surface-2)}
+.wkb i{display:block;width:100%}
+.wkb i.u,.legend i.u{background:var(--ocean)} .wkb i.l,.legend i.l{background:#3D958F}
+.wkc span{font-size:11px;color:var(--muted)}
+.legend{display:flex;gap:14px;font-size:13px;color:var(--muted);margin-top:6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.fcard,.post{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+.fcard{padding:14px 16px;border-left:5px solid var(--warn)}
+.fcard.off{opacity:.65}
+.fcard .tp{font-size:14px;font-weight:600;color:var(--warn)}
+.fcard h3,.post h3{margin:4px 0;font-size:21px}
+.fcard .tx,.post .tx{white-space:pre-wrap;margin:4px 0 0}
+.post img{width:100%;max-height:340px;object-fit:cover;display:block}
+.pbody{padding:12px 16px 14px}
+.b.rede{background:var(--ocean-soft);color:var(--ocean)}
+.b.r-instagram{background:#FCE4EF;color:#B0185B} .b.r-youtube{background:#FDE2E0;color:#C0392B} .b.r-facebook{background:#E3ECFA;color:#2050A0} .b.r-tiktok{background:#E8E8E8;color:#111}
+.wapre{white-space:pre-wrap;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-family:inherit;font-size:14px;max-height:260px;overflow:auto;margin:0}
+.btn.wa{background:#1FA855;color:#fff}
+.wprog{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.wbar{flex:1;height:6px;border-radius:3px;background:var(--surface-2);overflow:hidden}
+.wbar i{display:block;height:100%;background:var(--ocean);transition:width .3s}
+.wprog span{font-size:13px;color:var(--muted);white-space:nowrap}
+.wnav{position:sticky;bottom:-18px;background:var(--surface);padding:12px 0 4px;margin-top:16px;border-top:1px solid var(--line)}
+.wstep[hidden],.fstep[hidden]{display:none}
+.wt{margin:4px 0 10px;font-size:20px}
+.legal{max-height:46vh;overflow:auto;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:14.5px}
+.legal h4{margin:4px 0 8px;font-size:18px;color:var(--ocean);text-align:center}
+.legal h5{margin:12px 0 4px;font-size:15px;color:var(--ocean)}
+.legal p,.legal ul{margin:0 0 6px}
+.concorda{display:flex;gap:10px;align-items:center;background:var(--ocean-soft);border-radius:12px;padding:12px 14px;margin-top:10px;font-weight:600;cursor:pointer}
+.concorda input{width:22px;height:22px;accent-color:var(--ocean);flex:none}
+.concorda.opc{background:var(--surface-2);font-weight:500}
+.passos{padding-left:20px;margin:6px 0 10px} .passos li{margin:4px 0}
+.mareline{display:flex;align-items:center;gap:10px;margin:0 16px 10px;padding:9px 12px;border-radius:10px;background:var(--surface-2);font-size:14px}
+.mareline svg{flex:none}
+.mareline b{display:block}
+.mareline span{display:block;color:var(--muted);font-size:13px}
+.mareline.enchente{background:#E1F0FA;color:#14577A} .mareline.vazante{background:#EAF3EE;color:#1E6B45} .mareline.estofo{background:var(--warn-soft);color:var(--warn)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mareline.enchente{background:#16384A;color:#9CD3EE} :root:not([data-theme="light"]) .mareline.vazante{background:#173A29;color:#9BDDB7}}
+.b.mare-enchente{background:#E1F0FA;color:#14577A} .b.mare-vazante{background:#EAF3EE;color:#1E6B45} .b.mare-estofo{background:var(--warn-soft);color:var(--warn)}
+.vagas{display:flex;gap:6px;margin-top:8px}
+.vagas>div{flex:1;background:var(--surface-2);border-radius:8px;padding:5px 6px;text-align:center;min-width:0}
+.vagas b{display:block;font-family:"Barlow Condensed",system-ui,sans-serif;font-size:22px;line-height:1.05}
+.vagas span{font-size:11.5px;color:var(--muted)}
+.vagas .ok b{color:var(--ok)} .vagas .zero b{color:var(--stop)}
+.oferta{background:#FFF4C2;color:#3A2F00;padding:12px 16px;border-top:1px solid var(--line)}
+.oferta b{display:block;font-size:16px}
+.oferta span{font-size:14px}
+.tag.of{color:var(--warn);font-weight:600}
+.planos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (min-width:760px){.planos{grid-template-columns:repeat(5,1fr)}}
+.plano{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.plano.dest{border:2px solid var(--brand)}
+.pn{font-weight:600}
+.pv{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:clamp(21px,6.2vw,28px);font-weight:700;color:var(--ocean);white-space:nowrap}
+.plano{min-width:0}
+.vagasw{padding:0 16px 12px}
+.vagasw .vagas{margin-top:0}
+.pm{font-size:13px;color:var(--muted)}
+.eco{font-size:12.5px;font-weight:700;color:var(--ok)}
+.bases{display:grid;gap:12px}
+@media (min-width:760px){.bases{grid-template-columns:1fr 1fr}}
+.estl{list-style:none;margin:0;padding:0}
+.estl li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-top:1px solid var(--line)}
+.estl li:first-child{border-top:0}
+.estl small{display:block;color:var(--muted);font-size:13px}
+.est{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700}
+.est.sim{background:var(--ok-soft);color:var(--ok)} .est.nao{background:var(--stop-soft);color:var(--stop)} .est.q{background:var(--surface-2);color:var(--muted)}
+.estrow{display:grid;grid-template-columns:1fr auto;gap:6px;align-items:center;padding:6px 0;border-top:1px solid var(--line)}
+.estrow input{grid-column:1/-1;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:7px 9px}
+.estrow select{background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:6px}
+.dif{margin:0;padding-left:20px} .dif li{margin:4px 0}
+.perfilcard{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:6px}
+.perfilcard b{display:block;font-size:19px}
+.perfilcard span{display:block;color:var(--muted);font-size:14px}
+img.av{object-fit:cover;padding:0}
+.av.big{width:64px;height:64px;font-size:26px}
+.lockscreen{position:fixed;inset:0;z-index:60;background:linear-gradient(160deg,#F23F0C,#FC6A14);display:grid;place-items:center;padding:24px}
+.lockbox{background:rgba(255,255,255,.96);border-radius:20px;padding:24px;max-width:340px;width:100%;text-align:center;display:grid;gap:10px;color:#10293A}
+.lockbox img{margin:0 auto;background:#F04A12;border-radius:14px;padding:6px}
+.lockbox h2{margin:0}
+.lockbox form{display:grid;gap:8px}
+.lockbox input{border:1px solid #D3DEE3;border-radius:10px;padding:10px 12px;font-size:16px}
+.lkerr{color:#C0392B;margin:0;min-height:1em}
+.campo{border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:8px;background:var(--surface-2)}
+.campo input[data-k=rotulo]{flex:1;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px}
+.campo select,.campo textarea{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px}
+.campo textarea{width:100%;margin-top:6px;min-height:70px}
+.cn{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:18px;color:var(--muted);width:20px}
+.ib{border:1px solid var(--line);background:var(--surface);border-radius:8px;width:32px;height:32px;cursor:pointer}
+.qbox{display:flex;flex-direction:column;gap:6px}
+.ql{font-size:15px;color:var(--ink);font-weight:500}
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opt{cursor:pointer}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt span{display:block;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface-2);font-size:14.5px}
+.opt input:checked+span{background:var(--ocean);border-color:var(--ocean);color:#fff}
+.opt input:focus-visible+span{outline:2px solid var(--ocean);outline-offset:2px}
+.aceite{background:var(--ocean-soft);border-radius:12px;padding:12px;font-weight:600}
+details.resp{border-top:1px solid var(--line);padding:8px 0}
+details.resp summary{cursor:pointer}
+
 .toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:15px;z-index:30}
 .toast[hidden]{display:none}
 .notice{background:var(--warn-soft);color:var(--ink);border-radius:10px;padding:10px 14px;margin-bottom:14px;font-size:15px}
@@ -414,12 +548,13 @@ nav.tabs button.alerta{background:#fff;color:var(--stop)}
       <small id="sub">Clube, Urca, Rio de Janeiro</small>
     </div>
     <nav class="tabs" aria-label="Seções">
-      <button data-tab="agenda">Agenda</button>
-      <button data-tab="mar">Mar</button>
-      <button data-tab="mural">Mural</button>
-      <button data-tab="competicao">Competição</button>
-      <button data-tab="alunos"><span class="lbl">Alunos</span></button>
-      <button data-tab="clube">Clube</button>
+      <button data-tab="agenda"><span class="lbl">Agenda</span></button>
+      <button data-tab="mar"><span class="lbl">Mar</span></button>
+      <button data-tab="mural"><span class="lbl">Alertas</span></button>
+      <button data-tab="midia"><span class="lbl">Mídia</span></button>
+      <button data-tab="competicao"><span class="lbl">Provas</span></button>
+      <button data-tab="clube"><span class="lbl">Clube</span></button>
+      <button data-tab="perfil"><span class="lbl">Perfil</span></button>
     </nav>
     <div class="who" id="who"></div>
   </div>
@@ -445,34 +580,30 @@ nav.tabs button.alerta{background:#fff;color:var(--stop)}
     <div id="marBody"></div>
   </section>
 
-  <!-- MURAL -->
-  <section class="view" id="v-mural" hidden>
-    <div id="muralBody"></div>
-  </section>
-
+  <!-- ALERTAS -->
+  <section class="view" id="v-mural" hidden><div id="muralBody"></div></section>
+  <!-- MÍDIA -->
+  <section class="view" id="v-midia" hidden><div id="midiaBody"></div></section>
   <!-- COMPETIÇÃO -->
-  <section class="view" id="v-competicao" hidden>
-    <div id="compBody"></div>
-  </section>
-
+  <section class="view" id="v-competicao" hidden><div id="compBody"></div></section>
+  <!-- CLUBE (planos e estrutura) -->
+  <section class="view" id="v-clube" hidden><div id="sobreBody"></div></section>
+  <!-- PERFIL / GESTÃO -->
+  <section class="view" id="v-perfil" hidden><div id="perfilBody"></div></section>
   <!-- ALUNOS -->
-  <section class="view" id="v-alunos" hidden>
-    <div id="alunosBody"></div>
-  </section>
-
-  <!-- CLUBE -->
-  <section class="view" id="v-clube" hidden>
-    <div id="clubeBody"></div>
-  </section>
+  <section class="view" id="v-alunos" hidden><button class="backbtn" data-tab="perfil">‹ Gestão</button><div id="alunosBody"></div></section>
+  <!-- OPERAÇÃO -->
+  <section class="view" id="v-operacao" hidden><button class="backbtn" data-tab="perfil">‹ Gestão</button><div id="clubeBody"></div></section>
 </main>
 
 <nav class="bottom" aria-label="Seções">
-  <button data-tab="agenda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M9 15l2 2 4-4"/></svg>Agenda</button>
-  <button data-tab="mar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 12c2.5 2 5 2 7.5 0s5-2 7.5 0 3.5 1.5 5 1"/><path d="M2 17c2.5 2 5 2 7.5 0s5-2 7.5 0 3.5 1.5 5 1"/><circle cx="17" cy="6" r="2.5"/></svg>Mar</button>
-  <button data-tab="mural"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4a1 1 0 0 0 1 1h2l5 4V5L7 9H5a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/></svg>Mural</button>
-  <button data-tab="competicao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20h7"/></svg>Competição</button>
-  <button data-tab="alunos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.8a3.3 3.3 0 0 1 0 6.4M18 14.8c2 .7 3.2 2.5 3.6 5.2"/></svg><span class="lbl">Alunos</span></button>
-  <button data-tab="clube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 14h20l-2.5 3.5h-15z"/><path d="M5 14V9M19 14V9M5 9h14"/></svg>Clube</button>
+  <button data-tab="agenda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M9 15l2 2 4-4"/></svg><span class="lbl">Agenda</span></button>
+  <button data-tab="mar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2.5 2 5 2 7.5 0s5-2 7.5 0 3.5 1.5 5 1"/><path d="M2 17c2.5 2 5 2 7.5 0s5-2 7.5 0 3.5 1.5 5 1"/><circle cx="17" cy="6" r="2.5"/></svg><span class="lbl">Mar</span></button>
+  <button data-tab="mural"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg><span class="lbl">Alertas</span></button>
+  <button data-tab="midia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9.5v5l4.5-2.5z"/></svg><span class="lbl">Mídia</span></button>
+  <button data-tab="competicao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20h7"/></svg><span class="lbl">Provas</span></button>
+  <button data-tab="clube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 14h20l-2.5 3.5h-15z"/><path d="M5 14V9M19 14V9M5 9h14"/></svg><span class="lbl">Clube</span></button>
+  <button data-tab="perfil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c1-3.6 3.8-5.5 7-5.5s6 1.9 7 5.5"/></svg><span class="lbl">Perfil</span></button>
 </nav>
 
 <div class="overlay" id="ov" hidden><div class="sheet" id="sheet" role="dialog" aria-modal="true"></div></div>
@@ -515,6 +646,7 @@ const S = {
   db:null, user:null, canEdit:false, uid:null,
   tab:"agenda", day:todaySP(),
   previsoes:{}, marHora:{}, marSim:null, previsaoConectada:false,
+  forms:{}, midia:{}, formresp:{}, minhasResp:null, gsub:null, canMidia:false,
   role:"visitante", canAgenda:false, platAdmin:false, isOwner:false, equipe:{}, minhaFicha:null, me:null, agendaBase:"todas",
   avisos:{}, avisosLoaded:false, muralFiltro:"todos", muralAberto:{},
   provas:{}, atletas:{}, atletaMe:null, showPastProvas:false,
@@ -526,10 +658,12 @@ const S = {
 };
 
 /* ---------- tabs ---------- */
-const TABS = ["agenda","mar","mural","competicao","alunos","clube"];
+const TABS = ["agenda","mar","mural","midia","competicao","clube","perfil","alunos","operacao"];
+const SUB_PERFIL = ["alunos","operacao"];
 function setTab(t){
   S.tab = t;
-  document.querySelectorAll("[data-tab]").forEach(b => b.setAttribute("aria-current", b.dataset.tab===t ? "page" : "false"));
+  document.querySelectorAll("nav [data-tab]").forEach(b => b.setAttribute("aria-current", (b.dataset.tab===t || (b.dataset.tab==="perfil" && SUB_PERFIL.includes(t))) ? "page" : "false"));
+  S.gsub=null;
   TABS.forEach(k => $("#v-"+k).hidden = k!==t);
   if(location.hash !== "#"+t) history.replaceState(null,"","#"+t);
   render();
@@ -853,8 +987,8 @@ async function buscarPrevisao(date){
       const w=await get(`https://api.open-meteo.com/v1/forecast?latitude=${c.lat}&longitude=${c.lon}&hourly=${hv}&wind_speed_unit=kn&timezone=${tz}${rng}`);
       const h={temp:w.temperature_2m, feels:w.apparent_temperature, rh:w.relative_humidity_2m, prob:w.precipitation_probability, mm:w.precipitation, code:w.weather_code, wind:w.wind_speed_10m, dir:w.wind_direction_10m, gust:w.wind_gusts_10m, uv:w.uv_index, isday:w.is_day};
       if(b==="Urca"){
-        try{ const m=await get(`https://marine-api.open-meteo.com/v1/marine?latitude=${c.mlat}&longitude=${c.mlon}&hourly=wave_height,wave_period,wave_direction,sea_level_height_msl,sea_surface_temperature&cell_selection=sea&timezone=${tz}${rng}`);
-          Object.assign(h,{wave:m.wave_height, wper:m.wave_period, wdir:m.wave_direction, sea:m.sea_level_height_msl, sst:m.sea_surface_temperature}); }catch(_){ h.semMar=true; }
+        try{ const m=await get(`https://marine-api.open-meteo.com/v1/marine?latitude=${c.mlat}&longitude=${c.mlon}&hourly=wave_height,wave_period,wave_direction,sea_level_height_msl,sea_surface_temperature,ocean_current_velocity,ocean_current_direction&cell_selection=sea&timezone=${tz}${rng}`);
+          Object.assign(h,{wave:m.wave_height, wper:m.wave_period, wdir:m.wave_direction, sea:m.sea_level_height_msl, sst:m.sea_surface_temperature, cur:m.ocean_current_velocity, curdir:m.ocean_current_direction}); }catch(_){ h.semMar=true; }
       }
       bases[b]=h;
     }
@@ -892,7 +1026,9 @@ function cancelarRemada(id, depois){
       try{
         await S.db.doc("turmas/"+id).update({status:"cancelada", motivo, motivo_obs:obs, cancelada_por:S.uid||"", cancelada_em:new Date().toISOString()});
         await S.db.doc("avisos/canc_"+id).set({tipo:"cancelamento", titulo:`${nm} de ${dataCurta(t.data)}, ${t.inicio}, cancelada`, texto:`Motivo: ${motivo.toLowerCase()}.${obs?" "+obs:""}`, data_evento:t.data, hora:t.inicio, local:t.local, link:"", expira:t.data, fixado:false, criado:new Date().toISOString(), turma:id});
-        toast("Remada cancelada. Alerta publicado."); if(depois) depois(); else closeSheet();
+        auditar("Remada cancelada",`${nm}, ${t.data} ${t.inicio}: ${motivo}`);
+        toast("Remada cancelada. Alerta publicado.");
+        compartilharWhats("cancelamento", `*REMADA CANCELADA*\n${nm}, ${dataCurta(t.data)}, ${t.inicio}\nMotivo: ${motivo.toLowerCase()}.${obs?"\n"+obs:""}`, depois);
       }catch(e){ failWrite(e); }
     });
   });
@@ -915,17 +1051,6 @@ function uvNivel(u){ if(u==null) return null; if(u<3) return ["Baixo","#3EA72D",
 function wavePath(y, A, L, W){ let d=`M0 ${y}`; for(let x=0;x<W;x+=L) d+=` q ${L/4} ${-A} ${L/2} 0 t ${L/2} 0`; return d+` V200 H0 Z`; }
 function nuvem(x,y,s,cor,cls){ return `<g class="${cls||""}"><g transform="translate(${x} ${y}) scale(${s})"><path d="M0 14 q-12 0 -12 -10 q0 -10 12 -10 q4 -12 18 -10 q12 -8 22 4 q14 0 14 12 q0 14 -14 14z" fill="${cor}"/></g></g>`; }
 function anim(type, vals, dur, extra){ if(REDUZ) return ""; return `<animateTransform attributeName="transform" type="${type}" values="${vals}" dur="${dur}s" repeatCount="indefinite" ${extra===undefined?"additive=\"sum\"":extra}/>`; }
-function canoa(nivel, A, parada){
-  const remando = nivel<2 && !parada;
-  const pad=(x)=>`<g transform="translate(${x} -8)"><circle cx="0" cy="-9" r="3.6" fill="#B97A55"/><path d="M-3 -6 h6 v7 h-6z" fill="#FFF3E6"/><g>${anim("rotate","-25;20;-25",1.4)}<line x1="0" y1="-4" x2="9" y2="12" stroke="#5A3A22" stroke-width="1.6"/><path d="M9 12 l3 6 l-4 1 z" fill="#5A3A22"/></g></g>`;
-  return `<g transform="translate(70 ${nivel<2?150:156})"><g>${anim("translate",`0 0;0 ${-Math.min(3,A/2)};0 0`,2.4)}${anim("rotate","-1.2 90 0;1.2 90 0;-1.2 90 0",3.2)}
-    <path d="M42 -6 Q44 -20 50 -20 M128 -6 Q130 -20 136 -20" stroke="#5A3A22" stroke-width="2.2" fill="none"/>
-    <path d="M40 -22 Q90 -27 150 -22 Q148 -18 140 -18 Q90 -21 46 -18 Q40 -18 40 -22z" fill="#C93A0B"/>
-    ${remando?[28,58,88,118,148].map(pad).join(""):""}
-    <path d="M0 -8 Q12 9 42 9 L148 9 Q172 9 182 -9 Q150 -3 92 -3 Q32 -3 0 -8z" fill="#F04A12"/>
-    <path d="M12 0 Q92 7 170 0" stroke="#FFF3E6" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  </g></g>`;
-}
 function bandeira(nivel){ const cor=["#2C8A57","#F2C230","#D7261E"][nivel]; return `<g transform="translate(262 170)"><line x1="0" y1="0" x2="0" y2="-46" stroke="#5A4A3A" stroke-width="2"/><path d="M1 -46 q8 -3 16 0 q8 3 16 0 v14 q-8 3 -16 0 q-8 -3 -16 0z" fill="${cor}">${REDUZ?"":`<animate attributeName="d" values="M1 -46 q8 -3 16 0 q8 3 16 0 v14 q-8 3 -16 0 q-8 -3 -16 0z;M1 -46 q8 3 16 0 q8 -3 16 0 v14 q-8 -3 -16 0 q-8 3 -16 0z;M1 -46 q8 -3 16 0 q8 3 16 0 v14 q-8 3 -16 0 q-8 -3 -16 0z" dur="1.6s" repeatCount="indefinite"/>`}</path></g>`; }
 function cena(base, c, nivel, hora, vazio){
   const id="g"+base+hora;
@@ -962,7 +1087,7 @@ function cena(base, c, nivel, hora, vazio){
   g+= vazio ? "" : canoa(nivel, A, c.cancelada);
   g+=`<g>${REDUZ?"":`<animateTransform attributeName="transform" type="translate" values="-120 0;0 0" dur="${vel*0.8}s" repeatCount="indefinite"/>`}<path d="${wavePath(160,A,60,480)}" fill="url(#${id}a)"/></g>`;
   g+=`<path d="M248 196 Q262 166 300 160 Q330 156 360 158 V196Z" fill="#EAD7AE"/>`;
-  if(!vazio){ g+=bandeira(nivel)+boneca(c.look, c.persona); if(nivel===1 && !c.cancelada) g+=`<g transform="translate(232 188)"><line x1="0" y1="0" x2="0" y2="-26" stroke="#5A4A3A" stroke-width="2"/><g transform="translate(0 -40)">${REDUZ?"":`<animateTransform attributeName="transform" type="scale" values="1;1.12;1" dur="1.6s" repeatCount="indefinite" additive="sum"/>`}<path d="M0 -16 L15 10 H-15 Z" fill="#FFD21A" stroke="#1B1B1B" stroke-width="2.2" stroke-linejoin="round"/><path d="M0 -6 V3" stroke="#1B1B1B" stroke-width="3" stroke-linecap="round"/><circle cx="0" cy="7" r="1.7" fill="#1B1B1B"/></g></g>`; }
+  if(!vazio){ g+=bandeira(nivel)+boneca(c.look, c.persona); if(nivel===1 && !c.cancelada) g+=`<g transform="translate(252 192) scale(.82)"><line x1="0" y1="0" x2="0" y2="-26" stroke="#5A4A3A" stroke-width="2"/><g transform="translate(0 -40)">${REDUZ?"":`<animateTransform attributeName="transform" type="scale" values="1;1.12;1" dur="1.6s" repeatCount="indefinite" additive="sum"/>`}<path d="M0 -16 L15 10 H-15 Z" fill="#FFD21A" stroke="#1B1B1B" stroke-width="2.2" stroke-linejoin="round"/><path d="M0 -6 V3" stroke="#1B1B1B" stroke-width="3" stroke-linecap="round"/><circle cx="0" cy="7" r="1.7" fill="#1B1B1B"/></g></g>`; }
   return g+`</svg>`;
 }
 function iconeTempo(sky){
@@ -1079,6 +1204,7 @@ function cardWx(base){
     <div class="wx-scene">${cena(base,c,nivelCena,hora,false)}<div class="bubble">${esc(c.look.fala)}${!c.cancelada && ev.nivel>=1 ? " Use colete salva-vidas." : ""}</div></div>
     <div class="wx-head">${iconeTempo(c.night&&(c.sky==="sol"||c.sky==="parcial")?"nublado":c.sky)}<div><div class="wx-name">${nome}</div><div class="wx-cond">${c.night&&c.sky==="sol"?"Céu limpo, antes do nascer do sol":SKY_TXT[c.sky]}, ${String(hora).padStart(2,"0")}h</div></div><div class="wx-stat">${c.cancelada?"Cancelada":COND_CURTO[ev.nivel]}</div></div>
     ${remLinha}
+    ${base==="Urca"?mareFaixa(dia,hora,(baseData(S.boletins[S.day],"Urca")||{}).corrente):""}
     ${!c.cancelada && ev.nivel>=1 ? `<div class="vestnote n${ev.nivel}"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2.5 L22.5 20.5 H1.5 Z" fill="#FFD21A" stroke="#1B1B1B" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 9 V14" stroke="#1B1B1B" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.3" fill="#1B1B1B"/></svg><div><b>${ev.nivel===1?"Atenção":"Condições desfavoráveis"}</b><span>${ev.nivel===1?"Uso de colete salva-vidas recomendado.":"Se os instrutores mantiverem a remada, uso de colete salva-vidas fortemente recomendado."}</span></div></div>` : ""}
     <div class="wx-hours" role="group" aria-label="Horário">${horas.map(h=>`<button data-wh="${base}:${h}" aria-pressed="${h===hora}" class="${rems.some(t=>parseInt(t.inicio,10)===h)?(rems.find(t=>parseInt(t.inicio,10)===h).status==="cancelada"?"rem cx":"rem"):""}">${String(h).padStart(2,"0")}h</button>`).join("")}</div>
     <div class="pills" aria-label="Análise automática">${pills}</div>
@@ -1113,6 +1239,7 @@ function renderMar(){
   html+=`<div class="wxs">${LOCAIS.map(cardWx).join("")}</div>`;
   if(!AO_VIVO && !S.marSim) html+=`<div class="panel"><h3>Previsão automática</h3><p style="margin:0">Dentro do Claude o app não pode buscar dados em sites externos. A <b>versão de testes</b>, o mesmo app publicado em um endereço gratuito, busca a previsão do Open-Meteo sozinha para o dia e o horário escolhidos.${S.canAgenda?" Aqui, a equipe pode ajustar manualmente, se quiser.":""}</p>${S.canAgenda?`<div class="row" style="margin-top:10px"><button class="btn ghost small" id="editB">Ajustar manualmente</button></div>`:""}</div>`;
   html+=`<div class="panel"><h3>Fontes de consulta</h3><div class="links">
+      <a href="https://www.windy.com/?-22.907,-43.188,5" target="_blank" rel="noopener">Windy Rio (conferir dados)</a>
       <a href="https://www.windy.com/-22.955/-43.163?-22.955,-43.163,12" target="_blank" rel="noopener">Windy na Urca</a>
       <a href="https://www.windy.com/-22.973/-43.212?-22.973,-43.212,13" target="_blank" rel="noopener">Windy na Lagoa</a>
       <a href="https://www.marinha.mil.br/chm/tabuas-de-mare" target="_blank" rel="noopener">Tábua de marés</a>
@@ -1182,11 +1309,11 @@ function fichaStatus(a){
 const podeAgendar = st => st.s==="ok" || st.s==="vence";
 function alertas(a){
   const out=[]; const st=fichaStatus(a);
+  if(pagoEmDia(a)===false) out.push(["amb","Mensalidade em aberto"]);
   if(st.s==="incompleta"||st.s==="vencida"||st.s==="liberacao") out.push(["red",st.label]); else if(st.s==="vence") out.push(["amb",st.label]);
   if(a.tem_alergia==="sim"||(a.alergias||"").trim()) out.push(["red","Alergia"]);
   if(a.tem_condicao==="sim") out.push(["red","Condição de saúde"]);
   if(a.nada==="nao") out.push(["red","Não sabe nadar"]);
-  if(a.mensalidade==="pendente") out.push(["amb","Mensalidade pendente"]);
   return out;
 }
 function precisaRevisao(a){ return a.status!=="inativo" && fichaStatus(a).s!=="ok"; }
@@ -1214,6 +1341,7 @@ function fichaResumoHTML(a){
       <dt>Atividade física</dt><dd>${esc({sedentario:"Não pratica",leve:"1 a 2 vezes por semana",regular:"3 ou mais vezes por semana"}[a.atividade]||"–")}</dd>
       ${a.gestante==="sim"?`<dt>Gestante</dt><dd>Sim</dd>`:""}
     </dl></div></div>
+    <div class="section"><h3>Termo e privacidade</h3><dl class="kv"><dt>Termo</dt><dd>${a.termo?`Aceito${a.termo_em?` em ${new Date(a.termo_em).toLocaleDateString("pt-BR")}`:""}${a.termo_v?`, versão ${esc(a.termo_v)}`:""}`:"Não aceito"}</dd><dt>Privacidade</dt><dd>${a.lgpd?`Aceita${a.priv_em?` em ${new Date(a.priv_em).toLocaleDateString("pt-BR")}`:""}`:"Não aceita"}</dd><dt>Uso de imagem</dt><dd>${a.imagem?"Autorizado":"Não autorizado"}</dd></dl></div>
     <div class="section"><h3>PAR-Q</h3>${(a.parq||[]).some(Boolean)?(sim.length?`<div class="health"><p style="margin:0 0 6px"><b>${sim.length} ${sim.length===1?"resposta “sim”":"respostas “sim”"}: exige liberação médica.</b>${a.liberacao?` Liberação registrada em ${new Date(a.liberacao+"T12:00").toLocaleDateString("pt-BR")}.`:""}</p>${sim.map(i=>`<p style="margin:2px 0">${i+1}. ${esc(PARQ[i])}</p>`).join("")}</div>`:`<div class="health none">Todas as respostas “não”.</div>`):`<p class="hint">Não respondido.</p>`}</div>`;
 }
 function ynRow(name, label, val, hint){
@@ -1224,16 +1352,28 @@ function fichaForm(a, gestao, onSave, onCancel){
   const inp=(name,label,type="text",extra="",ph="")=>`<label class="f ${extra}">${label}<input name="${name}" type="${type}" value="${esc(a[name])}" ${ph?`placeholder="${esc(ph)}"`:""}></label>`;
   openSheet(`
     <div class="head"><h2>${gestao?(a.nome?"Ficha de "+esc(a.nome.split(" ")[0]):"Novo aluno"):"Minha ficha"}</h2><button class="x" aria-label="Fechar">×</button></div>
-    <p class="hint">${gestao?"A gestão pode salvar a ficha parcialmente. O aluno só agenda remadas com a ficha completa e revisada no último ano.":"Obrigatória para agendar remadas. Revise todo ano: contatos, plano de saúde, anamnese e PAR-Q."}</p>
+    ${gestao?`<p class="hint">A gestão pode salvar a ficha parcialmente. O aluno só agenda remadas com a ficha completa e revisada no último ano.</p>`:`<div class="wprog"><div class="wbar"><i></i></div><span id="fPasso"></span></div>`}
     <div id="ferr" class="errbox" hidden></div>
     <form id="ff">
-      <fieldset><legend>1. Dados pessoais</legend><div class="grid">
+      ${gestao?"":`<fieldset class="fstep" data-step="0"><legend>Antes de começar</legend>
+        <p>Para remar com segurança, o clube precisa conhecer você. A ficha leva uns 5 minutos e tem 6 partes:</p>
+        <ol class="passos"><li><b>Termo de responsabilidade:</b> os riscos da atividade e as regras de segurança.</li><li><b>Política de privacidade:</b> como seus dados são usados e protegidos.</li><li><b>Dados pessoais.</b></li><li><b>Emergência e plano de saúde:</b> quem avisar e como te atender.</li><li><b>Anamnese:</b> seu histórico de saúde.</li><li><b>PAR-Q:</b> 7 perguntas de sim ou não sobre coração e articulações.</li></ol>
+        <p class="hint">A ficha vale por 12 meses. Você recebe um aviso 30 dias antes de vencer. Sem a ficha em dia, o agendamento fica bloqueado.</p></fieldset>
+      <fieldset class="fstep" data-step="1"><legend>Termo de responsabilidade</legend>
+        <div class="legal">${TERMO_HTML}</div>
+        <label class="concorda"><input type="checkbox" name="termo" ${a.termo&&a.termo_v===TERMO_V?"checked":""}> <span>Li e compreendi o termo de responsabilidade</span></label>
+        <label class="f" style="margin-top:10px">Assinatura: digite seu nome completo<input name="termo_nome" value="${esc(a.termo_nome)}" autocomplete="name"></label></fieldset>
+      <fieldset class="fstep" data-step="2"><legend>Política de privacidade</legend>
+        <div class="legal">${PRIV_HTML}</div>
+        <label class="concorda"><input type="checkbox" name="lgpd" ${a.lgpd&&a.priv_v===PRIV_V?"checked":""}> <span>Li e aceito a Política de Privacidade</span></label>
+        <label class="concorda opc"><input type="checkbox" name="imagem" ${a.imagem?"checked":""}> <span>Autorizo o uso da minha imagem em fotos e vídeos do clube <small>(opcional)</small></span></label></fieldset>`}
+      <fieldset class="fstep" data-step="3"><legend>${gestao?"1. ":""}Dados pessoais</legend><div class="grid">
         <label class="f full">Nome completo<input name="nome" value="${esc(a.nome)}"></label>
         ${inp("telefone","Telefone","tel")}${inp("email","E-mail","email")}
         ${inp("nascimento","Nascimento","date")}
         <label class="f">Naipe${sel("naipe",{"":"–",Feminino:"Feminino",Masculino:"Masculino"},a.naipe)}</label>
       </div></fieldset>
-      <fieldset><legend>2. Emergência e plano de saúde</legend><div class="grid">
+      <fieldset class="fstep" data-step="4"><legend>${gestao?"2. ":""}Emergência e plano de saúde</legend><div class="grid">
         ${inp("emerg1_nome","Contato de emergência")}${inp("emerg1_par","Parentesco")}
         ${inp("emerg1_tel","Telefone do contato","tel","full")}
         ${inp("emerg2_nome","2º contato (opcional)")}${inp("emerg2_par","Parentesco")}
@@ -1248,36 +1388,40 @@ function fichaForm(a, gestao, onSave, onCancel){
         <label class="f">Tipo sanguíneo${sel("sangue",{"":"–","A+":"A+","A-":"A−","B+":"B+","B-":"B−","AB+":"AB+","AB-":"AB−","O+":"O+","O-":"O−","nao_sei":"Não sei"},a.sangue)}</label>
         <label class="f">Sabe nadar?${sel("nada",{"":"Selecione",sim:"Sim",nao:"Não"},a.nada)}</label>
       </div></fieldset>
-      <fieldset><legend>3. Anamnese</legend>
+      <fieldset class="fstep" data-step="5"><legend>${gestao?"3. ":""}Anamnese</legend>
         <p class="hint" style="margin:0 0 8px">Histórico de saúde, remédios e hábitos. Se responder “sim”, descreva.</p>
         ${ANAM.map(([k,t,l])=>`${ynRow(k,l,a[k]||((a[t]||"").trim()?"sim":""))}<label class="f yt"><textarea name="${t}" placeholder="Descreva">${esc(a[t])}</textarea></label>`).join("")}
         ${ynRow("fuma","É fumante?",a.fuma)}
         ${ynRow("gestante","Está gestante? (se não se aplica, marque “não”)",a.gestante)}
         <label class="f" style="margin-top:8px">Pratica outra atividade física?${sel("atividade",{"":"Selecione",sedentario:"Não pratica",leve:"1 a 2 vezes por semana",regular:"3 ou mais vezes por semana"},a.atividade)}</label>
       </fieldset>
-      <fieldset><legend>4. PAR-Q</legend>
+      <fieldset class="fstep" data-step="6"><legend>${gestao?"4. ":""}PAR-Q</legend>
         <p class="hint" style="margin:0 0 8px">Questionário internacional de prontidão para atividade física. Qualquer “sim” exige liberação médica antes de remar.</p>
         ${PARQ.map((q,i)=>ynRow("parq_"+i, `${i+1}. ${q}`, (a.parq||[])[i])).join("")}
       </fieldset>
-      <fieldset><legend>5. Termo de responsabilidade</legend>
+      ${gestao?`<fieldset><legend>5. Termo e privacidade</legend>
         <div class="termo">Declaro que as informações acima são verdadeiras, que estou apto a praticar canoa havaiana e que conheço os riscos da atividade no mar. Comprometo-me a usar colete quando orientado, seguir as instruções dos instrutores e informar ao clube qualquer mudança no meu estado de saúde.</div>
         <label class="chk"><input type="checkbox" name="termo" ${a.termo?"checked":""}> Li e aceito o termo de responsabilidade</label>
         <label class="f" style="margin-top:8px">Assinatura (digite seu nome completo)<input name="termo_nome" value="${esc(a.termo_nome)}"></label>
         <label class="chk" style="margin-top:8px"><input type="checkbox" name="lgpd" ${a.lgpd?"checked":""}> Autorizo o clube a usar meus dados de saúde e contatos apenas para a segurança nas remadas (LGPD)</label>
-      </fieldset>
+      </fieldset>`:`<fieldset class="fstep" data-step="7"><legend>Revisão e envio</legend><div id="fRev"></div></fieldset>`}
       ${gestao?`<fieldset><legend>Gestão</legend><div class="grid">
         <label class="f">Situação${sel("status",STATUS,a.status||"ativo")}</label>
         <label class="f">Nível${sel("nivel",NIVEL,a.nivel||"iniciante")}</label>
-        <label class="f">Mensalidade${sel("mensalidade",{em_dia:"Em dia",pendente:"Pendente"},a.mensalidade||"em_dia")}</label>
+        <label class="f">Plano${sel("plano_tipo",Object.assign({"":"Não definido"},Object.fromEntries(Object.entries(PLANOS).map(([k,[n]])=>[k,n]))),a.plano_tipo)}</label>
+        <label class="f">Pago até<input type="date" name="pago_ate" value="${esc(a.pago_ate)}"></label>
+        <div class="full"><button type="button" class="btn ghost small" id="regPag">Registrar pagamento do período</button> <span class="hint" id="regPagT"></span></div>
         ${inp("inicio","Início no clube","date")}
         ${inp("liberacao","Liberação médica recebida em","date")}
         ${inp("atestado","Atestado válido até","date")}
         <label class="chk full"><input type="checkbox" name="equipe" ${a.equipe?"checked":""}> Equipe de competição</label>
         <label class="chk full"><input type="checkbox" name="revisao" ${!a.ficha_em?"checked":""}> Registrar como revisão anual da ficha (feita com o aluno hoje)</label>
       </div></fieldset>`:""}
-      <div class="row" style="margin-top:18px"><span class="spacer"></span><button type="button" class="btn ghost" id="fCancel">Cancelar</button><button class="btn" type="submit">${gestao?"Salvar ficha":"Enviar ficha"}</button></div>
+      ${gestao?`<div class="row" style="margin-top:18px"><span class="spacer"></span><button type="button" class="btn ghost" id="fCancel">Cancelar</button><button class="btn" type="submit">Salvar ficha</button></div>`
+        :`<div class="row wnav"><button type="button" class="btn ghost" id="fVolta">Voltar</button><span class="spacer"></span><button type="button" class="btn" id="fSegue">Continuar</button></div>`}
     </form>`, root=>{
-      root.querySelector("#fCancel").addEventListener("click", onCancel||closeSheet);
+      const fc=root.querySelector("#fCancel"); if(fc) fc.addEventListener("click", onCancel||closeSheet);
+      const rp=root.querySelector("#regPag"); if(rp) rp.addEventListener("click",()=>{ const form=root.querySelector("#ff"); const tp=form.plano_tipo.value; if(!tp){ toast("Escolha o plano primeiro"); return; } const meses=PLANOS[tp][1]; const hoje=todaySP(); const base=form.pago_ate.value&&form.pago_ate.value>hoje?form.pago_ate.value:hoje; form.pago_ate.value=addMeses(base,meses); root.querySelector("#regPagT").textContent=`Pago até ${dataCurta(form.pago_ate.value)}. Salve a ficha para confirmar.`; });
       let foto = a.plano_foto || "";
       const cpfIn=root.querySelector("[name=plano_cpf]");
       cpfIn.addEventListener("input",()=>{ cpfIn.value=fmtCPF(cpfIn.value); });
@@ -1289,17 +1433,37 @@ function fichaForm(a, gestao, onSave, onCancel){
         catch(_){ prev.innerHTML=`<span class="hint">Não foi possível ler essa imagem. Tente outra foto.</span>`; }
       });
       rm.addEventListener("click",()=>{ foto=""; prev.innerHTML=`<span class="hint">Nenhuma foto enviada</span>`; rm.hidden=true; });
-      root.querySelector("#ff").addEventListener("submit", async ev=>{
-        ev.preventDefault();
-        const f=new FormData(ev.target), o=JSON.parse(JSON.stringify(a)); delete o._id;
-        const g=k=>(f.get(k)||"").toString().trim();
+      const ler=(f)=>{ const o=JSON.parse(JSON.stringify(a)); delete o._id; const g=k=>(f.get(k)||"").toString().trim();
         ["nome","telefone","email","nascimento","naipe","emerg1_nome","emerg1_par","emerg1_tel","emerg2_nome","emerg2_par","emerg2_tel","plano","sangue","nada","fuma","gestante","atividade","termo_nome"].forEach(k=>o[k]=g(k));
         ANAM.forEach(([k,t])=>{ o[k]=g(k); o[t]=g(t); });
         o.parq=PARQ.map((_,i)=>g("parq_"+i));
         o.plano_num=g("plano_num"); o.plano_cpf=fmtCPF(g("plano_cpf")); o.plano_foto=foto;
+        o.termo=!!f.get("termo"); o.lgpd=!!f.get("lgpd"); return o; };
+      if(!gestao){
+        const form=root.querySelector("#ff"), passos=[...root.querySelectorAll(".fstep")].sort((x,y)=>x.dataset.step-y.dataset.step), err=root.querySelector("#ferr");
+        let k=0;
+        const grupo={1:x=>x.startsWith("Termo"),2:x=>x.includes("LGPD"),3:x=>["Nome completo","Telefone","Data de nascimento"].includes(x),4:x=>x.startsWith("Contato de emergência")||x.startsWith("Plano de saúde")||x==="Se sabe nadar",5:x=>x.startsWith("Anamnese"),6:x=>x.includes("PAR-Q")};
+        const revisa=()=>{ const o=ler(new FormData(form)); const sim=(o.parq||[]).filter(x=>x==="sim").length; const sn=v=>v==="sim"?"Sim":v==="nao"?"Não":"–";
+          root.querySelector("#fRev").innerHTML=`<dl class="kv"><dt>Nome</dt><dd>${esc(o.nome)}</dd><dt>Telefone</dt><dd>${esc(o.telefone)}</dd><dt>Emergência</dt><dd>${esc(o.emerg1_nome)}, ${esc(o.emerg1_tel)}</dd><dt>Plano de saúde</dt><dd>${esc(o.plano)}${o.plano_num?", "+esc(o.plano_num):""}</dd><dt>Sabe nadar</dt><dd>${sn(o.nada)}</dd><dt>Alergias</dt><dd>${o.tem_alergia==="sim"?esc(o.alergias):"Não"}</dd><dt>PAR-Q</dt><dd>${sim?`${sim} “sim”: você vai precisar de liberação médica para agendar`:"Todas as respostas “não”"}</dd><dt>Uso de imagem</dt><dd>${form.imagem.checked?"Autorizado":"Não autorizado"}</dd></dl><p class="hint">Ao enviar, sua ficha fica válida por 12 meses.</p>`; };
+        const trava=()=>{ const st=passos[k].dataset.step; root.querySelector("#fSegue").disabled=(st==="1"&&!form.termo.checked)||(st==="2"&&!form.lgpd.checked); };
+        const mostra=()=>{ passos.forEach((p,i)=>p.hidden=i!==k); root.querySelector("#fPasso").textContent=`Passo ${k+1} de ${passos.length}`; root.querySelector(".wbar i").style.width=`${(k+1)/passos.length*100}%`; root.querySelector("#fVolta").style.visibility=k?"visible":"hidden"; root.querySelector("#fSegue").textContent=k===passos.length-1?"Enviar ficha":"Continuar"; err.hidden=true; if(passos[k].dataset.step==="7") revisa(); trava(); root.scrollTop=0; };
+        form.addEventListener("change",trava);
+        root.querySelector("#fVolta").addEventListener("click",()=>{ if(k>0){ k--; mostra(); } });
+        root.querySelector("#fSegue").addEventListener("click",()=>{
+          if(k===passos.length-1){ form.requestSubmit(); return; }
+          const st=+passos[k].dataset.step, fd=new FormData(form), o=ler(fd);
+          let falta=faltando(o).filter(x=>grupo[st]?grupo[st](x):false);
+          if(st===4 && o.plano_cpf && !cpfValido(o.plano_cpf)) falta.push("CPF do titular inválido");
+          if(falta.length){ err.hidden=false; err.innerHTML=`<b>Falta completar:</b><ul>${falta.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`; root.scrollTop=0; return; }
+          k++; mostra(); });
+        mostra();
+      }
+      root.querySelector("#ff").addEventListener("submit", async ev=>{
+        ev.preventDefault();
+        const f=new FormData(ev.target), o=ler(f), g=k=>(f.get(k)||"").toString().trim();
         if(o.plano_cpf && !cpfValido(o.plano_cpf)){ const e=root.querySelector("#ferr"); e.hidden=false; e.innerHTML="<b>CPF do titular inválido.</b> Confira os números."; root.scrollTop=0; return; }
-        o.termo=!!f.get("termo"); o.lgpd=!!f.get("lgpd");
-        if(gestao){ ["status","nivel","mensalidade","inicio","liberacao","atestado"].forEach(k=>o[k]=g(k)); o.equipe=!!f.get("equipe"); }
+        if(!gestao){ o.imagem=!!f.get("imagem"); const ag=new Date().toISOString(); o.termo_v=TERMO_V; o.priv_v=PRIV_V; if(!(a.termo&&a.termo_v===TERMO_V)) o.termo_em=ag; if(!(a.lgpd&&a.priv_v===PRIV_V)) o.priv_em=ag; }
+        if(gestao){ ["status","nivel","plano_tipo","pago_ate","inicio","liberacao","atestado"].forEach(k=>o[k]=g(k)); o.equipe=!!f.get("equipe"); if(o.pago_ate) o.mensalidade=o.pago_ate>=todaySP()?"em_dia":"pendente"; }
         const falta=faltando(o);
         if(!gestao && falta.length){ const e=root.querySelector("#ferr"); e.hidden=false; e.innerHTML=`<b>Complete para enviar:</b><ul>${falta.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`; root.scrollTop=0; return; }
         if(!o.nome){ toast("Informe o nome"); return; }
@@ -1317,8 +1481,9 @@ function renderMinhaFicha(el){
     ${st.s==="liberacao"?`<div class="notice" style="margin-top:14px">Você respondeu “sim” no PAR-Q. Entregue a liberação médica à coordenação para voltar a agendar.</div>`:""}`;
   $("#edMF").addEventListener("click", editMinhaFicha);
 }
-function editMinhaFicha(){
-  const a = S.minhaFicha || {status:"ativo", inicio:todaySP()};
+async function editMinhaFicha(){
+  if(S.minhaFicha && S.minhaFicha.ficha_em && !(await confirmarIdentidade())) return;
+  const a = JSON.parse(JSON.stringify(S.minhaFicha || {status:"ativo", inicio:todaySP()}));
   if(!a.nome && S.me && S.me.name) a.nome=S.me.name;
   fichaForm(a, false, async (o)=>{
     if(!o.status) o.status="ativo"; o.origem="app";
@@ -1354,7 +1519,7 @@ function renderAlunos(){
   </div>`;
   if(!all.length) html += `<div class="empty"><p>Nenhum aluno cadastrado ainda.</p><p>Os alunos aparecem aqui quando preenchem a ficha no app, ou quando a gestão cadastra.</p></div>`;
   else if(!list.length) html += `<div class="empty">Nenhum aluno encontrado com esse filtro.</div>`;
-  else html += `<div class="list">${list.map(a=>{const al=alertas(a);return `<button class="item" data-id="${esc(a._id)}"><span class="av">${esc(initials(a.nome))}</span><span style="min-width:0"><span class="nm">${esc(a.nome||"Sem nome")}</span><span class="sub"> ${esc(NIVEL[a.nivel]||"")}${a.equipe?", equipe "+esc(CAT_LABEL[catPrincipal(catsPorAno((a.nascimento||"").slice(0,4)))]||""):""}${a.status&&a.status!=="ativo"?", "+esc(STATUS[a.status]):""}</span>${al.length?`<span class="badges">${al.map(x=>`<span class="b ${x[0]}">${esc(x[1])}</span>`).join("")}</span>`:`<span class="badges"><span class="b grn">Ficha em dia</span></span>`}</span></button>`}).join("")}</div>`;
+  else html += `<div class="list">${list.map(a=>{const al=alertas(a);return `<button class="item" data-id="${esc(a._id)}">${avatar(a.nome,a.foto)}<span style="min-width:0"><span class="nm">${esc(a.nome||"Sem nome")}</span><span class="sub"> ${esc(NIVEL[a.nivel]||"")}${a.equipe?", equipe "+esc(CAT_LABEL[catPrincipal(catsPorAno((a.nascimento||"").slice(0,4)))]||""):""}${a.status&&a.status!=="ativo"?", "+esc(STATUS[a.status]):""}</span>${al.length?`<span class="badges">${al.map(x=>`<span class="b ${x[0]}">${esc(x[1])}</span>`).join("")}</span>`:`<span class="badges"><span class="b grn">Ficha em dia</span></span>`}</span></button>`}).join("")}</div>`;
   el.innerHTML = html;
   const qA=$("#qA"); qA.addEventListener("input", e=>{S.alunosSearch=e.target.value; const pos=e.target.selectionStart; renderAlunos(); const n=$("#qA"); n.focus(); n.setSelectionRange(pos,pos);});
   $("#fA").value = S.alunosFilter;
@@ -1375,7 +1540,8 @@ function verAluno(id){
     ${al.length?`<div class="badges">${al.map(x=>`<span class="b ${x[0]}">${esc(x[1])}</span>`).join("")}</div>`:""}
     ${fichaResumoHTML(a)}
     ${S.canEdit?`<div class="section"><h3>Gestão</h3><dl class="kv">
-      <dt>Mensalidade</dt><dd>${a.mensalidade==="pendente"?"Pendente":"Em dia"}</dd>
+      <dt>Plano</dt><dd>${a.plano_tipo?esc(PLANOS[a.plano_tipo][0]):"Não definido"}</dd>
+      <dt>Mensalidade</dt><dd>${pagoEmDia(a)===true?"Em dia":pagoEmDia(a)===false?"Em aberto":"Não informada"}${a.pago_ate?`, pago até ${esc(dataCurta(a.pago_ate))}`:""}</dd>
       <dt>Início no clube</dt><dd>${a.inicio?new Date(a.inicio+"T12:00").toLocaleDateString("pt-BR"):"–"}</dd>
       <dt>Atestado até</dt><dd>${a.atestado?new Date(a.atestado+"T12:00").toLocaleDateString("pt-BR"):"–"}</dd>
       <dt>Origem</dt><dd>${a.origem==="app"?"Preenchida pelo aluno no app":"Cadastrada pela gestão"}</dd></dl></div>`:""}
@@ -1413,35 +1579,10 @@ function weekday(iso){ return new Date(iso+"T12:00:00Z").getUTCDay(); }
 function startMs(t){ return new Date(`${t.data}T${t.inicio||"06:00"}:00-03:00`).getTime(); }
 function encerrada(t){ return Date.now() >= startMs(t); }
 function rid(){ return Math.random().toString(36).slice(2,10); }
-function vagasDe(t){
-  if(t.vagas!=null && t.vagas!=="" && !isNaN(+t.vagas)) return +t.vagas;
-  const v=(S.config.canoas||[]).filter(c=>c.status!=="manutencao" && (c.local||"Urca")===t.local).reduce((a,c)=>a+(+c.lugares||0),0);
-  return v>0?v:null;
-}
-function entradas(t){
-  const out=[];
-  for(const [uid,doc] of Object.entries(S.insc)){ const r=doc && doc.r && doc.r[t.id]; if(r && r.s) out.push({key:"u_"+uid, uid, s:r.s, t:r.t||""}); }
-  for(const [mid,m] of Object.entries(t.manual||{})){ if(m && m.s) out.push({key:"m_"+mid, mid, nome:m.nome, s:m.s, t:m.t||"", manual:true}); }
-  const cap=vagasDe(t);
-  const vou=out.filter(e=>e.s==="vou").sort((a,b)=>a.t.localeCompare(b.t));
-  return {cap, conf: cap==null?vou:vou.slice(0,cap), espera: cap==null?[]:vou.slice(cap),
-    talvez: out.filter(e=>e.s==="talvez").sort((a,b)=>a.t.localeCompare(b.t)), nao: out.filter(e=>e.s==="nao")};
-}
-function nomeDe(e){
-  if(e.manual) return e.nome||"Aluno";
-  const d=S.insc[e.uid]; if(d && d.apelido) return d.apelido;
-  const p=S.names[e.uid]; return (p && p.name) || "Aluno";
-}
-function meuStatus(t,E){
-  if(!S.uid) return null;
-  const r=S.insc[S.uid] && S.insc[S.uid].r && S.insc[S.uid].r[t.id]; if(!r) return null;
-  if(r.s==="vou"){ const i=E.espera.findIndex(e=>e.uid===S.uid); if(i>=0) return {s:"espera", pos:i+1}; }
-  return {s:r.s};
-}
 async function resolveNames(){
   if(!S.user) return;
-  const ids=[...new Set(Object.keys(S.insc).concat(Object.keys(S.atletas)).concat(Object.keys(S.equipe)))]; if(!ids.length) return;
-  try{ const ps=await S.user.profiles(ids); S.names=ps||{}; if(S.tab==="agenda") renderAgenda(); else if(S.tab==="competicao") renderCompeticao(); else if(S.tab==="clube") renderClube(); refreshSheet(); }catch(_){}
+  const ids=[...new Set(Object.keys(S.insc).concat(Object.keys(S.atletas)).concat(Object.keys(S.equipe)).concat(Object.keys(S.formresp||{})))]; if(!ids.length) return;
+  try{ const ps=await S.user.profiles(ids); S.names=ps||{}; if(S.tab==="agenda") renderAgenda(); else if(S.tab==="competicao") renderCompeticao(); else if(S.tab==="operacao") renderClube(); refreshSheet(); }catch(_){}
 }
 function refreshSheet(){ if(S.openTurma && !$("#ov").hidden) verTurma(S.openTurma, true); }
 function dayHeader(iso){
@@ -1454,36 +1595,8 @@ function seaChip(t){
   const dia=getDia(t.local, t.data, true); if(!dia) return "";
   const hs=horasDe(dia), h0=parseInt((t.inicio||"06").slice(0,2),10), h=hs.includes(h0)?h0:hs[0];
   const c=condicao(dia, t.local, h, null), n=c.ev.nivel;
-  return `<span class="b ${["grn","amb","red"][n]}">${COND_TXT[n]}${c.bf?`, Beaufort ${c.bf.f}`:""}${c.thunder?", raios":""}</span>`;
-}
-function cardTurma(t){
-  const E=entradas(t), off=t.status==="cancelada", closed=encerrada(t), n=E.conf.length, cap=E.cap;
-  const pct=cap?Math.min(100,Math.round(n/cap*100)):0, me=meuStatus(t,E);
-  const mc=meusCats(), elig=!t.categoria || S.canAgenda || (mc && mc.includes(t.categoria));
-  const fichaOk = S.role!=="aluno" || podeAgendar(fichaStatus(S.minhaFicha));
-  const canR=S.uid && S.canWrite!==false && !off && !closed && elig && fichaOk;
-  const cheio=cap && n>=cap && !(me && (me.s==="vou"||me.s==="espera"));
-  const chips=[]; if(off) chips.push(`<span class="b red">Cancelada pelos instrutores${t.motivo?": "+esc(t.motivo.toLowerCase()):""}</span>`); else if(closed) chips.push(`<span class="b">Encerrada</span>`);
-  if(t.categoria) chips.push(`<span class="b" style="background:var(--ocean-soft);color:var(--ocean)">Treino ${esc(CAT_LABEL[t.categoria]||t.categoria)}</span>`);
-  const sc=seaChip(t); if(sc && !off) chips.push(sc);
-  const resumo=[]; if(E.espera.length) resumo.push(`${E.espera.length} na espera`); if(E.talvez.length) resumo.push(`${E.talvez.length} talvez`);
-  return `<article class="turma ${off?"off":""}">
-    <button class="t-main" data-open="${esc(t.id)}">
-      <div class="t-time">${esc(t.inicio)}<small>até ${esc(t.fim||"–")}</small></div>
-      <div><div class="t-title">${esc(t.titulo||(t.categoria?"Treino "+(CAT_LABEL[t.categoria]||""):"Remada "+t.local))}</div>
-        <div class="t-sub">${esc(t.local)}${t.obs?", "+esc(t.obs):""}</div>
-        ${chips.length?`<div class="chips">${chips.join("")}</div>`:""}
-        <div class="cap">${cap?`<div class="bar"><i class="${n>=cap?"full":""}" style="width:${pct}%"></i></div>`:""}
-          <div class="txt"><b>${n}</b> ${cap?`de ${cap} vagas`:(n===1?"confirmado":"confirmados")}${resumo.length?", "+resumo.join(", "):""}</div></div>
-      </div>
-      <span aria-hidden="true" style="color:var(--muted);font-size:24px;line-height:1">›</span>
-    </button>
-    ${me?`<div class="mine ${me.s==="espera"?"esp":""}">${{vou:"Você está confirmado",talvez:"Você marcou talvez",nao:"Você avisou que não vai",espera:`Você está na lista de espera, posição ${me.pos}`}[me.s]}</div>`:""}
-    ${S.uid && elig && !fichaOk && !off && !closed?`<div class="mine esp">Ficha de saúde pendente. <button class="linkbtn" data-goficha>Preencher ficha</button> para agendar.</div>`:""}
-    ${S.uid && !elig && !off && !closed?`<div class="mine">${mc?`Treino exclusivo para ${esc(CAT_LABEL[t.categoria])}`:"Informe seu ano de nascimento na aba Competição para confirmar este treino"}</div>`:""}
-    ${S.canAgenda&&!closed?`<div class="staffrow">${off?`<button class="btn ghost small" data-reabre="${esc(t.id)}">Reabrir remada</button>`:`<button class="btn danger small" data-cancela="${esc(t.id)}">Cancelar remada</button>`}</div>`:""}
-    ${canR?`<div class="rsvp" data-t="${esc(t.id)}">${[["vou",cheio?"Entrar na espera":"Vou"],["talvez","Talvez"],["nao","Não vou"]].map(([k,l])=>`<button class="${k}" data-s="${k}" aria-pressed="${me&&(me.s===k||(k==="vou"&&me.s==="espera"))?"true":"false"}" ${S.pending?"disabled":""}>${l}</button>`).join("")}</div>`:""}
-  </article>`;
+  const fm = t.local==="Urca" ? faseMare(dia,h) : null;
+  return `<span class="b ${["grn","amb","red"][n]}">${COND_TXT[n]}${c.bf?`, Beaufort ${c.bf.f}`:""}${c.thunder?", raios":""}</span>${fm?`<span class="b mare-${fm.cls}">Maré: ${fm.nome.toLowerCase()}</span>`:""}`;
 }
 function renderAgenda(){
   const el=$("#agendaBody");
@@ -1516,26 +1629,7 @@ function renderAgenda(){
   el.querySelectorAll("[data-goficha]").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); setTab("alunos"); }));
   const pt=$("#pastT"); if(pt) pt.addEventListener("click",()=>{S.showPast=!S.showPast; renderAgenda();});
   el.querySelectorAll("[data-open]").forEach(b=>b.addEventListener("click",()=>verTurma(b.dataset.open)));
-  el.querySelectorAll(".rsvp").forEach(r=>r.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>rsvp(r.dataset.t,b.dataset.s))));
-}
-async function rsvp(tid,s){
-  if(!S.uid || S.pending) return;
-  const mine=S.insc[S.uid]||{};
-  let apelido=mine.apelido||"";
-  if(!apelido && !(S.names[S.uid] && S.names[S.uid].name)){
-    const v=await askText("Seu nome na lista","Como você quer aparecer na lista de presença?");
-    if(!v || !v.trim()) return; apelido=v.trim().slice(0,60);
-  }
-  const r=JSON.parse(JSON.stringify(mine.r||{}));
-  const cut=addDays(todaySP(),-21);
-  Object.keys(r).forEach(k=>{ if(k.slice(0,10)<cut) delete r[k]; });
-  const cur=r[tid]; if(cur && cur.s===s) return;
-  r[tid]={s, t:new Date().toISOString()};
-  const body={r}; if(apelido) body.apelido=apelido;
-  S.pending=true; renderAgenda();
-  try{ await S.db.doc("inscricoes/"+S.uid).set(body); toast({vou:"Presença confirmada",talvez:"Marcado como talvez",nao:"Ausência registrada"}[s]); }
-  catch(e){ if(e && e.code==="invalid_argument"){ S.canWrite=false; toast("Seu acesso é só de leitura"); } else failWrite(e); }
-  finally{ S.pending=false; renderAgenda(); refreshSheet(); }
+  bindAgendaBotoes(el);
 }
 function textoLista(t,E){
   const d=new Date(t.data+"T12:00:00").toLocaleDateString("pt-BR",{weekday:"short",day:"numeric",month:"short"});
@@ -1550,18 +1644,19 @@ function verTurma(id, keep){
   const E=entradas(t), ck=t.checkin||{}, off=t.status==="cancelada";
   const sc=keep?$("#sheet").scrollTop:0;
   const prevIn=keep && $("#addIn") ? $("#addIn").value : "", hadFocus=keep && document.activeElement && document.activeElement.id==="addIn";
-  const person=(e,i,showCk)=>`<li>${i!=null?`<span class="pos">${i+1}</span>`:""}<span class="av">${esc(initials(nomeDe(e)))}</span><span>${esc(nomeDe(e))}${e.manual?`<br><span class="tag">incluído pela coordenação</span>`:""}${e.uid&&e.uid===S.uid?`<br><span class="tag">você</span>`:""}</span>${S.canAgenda&&showCk?`<button class="ck" data-ck="${esc(e.key)}" aria-pressed="${ck[e.key]?"true":"false"}">${ck[e.key]?"Presente":"Check-in"}</button>`:""}${S.canAgenda&&e.manual?`<button class="rm" data-rm="${esc(e.mid)}" aria-label="Remover">×</button>`:""}</li>`;
+  const person=(e,i,showCk)=>`<li>${i!=null?`<span class="pos">${i+1}</span>`:""}<span class="av">${esc(initials(nomeDe(e)))}</span><span>${esc(nomeDe(e))}${e.manual?`<br><span class="tag">incluído pela coordenação</span>`:""}${e.oferta?`<br><span class="tag of">vaga oferecida, responde até ${new Date(e.oferta).toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"})}</span>`:""}${e.expirou?`<br><span class="tag">não confirmou a tempo</span>`:""}${e.uid&&e.uid===S.uid?`<br><span class="tag">você</span>`:""}</span>${S.canAgenda&&showCk?`<button class="ck" data-ck="${esc(e.key)}" aria-pressed="${ck[e.key]?"true":"false"}">${ck[e.key]?"Presente":"Check-in"}</button>`:""}${S.canAgenda&&e.manual?`<button class="rm" data-rm="${esc(e.mid)}" aria-label="Remover">×</button>`:""}</li>`;
   const block=(title,arr,numbered,showCk)=>arr.length?`<div class="section"><h3>${title} (${arr.length})</h3><ul class="people">${arr.map((e,i)=>person(e,numbered?i:null,showCk)).join("")}</ul></div>`:"";
-  const presentes=[...E.conf,...E.espera,...E.talvez].filter(e=>ck[e.key]).length;
+  const presentes=[...E.conf,...E.ofertas,...E.espera,...E.talvez].filter(e=>ck[e.key]).length;
   const d=new Date(t.data+"T12:00:00").toLocaleDateString("pt-BR",{weekday:"long",day:"numeric",month:"long"});
   openSheet(`
     <div class="head"><div><h2>${esc(t.titulo||"Remada "+t.local)}</h2><div class="hint" style="margin:0">${esc(d)}, ${esc(t.inicio)}–${esc(t.fim||"")}, ${esc(t.local)}</div></div><button class="x" aria-label="Fechar">×</button></div>
     ${off?`<div class="notice">Esta remada foi cancelada.</div>`:""}
-    <div class="stats" style="margin-top:8px"><div><div class="n">${E.conf.length}${E.cap?`<span style="font-size:18px;color:var(--muted)">/${E.cap}</span>`:""}</div><div class="l">confirmados</div></div><div><div class="n">${E.espera.length}</div><div class="l">na espera</div></div>${S.canAgenda?`<div><div class="n">${presentes}</div><div class="l">presentes na praia</div></div>`:`<div><div class="n">${E.talvez.length}</div><div class="l">talvez</div></div>`}</div>
+    <div class="stats" style="margin-top:8px"><div><div class="n">${E.conf.length}${E.cap?`<span style="font-size:18px;color:var(--muted)">/${E.cap}</span>`:""}</div><div class="l">confirmados</div></div><div><div class="n">${E.ofertas.length+E.espera.length}</div><div class="l">na fila</div></div>${S.canAgenda?`<div><div class="n">${presentes}</div><div class="l">presentes na praia</div></div>`:`<div><div class="n">${E.talvez.length}</div><div class="l">talvez</div></div>`}</div>
     ${t.obs?`<p style="margin:0 0 6px">${esc(t.obs)}</p>`:""}
     ${S.canAgenda&&!off?`<form id="addP" class="row" style="margin-top:6px"><input id="addIn" list="alList" placeholder="Incluir aluno pelo nome" autocomplete="off" style="flex:1;min-width:150px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:9px 12px"><datalist id="alList">${S.alunos.filter(a=>a.status!=="inativo").map(a=>`<option value="${esc(a.nome)}"></option>`).join("")}</datalist><button class="btn small" type="submit">Incluir</button></form>`:""}
     ${block("Confirmados",E.conf,true,true)}
-    ${block("Lista de espera",E.espera,true,true)}
+    ${block("Fila de espera",E.ofertas.concat(E.espera),true,true)}
+    ${S.canAgenda&&E.expirados.length?block("Não confirmaram a vaga em 10 minutos",E.expirados,false,false):""}
     ${block("Talvez",E.talvez,false,true)}
     ${S.canAgenda?block("Não vão",E.nao,false,false):""}
     ${!E.conf.length&&!E.espera.length&&!E.talvez.length?`<div class="empty" style="margin-top:14px">Ninguém confirmou ainda.</div>`:""}
@@ -1603,6 +1698,8 @@ function verTurma(id, keep){
     const ap=root.querySelector("#addP"); if(ap) ap.addEventListener("submit",async ev=>{
       ev.preventDefault(); const nome=ai.value.trim(); if(!nome) return;
       const al=S.alunos.find(a=>(a.nome||"").toLowerCase()===nome.toLowerCase());
+      if(al){ const t0=S.turmas[id]; const dup=Object.values(S.turmas).find(o=>o.id!==id&&o.data===t0.data&&o.inicio===t0.inicio&&o.status!=="cancelada"&&(Object.values(o.manual||{}).some(m=>m.aluno===al._id&&m.s==="vou")||(S.insc[al._id]&&S.insc[al._id].r&&S.insc[al._id].r[o.id]&&S.insc[al._id].r[o.id].s==="vou")));
+        if(dup){ toast(`${al.nome} já está na remada ${dup.local==="Urca"?"da Urca":"da Lagoa"} no mesmo horário`); return; } }
       ai.value="";
       try{ await S.db.doc("turmas/"+id).update({manual:{[rid()]:{nome: al?al.nome:nome, s:"vou", t:new Date().toISOString(), aluno: al?al._id:""}}}); toast("Aluno incluído"); }catch(e){ failWrite(e); }
     });
@@ -1622,6 +1719,7 @@ function editTurma(id){
       <label class="f full">Tipo<select name="categoria"><option value="">Remada aberta a todos</option>${CATS.map(c=>`<option value="${c[0]}" ${t.categoria===c[0]?"selected":""}>Treino ${c[1]}</option>`).join("")}</select></label>
       <label class="f full">Vagas<input name="vagas" inputmode="numeric" value="${esc(t.vagas)}" placeholder="${auto?`Automático pela frota: ${auto}`:"Cadastre a frota ou informe aqui"}"></label>
       <label class="f full">Observação<input name="obs" value="${esc(t.obs)}" placeholder="Ex.: travessia até a Praia Vermelha"></label>
+      ${camposRegras(t)}
     </div>
     <p class="hint">Deixe as vagas em branco para usar a soma dos lugares das canoas disponíveis da base.</p>
     <div class="row" style="margin-top:18px">${id?`<button type="button" class="btn danger small" id="dT">Excluir</button>`:""}<span class="spacer"></span><button type="button" class="btn ghost" id="cT">Voltar</button><button type="submit" class="btn">${id?"Salvar remada":"Criar remada"}</button></div>
@@ -1633,14 +1731,17 @@ function editTurma(id){
       });
       root.querySelector("#ft").addEventListener("submit",async ev=>{
         ev.preventDefault(); const f=new FormData(ev.target);
-        const o={titulo:f.get("titulo").toString().trim(), data:f.get("data"), local:f.get("local"), inicio:f.get("inicio"), fim:f.get("fim"), obs:f.get("obs").toString().trim(), categoria:f.get("categoria")||""};
+        const o={titulo:f.get("titulo").toString().trim(), data:f.get("data"), local:f.get("local"), inicio:f.get("inicio"), fim:f.get("fim"), obs:f.get("obs").toString().trim(), categoria:f.get("categoria")||""}; Object.assign(o, lerRegras(f));
         const v=f.get("vagas").toString().trim(); o.vagas = v==="" ? "" : Math.max(1, parseInt(v,10)||1);
         try{
           if(id){ await S.db.doc("turmas/"+id).update(o); toast("Remada salva"); verTurma(id); }
           else{
             let nid=`${o.data}_${o.local}_${o.inicio.replace(":","")}${o.categoria?"_"+o.categoria:""}`; if(S.turmas[nid]) nid+="_"+rid();
             await S.db.doc("turmas/"+nid).set(Object.assign(o,{status:"aberta", manual:{}, checkin:{}, criado:new Date().toISOString()}));
-            closeSheet(); toast("Remada criada");
+            auditar("Remada criada",`${o.local} ${o.data} ${o.inicio}`);
+            const txt=`*NOVA REMADA*\n${o.titulo||"Remada "+o.local}: ${dataCurta(o.data)}, ${o.inicio}${o.fim?"–"+o.fim:""}\n${NOME_BASE[o.local]}${o.instrutor?", instrutor "+o.instrutor:""}\nConfirme no app, aba Agenda.`;
+            await S.db.doc("avisos/ag_"+nid).set({tipo:"agenda", titulo:`Nova remada: ${dataCurta(o.data)}, ${o.inicio}`, texto:`${NOME_BASE[o.local]}. Confirme na aba Agenda.`, data_evento:o.data, hora:o.inicio, local:o.local, link:"", expira:o.data, fixado:false, criado:new Date().toISOString()});
+            toast("Remada criada"); compartilharWhats("agenda", txt);
           }
         }catch(e){ failWrite(e); }
       });
@@ -1669,10 +1770,10 @@ async function abrirAgenda(){
       const form=root.querySelector("#fa2");
       const plano=()=>{ const f=new FormData(form); const bases=LOCAIS.filter(l=>f.get("b_"+l)); const n=+f.get("dias"); const hoje=todaySP(); const out=[];
         for(let i=0;i<n;i++){ const d=addDays(hoje,i), wd=weekday(d);
-          for(const g of grade){ if(!g.dias.includes(wd)) continue;
+          for(const g of grade){ if(!g.dias.includes(wd) || g.ativo===false) continue;
             for(const l of g.locais){ if(!bases.includes(l)) continue;
               const id=`${d}_${l}_${g.inicio.replace(":","")}${g.categoria?"_"+g.categoria:""}`;
-              const t={data:d, inicio:g.inicio, fim:g.fim, local:l, titulo:g.titulo||"", categoria:g.categoria||"", vagas:"", obs:"", status:"aberta", manual:{}, checkin:{}};
+              const t={data:d, inicio:g.inicio, fim:g.fim, local:l, titulo:g.titulo||"", categoria:g.categoria||"", vagas:g.vagas||"", obs:"", status:"aberta", manual:{}, checkin:{}, instrutor:g.instrutor||"", abre_h:g.abre_h||"", fecha_min:g.fecha_min||"0", cancel_h:g.cancel_h||""};
               if(S.turmas[id] || (d===hoje && encerrada(t))) continue; out.push([id,t]); } } }
         return out; };
       const upd=()=>{ const p=plano(); root.querySelector("#prevA").textContent = p.length ? `${p.length} ${p.length===1?"remada será aberta":"remadas serão abertas"}.` : "Nenhuma remada nova para abrir com essa escolha."; };
@@ -1680,13 +1781,19 @@ async function abrirAgenda(){
       root.querySelector("#cA2").addEventListener("click",closeSheet);
       form.addEventListener("submit",async ev=>{ ev.preventDefault(); const p=plano(); let n=0;
         for(const [id,t] of p){ try{ t.criado=new Date().toISOString(); await S.db.doc("turmas/"+id).set(t); n++; }catch(e){ failWrite(e); break; } }
-        closeSheet(); toast(n?`${n} ${n===1?"remada aberta":"remadas abertas"}`:"Nada novo para abrir"); });
+        if(!n){ closeSheet(); toast("Nada novo para abrir"); return; }
+        const dias=[...new Set(p.slice(0,n).map(([,t])=>t.data))].sort();
+        const resumo=p.slice(0,n).map(([,t])=>`${dataCurta(t.data)}, ${t.inicio}, ${t.local}`).join("\n");
+        await S.db.doc("avisos/agenda_"+Date.now().toString(36)).set({tipo:"agenda", titulo:`Agenda aberta: ${n} ${n===1?"remada":"remadas"}`, texto:`De ${dataCurta(dias[0])} a ${dataCurta(dias[dias.length-1])}. Confirme sua presença na aba Agenda.`, data_evento:dias[0], hora:"", local:"", link:"", expira:dias[dias.length-1], fixado:false, criado:new Date().toISOString()});
+        auditar("Agenda aberta",`${n} remadas`);
+        toast(`${n} ${n===1?"remada aberta":"remadas abertas"}`);
+        compartilharWhats("agenda", `*AGENDA ABERTA*\n${resumo}\n\nConfirme sua presença no app, aba Agenda. Vagas limitadas; com a remada cheia, você entra na fila de espera.`); });
     });
 }
 function editGrade(gid){
   const grade=(S.config.grade||[]).map(gNorm);
   const i=grade.findIndex(g=>g.id===gid);
-  const g = i>=0 ? grade[i] : {dias:[1,2,3,4,5,6], locais:["Urca"], inicio:"06:00", fim:"07:30", titulo:"", categoria:""};
+  const g = i>=0 ? grade[i] : {dias:[1,2,3,4,5,6], locais:["Urca"], inicio:"06:00", fim:"07:30", titulo:"", categoria:"", ativo:true, abre_h:"24", fecha_min:"60", cancel_h:"6"};
   openSheet(`
     <div class="head"><h2>${i>=0?"Editar horário":"Novo horário fixo"}</h2><button class="x" aria-label="Fechar">×</button></div>
     <form id="fg"><div class="grid">
@@ -1696,6 +1803,9 @@ function editGrade(gid){
       <label class="f">Retorno<input name="fim" type="time" value="${esc(g.fim)}"></label>
       <label class="f full">Tipo<select name="categoria"><option value="">Remada aberta a todos</option>${CATS.map(c=>`<option value="${c[0]}" ${g.categoria===c[0]?"selected":""}>Treino ${c[1]}</option>`).join("")}</select></label>
       <label class="f full">Título (opcional)<input name="titulo" value="${esc(g.titulo)}" placeholder="Ex.: Remada das 6h"></label>
+      <label class="f full">Vagas (em branco: pela frota)<input name="vagas" inputmode="numeric" value="${esc(g.vagas)}"></label>
+      ${camposRegras(g)}
+      <label class="chk full"><input type="checkbox" name="ativo" ${g.ativo!==false?"checked":""}> Horário ativo (desmarque para pausar sem apagar)</label>
     </div>
     <div class="row" style="margin-top:18px">${i>=0?`<button type="button" class="btn danger small" id="dG">Remover</button>`:""}<span class="spacer"></span><button type="button" class="btn ghost" id="cG">Cancelar</button><button class="btn" type="submit">Salvar horário</button></div>
     </form>`, root=>{
@@ -1703,7 +1813,7 @@ function editGrade(gid){
       const d=root.querySelector("#dG"); if(d) d.addEventListener("click",async()=>{ grade.splice(i,1); await saveConfig({grade}); closeSheet(); toast("Horário removido"); });
       root.querySelector("#fg").addEventListener("submit",async ev=>{
         ev.preventDefault(); const f=new FormData(ev.target);
-        const o={id:g.id||rid(), dias:[0,1,2,3,4,5,6].filter(k=>f.get("d_"+k)), locais:LOCAIS.filter(l=>f.get("l_"+l)), inicio:f.get("inicio"), fim:f.get("fim"), titulo:f.get("titulo").toString().trim(), categoria:f.get("categoria")||""};
+        const o={id:g.id||rid(), dias:[0,1,2,3,4,5,6].filter(k=>f.get("d_"+k)), locais:LOCAIS.filter(l=>f.get("l_"+l)), inicio:f.get("inicio"), fim:f.get("fim"), titulo:f.get("titulo").toString().trim(), categoria:f.get("categoria")||"", ativo:!!f.get("ativo"), vagas:(f.get("vagas")||"").toString().trim()}; Object.assign(o, lerRegras(f));
         if(!o.dias.length || !o.locais.length){ toast("Escolha ao menos um dia e uma base"); return; }
         if(i>=0) grade[i]=o; else grade.push(o);
         await saveConfig({grade}); closeSheet(); toast("Horário salvo");
@@ -1727,7 +1837,7 @@ async function copiar(txt){
 }
 
 /* ---------- MURAL ---------- */
-const TIPOS_AV = {geral:"Comunicado", cancelamento:"Cancelamento", passeio:"Passeio", competicao:"Competição", evento:"Evento", viagem:"Viagem"};
+const TIPOS_AV = {geral:"Comunicado", cancelamento:"Cancelamento", agenda:"Agenda", passeio:"Passeio", competicao:"Competição", evento:"Evento", viagem:"Viagem", midia:"Mídia", formulario:"Formulário"};
 function avisosVisiveis(){ const h=todaySP(); return Object.values(S.avisos).filter(a=>S.canEdit || !a.expira || a.expira>=h); }
 function naoLidos(){ const v=lsGet("pvv-mural-visto")||""; return avisosVisiveis().filter(a=>(a.criado||"")>v).length; }
 function marcarLido(){ const max=avisosVisiveis().reduce((m,a)=>(a.criado||"")>m?a.criado:m,""); if(max) lsSet("pvv-mural-visto",max); }
@@ -1735,14 +1845,16 @@ function badgeAlunos(){
   let n=0;
   if(S.role==="aluno"){ n = podeAgendar(fichaStatus(S.minhaFicha)) && fichaStatus(S.minhaFicha).s==="ok" ? 0 : 1; }
   else if(S.canEdit){ n = S.alunos.filter(precisaRevisao).length; }
-  document.querySelectorAll('[data-tab="alunos"]').forEach(b=>{ let d=b.querySelector(".dotn"); if(n && S.tab!=="alunos"){ if(!d){ d=document.createElement("span"); d.className="dotn"; b.appendChild(d); } d.textContent=S.role==="aluno"?"!":(n>9?"9+":String(n)); } else if(d) d.remove(); });
+  document.querySelectorAll('nav [data-tab="perfil"]').forEach(b=>{ let d=b.querySelector(".dotn"); if(n && S.tab!=="perfil"){ if(!d){ d=document.createElement("span"); d.className="dotn"; b.appendChild(d); } d.textContent=S.role==="aluno"?"!":(n>9?"9+":String(n)); } else if(d) d.remove(); });
 }
 function updateBadge(){
   badgeAlunos();
-  const al=alertasAtivos().length>0;
-  document.querySelectorAll('[data-tab="mural"]').forEach(b=>b.classList.toggle("alerta", al));
-  const n = S.tab==="mural" ? 0 : naoLidos();
-  document.querySelectorAll('[data-tab="mural"]').forEach(b=>{ let d=b.querySelector(".dotn"); if(n){ if(!d){ d=document.createElement("span"); d.className="dotn"; b.appendChild(d); } d.textContent=n>9?"9+":String(n); } else if(d) d.remove(); });
+  const al=alertasAtivos().length>0, ofs=minhasOfertas().length;
+  const n = (S.tab==="mural" ? 0 : naoLidos()) + ofs;
+  document.querySelectorAll('nav [data-tab="mural"]').forEach(b=>{ b.classList.toggle("alerta", al); b.classList.toggle("novo", !al && n>0); });
+  const vm=lsGet("pvv-visto-midia")||"", nm = S.tab==="midia"?0: Object.values(S.midia).filter(x=>(x.criado||"")>vm).length + Object.values(S.forms).filter(f=>f.ativo&&formVisivel(f)&&S.role==="aluno"&&!(S.minhasResp&&S.minhasResp.r&&S.minhasResp.r[f._id])).length;
+  document.querySelectorAll('nav [data-tab="midia"]').forEach(b=>{ let d=b.querySelector(".dotn"); if(nm){ if(!d){ d=document.createElement("span"); d.className="dotn"; b.appendChild(d); } d.textContent=nm>9?"9+":String(nm); } else if(d) d.remove(); });
+  document.querySelectorAll('nav [data-tab="mural"]').forEach(b=>{ let d=b.querySelector(".dotn"); if(n){ if(!d){ d=document.createElement("span"); d.className="dotn"; b.appendChild(d); } d.textContent=n>9?"9+":String(n); } else if(d) d.remove(); });
 }
 function textoAviso(a){
   let s=`*${(a.titulo||"").toUpperCase()}*\n${TIPOS_AV[a.tipo]||"Comunicado"}\n\n${a.texto||""}`;
@@ -1758,7 +1870,7 @@ function renderMural(){
   const tipos=Object.keys(TIPOS_AV).filter(k=>all.some(a=>a.tipo===k));
   const list=all.filter(a=>S.muralFiltro==="todos"||a.tipo===S.muralFiltro)
     .sort((a,b)=>((b.fixado?1:0)-(a.fixado?1:0)) || (b.criado||"").localeCompare(a.criado||""));
-  let html=`<div class="ag-head"><div><h2>Mural</h2><p class="hint">Passeios, provas, eventos, viagens e cancelamentos.</p></div><span class="spacer"></span>${S.canEdit?`<button class="btn small" id="newAv">Novo aviso</button>`:""}</div>`;
+  let html=`<div class="ag-head"><div><h2>Alertas e comunicados</h2><p class="hint">Passeios, provas, eventos, viagens e cancelamentos.</p></div><span class="spacer"></span>${S.canMidia?`<button class="btn small" id="newAv">Novo aviso</button>`:""}</div>`;
   if(tipos.length>1) html+=`<div class="filters" role="group" aria-label="Filtrar avisos"><button data-f="todos" aria-pressed="${S.muralFiltro==="todos"}">Todos</button>${tipos.map(k=>`<button data-f="${k}" aria-pressed="${S.muralFiltro===k}">${TIPOS_AV[k]}</button>`).join("")}</div>`;
   else html+=`<div style="height:12px"></div>`;
   if(!list.length) html+=`<div class="empty"><p>Nenhum aviso por aqui.</p>${S.canEdit?"<p>Publique o primeiro comunicado do clube.</p>":""}</div>`;
@@ -1772,13 +1884,13 @@ function renderMural(){
       ${qd?`<div class="qd">${esc(qd)}</div>`:""}
       ${a.texto?`<p class="tx ${longo&&!aberto?"clamp":""}">${esc(a.texto)}</p>`:""}
       ${longo?`<button class="more" data-more="${esc(a._id)}">${aberto?"Ver menos":"Ver mais"}</button>`:""}
-      ${linkOk(a.link)||S.canEdit?`<div class="row" style="margin-top:10px;gap:8px">${linkOk(a.link)?`<a class="btn ghost small" href="${esc(a.link)}" target="_blank" rel="noopener">Abrir link</a>`:""}<span class="spacer"></span>${S.canEdit?`<button class="btn ghost small" data-cp="${esc(a._id)}">Copiar para WhatsApp</button><button class="btn ghost small" data-ed="${esc(a._id)}">Editar</button>`:""}</div>`:""}
+      ${linkOk(a.link)||S.canMidia?`<div class="row" style="margin-top:10px;gap:8px">${linkOk(a.link)?`<a class="btn ghost small" href="${esc(a.link)}" target="_blank" rel="noopener">Abrir link</a>`:""}<span class="spacer"></span>${S.canMidia?`<button class="btn ghost small" data-cp="${esc(a._id)}">Enviar no WhatsApp</button><button class="btn ghost small" data-ed="${esc(a._id)}">Editar</button>`:""}</div>`:""}
     </article>`;}).join("");
   el.innerHTML=html;
   const na=$("#newAv"); if(na) na.addEventListener("click",()=>editAviso(null));
   el.querySelectorAll("[data-f]").forEach(b=>b.addEventListener("click",()=>{ S.muralFiltro=b.dataset.f; renderMural(); }));
   el.querySelectorAll("[data-more]").forEach(b=>b.addEventListener("click",()=>{ const k=b.dataset.more; S.muralAberto[k]=!S.muralAberto[k]; renderMural(); }));
-  el.querySelectorAll("[data-cp]").forEach(b=>b.addEventListener("click",()=>copiar(textoAviso(S.avisos[b.dataset.cp]))));
+  el.querySelectorAll("[data-cp]").forEach(b=>b.addEventListener("click",()=>{ const a=S.avisos[b.dataset.cp]; compartilharWhats(a.tipo, textoAviso(a)); }));
   el.querySelectorAll("[data-ed]").forEach(b=>b.addEventListener("click",()=>editAviso(b.dataset.ed)));
 }
 function editAviso(id){
@@ -1805,7 +1917,7 @@ function editAviso(id){
         ["tipo","titulo","texto","data_evento","hora","local","link","expira"].forEach(k=>o[k]=(f.get(k)||"").toString().trim());
         o.fixado=!!f.get("fixado"); o.criado=a.criado||new Date().toISOString(); o.atualizado=new Date().toISOString();
         if(a.turma) o.turma=a.turma;
-        try{ await S.db.doc("avisos/"+(id||("a"+Date.now().toString(36)+rid()))).set(o); closeSheet(); toast(id?"Aviso salvo":"Aviso publicado"); }catch(e){ failWrite(e); }
+        try{ await S.db.doc("avisos/"+(id||("a"+Date.now().toString(36)+rid()))).set(o); auditar(id?"Aviso editado":"Aviso publicado",o.titulo); if(id){ closeSheet(); toast("Aviso salvo"); } else { toast("Aviso publicado"); compartilharWhats(o.tipo, textoAviso(o)); } }catch(e){ failWrite(e); }
       });
     });
 }
@@ -1877,7 +1989,7 @@ function renderCompeticao(){
   el.querySelectorAll("[data-goficha]").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); setTab("alunos"); }));
   el.querySelectorAll("[data-cancela]").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); cancelarRemada(b.dataset.cancela); }));
   el.querySelectorAll("[data-reabre]").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); reabrirRemada(b.dataset.reabre); }));
-  el.querySelectorAll(".rsvp").forEach(r=>r.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>rsvp(r.dataset.t,b.dataset.s))));
+  bindAgendaBotoes(el);
 }
 function rowProva(p){
   const d=new Date(p.data+"T12:00:00"), me=S.atletaMe && S.atletaMe.provas && S.atletaMe.provas[p._id];
@@ -2012,7 +2124,7 @@ function renderClube(){
     <div class="row" style="gap:28px">${porBase.map(b=>`<div class="capacity"><span class="n">${b.v}</span><span>${b.l}<br><span class="hint">${b.n} ${b.n===1?"canoa":"canoas"}</span></span></div>`).join("")}</div>
     <p class="hint">Cada remada usa as vagas da sua base. A divisão de quem vai em qual canoa continua sendo feita na praia.</p></div>
   <div class="panel"><div class="row"><h3 style="margin:0">Grade semanal</h3><span class="spacer"></span>${S.canAgenda?`<button class="btn small" id="addG">Adicionar horário</button>`:""}</div>
-    ${grade.length?grade.map(g=>`<div class="grade-row"><div><div style="font-weight:600">${diasTxt(g.dias)}, ${esc(g.inicio)}–${esc(g.fim)}</div><div class="hint" style="margin:0">${esc(locaisTxt(g.locais))}${g.categoria?", treino "+esc(CAT_LABEL[g.categoria]):""}${g.titulo?", "+esc(g.titulo):""}</div></div><span class="spacer"></span>${S.canAgenda?`<button class="btn ghost small" data-gi="${esc(g.id)}">Editar</button>`:""}</div>`).join("")
+    ${grade.length?grade.map(g=>`<div class="grade-row"><div><div style="font-weight:600">${diasTxt(g.dias)}, ${esc(g.inicio)}–${esc(g.fim)}</div><div class="hint" style="margin:0">${esc(locaisTxt(g.locais))}${g.categoria?", treino "+esc(CAT_LABEL[g.categoria]):""}${g.titulo?", "+esc(g.titulo):""}${g.instrutor?", "+esc(g.instrutor):""}${g.ativo===false?", pausado":""}</div></div><span class="spacer"></span>${S.canAgenda?`<button class="btn ghost small" data-gi="${esc(g.id)}">Editar</button>`:""}</div>`).join("")
       :`<p class="hint">Nenhum horário fixo cadastrado.</p>${S.canAgenda?`<button class="btn ghost small" id="gPadrao">Usar a grade atual: Urca de segunda a sábado e Lagoa terça e quinta, às 6h</button>`:""}`}
   </div>
   <div class="panel"><div class="row"><h3 style="margin:0">Frota</h3><span class="spacer"></span>${S.canEdit?`<button class="btn small" id="addC">Adicionar canoa</button>`:""}</div>
@@ -2031,8 +2143,8 @@ function renderClube(){
   if(S.canEdit){
     const ids=Object.keys(S.equipe);
     html+=`<div class="panel"><h3>Equipe e permissões</h3>
-      <p class="hint" style="margin:0 0 8px">Quem tem acesso de editor ao app aparece aqui ao abrir o app pela primeira vez. Gestão altera tudo; instrutores abrem e gerenciam a agenda, fazem check-in e lançam a previsão do mar. Alunos entram como colaboradores e só editam a própria ficha e os agendamentos.</p>
-      ${ids.length?ids.map(id=>{ const p=S.names[id], nm=(p&&p.name)||"Membro da equipe", dono=S.ownerIds.includes(id); return `<div class="grade-row"><div><div style="font-weight:600">${esc(nm)}${id===S.uid?" (você)":""}</div><div class="hint" style="margin:0">${dono?"Responsável pelo app":"Acesso de editor"}</div></div><span class="spacer"></span>${dono?`<span class="b grn">Gestão</span>`:`<select data-papel="${esc(id)}"><option value="instrutor" ${(c.papeis||{})[id]!=="gestao"?"selected":""}>Instrutor</option><option value="gestao" ${(c.papeis||{})[id]==="gestao"?"selected":""}>Gestão</option></select>`}</div>`; }).join(""):`<p class="hint">Ninguém da equipe abriu o app ainda.</p>`}
+      <p class="hint" style="margin:0 0 8px">Quem tem acesso de editor ao app aparece aqui ao abrir o app pela primeira vez. Gestão altera tudo; instrutores abrem e gerenciam a agenda, fazem check-in e cancelam remadas; a agência de comunicação publica na Mídia e nos Alertas. Alunos entram como colaboradores e só editam a própria ficha e os agendamentos.</p>
+      ${ids.length?ids.map(id=>{ const p=S.names[id], nm=(p&&p.name)||"Membro da equipe", dono=S.ownerIds.includes(id); return `<div class="grade-row"><div><div style="font-weight:600">${esc(nm)}${id===S.uid?" (você)":""}</div><div class="hint" style="margin:0">${dono?"Responsável pelo app":"Acesso de editor"}</div></div><span class="spacer"></span>${dono?`<span class="b grn">Gestão</span>`:`<select data-papel="${esc(id)}"><option value="instrutor" ${(c.papeis||{})[id]!=="gestao"?"selected":""}>Instrutor</option><option value="gestao" ${(c.papeis||{})[id]==="gestao"?"selected":""}>Gestão</option><option value="agencia" ${(c.papeis||{})[id]==="agencia"?"selected":""}>Agência de comunicação</option></select>`}</div>`; }).join(""):`<p class="hint">Ninguém da equipe abriu o app ainda.</p>`}
     </div>`;
   }
   el.innerHTML=html;
@@ -2089,11 +2201,705 @@ function failWrite(e){
   else toast("Não foi possível salvar. Tente de novo.");
 }
 
+/* ---------- textos legais (revisar com advogado antes da versão final) ---------- */
+const TERMO_V = "2026-10", PRIV_V = "2026-10";
+const TERMO_HTML = `<h4>Termo de responsabilidade e ciência de riscos</h4>
+<p>Ao participar das atividades do Praia Vermelha Va'a Clube (PVV), declaro estar ciente e de acordo com o que segue.</p>
+<h5>1. Riscos da atividade</h5><p>A canoa havaiana é praticada no mar e na lagoa, ao ar livre, e envolve riscos como lesões musculares, quedas na água, emborcamento da canoa, afogamento, exposição ao sol, ao frio e a mudanças repentinas de vento, ondulação e correntes de maré.</p>
+<h5>2. Condições de saúde</h5><p>Declaro que as informações da minha ficha de saúde (anamnese e PAR-Q) são verdadeiras e que vou avisar o clube sobre qualquer mudança no meu estado de saúde. Se responder “sim” em alguma pergunta do PAR-Q, só voltarei a remar após apresentar liberação médica.</p>
+<h5>3. Regras de segurança</h5><p>Comprometo-me a seguir as orientações dos instrutores, usar colete salva-vidas quando indicado, respeitar a área de remada e as decisões de cancelamento por condições do tempo e do mar.</p>
+<h5>4. Equipamentos</h5><p>Comprometo-me a zelar pelas canoas, remos e coletes do clube e a comunicar qualquer dano.</p>
+<h5>5. Revisão anual</h5><p>Sei que a ficha de saúde e este termo devem ser revisados todo ano e que, sem a ficha em dia, o agendamento fica bloqueado.</p>`;
+const PRIV_HTML = `<h4>Política de privacidade (LGPD)</h4>
+<p>Para usar o app, precisamos do seu consentimento sobre como tratamos seus dados pessoais, conforme a Lei Geral de Proteção de Dados (Lei 13.709/2018).</p>
+<h5>O que coletamos</h5><ul><li>Nome, telefone, e-mail e data de nascimento.</li><li>Contatos de emergência e dados do plano de saúde, incluindo foto da carteirinha e CPF do titular.</li><li>Dados de saúde da anamnese e do PAR-Q.</li><li>Histórico de agendamentos, presenças e pagamentos.</li></ul>
+<h5>Para que usamos</h5><ul><li>Garantir sua segurança nas remadas e agir em emergências.</li><li>Organizar agenda, frequência, mensalidades e competições.</li></ul>
+<h5>Quem acessa</h5><ul><li>Você vê e altera seus próprios dados.</li><li>A coordenação acessa a ficha completa.</li><li>Os instrutores consultam contatos de emergência e alertas de saúde, com o CPF mascarado.</li><li>Não vendemos nem compartilhamos seus dados com terceiros para fins comerciais.</li></ul>
+<h5>Seus direitos</h5><p>Você pode pedir a qualquer momento acesso, correção ou exclusão dos seus dados à coordenação do clube. Os dados de quem sai do clube são apagados após o fim do vínculo, salvo obrigação legal.</p>`;
+
+/* ---------- utilidades v7 ---------- */
+const APP_URL = NA_CLAUDE ? "" : (location.origin + location.pathname);
+function waLink(txt, fone){ const f=(fone||"").replace(/\D/g,""); const num=f? (f.length<=11?"55"+f:f) : ""; return `https://wa.me/${num}?text=${encodeURIComponent(txt)}`; }
+const GRUPO_SUGERIDO = {cancelamento:"Avisos", agenda:"PVV Agendamento", competicao:"PVV Competição 2027", midia:"Avisos", formulario:"Avisos", passeio:"Avisos", evento:"Avisos", viagem:"Avisos", geral:"Avisos"};
+function compartilharWhats(tipo, txt, depois){
+  const t = txt + (APP_URL?`\n\nAbra no app: ${APP_URL}`:"");
+  openSheet(`<div class="head"><h2>Enviar no WhatsApp</h2><button class="x" aria-label="Fechar">×</button></div>
+    <p class="hint">Mensagem pronta. Toque em “Abrir WhatsApp” e escolha o grupo <b>${esc(GRUPO_SUGERIDO[tipo]||"do clube")}</b>.</p>
+    <pre class="wapre">${esc(t)}</pre>
+    <div class="row" style="margin-top:14px"><button class="btn ghost small" id="waCp">Copiar texto</button><span class="spacer"></span><a class="btn wa" href="${waLink(t)}" target="_blank" rel="noopener">Abrir WhatsApp</a></div>`, root=>{
+    root.querySelector("#waCp").addEventListener("click",()=>copiar(t));
+    const x=root.querySelector(".x"); if(depois) x.addEventListener("click",depois);
+  });
+}
+async function auditar(acao, alvo){ if(!S.db || !S.platAdmin) return; try{ await S.db.collection("auditoria").add({acao, alvo:alvo||"", quem:S.uid||"", quando:new Date().toISOString()}); }catch(_){} }
+
+/* ---------- janela de agendamento ---------- */
+const ABRE_OPC = {"":"Assim que a agenda abrir", "48":"48 horas antes", "24":"24 horas antes", "12":"12 horas antes", "6":"6 horas antes"};
+const FECHA_OPC = {"0":"Até a hora da saída", "30":"30 minutos antes", "60":"1 hora antes", "120":"2 horas antes", "720":"Na véspera, 12 horas antes"};
+const CANCEL_OPC = {"":"Sem prazo", "1":"Até 1 hora antes", "2":"Até 2 horas antes", "6":"Até 6 horas antes", "12":"Até 12 horas antes"};
+function janela(t){ const st=startMs(t); return { abre: t.abre_h? st - (+t.abre_h)*3600e3 : null, fecha: st - (+(t.fecha_min||0))*60e3, cancelAte: t.cancel_h? st - (+t.cancel_h)*3600e3 : null }; }
+function hhmm(ms){ return new Date(ms).toLocaleString("pt-BR",{weekday:"short",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"}).replace(/\./g,""); }
+function camposRegras(o){
+  const sel=(name,opts,val)=>`<select name="${name}">${Object.entries(opts).map(([k,v])=>`<option value="${k}" ${String(val??"")===k?"selected":""}>${v}</option>`).join("")}</select>`;
+  const nomes=[...new Set(Object.keys(S.equipe||{}).map(id=>S.names[id]&&S.names[id].name).filter(Boolean))];
+  return `<label class="f full">Instrutor responsável<input name="instrutor" list="instrList" value="${esc(o.instrutor)}" placeholder="Nome do instrutor"><datalist id="instrList">${nomes.map(n=>`<option value="${esc(n)}"></option>`).join("")}</datalist></label>
+    <label class="f full">Agendamento abre${sel("abre_h",ABRE_OPC,o.abre_h)}</label>
+    <label class="f full">Agendamento fecha${sel("fecha_min",FECHA_OPC,o.fecha_min??"0")}</label>
+    <label class="f full">Cancelar sem contar falta${sel("cancel_h",CANCEL_OPC,o.cancel_h)}</label>`;
+}
+function lerRegras(f){ return {instrutor:(f.get("instrutor")||"").toString().trim(), abre_h:f.get("abre_h")||"", fecha_min:f.get("fecha_min")||"0", cancel_h:f.get("cancel_h")||""}; }
+
+/* ---------- maré: enchente ou vazante ---------- */
+function faseMare(dia, i){
+  const s=dia.h && dia.h.sea; if(!s) return null;
+  const a=s[Math.max(0,i-1)], b=s[Math.min(23,i+1)]; if(a==null||b==null) return null;
+  const d=(b-a)/2;
+  let cur=null; if(dia.h.cur && dia.h.cur[i]!=null) cur={kn:dia.h.cur[i]/1.852, dir:dia.h.curdir?dia.h.curdir[i]:null};
+  if(Math.abs(d)<0.025) return {cls:"estofo", nome:"Estofo", txt:"Virada da maré, corrente fraca", cur};
+  return d>0 ? {cls:"enchente", nome:"Enchente", txt:"Água entrando na Baía de Guanabara", cur}
+             : {cls:"vazante", nome:"Vazante", txt:"Água saindo da Baía de Guanabara", cur};
+}
+function mareFaixa(dia, i, manual){
+  const f=faseMare(dia,i);
+  if(!f) return manual ? `<div class="mareline"><b>Corrente de maré</b><span>${esc(manual)}</span></div>` : `<div class="mareline"><b>Corrente de maré</b><span>Sem dados do modelo. Consulte o SISCORAR antes de sair.</span></div>`;
+  const seta = f.cls==="enchente" ? "M12 21 V5 M6 11 l6 -6 6 6" : f.cls==="vazante" ? "M12 3 V19 M6 13 l6 6 6 -6" : "M5 12 H19";
+  return `<div class="mareline ${f.cls}"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="${seta}" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>${f.nome}: ${f.txt.toLowerCase()}</b><span>${f.cur&&f.cur.kn>=0.05?`Corrente estimada de ${fmtN(f.cur.kn)} nó${f.cur.kn>=1.5?"s":""}. `:""}Estimativa pelo nível do mar; confirme no SISCORAR.</span></div></div>`;
+}
+
+/* ---------- planos e mensalidades ---------- */
+const PLANOS = {mensal:["Mensal",1], bimestral:["Bimestral",2], trimestral:["Trimestral",3], semestral:["Semestral",6], anual:["Anual",12]};
+function pagoEmDia(a){ if(a.pago_ate) return a.pago_ate>=todaySP(); if(a.mensalidade==="pendente") return false; if(a.mensalidade==="em_dia") return true; return null; }
+function addMeses(iso,n){ const d=new Date(iso+"T12:00:00Z"); d.setUTCMonth(d.getUTCMonth()+n); return d.toISOString().slice(0,10); }
+
+/* ---------- frequência ---------- */
+function frequencia(dias){
+  const ini=addDays(todaySP(),-dias), hoje=todaySP(), out={};
+  const o=id=>out[id]||(out[id]={pres:0,agend:0,tarde:0,ult:""});
+  for(const t of Object.values(S.turmas)){
+    if(t.data<ini || t.data>hoje || t.status==="cancelada") continue;
+    const ck=t.checkin||{};
+    for(const k of Object.keys(ck)){ if(!ck[k]) continue; let id=null;
+      if(k.startsWith("u_")) id=k.slice(2); else if(k.startsWith("m_")){ const m=(t.manual||{})[k.slice(2)]; id=m&&m.aluno; }
+      if(id){ const x=o(id); x.pres++; if(t.data>x.ult) x.ult=t.data; } }
+    for(const m of Object.values(t.manual||{})) if(m && m.s==="vou" && m.aluno) o(m.aluno).agend++;
+  }
+  for(const [uid,d] of Object.entries(S.insc)) for(const [tid,r] of Object.entries((d&&d.r)||{})){ const t=S.turmas[tid]; if(!t||t.data<ini||t.data>hoje) continue; if(r.s==="vou") o(uid).agend++; if(r.tarde) o(uid).tarde++; }
+  return out;
+}
+function ultimaPresenca(){ return frequencia(120); }
+function presencasSemana(semanas){
+  const out=[]; const hoje=todaySP();
+  for(let w=semanas-1; w>=0; w--){ const fim=addDays(hoje,-7*w), ini=addDays(fim,-6); let n={Urca:0,Lagoa:0};
+    for(const t of Object.values(S.turmas)){ if(t.data<ini||t.data>fim||t.status==="cancelada") continue; const c=Object.values(t.checkin||{}).filter(Boolean).length; n[t.local]=(n[t.local]||0)+c; }
+    out.push({ini, n}); }
+  return out;
+}
+
+/* ---------- gestão: hub ---------- */
+
+function tileG(id, titulo, sub, cor, icone){ return `<button class="gtile" data-g="${id}"><span class="gic" style="background:${cor}22;color:${cor}">${icone}</span><b>${titulo}</b><span>${sub}</span></button>`; }
+const IC = {
+  painel:`<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>`,
+  comp:`<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20h7"/></svg>`,
+  alunos:`<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.8a3.3 3.3 0 0 1 0 6.4M18 14.8c2 .7 3.2 2.5 3.6 5.2"/></svg>`,
+  planos:`<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5z"/><path d="m3 13 9 5 9-5"/></svg>`,
+  clube:`<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 14h20l-2.5 3.5h-15z"/><path d="M5 14V9M19 14V9M5 9h14"/></svg>`,
+  audit:`<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg>`
+};
+function renderPerfil(){
+  const el=$("#perfilBody");
+  if(!S.db){ el.innerHTML=`<div class="locked"><h3>Indisponível aqui</h3><p>Abra o app conectado à sua conta.</p></div>`; return; }
+  if(S.role==="visitante"){ el.innerHTML=`<div class="locked"><h3>Entre com sua conta</h3><p>Faça login para preencher sua ficha e agendar.</p></div>`; return; }
+  if(S.gsub && S.canEdit){ const f={painel:renderPainel, painelcomp:renderPainelComp, auditoria:renderAuditoria}[S.gsub];
+    el.innerHTML=`<button class="backbtn" data-gback>‹ Gestão</button><div id="gsubBody"></div>`; f($("#gsubBody")); el.querySelector("[data-gback]").addEventListener("click",()=>{ S.gsub=null; renderPerfil(); }); return; }
+  if(S.role==="aluno"){ el.innerHTML=cartaoPerfil()+`<div id="fichaBox"></div>`+painelSeguranca(); renderFichaAluno($("#fichaBox")); bindPerfil(el); return; }
+  const revisar=S.alunos.filter(precisaRevisao).length;
+  el.innerHTML=cartaoPerfil()+`<h3 class="sech">${S.role==="agencia"?"Comunicação":"Gestão"}</h3>
+    <div class="gtiles">
+      ${S.canEdit?tileG("painel","Painel social","Alunos, frequência e mensalidades","#1C6C86",IC.painel):""}
+      ${S.canEdit?tileG("painelcomp","Painel de competição","Atletas, categorias e provas","#B9800F",IC.comp):""}
+      ${S.canAgenda?tileG("alunos","Alunos",`Fichas e cadastros${revisar&&S.canEdit?`, ${revisar} a revisar`:""}`,"#2C8A57",IC.alunos):""}
+      ${S.canEdit?tileG("clubepub","Planos e estrutura","Preços, pagamento e bases","#7A4FD0",IC.planos):""}
+      ${S.canAgenda?tileG("operacao","Operação",S.canEdit?"Frota, grade, regras e equipe":"Frota e grade semanal","#F04A12",IC.clube):""}
+      ${S.canMidia?tileG("midia","Mídia","Campanhas, redes sociais e formulários","#C2185B",IC.planos):""}
+      ${S.canEdit?tileG("auditoria","Auditoria","Histórico de alterações","#5B7282",IC.audit):""}
+    </div>`+painelSeguranca();
+  el.querySelectorAll("[data-g]").forEach(b=>b.addEventListener("click",()=>{ const g=b.dataset.g; if(g==="alunos"||g==="operacao"||g==="midia") setTab(g); else if(g==="clubepub") setTab("clube"); else { S.gsub=g; renderPerfil(); window.scrollTo(0,0); } }));
+  bindPerfil(el);
+}
+function renderFichaAluno(el){
+  renderMinhaFicha(el);
+  const extra=document.createElement("div");
+  const formsAbertos=Object.values(S.forms).filter(f=>f.ativo && formVisivel(f) && !(S.minhasResp&&S.minhasResp.r&&S.minhasResp.r[f._id]));
+  extra.innerHTML = formsAbertos.length?`<div class="panel"><h3>Formulários para você</h3>${formsAbertos.map(f=>`<div class="grade-row"><div><b>${esc(f.titulo)}</b><div class="hint" style="margin:0">${esc(TIPOS_FORM[f.tipo]||"")}${f.prazo?`, até ${esc(dataCurta(f.prazo))}`:""}</div></div><span class="spacer"></span><button class="btn small" data-resp="${esc(f._id)}">Responder</button></div>`).join("")}</div>`:"";
+  el.appendChild(extra);
+  extra.querySelectorAll("[data-resp]").forEach(b=>b.addEventListener("click",()=>responderForm(b.dataset.resp)));
+}
+
+/* ---------- painel social ---------- */
+function kpi(n,l,cls){ return `<div class="kpi ${cls||""}"><div class="n">${n}</div><div class="l">${l}</div></div>`; }
+function barras(itens, max, cor){ max=max||Math.max(1,...itens.map(i=>i[1])); return `<div class="bars">${itens.map(([l,v,extra])=>`<div class="barrow"><span class="bl">${esc(l)}</span><span class="bt"><i style="width:${Math.round(v/max*100)}%;background:${cor||"var(--ocean)"}"></i></span><span class="bv">${v}${extra?` <small>${esc(extra)}</small>`:""}</span></div>`).join("")}</div>`; }
+function renderPainel(el){
+  const hoje=todaySP(), ativos=S.alunos.filter(a=>a.status!=="inativo"&&a.status!=="trancado");
+  const f30=frequencia(30), f120=ultimaPresenca();
+  const emDia=ativos.filter(a=>pagoEmDia(a)===true), aberto=ativos.filter(a=>pagoEmDia(a)===false);
+  const pres30=Object.values(f30).reduce((s,x)=>s+x.pres,0);
+  const fichasOk=ativos.filter(a=>fichaStatus(a).s==="ok"||fichaStatus(a).s==="vence").length;
+  const resgatar=emDia.filter(a=>{ const u=(f120[a._id]||{}).ult; return !u || u<addDays(hoje,-21); });
+  const devedores=aberto.filter(a=>(f30[a._id]||{}).pres>0).sort((x,y)=>(f30[y._id].pres)-(f30[x._id].pres));
+  const top=ativos.map(a=>[a.nome||"Sem nome",(f30[a._id]||{}).pres||0]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]).slice(0,10);
+  const tardes=Object.values(f30).reduce((s,x)=>s+x.tarde,0);
+  const sem=presencasSemana(8), maxS=Math.max(1,...sem.map(s=>s.n.Urca+s.n.Lagoa));
+  const porPlano=Object.entries(PLANOS).map(([k,[n]])=>[n, ativos.filter(a=>a.plano_tipo===k).length]);
+  const semPlano=ativos.filter(a=>!a.plano_tipo).length;
+  const pr=precos();
+  const receita=emDia.reduce((s,a)=>{ const p=PLANOS[a.plano_tipo]; const v=+pr[a.plano_tipo]||0; return s+(p&&v?v/p[1]:0); },0);
+  const lista=(arr,info)=>arr.length?`<div class="list">${arr.slice(0,30).map(a=>`<div class="item" style="cursor:default"><span class="av">${esc(initials(a.nome))}</span><span style="min-width:0;flex:1"><span class="nm">${esc(a.nome||"Sem nome")}</span><span class="sub"> ${esc(info(a))}</span></span>${a.telefone?`<a class="btn ghost small" href="${waLink(`Oi, ${(a.nome||"").split(" ")[0]}! Aqui é do Praia Vermelha Va'a.`, a.telefone)}" target="_blank" rel="noopener">WhatsApp</a>`:""}<button class="btn ghost small" data-va="${esc(a._id)}">Ficha</button></div>`).join("")}</div>`:`<div class="empty">Ninguém nesta lista.</div>`;
+  el.innerHTML=`<h2 class="ptitle">Painel social</h2>
+    <div class="kpis">${kpi(ativos.length,"alunos ativos")}${kpi(pres30,"presenças em 30 dias")}${kpi(`${emDia.length}<small>/${ativos.length}</small>`,"mensalidade em dia", aberto.length?"warn":"")}${kpi(`${fichasOk}<small>/${ativos.length}</small>`,"fichas em dia", fichasOk<ativos.length?"warn":"")}</div>
+    <div class="panel"><h3>Para resgatar</h3><p class="hint" style="margin:0 0 8px">Mensalidade em dia, mas sem remar há mais de 21 dias. Vale um contato antes que deixem o clube.</p>${lista(resgatar,a=>{ const u=(f120[a._id]||{}).ult; return u?`última remada ${dataCurta(u)}`:"sem presença registrada"; })}</div>
+    <div class="panel"><h3>Remando com mensalidade em aberto</h3><p class="hint" style="margin:0 0 8px">Alunos frequentes com pagamento vencido. O agendamento não é bloqueado.</p>${lista(devedores,a=>`${f30[a._id].pres} presenças em 30 dias, ${a.pago_ate?`pago até ${dataCurta(a.pago_ate)}`:"pagamento pendente"}`)}</div>
+    <div class="panel"><h3>Mais assíduos, 30 dias</h3>${top.length?barras(top,0,"var(--ok)"):`<div class="empty">Sem check-ins registrados ainda. A frequência conta os check-ins feitos na praia.</div>`}</div>
+    <div class="panel"><h3>Presenças por semana</h3><div class="wk">${sem.map(s=>`<div class="wkc"><div class="wkb"><i class="u" style="height:${s.n.Urca/maxS*100}%"></i><i class="l" style="height:${(s.n.Lagoa||0)/maxS*100}%"></i></div><span>${new Date(s.ini+"T12:00").toLocaleDateString("pt-BR",{day:"numeric",month:"numeric"})}</span></div>`).join("")}</div><div class="legend"><span><i class="u"></i>Urca</span><span><i class="l"></i>Lagoa</span></div></div>
+    <div class="panel"><h3>Planos</h3>${barras(porPlano.concat(semPlano?[["Sem plano definido",semPlano]]:[]),0,"#7A4FD0")}${receita?`<p style="margin:8px 0 0">Receita mensal estimada dos alunos em dia: <b>${receita.toLocaleString("pt-BR",{style:"currency",currency:"BRL"})}</b></p>`:`<p class="hint">Defina o plano de cada aluno na ficha para ver a receita estimada.</p>`}</div>
+    <div class="panel"><h3>Cadastro</h3>${barras([["Fichas em dia",fichasOk],["A revisar ou incompletas",ativos.length-fichasOk],["Cancelamentos fora do prazo (30 dias)",tardes]],Math.max(1,ativos.length),"var(--ocean)")}</div>`;
+  el.querySelectorAll("[data-va]").forEach(b=>b.addEventListener("click",()=>verAluno(b.dataset.va)));
+}
+/* ---------- painel de competição ---------- */
+function formCompeticao(){ return Object.values(S.forms).filter(f=>f.tipo==="competicao").sort((a,b)=>(b.criado||"").localeCompare(a.criado||""))[0]||null; }
+function renderPainelComp(el){
+  const fc=formCompeticao(); const resp=fc?Object.entries(S.formresp).filter(([u,d])=>d&&d.r&&d.r[fc._id]):[];
+  const equipe=S.alunos.filter(a=>a.equipe&&a.status!=="inativo");
+  const respIds=new Set(resp.map(r=>r[0]));
+  const pend=equipe.filter(a=>!respIds.has(a._id));
+  const catDe=a=>catPrincipal(catsPorAno((a.nascimento||"").slice(0,4)));
+  const porCat=CATS.map(c=>[c[1], equipe.filter(a=>catDe(a)===c[0]).length]);
+  const porNaipe=[["Feminino",equipe.filter(a=>a.naipe==="Feminino").length],["Masculino",equipe.filter(a=>a.naipe==="Masculino").length],["Não informado",equipe.filter(a=>!a.naipe).length]];
+  const f30=frequencia(30), treinos={};
+  for(const t of Object.values(S.turmas)){ if(!t.categoria||t.data<addDays(todaySP(),-30)||t.data>todaySP()) continue; for(const k of Object.keys(t.checkin||{})) if(t.checkin[k]&&k.startsWith("u_")) treinos[k.slice(2)]=(treinos[k.slice(2)]||0)+1; }
+  const topT=Object.entries(treinos).map(([id,n])=>[(S.alunos.find(a=>a._id===id)||{}).nome||nomeAtleta(id),n]).sort((a,b)=>b[1]-a[1]).slice(0,10);
+  const provas=Object.values(S.provas).filter(p=>(p.data_fim||p.data)>=todaySP()).sort((a,b)=>a.data.localeCompare(b.data));
+  el.innerHTML=`<h2 class="ptitle">Painel de competição</h2>
+    <div class="kpis">${kpi(equipe.length,"atletas na equipe")}${kpi(resp.length,`fichas de atleta${fc?"":" (sem formulário)"}`)}${kpi(pend.length,"atletas sem ficha", pend.length?"warn":"")}${kpi(provas.length,"provas no calendário")}</div>
+    <div class="panel"><h3>Por categoria</h3>${barras(porCat,0,"#B9800F")}<h3 style="margin-top:14px">Por naipe</h3>${barras(porNaipe,0,"#1C6C86")}</div>
+    <div class="panel"><h3>Ficha de atleta pendente</h3>${pend.length?`<p style="margin:0">${pend.map(a=>esc(a.nome)).join(", ")}</p>${fc?`<button class="btn ghost small" style="margin-top:8px" id="lembraComp">Lembrar no WhatsApp</button>`:""}`:`<p class="hint" style="margin:0">Todos os atletas da equipe preencheram.</p>`}</div>
+    <div class="panel"><h3>Interesse nas próximas provas</h3>${provas.length?provas.map(p=>{ const q=Object.values(S.atletas).filter(x=>x.provas&&x.provas[p._id]&&x.provas[p._id].s==="quero"); return `<div class="grade-row"><div><b>${esc(p.nome)}</b><div class="hint" style="margin:0">${esc(dataCurta(p.data))}, ${CATS.map(c=>`${c[1]}: ${q.filter(x=>x.provas[p._id].cat===c[0]).length}`).join(", ")}</div></div><span class="spacer"></span><b>${q.length}</b></div>`; }).join(""):`<p class="hint" style="margin:0">Nenhuma prova cadastrada.</p>`}</div>
+    <div class="panel"><h3>Presença em treinos por categoria, 30 dias</h3>${topT.length?barras(topT,0,"#B9800F"):`<p class="hint" style="margin:0">Sem check-ins em treinos de categoria.</p>`}</div>
+    ${fc?`<div class="row"><button class="btn ghost small" id="verResp">Ver respostas da ficha de atleta</button></div>`:""}`;
+  const lc=el.querySelector("#lembraComp"); if(lc) lc.addEventListener("click",()=>compartilharWhats("competicao",`*${fc.titulo.toUpperCase()}*\nQuem quer competir pelo PVV precisa preencher a ficha de atleta no app, aba Mídia.\n\nPendentes: ${pend.map(a=>a.nome).join(", ")}`));
+  const vr=el.querySelector("#verResp"); if(vr) vr.addEventListener("click",()=>verRespostas(fc._id));
+}
+/* ---------- auditoria ---------- */
+function renderAuditoria(el){
+  el.innerHTML=`<h2 class="ptitle">Auditoria</h2><div class="empty">Carregando…</div>`;
+  S.db.collection("auditoria").orderBy("quando","desc").limit(100).get().then(s=>{
+    const rows=s.docs.map(d=>d.data());
+    el.innerHTML=`<h2 class="ptitle">Auditoria</h2><p class="hint">Últimas 100 alterações feitas pela equipe.</p>${rows.length?`<div class="list">${rows.map(r=>`<div class="item" style="cursor:default"><span style="min-width:0"><span class="nm">${esc(r.acao)}</span><span class="sub"> ${esc(r.alvo||"")}</span><span class="badges"><span class="b">${esc((S.names[r.quem]&&S.names[r.quem].name)||"Equipe")}</span><span class="b">${new Date(r.quando).toLocaleString("pt-BR",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}</span></span></span></div>`).join("")}</div>`:`<div class="empty">Nenhuma alteração registrada ainda.</div>`}`;
+  }).catch(()=>{ el.innerHTML=`<h2 class="ptitle">Auditoria</h2><div class="empty">Não foi possível carregar.</div>`; });
+}
+
+/* ---------- formulários ---------- */
+const TIPOS_CAMPO = {texto:"Resposta curta", paragrafo:"Resposta longa", email:"E-mail", telefone:"Telefone", cpf:"CPF", data:"Data", numero:"Número", escolha:"Escolha única", multipla:"Múltipla escolha", simnao:"Sim ou não", aceite:"Caixa de concordância"};
+const PUBLICOS = {todos:"Todos os alunos", atletas:"Atletas de competição", OPEN:"Categoria Open", M40:"Master 40+", M50:"Master 50+", M60:"Master 60+"};
+const TIPOS_FORM = {competicao:"Competição", viagem:"Viagem", evento:"Evento", geral:"Geral"};
+function formVisivel(f){
+  if(S.canAgenda) return true; if(!f.ativo) return false; if(f.prazo && f.prazo<todaySP()) return false;
+  if(f.publico==="todos"||!f.publico) return true;
+  const a=S.minhaFicha||{}; if(f.publico==="atletas") return !!a.equipe;
+  const cs=catsPorAno((a.nascimento||"").slice(0,4))||meusCats(); return !!(cs && cs.includes(f.publico));
+}
+const MODELO_COMP = {titulo:"PVV Competição 2027", tipo:"competicao", publico:"todos", descricao:"Formulário para quem quer participar de competições representando o PVV. Confira e ajuste as perguntas para ficarem iguais ao formulário oficial.", campos:[
+  {rotulo:"E-mail",tipo:"email",obrig:true},{rotulo:"Nome completo",tipo:"texto",obrig:true},{rotulo:"Data de nascimento",tipo:"data",obrig:true},
+  {rotulo:"CPF",tipo:"cpf",obrig:true},{rotulo:"Telefone (WhatsApp)",tipo:"telefone",obrig:true},
+  {rotulo:"Naipe",tipo:"escolha",obrig:true,opcoes:["Feminino","Masculino"]},
+  {rotulo:"Categoria em que pretende competir",tipo:"escolha",obrig:true,opcoes:["Open","Master 40+","Master 50+","Master 60+"]},
+  {rotulo:"Há quanto tempo rema canoa havaiana?",tipo:"escolha",obrig:true,opcoes:["Menos de 1 ano","1 a 3 anos","Mais de 3 anos"]},
+  {rotulo:"Modalidades de interesse",tipo:"multipla",obrig:true,opcoes:["OC1","OC2","OC6","V1","V6"]},
+  {rotulo:"Dias disponíveis para treino",tipo:"multipla",obrig:false,opcoes:["Segunda","Terça","Quarta","Quinta","Sexta","Sábado","Domingo"]},
+  {rotulo:"Tamanho da camisa de competição",tipo:"escolha",obrig:true,opcoes:["PP","P","M","G","GG","XGG"]},
+  {rotulo:"É filiado à federação estadual?",tipo:"simnao",obrig:false},
+  {rotulo:"Observações",tipo:"paragrafo",obrig:false},
+  {rotulo:"Comprometo-me a seguir o calendário de treinos e as regras da equipe de competição do PVV",tipo:"aceite",obrig:true}
+]};
+function editForm(id){
+  const base = id ? JSON.parse(JSON.stringify(S.forms[id])) : {titulo:"", descricao:"", tipo:"geral", publico:"todos", prazo:"", ativo:true, campos:[{rotulo:"",tipo:"texto",obrig:true}]};
+  let campos = base.campos.map(c=>Object.assign({id:c.id||rid()},c));
+  const selO=(name,opts,val)=>`<select name="${name}">${Object.entries(opts).map(([k,v])=>`<option value="${k}" ${k===val?"selected":""}>${v}</option>`).join("")}</select>`;
+  openSheet(`<div class="head"><h2>${id?"Editar formulário":"Novo formulário"}</h2><button class="x" aria-label="Fechar">×</button></div>
+    ${id?"":`<div class="row" style="margin-bottom:8px"><button type="button" class="btn ghost small" id="modComp">Usar modelo: PVV Competição 2027</button></div>`}
+    <form id="fform"><div class="grid">
+      <label class="f full">Título<input name="titulo" required value="${esc(base.titulo)}" placeholder="Ex.: Viagem para Búzios"></label>
+      <label class="f full">Explicação para quem vai responder<textarea name="descricao">${esc(base.descricao)}</textarea></label>
+      <label class="f">Tipo${selO("tipo",TIPOS_FORM,base.tipo)}</label>
+      <label class="f">Quem recebe${selO("publico",PUBLICOS,base.publico)}</label>
+      <label class="f">Respostas até<input name="prazo" type="date" value="${esc(base.prazo)}"></label>
+      <label class="chk" style="align-self:end"><input type="checkbox" name="ativo" ${base.ativo!==false?"checked":""}> Aberto para respostas</label>
+    </div>
+    <h3 style="margin:16px 0 6px">Perguntas</h3><div id="camposBox"></div>
+    <button type="button" class="btn ghost small" id="addCampo">Adicionar pergunta</button>
+    <div class="row" style="margin-top:18px">${id?`<button type="button" class="btn danger small" id="delForm">Excluir</button>`:""}<span class="spacer"></span><button type="button" class="btn ghost" id="cForm">Cancelar</button><button class="btn" type="submit">${id?"Salvar":"Publicar formulário"}</button></div></form>`, root=>{
+    const box=root.querySelector("#camposBox");
+    const lerCampos=()=>{ box.querySelectorAll(".campo").forEach((el,i)=>{ const c=campos[i]; c.rotulo=el.querySelector("[data-k=rotulo]").value; c.tipo=el.querySelector("[data-k=tipo]").value; c.obrig=el.querySelector("[data-k=obrig]").checked; const op=el.querySelector("[data-k=opcoes]"); if(op) c.opcoes=op.value.split("\n").map(x=>x.trim()).filter(Boolean); }); };
+    const desenha=()=>{ box.innerHTML=campos.map((c,i)=>`<div class="campo"><div class="row" style="gap:6px"><b class="cn">${i+1}</b><input data-k="rotulo" value="${esc(c.rotulo)}" placeholder="Pergunta" aria-label="Pergunta ${i+1}"><button type="button" class="ib" data-up="${i}" aria-label="Subir">↑</button><button type="button" class="ib" data-dn="${i}" aria-label="Descer">↓</button><button type="button" class="ib" data-rm="${i}" aria-label="Remover">✕</button></div>
+      <div class="row" style="gap:10px;margin-top:6px"><select data-k="tipo">${Object.entries(TIPOS_CAMPO).map(([k,v])=>`<option value="${k}" ${k===c.tipo?"selected":""}>${v}</option>`).join("")}</select><label class="chk"><input type="checkbox" data-k="obrig" ${c.obrig?"checked":""}> Obrigatória</label></div>
+      ${["escolha","multipla"].includes(c.tipo)?`<textarea data-k="opcoes" placeholder="Uma opção por linha">${esc((c.opcoes||[]).join("\n"))}</textarea>`:""}</div>`).join("");
+      box.querySelectorAll("[data-k=tipo]").forEach(s=>s.addEventListener("change",()=>{ lerCampos(); desenha(); }));
+      box.querySelectorAll("[data-up]").forEach(b=>b.addEventListener("click",()=>{ lerCampos(); const i=+b.dataset.up; if(i>0){ [campos[i-1],campos[i]]=[campos[i],campos[i-1]]; desenha(); } }));
+      box.querySelectorAll("[data-dn]").forEach(b=>b.addEventListener("click",()=>{ lerCampos(); const i=+b.dataset.dn; if(i<campos.length-1){ [campos[i+1],campos[i]]=[campos[i],campos[i+1]]; desenha(); } }));
+      box.querySelectorAll("[data-rm]").forEach(b=>b.addEventListener("click",()=>{ lerCampos(); campos.splice(+b.dataset.rm,1); desenha(); }));
+    };
+    desenha();
+    root.querySelector("#addCampo").addEventListener("click",()=>{ lerCampos(); campos.push({id:rid(),rotulo:"",tipo:"texto",obrig:false}); desenha(); });
+    const mc=root.querySelector("#modComp"); if(mc) mc.addEventListener("click",()=>{ const f=root.querySelector("#fform"); f.titulo.value=MODELO_COMP.titulo; f.descricao.value=MODELO_COMP.descricao; f.tipo.value="competicao"; f.publico.value="todos"; campos=MODELO_COMP.campos.map(c=>Object.assign({id:rid()},JSON.parse(JSON.stringify(c)))); desenha(); });
+    root.querySelector("#cForm").addEventListener("click",closeSheet);
+    const df=root.querySelector("#delForm"); if(df) df.addEventListener("click",async()=>{ if(!await ask("Excluir este formulário? As respostas ficam guardadas, mas o formulário some do app.","Excluir")) return; await S.db.doc("forms/"+id).delete(); auditar("Formulário excluído",base.titulo); closeSheet(); toast("Formulário excluído"); });
+    root.querySelector("#fform").addEventListener("submit",async ev=>{
+      ev.preventDefault(); lerCampos(); const f=new FormData(ev.target);
+      const o={titulo:f.get("titulo").toString().trim(), descricao:f.get("descricao").toString().trim(), tipo:f.get("tipo"), publico:f.get("publico"), prazo:f.get("prazo")||"", ativo:!!f.get("ativo"), campos:campos.filter(c=>c.rotulo.trim()), criado:base.criado||new Date().toISOString(), atualizado:new Date().toISOString()};
+      if(!o.campos.length){ toast("Inclua ao menos uma pergunta"); return; }
+      const fid=id||("f"+Date.now().toString(36)+rid());
+      try{ await S.db.doc("forms/"+fid).set(o); auditar(id?"Formulário editado":"Formulário publicado",o.titulo);
+        if(!id){ await S.db.doc("avisos/form_"+fid).set({tipo:"formulario", titulo:o.titulo, texto:`${o.descricao}\nResponda no app, aba Mídia.${o.prazo?` Prazo: ${dataCurta(o.prazo)}.`:""}`, data_evento:o.prazo||"", hora:"", local:"", link:"", expira:o.prazo||"", fixado:false, criado:new Date().toISOString(), publico:o.publico});
+          compartilharWhats(o.tipo==="competicao"?"competicao":"formulario", `*${o.titulo.toUpperCase()}*\n${o.descricao}\n\nPara: ${PUBLICOS[o.publico]}.${o.prazo?` Responda até ${dataCurta(o.prazo)}.`:""}\nResponda no app do clube, aba Mídia.`); }
+        else { closeSheet(); toast("Formulário salvo"); }
+      }catch(e){ failWrite(e); }
+    });
+  });
+}
+function campoHTML(c, v){
+  const nm="c_"+c.id, req=c.obrig?" *":"";
+  const lab=`<span class="ql">${esc(c.rotulo)}${req}</span>`;
+  switch(c.tipo){
+    case "paragrafo": return `<label class="f full">${lab}<textarea name="${nm}">${esc(v||"")}</textarea></label>`;
+    case "data": return `<label class="f full">${lab}<input type="date" name="${nm}" value="${esc(v||"")}"></label>`;
+    case "numero": return `<label class="f full">${lab}<input inputmode="decimal" name="${nm}" value="${esc(v||"")}"></label>`;
+    case "email": return `<label class="f full">${lab}<input type="email" name="${nm}" value="${esc(v||"")}"></label>`;
+    case "telefone": return `<label class="f full">${lab}<input type="tel" name="${nm}" value="${esc(v||"")}"></label>`;
+    case "cpf": return `<label class="f full">${lab}<input inputmode="numeric" maxlength="14" data-cpf name="${nm}" placeholder="000.000.000-00" value="${esc(v||"")}"></label>`;
+    case "escolha": return `<div class="full qbox">${lab}<div class="opts">${(c.opcoes||[]).map(o=>`<label class="opt"><input type="radio" name="${nm}" value="${esc(o)}" ${v===o?"checked":""}><span>${esc(o)}</span></label>`).join("")}</div></div>`;
+    case "multipla": return `<div class="full qbox">${lab}<div class="opts">${(c.opcoes||[]).map(o=>`<label class="opt"><input type="checkbox" name="${nm}" value="${esc(o)}" ${(v||[]).includes(o)?"checked":""}><span>${esc(o)}</span></label>`).join("")}</div></div>`;
+    case "simnao": return `<div class="full">${ynRow(nm, c.rotulo+req, v)}</div>`;
+    case "aceite": return `<label class="chk full aceite"><input type="checkbox" name="${nm}" value="sim" ${v==="sim"?"checked":""}> ${esc(c.rotulo)}${req}</label>`;
+    default: return `<label class="f full">${lab}<input name="${nm}" value="${esc(v||"")}"></label>`;
+  }
+}
+function lerCampo(f, c){ const nm="c_"+c.id; if(c.tipo==="multipla") return f.getAll(nm); const v=(f.get(nm)||"").toString().trim(); return c.tipo==="cpf"?fmtCPF(v):v; }
+function erroCampo(c, v){
+  const vazio = Array.isArray(v)? !v.length : !v;
+  if(c.obrig && vazio) return `Responda: ${c.rotulo}`;
+  if(vazio) return null;
+  if(c.tipo==="email" && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) return `E-mail inválido em: ${c.rotulo}`;
+  if(c.tipo==="cpf" && !cpfValido(v)) return `CPF inválido em: ${c.rotulo}`;
+  if(c.tipo==="numero" && isNaN(+String(v).replace(",","."))) return `Use só números em: ${c.rotulo}`;
+  return null;
+}
+function prefill(c){ const a=S.minhaFicha||{}; const r=(c.rotulo||"").toLowerCase();
+  if(c.tipo==="email") return a.email||""; if(c.tipo==="telefone") return a.telefone||""; if(c.tipo==="data"&&r.includes("nasc")) return a.nascimento||"";
+  if(c.tipo==="texto"&&r.includes("nome")) return a.nome||(S.me&&S.me.name)||""; if(r.includes("naipe")&&c.tipo==="escolha") return a.naipe||""; return ""; }
+function responderForm(fid){
+  const f=S.forms[fid]; if(!f) return;
+  if(!S.uid || S.canWrite===false){ toast("Entre com sua conta para responder"); return; }
+  const ant=(S.minhasResp&&S.minhasResp.r&&S.minhasResp.r[fid]&&S.minhasResp.r[fid].a)||{};
+  const camposV=f.campos;
+  const paginas=[]; for(let i=0;i<camposV.length;i+=4) paginas.push(camposV.slice(i,i+4));
+  const steps=[{titulo:f.titulo, html:`<p style="white-space:pre-wrap;margin:0">${esc(f.descricao||"")}</p><p class="hint">${camposV.length} perguntas${f.prazo?`, respostas até ${esc(dataCurta(f.prazo))}`:""}. Itens com * são obrigatórios.</p>`}]
+    .concat(paginas.map((pg,k)=>({titulo:`Perguntas ${k*4+1} a ${k*4+pg.length}`, html:`<div class="grid">${pg.map(c=>campoHTML(c, ant[c.id]!==undefined?ant[c.id]:prefill(c))).join("")}</div>`, validar:(fd)=>pg.map(c=>erroCampo(c,lerCampo(fd,c))).filter(Boolean)})));
+  wizard(f.titulo, steps, "Enviar respostas", async(fd)=>{
+    const a={}; camposV.forEach(c=>a[c.id]=lerCampo(fd,c));
+    const base=JSON.parse(JSON.stringify(S.minhasResp||{})); base.r=base.r||{}; base.r[fid]={a, t:new Date().toISOString(), nome:(S.minhaFicha&&S.minhaFicha.nome)||(S.me&&S.me.name)||""};
+    await S.db.doc("formresp/"+S.uid).set(base); S.minhasResp=base; closeSheet(); toast("Respostas enviadas"); render();
+  });
+}
+function verRespostas(fid){
+  const f=S.forms[fid]; if(!f) return;
+  const rs=Object.entries(S.formresp).map(([u,d])=>[u,d&&d.r&&d.r[fid]]).filter(x=>x[1]).sort((a,b)=>(b[1].t||"").localeCompare(a[1].t||""));
+  const val=v=>Array.isArray(v)?v.join(", "):(v||"–");
+  openSheet(`<div class="head"><h2>Respostas</h2><button class="x" aria-label="Fechar">×</button></div><p class="hint">${esc(f.titulo)}: ${rs.length} ${rs.length===1?"resposta":"respostas"}.</p>
+    ${rs.length?`<div class="row" style="margin-bottom:10px"><button class="btn ghost small" id="csvR">Exportar planilha</button></div>`+rs.map(([u,r])=>`<details class="resp"><summary><b>${esc(r.nome||nomeAtleta(u))}</b> <span class="hint">${new Date(r.t).toLocaleDateString("pt-BR")}</span></summary><dl class="kv">${f.campos.map(c=>`<dt>${esc(c.rotulo)}</dt><dd>${esc(val(r.a[c.id]))}</dd>`).join("")}</dl></details>`).join(""):`<div class="empty">Ainda não há respostas.</div>`}`, root=>{
+    const b=root.querySelector("#csvR"); if(b) b.addEventListener("click",async()=>{
+      const q=v=>`"${String(v??"").replace(/"/g,'""')}"`;
+      const linhas=[["Nome","Data"].concat(f.campos.map(c=>c.rotulo)).map(q).join(";")].concat(rs.map(([u,r])=>[r.nome||nomeAtleta(u), new Date(r.t).toLocaleString("pt-BR")].concat(f.campos.map(c=>val(r.a[c.id]))).map(q).join(";")));
+      try{ const dl=await CL.use("downloads"); if(!dl){ toast("Exportação indisponível aqui"); return; } await dl.save({filename:`respostas-${f.titulo.replace(/\W+/g,"-").toLowerCase()}.csv`, data:"\ufeff"+linhas.join("\n")}); }catch(_){}
+    });
+  });
+}
+
+/* ---------- assistente em passos ---------- */
+function wizard(titulo, steps, txtFim, onFim){
+  openSheet(`<div class="head"><h2>${esc(titulo)}</h2><button class="x" aria-label="Fechar">×</button></div>
+    <div class="wprog"><div class="wbar"><i></i></div><span id="wpasso"></span></div>
+    <div id="werr" class="errbox" hidden></div>
+    <form id="wform">${steps.map((s,k)=>`<section class="wstep" data-k="${k}" ${k?"hidden":""}><h3 class="wt">${esc(s.titulo)}</h3>${s.html}</section>`).join("")}
+    <div class="row wnav"><button type="button" class="btn ghost" id="wVolta">Voltar</button><span class="spacer"></span><button type="button" class="btn" id="wSegue">Continuar</button></div></form>`, root=>{
+    let k=0; const form=root.querySelector("#wform"), err=root.querySelector("#werr");
+    root.querySelectorAll("[data-cpf]").forEach(i=>i.addEventListener("input",()=>{ i.value=fmtCPF(i.value); }));
+    const mostra=()=>{ root.querySelectorAll(".wstep").forEach(s=>s.hidden=+s.dataset.k!==k); root.querySelector("#wpasso").textContent=`Passo ${k+1} de ${steps.length}`; root.querySelector(".wbar i").style.width=`${(k+1)/steps.length*100}%`; root.querySelector("#wVolta").style.visibility=k?"visible":"hidden"; root.querySelector("#wSegue").textContent=k===steps.length-1?txtFim:"Continuar"; err.hidden=true; root.scrollTop=0; if(steps[k].onShow) steps[k].onShow(root, new FormData(form)); travar(); };
+    const travar=()=>{ const s=steps[k]; const b=root.querySelector("#wSegue"); if(s.exigeCheck){ b.disabled=!s.exigeCheck.every(n=>form.querySelector(`[name=${n}]`).checked); } else b.disabled=false; };
+    form.addEventListener("change",travar);
+    root.querySelector("#wVolta").addEventListener("click",()=>{ if(k>0){ k--; mostra(); } });
+    root.querySelector("#wSegue").addEventListener("click",async()=>{
+      const fd=new FormData(form); const e=steps[k].validar?steps[k].validar(fd):[];
+      if(e.length){ err.hidden=false; err.innerHTML=`<b>Falta completar:</b><ul>${e.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`; root.scrollTop=0; return; }
+      if(k<steps.length-1){ k++; mostra(); return; }
+      const b=root.querySelector("#wSegue"); b.disabled=true; try{ await onFim(fd, root); }catch(er){ failWrite(er); b.disabled=false; }
+    });
+    mostra();
+  });
+}
+
+/* ---------- mídia ---------- */
+const REDES = {site:["Site","Saiba mais"], instagram:["Instagram","Ver no Instagram"], facebook:["Facebook","Ver no Facebook"], youtube:["YouTube","Assistir no YouTube"], tiktok:["TikTok","Ver no TikTok"], formulario:["Formulário externo","Abrir formulário"], whatsapp:["WhatsApp","Abrir no WhatsApp"], outro:["Outro","Abrir link"]};
+function renderMidia(){
+  const el=$("#midiaBody");
+  if(!S.db){ el.innerHTML=`<div class="locked"><h3>Mídia indisponível aqui</h3><p>Abra o app conectado à sua conta.</p></div>`; return; }
+  marcarVisto("midia");
+  const forms=Object.values(S.forms).filter(formVisivel).sort((a,b)=>(b.criado||"").localeCompare(a.criado||""));
+  const posts=Object.values(S.midia).sort((a,b)=>((b.fixado?1:0)-(a.fixado?1:0))||(b.criado||"").localeCompare(a.criado||""));
+  const resp=fid=>S.minhasResp&&S.minhasResp.r&&S.minhasResp.r[fid];
+  const nResp=fid=>Object.values(S.formresp).filter(d=>d&&d.r&&d.r[fid]).length;
+  let html=`<div class="ag-head"><div><h2>Mídia</h2><p class="hint">Campanhas, novidades e formulários do clube.</p></div><span class="spacer"></span>${S.canMidia?`<div class="row"><button class="btn ghost small" id="novoForm">Novo formulário</button><button class="btn small" id="novoPost">Nova publicação</button></div>`:""}</div>`;
+  html+=`<h3 class="sech">Formulários</h3>`;
+  html+= forms.length ? forms.map(f=>{ const r=resp(f._id); return `<article class="fcard ${f.ativo?"":"off"}"><div class="row" style="gap:8px"><span class="tp">${esc(TIPOS_FORM[f.tipo]||"Formulário")}</span><span class="b">${esc(PUBLICOS[f.publico]||"Todos")}</span>${!f.ativo?`<span class="b">Encerrado</span>`:""}<span class="spacer"></span>${f.prazo?`<span class="hint" style="margin:0">até ${esc(dataCurta(f.prazo))}</span>`:""}</div>
+      <h3>${esc(f.titulo)}</h3>${f.descricao?`<p class="tx">${esc(f.descricao)}</p>`:""}
+      <div class="row" style="gap:8px;margin-top:8px">${f.ativo&&S.role!=="visitante"?(r?`<span class="b grn">Respondido em ${new Date(r.t).toLocaleDateString("pt-BR")}</span><button class="btn ghost small" data-resp="${esc(f._id)}">Editar respostas</button>`:`<button class="btn small" data-resp="${esc(f._id)}">Responder</button>`):""}<span class="spacer"></span>${S.canMidia&&(S.canEdit||f.tipo!=="competicao")?`<button class="btn ghost small" data-vr="${esc(f._id)}">${nResp(f._id)} respostas</button><button class="btn ghost small" data-ef="${esc(f._id)}">Editar</button>`:""}</div></article>`; }).join("")
+    : `<div class="empty">${S.canMidia?"Crie formulários para inscrições em competições, viagens e eventos.":"Nenhum formulário aberto no momento."}</div>`;
+  html+=`<h3 class="sech">Campanhas e novidades</h3>`;
+  html+= posts.length ? posts.map(p=>`<article class="post">${p.imagem?`<img src="${p.imagem}" alt="">`:""}<div class="pbody"><div class="row" style="gap:8px">${p.rede&&p.rede!=="site"?`<span class="b rede r-${esc(p.rede)}">${esc(REDES[p.rede][0])}</span>`:""}${p.fixado?`<span class="b">Destaque</span>`:""}<span class="spacer"></span><span class="hint" style="margin:0">${esc(quando(p.criado))}</span></div><h3>${esc(p.titulo)}</h3>${p.texto?`<p class="tx">${esc(p.texto)}</p>`:""}
+      <div class="row" style="gap:8px;margin-top:8px">${linkOk(p.link)?`<a class="btn small" href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.cta||REDES[p.rede||"site"][1])}</a>`:""}<span class="spacer"></span>${S.canMidia?`<button class="btn ghost small" data-wp="${esc(p._id)}">WhatsApp</button><button class="btn ghost small" data-ep="${esc(p._id)}">Editar</button>`:""}</div></div></article>`).join("")
+    : `<div class="empty">${S.canMidia?"Publique campanhas, links do Instagram e de outras redes, e novidades do clube.":"Nenhuma publicação ainda."}</div>`;
+  el.innerHTML=html;
+  const nf=$("#novoForm"); if(nf) nf.addEventListener("click",()=>editForm(null));
+  const np=$("#novoPost"); if(np) np.addEventListener("click",()=>editPost(null));
+  el.querySelectorAll("[data-resp]").forEach(b=>b.addEventListener("click",()=>responderForm(b.dataset.resp)));
+  el.querySelectorAll("[data-vr]").forEach(b=>b.addEventListener("click",()=>verRespostas(b.dataset.vr)));
+  el.querySelectorAll("[data-ef]").forEach(b=>b.addEventListener("click",()=>editForm(b.dataset.ef)));
+  el.querySelectorAll("[data-ep]").forEach(b=>b.addEventListener("click",()=>editPost(b.dataset.ep)));
+  el.querySelectorAll("[data-wp]").forEach(b=>b.addEventListener("click",()=>{ const p=S.midia[b.dataset.wp]; compartilharWhats("midia",`*${p.titulo.toUpperCase()}*\n${p.texto||""}${linkOk(p.link)?`\n${p.link}`:""}`); }));
+}
+function editPost(id){
+  const p = id ? S.midia[id] : {titulo:"", texto:"", link:"", cta:"", fixado:false, imagem:""};
+  let img=p.imagem||"";
+  openSheet(`<div class="head"><h2>${id?"Editar publicação":"Nova publicação"}</h2><button class="x" aria-label="Fechar">×</button></div>
+    <form id="fpost"><div class="grid">
+      <div class="full"><div class="fotobox"><div id="pPrev">${img?`<img src="${img}" alt="">`:`<span class="hint">Sem imagem</span>`}</div><label class="btn ghost small" style="cursor:pointer">Escolher imagem<input type="file" id="pImg" accept="image/*" hidden></label><button type="button" class="linkbtn" id="pImgRm" ${img?"":"hidden"}>Remover</button></div></div>
+      <label class="f full">Título<input name="titulo" required value="${esc(p.titulo)}" placeholder="Ex.: Campanha de inverno: traga um amigo"></label>
+      <label class="f full">Texto<textarea name="texto" style="min-height:110px">${esc(p.texto)}</textarea></label>
+      <label class="f">Tipo de link<select name="rede">${Object.entries(REDES).map(([k,v])=>`<option value="${k}" ${k===(p.rede||"site")?"selected":""}>${v[0]}</option>`).join("")}</select></label>
+      <label class="f">Link<input name="link" type="url" value="${esc(p.link)}" placeholder="https://"></label>
+      <label class="f full">Texto do botão<input name="cta" value="${esc(p.cta)}" placeholder="Automático pelo tipo de link"></label>
+      <label class="chk full"><input type="checkbox" name="fixado" ${p.fixado?"checked":""}> Destacar no topo</label>
+    </div><p class="hint">Só publique fotos de alunos que autorizaram o uso de imagem na ficha.</p>
+    <div class="row" style="margin-top:16px">${id?`<button type="button" class="btn danger small" id="delP">Excluir</button>`:""}<span class="spacer"></span><button type="button" class="btn ghost" id="cP">Cancelar</button><button class="btn" type="submit">${id?"Salvar":"Publicar"}</button></div></form>`, root=>{
+    const prev=root.querySelector("#pPrev"), rm=root.querySelector("#pImgRm");
+    root.querySelector("#pImg").addEventListener("change",async e=>{ const f=e.target.files&&e.target.files[0]; if(!f) return; prev.innerHTML=`<span class="hint">Preparando…</span>`; try{ img=await comprimirFoto(f); prev.innerHTML=`<img src="${img}" alt="">`; rm.hidden=false; }catch(_){ prev.innerHTML=`<span class="hint">Não foi possível ler a imagem.</span>`; } });
+    rm.addEventListener("click",()=>{ img=""; prev.innerHTML=`<span class="hint">Sem imagem</span>`; rm.hidden=true; });
+    root.querySelector("#cP").addEventListener("click",closeSheet);
+    const d=root.querySelector("#delP"); if(d) d.addEventListener("click",async()=>{ if(!await ask("Excluir esta publicação?","Excluir")) return; await S.db.doc("midia/"+id).delete(); auditar("Publicação excluída",p.titulo); closeSheet(); toast("Publicação excluída"); });
+    root.querySelector("#fpost").addEventListener("submit",async ev=>{ ev.preventDefault(); const f=new FormData(ev.target);
+      const o={titulo:f.get("titulo").toString().trim(), texto:f.get("texto").toString().trim(), link:f.get("link").toString().trim(), rede:f.get("rede")||"site", cta:f.get("cta").toString().trim(), fixado:!!f.get("fixado"), imagem:img, criado:p.criado||new Date().toISOString(), atualizado:new Date().toISOString()};
+      const pid=id||("m"+Date.now().toString(36)+rid());
+      try{ await S.db.doc("midia/"+pid).set(o); auditar(id?"Publicação editada":"Publicação criada",o.titulo);
+        if(!id){ await S.db.doc("avisos/midia_"+pid).set({tipo:"midia", titulo:o.titulo, texto:o.texto.slice(0,280)+(o.texto.length>280?"…":"")+"\nVeja na aba Mídia.", data_evento:"", hora:"", local:"", link:o.link, expira:"", fixado:false, criado:new Date().toISOString()}); compartilharWhats("midia",`*${o.titulo.toUpperCase()}*\n${o.texto}${linkOk(o.link)?`\n${o.link}`:""}`); }
+        else { closeSheet(); toast("Publicação salva"); }
+      }catch(e){ failWrite(e); }
+    });
+  });
+}
+/* ---------- vistos (alerta amarelo) ---------- */
+function marcarVisto(k){ const max={midia:Object.values(S.midia).reduce((m,p)=>(p.criado||"")>m?p.criado:m,"")}[k]; if(max) lsSet("pvv-visto-"+k,max); }
+
+function vagasDe(t){
+  if(t.vagas!=null && t.vagas!=="" && !isNaN(+t.vagas)) return +t.vagas;
+  const v=(S.config.canoas||[]).filter(c=>c.status!=="manutencao" && (c.local||"Urca")===t.local).reduce((a,c)=>a+(+c.lugares||0),0);
+  return v>0?v:null;
+}
+const OFERTA_MS = 10*60*1000;
+/* fila inteligente: quem entra com a remada cheia vai para a fila por ordem de chegada.
+   Quando abre vaga, o primeiro da fila recebe a oferta e tem 10 minutos para confirmar; se não confirmar, passa para o próximo. */
+function entradas(t){
+  const out=[];
+  for(const [uid,doc] of Object.entries(S.insc)){ const r=doc && doc.r && doc.r[t.id]; if(r && r.s) out.push({key:"u_"+uid, uid, s:r.s, t:r.t||"", tj:r.tj||r.t||"", fila:!!r.fila, aceite:r.aceite||"", saiu:r.saiu||""}); }
+  for(const [mid,m] of Object.entries(t.manual||{})){ if(m && m.s) out.push({key:"m_"+mid, mid, nome:m.nome, s:m.s, t:m.t||"", tj:m.t||"", manual:true}); }
+  const cap=vagasDe(t), now=Date.now();
+  const vou=out.filter(e=>e.s==="vou").sort((a,b)=>a.tj.localeCompare(b.tj));
+  const firmes=vou.filter(e=>e.manual||!e.fila||e.aceite);
+  const pend=vou.filter(e=>!(e.manual||!e.fila||e.aceite));
+  if(cap==null) return {cap, conf:vou, espera:[], ofertas:[], expirados:[], livres:Infinity, talvez:out.filter(e=>e.s==="talvez"), nao:out.filter(e=>e.s==="nao")};
+  const conf=firmes.slice(0,cap), sobra=firmes.slice(cap);
+  let livres=Math.max(0, cap-firmes.length);
+  const saidas=out.filter(e=>e.saiu).map(e=>new Date(e.saiu).getTime()).sort((a,b)=>a-b);
+  const base=saidas.length?saidas[saidas.length-1]:0;
+  const slots=Array.from({length:livres},()=>base);
+  const ofertas=[], expirados=[], espera=[...sobra];
+  for(const e of pend){
+    let j=slots.findIndex(x=>x!==null);
+    while(j>=0){
+      const ini=Math.max(slots[j], new Date(e.tj).getTime()), fim=ini+OFERTA_MS;
+      if(now>fim){ e.expirou=fim; expirados.push(e); slots[j]=fim; e._done=true; break; }
+      e.oferta=fim; ofertas.push(e); slots[j]=null; e._done=true; break;
+    }
+    if(!e._done) espera.push(e);
+  }
+  const livresReais = slots.filter(x=>x!==null).length;
+  return {cap, conf, ofertas, espera, expirados, livres:livresReais, talvez:out.filter(e=>e.s==="talvez").sort((a,b)=>a.t.localeCompare(b.t)), nao:out.filter(e=>e.s==="nao")};
+}
+function nomeDe(e){
+  if(e.manual) return e.nome||"Aluno";
+  const al=S.alunos&&S.alunos.find(a=>a._id===e.uid); if(al&&al.nome) return al.nome;
+  const d=S.insc[e.uid]; if(d && d.apelido) return d.apelido;
+  const p=S.names[e.uid]; return (p && p.name) || "Aluno";
+}
+function meuStatus(t,E){
+  if(!S.uid) return null;
+  const r=S.insc[S.uid] && S.insc[S.uid].r && S.insc[S.uid].r[t.id]; if(!r) return null;
+  if(r.s==="vou"){
+    const o=E.ofertas.find(e=>e.uid===S.uid); if(o) return {s:"oferta", ate:o.oferta};
+    const x=E.expirados.find(e=>e.uid===S.uid); if(x) return {s:"expirou"};
+    const i=E.espera.findIndex(e=>e.uid===S.uid); if(i>=0) return {s:"espera", pos:i+1+E.ofertas.length};
+  }
+  return {s:r.s};
+}
+function conflitoHorario(t){
+  if(!S.uid) return null; const meus=(S.insc[S.uid]&&S.insc[S.uid].r)||{};
+  const ini=startMs(t), fim=new Date(`${t.data}T${t.fim||t.inicio}:00-03:00`).getTime()||ini+90*60e3;
+  return Object.values(S.turmas).find(o=>o.id!==t.id && o.data===t.data && o.status!=="cancelada" && meus[o.id] && meus[o.id].s==="vou" && (()=>{ const a=startMs(o), b=new Date(`${o.data}T${o.fim||o.inicio}:00-03:00`).getTime()||a+90*60e3; return a<fim && ini<b; })())||null;
+}
+async function rsvp(tid,s,opts){
+  opts=opts||{};
+  if(!S.uid || S.pending) return;
+  const t=S.turmas[tid]; if(!t) return;
+  if(s==="vou" && !opts.semConflito){
+    const c=conflitoHorario(t);
+    if(c){ const ok=await ask(`Você já está confirmado na remada ${c.local==="Urca"?"da Urca":"da Lagoa"} das ${c.inicio} neste dia. Não é possível remar nas duas bases no mesmo horário. Quer trocar para ${t.local==="Urca"?"a Urca":"a Lagoa"}?`,"Trocar de base"); closeSheet(); if(!ok) return;
+      await rsvp(c.id,"nao",{semConflito:true}); }
+  }
+  const mine=S.insc[S.uid]||{};
+  let apelido=mine.apelido||"";
+  if(!apelido && !(S.minhaFicha&&S.minhaFicha.nome) && !(S.names[S.uid] && S.names[S.uid].name)){
+    const v=await askText("Seu nome na lista","Como você quer aparecer na lista de presença?");
+    if(!v || !v.trim()) return; apelido=v.trim().slice(0,60);
+  }
+  const r=JSON.parse(JSON.stringify(mine.r||{}));
+  const cut=addDays(todaySP(),-120);
+  Object.keys(r).forEach(k=>{ if(k.slice(0,10)<cut) delete r[k]; });
+  const cur=r[tid]; if(cur && cur.s===s && !opts.reentrar) return;
+  const E=entradas(t), agora=new Date().toISOString();
+  const eraFirme = cur && cur.s==="vou" && (!cur.fila || cur.aceite);
+  const n={s, t:agora};
+  if(s==="vou"){ const cheio = E.cap!=null && (E.livres<=0 || E.ofertas.length+E.espera.length>0); n.tj=agora; if(cheio) n.fila=true; }
+  else if(eraFirme){ n.saiu=agora; const j=janela(t); if(j.cancelAte && Date.now()>j.cancelAte) n.tarde=true; }
+  r[tid]=n;
+  const body={r}; if(apelido) body.apelido=apelido;
+  S.pending=true; renderAgenda();
+  try{ await S.db.doc("inscricoes/"+S.uid).set(body); S.insc[S.uid]=body;
+    toast(s==="vou"?(n.fila?"Você entrou na fila de espera":"Presença confirmada"):n.tarde?"Cancelado fora do prazo: conta como falta":{talvez:"Marcado como talvez",nao:"Ausência registrada"}[s]); }
+  catch(e){ if(e && e.code==="invalid_argument"){ S.canWrite=false; toast("Seu acesso é só de leitura"); } else failWrite(e); }
+  finally{ S.pending=false; renderAgenda(); refreshSheet(); }
+}
+async function aceitarVaga(tid){
+  const t=S.turmas[tid]; const E=entradas(t); const o=E.ofertas.find(e=>e.uid===S.uid);
+  if(!o){ toast("O prazo para confirmar essa vaga terminou"); renderAgenda(); return; }
+  const mine=JSON.parse(JSON.stringify(S.insc[S.uid]||{})); mine.r[tid].aceite=new Date().toISOString();
+  try{ await S.db.doc("inscricoes/"+S.uid).set(mine); S.insc[S.uid]=mine; toast("Vaga confirmada. Bom treino!"); }catch(e){ failWrite(e); }
+  renderAgenda(); updateBadge();
+}
+function minhasOfertas(){ if(!S.uid) return []; return Object.values(S.turmas).map(t=>{ const E=entradas(t); const o=E.ofertas.find(e=>e.uid===S.uid); return o?{t,ate:o.oferta}:null; }).filter(Boolean); }
+function minRest(ms){ const m=Math.max(0,Math.ceil((ms-Date.now())/60000)); return m<=1?"menos de 1 minuto":`${m} minutos`; }
+function cardTurma(t){
+  const E=entradas(t), off=t.status==="cancelada", jan=janela(t), now=Date.now();
+  const closed = now>=jan.fecha, aguarda = jan.abre && now<jan.abre;
+  const n=E.conf.length, cap=E.cap, fila=E.ofertas.length+E.espera.length;
+  const disp = cap==null?null:Math.max(0,cap-n-E.ofertas.length);
+  const pct=cap?Math.min(100,Math.round(n/cap*100)):0, me=meuStatus(t,E);
+  const mc=meusCats(), elig=!t.categoria || S.canAgenda || (mc && mc.includes(t.categoria));
+  const fichaOk = S.role!=="aluno" || podeAgendar(fichaStatus(S.minhaFicha));
+  const canR=S.uid && S.canWrite!==false && !off && !closed && !aguarda && elig && fichaOk && S.role!=="agencia";
+  const cheio = cap!=null && (disp<=0 || fila>0) && !(me && ["vou","espera","oferta"].includes(me.s));
+  const chips=[]; if(off) chips.push(`<span class="b red">Cancelada pelos instrutores${t.motivo?": "+esc(t.motivo.toLowerCase()):""}</span>`); else if(closed) chips.push(`<span class="b">Agendamento encerrado</span>`);
+  if(t.categoria) chips.push(`<span class="b" style="background:var(--ocean-soft);color:var(--ocean)">Treino ${esc(CAT_LABEL[t.categoria]||t.categoria)}</span>`);
+  const sc=seaChip(t); if(sc && !off) chips.push(sc);
+  const meTxt = me ? ({vou:"Você está confirmado", talvez:"Você marcou talvez", nao:"Você avisou que não vai", espera:`Você está na fila de espera, posição ${me.pos}`, expirou:"O prazo da sua vaga terminou. Você pode entrar na fila de novo."})[me.s] : "";
+  return `<article class="turma ${off?"off":""}">
+    <button class="t-main" data-open="${esc(t.id)}">
+      <div class="t-time">${esc(t.inicio)}<small>até ${esc(t.fim||"–")}</small></div>
+      <div><div class="t-title">${esc(t.titulo||(t.categoria?"Treino "+(CAT_LABEL[t.categoria]||""):"Remada "+(t.local==="Urca"?"na Urca":"na Lagoa")))}</div>
+        <div class="t-sub">${esc(NOME_BASE[t.local]||t.local)}${t.instrutor?`, instrutor ${esc(t.instrutor)}`:""}${t.obs?", "+esc(t.obs):""}</div>
+        ${chips.length?`<div class="chips">${chips.join("")}</div>`:""}
+        ${cap==null?`<div class="cap"><div class="txt"><b>${n}</b> ${n===1?"agendado":"agendados"}, sem limite de vagas</div></div>`:""}
+        ${aguarda&&!off?`<div class="t-sub" style="margin-top:6px">Agendamento abre ${esc(hhmm(jan.abre))}</div>`:""}
+        ${canR&&jan.cancelAte&&now<jan.cancelAte&&me&&me.s==="vou"?`<div class="t-sub" style="margin-top:4px">Cancele sem contar falta até ${esc(hhmm(jan.cancelAte))}</div>`:""}
+      </div>
+      <span aria-hidden="true" style="color:var(--muted);font-size:24px;line-height:1">›</span>
+    </button>
+    ${cap!=null?`<div class="vagasw"><div class="vagas"><div><b>${cap}</b><span>vagas</span></div><div><b>${n}</b><span>agendados</span></div><div class="${disp?"ok":"zero"}"><b>${disp}</b><span>disponíveis</span></div>${fila?`<div><b>${fila}</b><span>na fila</span></div>`:""}</div><div class="cap"><div class="bar"><i class="${n>=cap?"full":""}" style="width:${pct}%"></i></div></div></div>`:""}
+    ${me&&me.s==="oferta"?`<div class="oferta"><b>Abriu uma vaga para você!</b><span>Confirme em até ${esc(minRest(me.ate))}, ou ela passa para o próximo da fila.</span><div class="row" style="gap:8px;margin-top:8px"><button class="btn small" data-aceita="${esc(t.id)}">Quero a vaga</button><button class="btn ghost small" data-recusa="${esc(t.id)}">Não vou mais</button></div></div>`:""}
+    ${meTxt?`<div class="mine ${me.s==="espera"||me.s==="expirou"?"esp":""}">${meTxt}</div>`:""}
+    ${S.uid && elig && !fichaOk && !off && !closed?`<div class="mine esp">Ficha de saúde pendente. <button class="linkbtn" data-goficha>Preencher ficha</button> para agendar.</div>`:""}
+    ${S.uid && !elig && !off && !closed?`<div class="mine">${mc?`Treino exclusivo para ${esc(CAT_LABEL[t.categoria])}`:"Informe seu ano de nascimento na aba Provas para confirmar este treino"}</div>`:""}
+    ${S.canAgenda&&!closed?`<div class="staffrow">${off?`<button class="btn ghost small" data-reabre="${esc(t.id)}">Reabrir remada</button>`:`<button class="btn danger small" data-cancela="${esc(t.id)}">Cancelar remada (instrutor)</button>`}</div>`:""}
+    ${canR&&!(me&&me.s==="oferta")?`<div class="rsvp" data-t="${esc(t.id)}">${[["vou",cheio?"Entrar na fila":"Vou"],["talvez","Talvez"],["nao","Não vou"]].map(([k,l])=>`<button class="${k}" data-s="${k}" aria-pressed="${me&&(me.s===k||(k==="vou"&&me.s==="espera"))?"true":"false"}" ${S.pending?"disabled":""}>${l}</button>`).join("")}</div>`:""}
+  </article>`;
+}
+function bindAgendaBotoes(el){
+  el.querySelectorAll("[data-aceita]").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); aceitarVaga(b.dataset.aceita); }));
+  el.querySelectorAll("[data-recusa]").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); rsvp(b.dataset.recusa,"nao"); }));
+  el.querySelectorAll(".rsvp").forEach(r=>r.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{
+    const me=meuStatus(S.turmas[r.dataset.t], entradas(S.turmas[r.dataset.t]));
+    rsvp(r.dataset.t,b.dataset.s,{reentrar: me&&me.s==="expirou"&&b.dataset.s==="vou"}); })));
+}
+setInterval(()=>{ if(S.tab==="agenda" && $("#ov").hidden && Object.values(S.turmas).some(t=>entradas(t).ofertas.length)) renderAgenda(); }, 30000);
+
+function canoa(nivel, A, parada){
+  const remando = nivel<2 && !parada;
+  const pad=(x)=>`<g transform="translate(${x} -6)"><circle cx="0" cy="-10" r="3.4" fill="#B97A55"/><path d="M-2.6 -13.2 q2.6 -2.6 5.2 0z" fill="#22313F"/><path d="M-3.4 -6.5 h6.8 v7.5 h-6.8z" fill="#F04A12"/><g>${anim("rotate","-28;18;-28",1.4)}<line x1="0" y1="-4" x2="10" y2="13" stroke="#3A2A1C" stroke-width="1.6"/><path d="M10 13 l2.5 6.5 l-4.2 .6 z" fill="#3A2A1C"/></g></g>`;
+  return `<g transform="translate(44 ${nivel<2&&!parada?152:156})"><g>${anim("translate",`0 0;0 ${-Math.min(2.4,A/2.4)};0 0`,2.4)}${anim("rotate","-1 92 0;1 92 0;-1 92 0",3.2)}
+    ${remando?[20,46,72,98,124,150].map(pad).join(""):""}
+    <path d="M0 -7 Q10 9 40 10 L150 10 Q176 9 190 -9 Q150 -3 94 -3 Q36 -3 0 -7z" fill="#F7F5F0"/>
+    <path d="M1 -6.5 Q36 -2 94 -2 Q150 -2 189 -8.5 L187 -4.5 Q150 2.5 94 2.5 Q36 2.5 3 -2z" fill="#F04A12"/>
+    <path d="M6 0 Q40 8 94 8.5 Q148 8 182 -1" stroke="#D9D4CB" stroke-width="1" fill="none"/>
+    <path d="M78 -2 Q84 -10 90 4 M126 -2 Q132 -10 138 4" stroke="#C9B48A" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M76 10 Q78 4.5 92 4.5 L140 4.5 Q154 5 160 9 Q154 13 140 13.5 L92 13.5 Q78 13.5 76 10z" fill="#F7F5F0" stroke="#D9D4CB" stroke-width=".6"/>
+    <path d="M146 5 Q155 5.5 160 9 Q155 12.5 146 13.2z" fill="#F04A12"/>
+  </g></g>`;
+}
+
+/* ---------- Clube: planos, pagamento e estrutura ---------- */
+const PRECOS_PADRAO = {mensal:270, bimestral:490, trimestral:720, semestral:1400, anual:2700};
+const PAG_PADRAO = {favorecido:"Praia Vermelha Va'a Clube", cnpj:"08.548.060/0001-55", banco:"Itaú Unibanco S.A. (341)", agencia:"8055", conta:"07366-5", pix:"08.548.060/0001-55", pix_tipo:"CNPJ", vencimento:"Pagamento até o dia 10 de cada mês."};
+const ESTRUTURA = [["estacionamento","Estacionamento"],["pertences","Local para pertences"],["agua","Água doce para lavar o equipamento"],["socorros","Kit de primeiros socorros"],["coletes","Coletes salva-vidas"],["banheiro","Banheiro"],["vestiario","Vestiário"],["bebedouro","Água para beber"]];
+function sobreCfg(){ const s=S.config.sobre||{}; return {apresentacao:s.apresentacao||"", diferenciais:s.diferenciais||[], como:s.como||"", bases:s.bases||{}, pagamento:Object.assign({},PAG_PADRAO,s.pagamento||{})}; }
+function precos(){ return Object.assign({},PRECOS_PADRAO,S.config.precos||{}); }
+function brl(v){ return (+v).toLocaleString("pt-BR",{style:"currency",currency:"BRL"}); }
+function renderSobre(){
+  const el=$("#sobreBody"), c=sobreCfg(), p=precos(), mensal=+p.mensal||0;
+  const planos=Object.entries(PLANOS).filter(([k])=>p[k]);
+  const icS=(tem)=>tem===true?`<span class="est sim" aria-label="Sim">✓</span>`:tem===false?`<span class="est nao" aria-label="Não">✕</span>`:`<span class="est q" aria-label="A confirmar">?</span>`;
+  let html=`<div class="ag-head"><div><h2>Clube</h2><p class="hint">Planos, pagamento e estrutura das bases.</p></div><span class="spacer"></span>${S.canEdit?`<button class="btn small" id="edSobre">Editar</button>`:""}</div>`;
+  if(c.apresentacao) html+=`<div class="panel" style="margin-top:0"><p style="margin:0;white-space:pre-wrap">${esc(c.apresentacao)}</p></div>`;
+  html+=`<h3 class="sech">Planos</h3><div class="planos">${planos.map(([k,[nome,meses]])=>{ const v=+p[k], pm=v/meses, eco=mensal&&meses>1?Math.round((1-pm/mensal)*100):0; return `<div class="plano ${k==="anual"?"dest":""}"><span class="pn">${nome}</span><span class="pv">${brl(v)}</span>${meses>1?`<span class="pm">${brl(pm)} por mês</span>${eco>0?`<span class="eco">economia de ${eco}%</span>`:""}`:`<span class="pm">por mês</span>`}</div>`; }).join("")}</div>
+    <div class="panel"><h3>Como pagar</h3><dl class="kv"><dt>Favorecido</dt><dd>${esc(c.pagamento.favorecido)}</dd><dt>CNPJ</dt><dd>${esc(c.pagamento.cnpj)}</dd><dt>Banco</dt><dd>${esc(c.pagamento.banco)}</dd><dt>Agência</dt><dd>${esc(c.pagamento.agencia)}</dd><dt>Conta</dt><dd>${esc(c.pagamento.conta)}</dd><dt>PIX (${esc(c.pagamento.pix_tipo)})</dt><dd>${esc(c.pagamento.pix)}</dd></dl>
+      <p style="margin:10px 0 0"><b>${esc(c.pagamento.vencimento)}</b></p>
+      <div class="row" style="margin-top:10px"><button class="btn small" id="cpPix">Copiar chave PIX</button></div></div>`;
+  html+=`<h3 class="sech">Estrutura das bases</h3><div class="bases">${LOCAIS.map(l=>{ const b=c.bases[l]||{}; return `<div class="panel" style="margin-top:0"><h3>${NOME_BASE[l]}</h3>${b.endereco?`<p class="hint" style="margin:0 0 8px">${esc(b.endereco)}</p>`:""}<ul class="estl">${ESTRUTURA.map(([k,n])=>{ const it=(b.itens||{})[k]||{}; return `<li>${icS(it.tem)}<span><b>${n}</b>${it.obs?`<small>${esc(it.obs)}</small>`:""}</span></li>`; }).join("")}</ul>${b.obs?`<p style="margin:8px 0 0;white-space:pre-wrap">${esc(b.obs)}</p>`:""}</div>`; }).join("")}</div>`;
+  if(c.diferenciais.length) html+=`<h3 class="sech">Diferenciais do PVV</h3><div class="panel" style="margin-top:0"><ul class="dif">${c.diferenciais.map(d=>`<li>${esc(d)}</li>`).join("")}</ul></div>`;
+  if(c.como) html+=`<h3 class="sech">Como funciona</h3><div class="panel" style="margin-top:0"><p style="margin:0;white-space:pre-wrap">${esc(c.como)}</p></div>`;
+  if(!c.diferenciais.length && !c.apresentacao && S.canEdit) html+=`<div class="empty">Toque em Editar para apresentar o clube, os diferenciais e a estrutura de cada base.</div>`;
+  el.innerHTML=html;
+  $("#cpPix").addEventListener("click",()=>{ const k=c.pagamento.pix.replace(/[^\dA-Za-z@.+-]/g,""); copiar(/^\d+$/.test(k)?k:c.pagamento.pix); });
+  const ed=$("#edSobre"); if(ed) ed.addEventListener("click",editSobre);
+}
+function editSobre(){
+  const c=sobreCfg(), p=precos();
+  const triS=(name,v)=>`<select name="${name}"><option value="" ${v==null?"selected":""}>A confirmar</option><option value="sim" ${v===true?"selected":""}>Tem</option><option value="nao" ${v===false?"selected":""}>Não tem</option></select>`;
+  openSheet(`<div class="head"><h2>Editar Clube</h2><button class="x" aria-label="Fechar">×</button></div>
+    <form id="fsob">
+      <fieldset><legend>Apresentação</legend><label class="f">Texto de abertura<textarea name="apresentacao">${esc(c.apresentacao)}</textarea></label>
+        <label class="f" style="margin-top:8px">Diferenciais (um por linha)<textarea name="diferenciais" placeholder="Ex.: Instrutores certificados&#10;Canoas OC6 novas">${esc(c.diferenciais.join("\n"))}</textarea></label>
+        <label class="f" style="margin-top:8px">Como funciona<textarea name="como" placeholder="Ex.: Agende pelo app até a véspera. Chegue 15 minutos antes.">${esc(c.como)}</textarea></label></fieldset>
+      <fieldset><legend>Planos (valor total do período)</legend><div class="grid">${Object.entries(PLANOS).map(([k,[n]])=>`<label class="f">${n}<input name="p_${k}" inputmode="decimal" value="${esc(p[k]??"")}"></label>`).join("")}</div></fieldset>
+      <fieldset><legend>Pagamento</legend><div class="grid">${[["favorecido","Favorecido"],["cnpj","CNPJ"],["banco","Banco"],["agencia","Agência"],["conta","Conta"],["pix","Chave PIX"],["pix_tipo","Tipo da chave"],["vencimento","Regra de vencimento"]].map(([k,l])=>`<label class="f ${["favorecido","banco","vencimento","pix"].includes(k)?"full":""}">${l}<input name="g_${k}" value="${esc(c.pagamento[k])}"></label>`).join("")}</div></fieldset>
+      ${LOCAIS.map(l=>{ const b=c.bases[l]||{}; return `<fieldset><legend>${NOME_BASE[l]}</legend><label class="f">Endereço ou ponto de encontro<input name="${l}_endereco" value="${esc(b.endereco)}"></label>
+        ${ESTRUTURA.map(([k,n])=>{ const it=(b.itens||{})[k]||{}; return `<div class="estrow"><span>${n}</span>${triS(`${l}_${k}_tem`,it.tem)}<input name="${l}_${k}_obs" placeholder="Observação" value="${esc(it.obs)}"></div>`; }).join("")}
+        <label class="f" style="margin-top:8px">Observações da base<textarea name="${l}_obs">${esc(b.obs)}</textarea></label></fieldset>`; }).join("")}
+      <div class="row" style="margin-top:16px"><span class="spacer"></span><button type="button" class="btn ghost" id="cSob">Cancelar</button><button class="btn" type="submit">Salvar</button></div></form>`, root=>{
+    root.querySelector("#cSob").addEventListener("click",closeSheet);
+    root.querySelector("#fsob").addEventListener("submit",async ev=>{ ev.preventDefault(); const f=new FormData(ev.target), g=k=>(f.get(k)||"").toString().trim();
+      const sobre={apresentacao:g("apresentacao"), diferenciais:g("diferenciais").split("\n").map(x=>x.trim()).filter(Boolean), como:g("como"), pagamento:{}, bases:{}};
+      ["favorecido","cnpj","banco","agencia","conta","pix","pix_tipo","vencimento"].forEach(k=>sobre.pagamento[k]=g("g_"+k));
+      LOCAIS.forEach(l=>{ const itens={}; ESTRUTURA.forEach(([k])=>{ const t=g(`${l}_${k}_tem`); itens[k]={tem:t==="sim"?true:t==="nao"?false:null, obs:g(`${l}_${k}_obs`)}; }); sobre.bases[l]={endereco:g(l+"_endereco"), obs:g(l+"_obs"), itens}; });
+      const pr={}; Object.keys(PLANOS).forEach(k=>pr[k]=num(g("p_"+k).replace(/\./g,"").replace(",",".")));
+      await saveConfig({sobre, precos:pr}); auditar("Página do clube atualizada"); closeSheet(); toast("Clube atualizado");
+    });
+  });
+}
+
+/* ---------- perfil, foto e segurança ---------- */
+const SEG_KEY = ()=>"pvv-seg-"+(S.uid||"anon");
+function segGet(){ try{ return JSON.parse(localStorage.getItem(SEG_KEY())||"{}"); }catch(_){ return {}; } }
+function segSet(o){ try{ localStorage.setItem(SEG_KEY(), JSON.stringify(o)); }catch(_){} }
+async function hashSenha(s){ const b=await crypto.subtle.digest("SHA-256", new TextEncoder().encode("pvv:"+(S.uid||"")+":"+s)); return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join(""); }
+async function bioDisponivel(){ try{ return !NA_CLAUDE && !!window.PublicKeyCredential && await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable(); }catch(_){ return false; } }
+async function bioCadastrar(){
+  const nome=(S.me&&S.me.name)||"Aluno PVV";
+  const cred=await navigator.credentials.create({publicKey:{challenge:crypto.getRandomValues(new Uint8Array(32)), rp:{name:"Praia Vermelha Va'a"}, user:{id:new TextEncoder().encode((S.uid||"u").slice(0,60)), name:nome, displayName:nome}, pubKeyCredParams:[{type:"public-key",alg:-7},{type:"public-key",alg:-257}], authenticatorSelection:{authenticatorAttachment:"platform", userVerification:"required", residentKey:"preferred"}, timeout:60000}});
+  return btoa(String.fromCharCode(...new Uint8Array(cred.rawId)));
+}
+async function bioVerificar(id){ const raw=Uint8Array.from(atob(id),c=>c.charCodeAt(0)); await navigator.credentials.get({publicKey:{challenge:crypto.getRandomValues(new Uint8Array(32)), allowCredentials:[{type:"public-key", id:raw}], userVerification:"required", timeout:60000}}); return true; }
+/* dois fatores para alterar cadastro: senha + biometria do aparelho (na versão final, senha + código por SMS ou e-mail) */
+function confirmarIdentidade(){
+  return new Promise(res=>{
+    if(NA_CLAUDE){ res(true); return; }
+    const sg=segGet(); if(!sg.hash){ res(true); return; }
+    openSheet(`<div class="head"><h2>Confirme que é você</h2><button class="x" aria-label="Fechar">×</button></div>
+      <p class="hint">Alterações no cadastro pedem dois fatores: sua senha${sg.bio?" e a digital ou o reconhecimento facial do aparelho":""}.</p>
+      <form id="f2f"><label class="f">Senha<input type="password" name="s" autocomplete="current-password" required></label>
+      <div id="e2f" class="errbox" hidden style="margin-top:8px"></div>
+      <div class="row" style="margin-top:14px"><span class="spacer"></span><button class="btn" type="submit">${sg.bio?"Continuar com biometria":"Confirmar"}</button></div></form>`, root=>{
+      let ok=false; root.querySelector(".x").addEventListener("click",()=>res(false));
+      root.querySelector("#f2f").addEventListener("submit",async ev=>{ ev.preventDefault(); const e=root.querySelector("#e2f");
+        const h=await hashSenha(new FormData(ev.target).get("s")); if(h!==sg.hash){ e.hidden=false; e.textContent="Senha incorreta."; return; }
+        if(sg.bio){ try{ await bioVerificar(sg.bio); }catch(_){ e.hidden=false; e.textContent="Não foi possível confirmar a biometria."; return; } }
+        ok=true; closeSheet(); res(true); });
+    });
+  });
+}
+function bloqueioInicial(){
+  if(NA_CLAUDE) return; const sg=segGet(); if(!sg.hash||!sg.lock) return;
+  const ov=document.createElement("div"); ov.className="lockscreen";
+  ov.innerHTML=`<div class="lockbox"><img src="${LOGO_W}" alt="" width="56" height="56"><h2>Praia Vermelha Va’a</h2><p>App bloqueado</p>${sg.bio?`<button class="btn" id="lkBio">Desbloquear com digital ou rosto</button>`:""}<form id="lkF"><input type="password" name="s" placeholder="Senha" autocomplete="current-password" aria-label="Senha"><button class="btn ghost">Entrar com senha</button></form><p id="lkE" class="lkerr"></p></div>`;
+  document.body.appendChild(ov);
+  const ok=()=>ov.remove();
+  const b=ov.querySelector("#lkBio"); if(b){ const go=async()=>{ try{ await bioVerificar(sg.bio); ok(); }catch(_){ ov.querySelector("#lkE").textContent="Biometria não confirmada. Use a senha."; } }; b.addEventListener("click",go); }
+  ov.querySelector("#lkF").addEventListener("submit",async e=>{ e.preventDefault(); const h=await hashSenha(new FormData(e.target).get("s")); if(h===sg.hash) ok(); else ov.querySelector("#lkE").textContent="Senha incorreta."; });
+}
+function minhaFoto(){ return (S.role==="aluno"? (S.minhaFicha&&S.minhaFicha.foto) : (S.equipe&&S.equipe[S.uid]&&S.equipe[S.uid].foto)) || ""; }
+function avatar(nome, foto, cls){ return foto?`<img class="av ${cls||""}" src="${foto}" alt="">`:`<span class="av ${cls||""}">${esc(initials(nome))}</span>`; }
+async function trocarFoto(file){
+  const d=await comprimirFotoMax(file, 320, .7);
+  if(S.role==="aluno"){ const o=Object.assign({}, S.minhaFicha||{status:"ativo"}); delete o._id; o.foto=d; o.origem="app"; await S.db.doc("alunos/"+S.uid).set(o); S.minhaFicha=o; }
+  else { await S.db.doc("equipe/"+S.uid).set(Object.assign({}, (S.equipe||{})[S.uid]||{}, {foto:d})); }
+  toast("Foto atualizada"); render();
+}
+function comprimirFotoMax(file,max,q){ return new Promise((res,rej)=>{ const url=URL.createObjectURL(file); const img=new Image(); img.onload=()=>{ const k=Math.min(1,max/Math.max(img.width,img.height)); const c=document.createElement("canvas"); const lado=Math.round(Math.min(img.width,img.height)*k); c.width=lado; c.height=lado; const sx=(img.width-Math.min(img.width,img.height))/2, sy=(img.height-Math.min(img.width,img.height))/2; c.getContext("2d").drawImage(img,sx,sy,Math.min(img.width,img.height),Math.min(img.width,img.height),0,0,lado,lado); URL.revokeObjectURL(url); res(c.toDataURL("image/jpeg",q)); }; img.onerror=()=>{ URL.revokeObjectURL(url); rej(new Error("img")); }; img.src=url; }); }
+function cartaoPerfil(){
+  const nome=(S.role==="aluno"&&S.minhaFicha&&S.minhaFicha.nome)||(S.me&&S.me.name)||"Você";
+  const papel={gestao:"Gestão",instrutor:"Instrutor",agencia:"Agência de comunicação",aluno:"Aluno",visitante:"Visitante"}[S.role];
+  return `<div class="perfilcard">${avatar(nome, minhaFoto(), "big")}<div><b>${esc(nome)}</b><span>${papel}</span><label class="linkbtn" style="cursor:pointer">Trocar foto de perfil<input type="file" accept="image/*" id="pfFoto" hidden></label></div></div>`;
+}
+function painelSeguranca(){
+  if(NA_CLAUDE) return `<div class="panel"><h3>Acesso e segurança</h3><p class="hint" style="margin:0">Aqui o acesso é pela sua conta do Claude. No app final, você entra com e-mail ou celular e senha, pode desbloquear com digital ou reconhecimento facial, e alterações no cadastro pedem um código de confirmação por SMS ou e-mail.</p></div>`;
+  const sg=segGet();
+  return `<div class="panel"><h3>Acesso e segurança</h3>
+    <div class="grade-row"><div><b>Senha</b><div class="hint" style="margin:0">${sg.hash?"Definida":"Ainda não definida"}</div></div><span class="spacer"></span><button class="btn ghost small" id="sgSenha">${sg.hash?"Trocar":"Criar senha"}</button></div>
+    <div class="grade-row"><div><b>Digital ou reconhecimento facial</b><div class="hint" style="margin:0" id="sgBioTxt">${sg.bio?"Ativado neste aparelho":"Desativado"}</div></div><span class="spacer"></span><button class="btn ghost small" id="sgBio" ${sg.hash?"":"disabled"}>${sg.bio?"Desativar":"Ativar"}</button></div>
+    <div class="grade-row"><div><b>Bloquear o app ao abrir</b><div class="hint" style="margin:0">Pede senha ou biometria</div></div><span class="spacer"></span><label class="chk"><input type="checkbox" id="sgLock" ${sg.lock?"checked":""} ${sg.hash?"":"disabled"}> Ativo</label></div>
+    <p class="hint">Alterações na ficha pedem senha${sg.bio?" e biometria":""}. Versão de testes: a segurança fica salva só neste aparelho.</p></div>`;
+}
+function bindPerfil(el){
+  const pf=el.querySelector("#pfFoto"); if(pf) pf.addEventListener("change",async e=>{ const f=e.target.files&&e.target.files[0]; if(!f) return; try{ await trocarFoto(f); }catch(er){ failWrite(er); } });
+  const bs=el.querySelector("#sgSenha"); if(bs) bs.addEventListener("click",()=>{
+    const sg=segGet();
+    openSheet(`<div class="head"><h2>${sg.hash?"Trocar senha":"Criar senha"}</h2><button class="x" aria-label="Fechar">×</button></div><form id="fsg">${sg.hash?`<label class="f">Senha atual<input type="password" name="a" required autocomplete="current-password"></label>`:""}<label class="f" style="margin-top:8px">Nova senha (mínimo 6 caracteres)<input type="password" name="n" minlength="6" required autocomplete="new-password"></label><label class="f" style="margin-top:8px">Repita a nova senha<input type="password" name="r" minlength="6" required autocomplete="new-password"></label><div id="esg" class="errbox" hidden style="margin-top:8px"></div><div class="row" style="margin-top:14px"><span class="spacer"></span><button class="btn">Salvar senha</button></div></form>`, root=>{
+      root.querySelector("#fsg").addEventListener("submit",async ev=>{ ev.preventDefault(); const f=new FormData(ev.target), e=root.querySelector("#esg");
+        if(sg.hash && await hashSenha(f.get("a"))!==sg.hash){ e.hidden=false; e.textContent="Senha atual incorreta."; return; }
+        if(f.get("n")!==f.get("r")){ e.hidden=false; e.textContent="As senhas não conferem."; return; }
+        sg.hash=await hashSenha(f.get("n")); segSet(sg); closeSheet(); toast("Senha salva"); render(); });
+    });
+  });
+  const bb=el.querySelector("#sgBio"); if(bb) bb.addEventListener("click",async()=>{
+    const sg=segGet();
+    if(sg.bio){ delete sg.bio; segSet(sg); toast("Biometria desativada"); render(); return; }
+    if(!await bioDisponivel()){ toast("Este aparelho ou navegador não oferece digital ou reconhecimento facial"); return; }
+    try{ sg.bio=await bioCadastrar(); segSet(sg); toast("Biometria ativada"); render(); }catch(_){ toast("Biometria não ativada"); }
+  });
+  const lk=el.querySelector("#sgLock"); if(lk) lk.addEventListener("change",()=>{ const sg=segGet(); sg.lock=lk.checked; segSet(sg); toast(lk.checked?"O app vai pedir desbloqueio ao abrir":"Bloqueio desativado"); });
+}
+
 /* ---------- render ---------- */
 function render(){
   if(S.tab==="mural"){ marcarLido(); }
   updateBadge();
-  if(S.tab==="agenda") renderAgenda(); else if(S.tab==="mar") renderMar(); else if(S.tab==="mural") renderMural(); else if(S.tab==="competicao") renderCompeticao(); else if(S.tab==="alunos") renderAlunos(); else renderClube();
+  ({agenda:renderAgenda, mar:renderMar, mural:renderMural, midia:renderMidia, competicao:renderCompeticao, clube:renderSobre, perfil:renderPerfil, alunos:renderAlunos, operacao:renderClube})[S.tab]();
 }
 
 const h0 = location.hash.slice(1);
@@ -2102,11 +2908,11 @@ setTab(TABS.includes(h0)?h0:"agenda");
 /* ---------- capabilities ---------- */
 function computeRole(){
   const p=S.config.papeis||{};
-  S.role = S.isOwner ? "gestao" : S.platAdmin ? (p[S.uid]==="gestao"?"gestao":"instrutor") : (S.uid ? "aluno" : "visitante");
-  S.canEdit = S.role==="gestao"; S.canAgenda = S.canEdit || S.role==="instrutor";
+  S.role = S.isOwner ? "gestao" : S.platAdmin ? ({gestao:"gestao",agencia:"agencia"}[p[S.uid]]||"instrutor") : (S.uid ? "aluno" : "visitante");
+  S.canEdit = S.role==="gestao"; S.canAgenda = S.canEdit || S.role==="instrutor"; S.canMidia = S.canEdit || S.role==="agencia";
   const nome = S.me && S.me.name ? S.me.name.split(" ")[0] : "";
-  $("#who").textContent = nome ? `${nome} (${{gestao:"gestão",instrutor:"instrutor",aluno:"aluno",visitante:"visitante"}[S.role]})` : "";
-  document.querySelectorAll('[data-tab="alunos"] .lbl').forEach(l=>l.textContent = S.role==="aluno" ? (l.closest("nav.bottom")?"Ficha":"Minha ficha") : "Alunos");
+  $("#who").textContent = nome ? `${nome} (${{gestao:"gestão",instrutor:"instrutor",agencia:"agência",aluno:"aluno",visitante:"visitante"}[S.role]})` : "";
+  document.querySelectorAll('[data-tab="perfil"] .lbl').forEach(l=>l.textContent = (S.canAgenda) ? "Gestão" : "Perfil");
 }
 (async function boot(){
   if(!NA_CLAUDE) montarBarraTeste();
@@ -2121,23 +2927,28 @@ function computeRole(){
   }
   S.ownerIds = S.isOwner && S.uid ? [S.uid] : [];
   computeRole();
+  bloqueioInicial();
   if(!db){ showNoDb(); return; }
   db.doc("config/clube").onSnapshot(s=>{ S.config = s.exists ? Object.assign({}, DEFAULT_CONFIG, s.data()) : DEFAULT_CONFIG; S.configLoaded=true; computeRole(); if(S.tab!=="alunos") render(); else updateBadge(); }, ()=>{});
   db.collection("boletins").orderBy("data","desc").limit(30).onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{const x=d.data(); if(x&&x.data) m[x.data]=x;}); S.boletins=m; S.boletinsLoaded=true; if(S.tab==="mar") renderMar(); else if(S.tab==="agenda") renderAgenda(); }, ()=>{ S.boletinsLoaded=true; renderMar(); });
   db.collection("previsoes").where("data",">=",addDays(todaySP(),-2)).orderBy("data","asc").limit(30).onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ const x=d.data(); if(x&&x.data) m[x.data]=x; }); S.previsoes=m; S.previsaoConectada=s.docs.length>0; if(S.tab==="mar") renderMar(); else if(S.tab==="agenda") renderAgenda(); }, ()=>{});
-  const desde = addDays(todaySP(), -14);
-  db.collection("turmas").where("data",">=",desde).orderBy("data","asc").limit(300).onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{const x=d.data(); if(x) m[d.id]=Object.assign({id:d.id},x);}); S.turmas=m; S.turmasLoaded=true; if(S.tab==="agenda") renderAgenda(); else if(S.tab==="competicao") renderCompeticao(); else if(S.tab==="mar") renderMar(); refreshSheet(); }, ()=>{ S.turmasLoaded=true; renderAgenda(); });
+  const desde = addDays(todaySP(), -120);
+  db.collection("turmas").where("data",">=",desde).orderBy("data","asc").limit(1000).onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{const x=d.data(); if(x) m[d.id]=Object.assign({id:d.id},x);}); S.turmas=m; S.turmasLoaded=true; if(S.tab==="agenda") renderAgenda(); else if(S.tab==="competicao") renderCompeticao(); else if(S.tab==="mar") renderMar(); refreshSheet(); }, ()=>{ S.turmasLoaded=true; renderAgenda(); });
   db.collection("inscricoes").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data()||{}; }); S.insc=m; resolveNames(); if(S.tab==="agenda") renderAgenda(); else if(S.tab==="competicao") renderCompeticao(); refreshSheet(); }, ()=>{});
   db.collection("avisos").orderBy("criado","desc").limit(150).onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=Object.assign({_id:d.id}, d.data()); }); S.avisos=m; S.avisosLoaded=true; if(S.tab==="mural"){ marcarLido(); renderMural(); } else if(S.tab==="agenda") renderAgenda(); else if(S.tab==="mar") renderMar(); updateBadge(); }, ()=>{ S.avisosLoaded=true; });
+  db.collection("forms").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=Object.assign({_id:d.id}, d.data()); }); S.forms=m; updateBadge(); if(["midia","perfil"].includes(S.tab)) render(); }, ()=>{});
+  db.collection("midia").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=Object.assign({_id:d.id}, d.data()); }); S.midia=m; updateBadge(); if(S.tab==="midia") renderMidia(); }, ()=>{});
+  if(S.platAdmin) db.collection("formresp").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data()||{}; }); S.formresp=m; S.minhasResp=S.uid?(m[S.uid]||null):null; if(["midia","perfil"].includes(S.tab)) render(); }, ()=>{});
+  else if(S.uid) db.doc("formresp/"+S.uid).onSnapshot(s=>{ S.minhasResp=s.exists?s.data():null; updateBadge(); if(["midia","perfil"].includes(S.tab)) render(); }, ()=>{});
   db.collection("provas").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=Object.assign({_id:d.id}, d.data()); }); S.provas=m; if(S.tab==="competicao") renderCompeticao(); }, ()=>{});
   if(S.platAdmin){
     db.collection("atletas").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data()||{}; }); S.atletas=m; S.atletaMe=S.uid?(m[S.uid]||null):null; resolveNames(); if(S.tab==="competicao") renderCompeticao(); }, ()=>{});
-    db.collection("alunos").onSnapshot(s=>{ S.alunos = s.docs.map(d=>Object.assign({_id:d.id}, d.data())); S.alunosLoaded=true; S.minhaFicha = S.uid ? (S.alunos.find(a=>a._id===S.uid)||null) : null; updateBadge(); if(S.tab==="alunos") renderAlunos(); else if(S.tab==="competicao") renderCompeticao(); }, ()=>{ S.alunosLoaded=true; renderAlunos(); });
+    db.collection("alunos").onSnapshot(s=>{ S.alunos = s.docs.map(d=>Object.assign({_id:d.id}, d.data())); S.alunosLoaded=true; S.minhaFicha = S.uid ? (S.alunos.find(a=>a._id===S.uid)||null) : null; updateBadge(); if(S.tab==="alunos") renderAlunos(); else if(["competicao","perfil"].includes(S.tab)) render(); }, ()=>{ S.alunosLoaded=true; renderAlunos(); });
     db.collection("equipe").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data()||{}; }); S.equipe=m; resolveNames(); if(S.tab==="clube") renderClube(); }, ()=>{});
     if(S.uid){ try{ const me=await db.doc("equipe/"+S.uid).get(); if(!me.exists) await db.doc("equipe/"+S.uid).set({desde:new Date().toISOString()}); }catch(_){} }
   } else if(S.uid){
     db.doc("atletas/"+S.uid).onSnapshot(s=>{ S.atletaMe=s.exists?s.data():null; if(S.tab==="competicao"||S.tab==="agenda") render(); }, ()=>{});
-    db.doc("alunos/"+S.uid).onSnapshot(s=>{ S.minhaFicha=s.exists?s.data():null; S.alunosLoaded=true; render(); }, ()=>{ S.alunosLoaded=true; });
+    db.doc("alunos/"+S.uid).onSnapshot(s=>{ S.minhaFicha=s.exists?s.data():null; S.alunosLoaded=true; if(!$("#ov").hidden && S.tab==="perfil") return; render(); }, ()=>{ S.alunosLoaded=true; });
   }
   render();
 })();
