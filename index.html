@@ -392,6 +392,13 @@ nav.tabs button.alerta{background:#fff;color:var(--stop)}
 .testbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;background:var(--ocean-soft);border-radius:10px;padding:8px 12px;margin-bottom:14px;font-size:14px}
 .testbar select{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:4px 6px}
 
+.fotobox{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.fotobox img{max-width:150px;max-height:96px;border-radius:8px;border:1px solid var(--line);display:block}
+.thumb{border:0;padding:0;background:none;cursor:zoom-in}
+.thumb img{max-width:120px;max-height:76px;border-radius:6px;border:1px solid var(--line);display:block}
+.lightbox{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:20px}
+.lightbox img{max-width:100%;max-height:100%;border-radius:8px}
+.lightbox .x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;background:#fff;border:0;width:40px;height:40px;border-radius:50%;font-size:22px}
 .toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:15px;z-index:30}
 .toast[hidden]{display:none}
 .notice{background:var(--warn-soft);color:var(--ink);border-radius:10px;padding:10px 14px;margin-bottom:14px;font-size:15px}
@@ -716,6 +723,120 @@ const NA_CLAUDE = !!(window.claude && window.claude.use);
 const CL = NA_CLAUDE ? window.claude : TESTE;
 const AO_VIVO = !NA_CLAUDE;
 
+const LOGO_W="data:image/png;base64,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";
+const LOGO_O="data:image/png;base64,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";
+/* ---------- elenco: 14 personagens, uma por dia em cada base ---------- */
+const PELE = {clara:"#F1D0B5", media:"#DDA77E", parda:"#BF8558", morena:"#97613B", preta:"#5E3A23"};
+const CABELO = {preto:"#231710", castanho:"#5A3A22", loiro:"#C9A55A", ruivo:"#9A4322", grisalho:"#BDBAB5"};
+const ELENCO = [
+  {pele:"clara",  cab:"rabo",     cor:"castanho", corpo:"media", sexo:"f", baixo:"legging", camisa:"laranja"},
+  {pele:"preta",  cab:"crespoCurto", cor:"preto", corpo:"gorda", sexo:"m", baixo:"bermuda", camisa:"branca"},
+  {pele:"parda",  cab:"cachos",   cor:"castanho", corpo:"gorda", sexo:"f", baixo:"short",   camisa:"laranja"},
+  {pele:"media",  cab:"onduladoCurto", cor:"castanho", corpo:"magra", sexo:"m", baixo:"short", camisa:"branca"},
+  {pele:"preta",  cab:"trancas",  cor:"preto",    corpo:"magra", sexo:"f", baixo:"legging", camisa:"branca"},
+  {pele:"clara",  cab:"careca",   cor:"grisalho", corpo:"media", sexo:"m", baixo:"bermuda", camisa:"laranja", barba:true},
+  {pele:"morena", cab:"curtoOnd", cor:"grisalho", corpo:"gorda", sexo:"f", baixo:"legging", camisa:"laranja"},
+  {pele:"parda",  cab:"liso",     cor:"preto",    corpo:"gorda", sexo:"m", baixo:"bermuda", camisa:"laranja"},
+  {pele:"clara",  cab:"ondulado", cor:"ruivo",    corpo:"magra", sexo:"f", baixo:"short",   camisa:"branca"},
+  {pele:"preta",  cab:"careca",   cor:"preto",    corpo:"magra", sexo:"m", baixo:"short",   camisa:"laranja"},
+  {pele:"media",  cab:"coque",    cor:"loiro",    corpo:"media", sexo:"f", baixo:"bermuda", camisa:"branca"},
+  {pele:"morena", cab:"cachoCurto", cor:"preto",  corpo:"media", sexo:"m", baixo:"legging", camisa:"branca", barba:true},
+  {pele:"preta",  cab:"blackpower", cor:"preto",  corpo:"media", sexo:"f", baixo:"short",   camisa:"laranja"},
+  {pele:"media",  cab:"pixie",    cor:"castanho", corpo:"gorda", sexo:"f", baixo:"bermuda", camisa:"branca"}
+];
+function personaDoDia(base, date){
+  const n=Math.floor(new Date(date+"T12:00:00Z").getTime()/86400000);
+  return ELENCO[((n + (base==="Lagoa"?7:0)) % ELENCO.length + ELENCO.length) % ELENCO.length];
+}
+function boneca(p, ps){
+  ps = ps || ELENCO[0];
+  const skin=PELE[ps.pele], hair=CABELO[ps.cor];
+  const bw={magra:.88,media:1,gorda:1.3}[ps.corpo], lw={magra:.92,media:1,gorda:1.32}[ps.corpo];
+  const sw=11.5*bw, ww=10.5*bw, lx=2.2+(bw-1)*4, lW=5.2*lw;
+  const camisa = ps.camisa==="branca" ? "#FAFAF6" : "#F04A12";
+  const logo = ps.camisa==="branca" ? LOGO_O : LOGO_W;
+  const jaqueta = p.look==="frio"||p.look==="tempestade" ? "#1F3B57" : p.look==="chuva" ? "#F2C230" : null;
+  const manga = jaqueta || camisa;
+  const longa = !!jaqueta;
+  const baixoCor = ps.baixo==="legging" ? "#22262E" : ps.baixo==="bermuda" ? "#2E4A66" : "#1F3B57";
+  const temRemo = ["acena","bebe","segura","capuz"].includes(p.gesto);
+  const braco=(mangaLonga)=>`<rect x="-2.6" y="0" width="5.2" height="25" rx="2.6" fill="${skin}"/><rect x="-3.2" y="-1" width="6.4" height="${mangaLonga?24:9}" rx="3.2" fill="${manga}" ${manga==="#FAFAF6"?'stroke="#D8D8D2" stroke-width=".6"':""}/>`;
+  const garrafa=`<g transform="translate(0 25)"><rect x="-3" y="-2" width="6" height="12" rx="2" fill="#2E9BD6"/><rect x="-2" y="-5" width="4" height="3.5" rx="1" fill="#E8F6FF"/></g>`;
+  const placa=`<g transform="translate(0 25)"><line x1="0" y1="0" x2="0" y2="-26" stroke="#5A4A3A" stroke-width="1.6"/><rect x="-11" y="-40" width="22" height="16" rx="2" fill="#FFF3E6" stroke="#D7261E" stroke-width="1.6"/><path d="M1 -38 l-5 7 h4 l-2 6 l6 -8 h-4 l2 -5z" fill="#F2B705" stroke="#5A3A00" stroke-width=".4"/></g>`;
+  const proib=`<g transform="translate(0 25)"><line x1="0" y1="0" x2="0" y2="-26" stroke="#5A4A3A" stroke-width="1.6"/><circle cx="0" cy="-33" r="10" fill="#fff" stroke="#D7261E" stroke-width="2.6"/><path d="M-6 -31 q6 4 12 0" stroke="#F04A12" stroke-width="2.4" fill="none" stroke-linecap="round"/><line x1="-7" y1="-40" x2="7" y2="-26" stroke="#D7261E" stroke-width="2.6"/></g>`;
+  const gR={acena:anim("rotate","-140;-165;-140",1.1,""), bebe:anim("rotate","15;15;-150;-150;15",4,""), alerta:anim("rotate","-160;-150;-160",1.2,""), proibido:anim("rotate","-160;-150;-160",1.2,""), segura:"", abraca:"", capuz:""}[p.gesto];
+  const baseR={acena:-150, bebe:15, alerta:-160, proibido:-160, segura:-165, abraca:24, capuz:10}[p.gesto];
+  const baseL= temRemo ? 22 : ({alerta:10, proibido:10, abraca:-24}[p.gesto] ?? 10);
+  const armR=`<g transform="translate(${(sw-1).toFixed(1)} -71)"><g transform="rotate(${baseR})">${gR}${braco(longa)}${p.gesto==="bebe"?garrafa:""}${p.gesto==="alerta"?placa:""}${p.gesto==="proibido"?proib:""}</g></g>`;
+  const armL=`<g transform="translate(${(-sw+1).toFixed(1)} -71)"><g transform="rotate(${baseL})">${braco(longa)}</g></g>`;
+  // remo de canoa havaiana apoiado no chão
+  const rx=-sw-9;
+  const remo = temRemo ? `<g><line x1="${rx}" y1="-4" x2="${rx}" y2="-98" stroke="#7A4E2A" stroke-width="2.2" stroke-linecap="round"/><path d="M${rx-4.5} -4 Q${rx-5} -24 ${rx} -30 Q${rx+5} -24 ${rx+4.5} -4 Q${rx} 0 ${rx-4.5} -4z" fill="#3A2A1C"/><rect x="${rx-3}" y="-100" width="6" height="3.2" rx="1.6" fill="#3A2A1C"/></g>` : "";
+  // cabelo atrás
+  const vento = p.vento;
+  const balanco = anim("rotate", vento?"-8;-30;-8":"0;-6;0", vento?0.6:2.4, "");
+  let tras="";
+  if(ps.cab==="rabo") tras=`<g transform="translate(-7 -90)"><g>${balanco}<path d="M0 0 q-14 4 -11 22 q3 -9 10 -13z" fill="${hair}"/></g></g>`;
+  if(ps.cab==="ondulado") tras=`<g transform="translate(0 -92)"><g>${anim("rotate",vento?"-4;-12;-4":"0;-3;0",vento?.7:2.6,"")}<path d="M-11 -2 q-5 10 -2 18 q-4 6 0 13 q5 -3 8 -10 l0 -21z M11 -2 q5 10 2 18 q4 6 0 13 q-5 -3 -8 -10 l0 -21z" fill="${hair}"/></g></g>`;
+  if(ps.cab==="trancas") tras=`<g transform="translate(0 -92)"><g>${anim("rotate",vento?"-5;-14;-5":"0;-3;0",vento?.7:2.6,"")}${[-9,-6,6,9].map(x=>`<path d="M${x} 0 q${x<0?-3:3} 14 ${x<0?-1:1} 30" stroke="${hair}" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-dasharray="3 1.2"/>`).join("")}</g></g>`;
+  if(ps.cab==="blackpower") tras=`<circle cx="0" cy="-91" r="16.5" fill="${hair}"/>`;
+  if(ps.cab==="cachos") tras=`<g fill="${hair}">${[[-13,-94],[-15,-84],[-13,-75],[13,-94],[15,-84],[13,-75],[-8,-102],[0,-104],[8,-102]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="5.4"/>`).join("")}</g>`;
+  if(ps.cab==="coque") tras=`<circle cx="0" cy="-101" r="5.6" fill="${hair}"/>`;
+  // cabelo da frente
+  const topoPor = {
+    rabo:`<path d="M-10.2 -86 Q-10 -98.5 0 -98.5 Q10 -98.5 10.2 -86 Q5 -93 -10.2 -86z" fill="${hair}"/>`,
+    ondulado:`<path d="M-10.8 -84 Q-12 -99 0 -99 Q12 -99 10.8 -84 Q8 -94 2 -92 Q-4 -95 -10.8 -84z" fill="${hair}"/>`,
+    trancas:`<path d="M-10.4 -86 Q-10 -98.5 0 -98.5 Q10 -98.5 10.4 -86 Q4 -93 -10.4 -86z" fill="${hair}"/>`,
+    blackpower:`<path d="M-10 -88 Q0 -96 10 -88 Q8 -97 0 -98 Q-8 -97 -10 -88z" fill="${hair}"/>`,
+    cachos:`<path d="M-10.6 -86 Q-11 -99 0 -99 Q11 -99 10.6 -86 Q7 -92 3 -90 Q0 -94 -3 -90 Q-7 -92 -10.6 -86z" fill="${hair}"/>`,
+    coque:`<path d="M-10.2 -86 Q-10 -98.5 0 -98.5 Q10 -98.5 10.2 -86 Q5 -93 -10.2 -86z" fill="${hair}"/>`,
+    crespoCurto:`<path d="M-10.4 -88 Q-10.5 -99.5 0 -99.5 Q10.5 -99.5 10.4 -88 Q0 -92 -10.4 -88z" fill="${hair}"/>`,
+    onduladoCurto:`<path d="M-10.4 -87 Q-11 -100 -2 -99 Q1 -102 5 -99 Q11 -99 10.4 -87 Q7 -93 2 -92 Q-4 -95 -10.4 -87z" fill="${hair}"/>`,
+    cachoCurto:`<g fill="${hair}">${[[-8,-95],[-3,-98],[3,-98],[8,-95],[-10,-90],[10,-90]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="3.6"/>`).join("")}</g>`,
+    liso:`<path d="M-10.4 -87 Q-10 -99 0 -99 Q10 -99 10.4 -87 L7 -91 Q0 -89 -6 -92z" fill="${hair}"/>`,
+    careca:`<path d="M-10 -88 Q-9 -97 0 -97.4 Q9 -97 10 -88" fill="none" stroke="${hair}" stroke-width="1" opacity=".5"/>`,
+    curtoOnd:`<path d="M-10.8 -85 Q-12 -99 0 -99.5 Q12 -99 10.8 -85 Q9 -93 4 -91 Q0 -95 -4 -91 Q-9 -93 -10.8 -85z" fill="${hair}"/>`,
+    pixie:`<path d="M-10.4 -86 Q-11 -100 2 -99.5 Q11 -98 10.4 -88 Q4 -95 -4 -91 Q-8 -90 -10.4 -86z" fill="${hair}"/>`
+  };
+  let topo = topoPor[ps.cab] || topoPor.rabo;
+  const barba = ps.barba ? `<path d="M-8.6 -85 Q-8 -76 0 -75.5 Q8 -76 8.6 -85 Q6 -80 0 -80 Q-6 -80 -8.6 -85z" fill="${hair}"/>` : "";
+  if(p.look==="calor" && !p.viseira) topo+=`<path d="M-10.5 -90 Q-10 -101 0 -101 Q10 -101 10.5 -90z" fill="#F04A12"/><path d="M6 -91 h12 q2 2.2 -1 3.2 h-11z" fill="#C93A0B"/><image href="${LOGO_W}" x="-3" y="-99.5" width="6" height="6"/>`;
+  if(p.viseira) topo+=`<path d="M-10.4 -93.5 h20.8 v3 h-20.8z" fill="#FFFFFF"/><path d="M5 -91 h13 q2 2.2 -1 3.2 h-12z" fill="#FFFFFF" stroke="#D9D9D9" stroke-width=".5"/>`;
+  if(p.look==="vento") topo+=`<path d="M-10.5 -90 Q-10 -101 0 -101 Q10 -101 10.5 -90z" fill="#F04A12"/><path d="M6 -91 h12 q2 2.2 -1 3.2 h-11z" fill="#C93A0B"/>`;
+  if(p.look==="frio") topo+=`<path d="M-10.6 -89 Q-10 -101 0 -101 Q10 -101 10.6 -89 z" fill="#2C557A"/><circle cx="0" cy="-102" r="3" fill="#F04A12"/>`;
+  let capuz = p.look==="chuva" ? `<path d="M-13 -80 Q-14 -104 0 -104 Q14 -104 13 -80 Q11 -97 0 -97 Q-11 -97 -13 -80z" fill="#E0AE14"/>` : "";
+  const olhos=p.oculos?`<rect x="-7.5" y="-89" width="6.3" height="4.2" rx="1.6" fill="#16202A"/><rect x="1.2" y="-89" width="6.3" height="4.2" rx="1.6" fill="#16202A"/><line x1="-1.2" y1="-87.5" x2="1.2" y2="-87.5" stroke="#16202A" stroke-width="1"/>`:`<circle cx="-3.6" cy="-86.5" r="1.15" fill="#1B1B1B"/><circle cx="3.6" cy="-86.5" r="1.15" fill="#1B1B1B"/>`;
+  const boca=(p.look==="tempestade"||p.gesto==="proibido")?`<path d="M-3 -80 Q0 -82.5 3 -80" stroke="#4A2614" stroke-width="1.3" fill="none" stroke-linecap="round"/>`:`<path d="M-3.2 -81.5 Q0 -78.3 3.2 -81.5" stroke="#4A2614" stroke-width="1.3" fill="none" stroke-linecap="round"/>`;
+  const suor=p.look==="calor"?`<path d="M11 -93 q2.4 3.4 0 4.6 q-2.4 -1.2 0 -4.6z" fill="#8FD3FF">${REDUZ?"":`<animate attributeName="opacity" values="0;1;1;0" dur="2.2s" repeatCount="indefinite"/>`}</path>`:"";
+  const protetor=p.viseira?`<circle cx="-5.5" cy="-83" r="1" fill="#fff"/><circle cx="5.5" cy="-83" r="1" fill="#fff"/><circle cx="0" cy="-84.5" r=".9" fill="#fff"/>`:"";
+  // tronco
+  const tronco = ps.corpo==="gorda"
+    ? `M${-sw} -73 Q0 -77 ${sw} -73 Q${ww+3.5} -58 ${ww} -46 H${-ww} Q${-ww-3.5} -58 ${-sw} -73Z`
+    : `M${-sw} -73 Q0 -77 ${sw} -73 L${ww} -46 H${-ww}Z`;
+  const camisaSvg = `<path d="${tronco}" fill="${camisa}" ${camisa==="#FAFAF6"?'stroke="#D8D8D2" stroke-width=".7"':""}/><image href="${logo}" x="-5.5" y="-70" width="11" height="11"/>`;
+  const painel=(cor)=>`<path d="M${-sw} -73 Q${-sw+3} -74 -6 -74.5 L-6 -46 H${-ww} ${ps.corpo==="gorda"?`Q${-ww-3.5} -58`:"L"} ${-sw} -73Z" fill="${cor}"/><path d="M${sw} -73 Q${sw-3} -74 6 -74.5 L6 -46 H${ww} ${ps.corpo==="gorda"?`Q${ww+3.5} -58`:"L"} ${sw} -73Z" fill="${cor}"/>`;
+  const jaq = jaqueta ? painel(jaqueta) : "";
+  const colete = p.colete ? `${painel("#E8362A")}<path d="M${-sw+2} -56 H-6 M6 -56 H${sw-2}" stroke="#E6E6E6" stroke-width="2.2"/><path d="M-6 -50 H6" stroke="#2A2A2A" stroke-width="2"/>` : "";
+  // pernas e roupa de baixo
+  const pernaCor = ps.baixo==="legging" ? baixoCor : skin;
+  const pernas=`<rect x="${(-lx-lW).toFixed(1)}" y="-36" width="${lW.toFixed(1)}" height="34" rx="2.4" fill="${pernaCor}"/><rect x="${lx.toFixed(1)}" y="-36" width="${lW.toFixed(1)}" height="34" rx="2.4" fill="${pernaCor}"/>`;
+  const fundo = ps.baixo==="bermuda" ? -26 : ps.baixo==="legging" ? -33 : -34;
+  const quadril=(ww+1);
+  const baixo=`<path d="M${-quadril} -49 H${quadril} L${(quadril+1).toFixed(1)} ${fundo} H1.2 L0 -39 L-1.2 ${fundo} H${(-quadril-1).toFixed(1)}Z" fill="${baixoCor}"/>`;
+  const tenis=`<rect x="${(-lx-lW-1.4).toFixed(1)}" y="-3" width="${(lW+3.3).toFixed(1)}" height="4.2" rx="2" fill="#FFFFFF"/><rect x="${(lx-0.6).toFixed(1)}" y="-3" width="${(lW+3.3).toFixed(1)}" height="4.2" rx="2" fill="#FFFFFF"/>`;
+  const treme=p.look==="frio"&&!REDUZ?`<animateTransform attributeName="transform" type="translate" values="0 0;.6 0;0 0;-.6 0;0 0" dur=".5s" repeatCount="indefinite" additive="sum"/>`:"";
+  return `<g transform="translate(316 191) scale(1.22)"><g>${treme}
+    ${remo}${capuz}${tras}
+    ${pernas}${tenis}${baixo}
+    ${armL}
+    ${camisaSvg}${jaq}${colete}
+    <rect x="-2.2" y="-78" width="4.4" height="6" fill="${skin}"/>
+    <circle cx="0" cy="-87" r="10.2" fill="${skin}"/>
+    ${barba}${topo}${olhos}${boca}${protetor}${suor}
+    ${armR}
+  </g></g>`;
+}
+
 /* ---------- previsão ao vivo (Open-Meteo) ---------- */
 const COORD = { Urca:{lat:-22.9530, lon:-43.1640, mlat:-22.9640, mlon:-43.1560}, Lagoa:{lat:-22.9711, lon:-43.2105} };
 const LIVE = {}, LIVE_ST = {};
@@ -793,7 +914,7 @@ function uvNivel(u){ if(u==null) return null; if(u<3) return ["Baixo","#3EA72D",
 /* ----- desenho ----- */
 function wavePath(y, A, L, W){ let d=`M0 ${y}`; for(let x=0;x<W;x+=L) d+=` q ${L/4} ${-A} ${L/2} 0 t ${L/2} 0`; return d+` V200 H0 Z`; }
 function nuvem(x,y,s,cor,cls){ return `<g class="${cls||""}"><g transform="translate(${x} ${y}) scale(${s})"><path d="M0 14 q-12 0 -12 -10 q0 -10 12 -10 q4 -12 18 -10 q12 -8 22 4 q14 0 14 12 q0 14 -14 14z" fill="${cor}"/></g></g>`; }
-function anim(type, vals, dur, extra){ if(REDUZ) return ""; return `<animateTransform attributeName="transform" type="${type}" values="${vals}" dur="${dur}s" repeatCount="indefinite" ${extra||"additive=\"sum\""}/>`; }
+function anim(type, vals, dur, extra){ if(REDUZ) return ""; return `<animateTransform attributeName="transform" type="${type}" values="${vals}" dur="${dur}s" repeatCount="indefinite" ${extra===undefined?"additive=\"sum\"":extra}/>`; }
 function canoa(nivel, A, parada){
   const remando = nivel<2 && !parada;
   const pad=(x)=>`<g transform="translate(${x} -8)"><circle cx="0" cy="-9" r="3.6" fill="#B97A55"/><path d="M-3 -6 h6 v7 h-6z" fill="#FFF3E6"/><g>${anim("rotate","-25;20;-25",1.4)}<line x1="0" y1="-4" x2="9" y2="12" stroke="#5A3A22" stroke-width="1.6"/><path d="M9 12 l3 6 l-4 1 z" fill="#5A3A22"/></g></g>`;
@@ -806,46 +927,6 @@ function canoa(nivel, A, parada){
   </g></g>`;
 }
 function bandeira(nivel){ const cor=["#2C8A57","#F2C230","#D7261E"][nivel]; return `<g transform="translate(262 170)"><line x1="0" y1="0" x2="0" y2="-46" stroke="#5A4A3A" stroke-width="2"/><path d="M1 -46 q8 -3 16 0 q8 3 16 0 v14 q-8 3 -16 0 q-8 -3 -16 0z" fill="${cor}">${REDUZ?"":`<animate attributeName="d" values="M1 -46 q8 -3 16 0 q8 3 16 0 v14 q-8 3 -16 0 q-8 -3 -16 0z;M1 -46 q8 3 16 0 q8 -3 16 0 v14 q-8 -3 -16 0 q-8 3 -16 0z;M1 -46 q8 -3 16 0 q8 3 16 0 v14 q-8 3 -16 0 q-8 -3 -16 0z" dur="1.6s" repeatCount="indefinite"/>`}</path></g>`; }
-function boneca(p){
-  const skin="#B97A55", hair="#3B2416";
-  const roupa={calor:"#F04A12",ameno:"#F04A12",vento:"#F04A12",frio:"#1F3B57",chuva:"#F2C230",tempestade:"#1F3B57"}[p.look];
-  const longa = p.look==="frio"||p.look==="chuva"||p.look==="tempestade";
-  const braco=(cor,mangaLonga)=>`<rect x="-2.6" y="0" width="5.2" height="25" rx="2.6" fill="${skin}"/><rect x="-3.2" y="-1" width="6.4" height="${mangaLonga?24:9}" rx="3.2" fill="${cor}"/>`;
-  const garrafa=`<g transform="translate(0 25)"><rect x="-3" y="-2" width="6" height="12" rx="2" fill="#2E9BD6"/><rect x="-2" y="-5" width="4" height="3.5" rx="1" fill="#E8F6FF"/></g>`;
-  const placa=`<g transform="translate(0 25)"><line x1="0" y1="0" x2="0" y2="-26" stroke="#5A4A3A" stroke-width="1.6"/><rect x="-11" y="-40" width="22" height="16" rx="2" fill="#FFF3E6" stroke="#D7261E" stroke-width="1.6"/><path d="M1 -38 l-5 7 h4 l-2 6 l6 -8 h-4 l2 -5z" fill="#F2B705" stroke="#5A3A00" stroke-width=".4"/></g>`;
-  let armR="", armL="";
-  const proib=`<g transform="translate(0 25)"><line x1="0" y1="0" x2="0" y2="-26" stroke="#5A4A3A" stroke-width="1.6"/><circle cx="0" cy="-33" r="10" fill="#fff" stroke="#D7261E" stroke-width="2.6"/><path d="M-6 -31 q6 4 12 0" stroke="#F04A12" stroke-width="2.4" fill="none" stroke-linecap="round"/><line x1="-7" y1="-40" x2="7" y2="-26" stroke="#D7261E" stroke-width="2.6"/></g>`;
-  const gR={acena:anim("rotate","-140;-165;-140",1.1,""), bebe:anim("rotate","15;15;-150;-150;15",4,""), alerta:anim("rotate","-160;-150;-160",1.2,""), proibido:anim("rotate","-160;-150;-160",1.2,""), segura:"", abraca:"", capuz:""}[p.gesto];
-  const baseR={acena:-150, bebe:15, alerta:-160, proibido:-160, segura:-165, abraca:55, capuz:10}[p.gesto];
-  const baseL={acena:15, bebe:10, alerta:10, proibido:10, segura:12, abraca:-55, capuz:-10}[p.gesto];
-  armR=`<g transform="translate(10.5 -71)"><g transform="rotate(${baseR})">${gR}${braco(roupa,longa)}${p.gesto==="bebe"?garrafa:""}${p.gesto==="alerta"?placa:""}${p.gesto==="proibido"?proib:""}</g></g>`;
-  armL=`<g transform="translate(-10.5 -71)"><g transform="rotate(${baseL})">${braco(roupa,longa)}</g></g>`;
-  const rabo=`<g transform="translate(-7 -90)"><g>${anim("rotate",p.vento?"-10;-40;-10":"0;-8;0",p.vento?0.6:2.4,"")}<path d="M0 0 q-14 4 -11 22 q3 -9 10 -13z" fill="${hair}"/></g></g>`;
-  const rosto=(p.look==="tempestade"||p.gesto==="proibido")?`<path d="M-3 -80 Q0 -82.5 3 -80" stroke="#5A2E1A" stroke-width="1.3" fill="none" stroke-linecap="round"/>`:`<path d="M-3.2 -81.5 Q0 -78.3 3.2 -81.5" stroke="#5A2E1A" stroke-width="1.3" fill="none" stroke-linecap="round"/>`;
-  const olhos=p.oculos?`<rect x="-7.5" y="-89" width="6.3" height="4.2" rx="1.6" fill="#16202A"/><rect x="1.2" y="-89" width="6.3" height="4.2" rx="1.6" fill="#16202A"/><line x1="-1.2" y1="-87.5" x2="1.2" y2="-87.5" stroke="#16202A" stroke-width="1"/>`:`<circle cx="-3.6" cy="-86.5" r="1.15" fill="#1B1B1B"/><circle cx="3.6" cy="-86.5" r="1.15" fill="#1B1B1B"/>`;
-  let topo=`<path d="M-10.2 -86 Q-10 -98.5 0 -98.5 Q10 -98.5 10.2 -86 Q5 -93 -10.2 -86z" fill="${hair}"/>`;
-  if(p.look==="calor" && !p.viseira) topo+=`<path d="M-10.5 -90 Q-10 -101 0 -101 Q10 -101 10.5 -90z" fill="#F04A12"/><path d="M6 -91 h12 q2 2.2 -1 3.2 h-11z" fill="#C93A0B"/><path d="M-2 -97 q2 -2 4 0" stroke="#FFF3E6" stroke-width="1" fill="none"/>`;
-  if(p.viseira) topo+=`<path d="M-10.4 -93.5 h20.8 v3 h-20.8z" fill="#FFFFFF"/><path d="M5 -91 h13 q2 2.2 -1 3.2 h-12z" fill="#FFFFFF" stroke="#D9D9D9" stroke-width=".5"/>`;
-  if(p.look==="vento") topo+=`<path d="M-10.5 -90 Q-10 -101 0 -101 Q10 -101 10.5 -90z" fill="#F04A12"/><path d="M6 -91 h12 q2 2.2 -1 3.2 h-11z" fill="#C93A0B"/>`;
-  if(p.look==="chuva") topo=`<path d="M-13 -80 Q-14 -103 0 -103 Q14 -103 13 -80 Q11 -96 0 -96 Q-11 -96 -13 -80z" fill="#E0AE14"/>`+topo.replace("fill=\"#3B2416\"","fill=\"#3B2416\" opacity=\".9\"");
-  if(p.look==="frio") topo+=`<path d="M-10.6 -89 Q-10 -101 0 -101 Q10 -101 10.6 -89 z" fill="#2C557A"/><circle cx="0" cy="-102" r="3" fill="#F04A12"/>`;
-  const suor=p.look==="calor"?`<path d="M11 -93 q2.4 3.4 0 4.6 q-2.4 -1.2 0 -4.6z" fill="#8FD3FF">${REDUZ?"":`<animate attributeName="opacity" values="0;1;1;0" dur="2.2s" repeatCount="indefinite"/>`}</path>`:"";
-  const protetor=p.viseira?`<circle cx="-5.5" cy="-83" r="1" fill="#fff"/><circle cx="5.5" cy="-83" r="1" fill="#fff"/><circle cx="0" cy="-84.5" r=".9" fill="#fff"/>`:"";
-  const marca=(roupa==="#F04A12")?`<path d="M-3.5 -64 q3.5 -4 7 0 M0 -65 v11 M-2 -54 h4" stroke="#FFF3E6" stroke-width="1.2" fill="none" stroke-linecap="round"/>`:`<line x1="0" y1="-73" x2="0" y2="-47" stroke="rgba(0,0,0,.25)" stroke-width="1"/>`;
-  const treme=p.look==="frio"&&!REDUZ?`<animateTransform attributeName="transform" type="translate" values="0 0;.6 0;0 0;-.6 0;0 0" dur=".5s" repeatCount="indefinite" additive="sum"/>`:"";
-  return `<g transform="translate(318 186)"><g>${treme}
-    ${rabo}
-    <rect x="-7.5" y="-36" width="5.2" height="34" rx="2.4" fill="${skin}"/><rect x="2.3" y="-36" width="5.2" height="34" rx="2.4" fill="${skin}"/>
-    <rect x="-10" y="-3" width="8.5" height="4.2" rx="2" fill="#FFFFFF"/><rect x="1.5" y="-3" width="8.5" height="4.2" rx="2" fill="#FFFFFF"/>
-    <path d="M-10.5 -49 H10.5 L11.5 -33 H1.2 L0 -39 L-1.2 -33 H-11.5Z" fill="#1F3B57"/>
-    ${armL}
-    <path d="M-11.5 -73 Q0 -77 11.5 -73 L10.5 -46 H-10.5Z" fill="${roupa}"/>${marca}
-    <rect x="-2.2" y="-78" width="4.4" height="6" fill="${skin}"/>
-    <circle cx="0" cy="-87" r="10.2" fill="${skin}"/>
-    ${topo}${olhos}${rosto}${protetor}${suor}
-    ${armR}
-  </g></g>`;
-}
 function cena(base, c, nivel, hora, vazio){
   const id="g"+base+hora;
   const amanhecer = !c.night && hora<=6 && (c.sky==="sol"||c.sky==="parcial");
@@ -881,7 +962,7 @@ function cena(base, c, nivel, hora, vazio){
   g+= vazio ? "" : canoa(nivel, A, c.cancelada);
   g+=`<g>${REDUZ?"":`<animateTransform attributeName="transform" type="translate" values="-120 0;0 0" dur="${vel*0.8}s" repeatCount="indefinite"/>`}<path d="${wavePath(160,A,60,480)}" fill="url(#${id}a)"/></g>`;
   g+=`<path d="M248 196 Q262 166 300 160 Q330 156 360 158 V196Z" fill="#EAD7AE"/>`;
-  if(!vazio){ g+=bandeira(nivel)+boneca(c.look); if(nivel===1 && !c.cancelada) g+=`<g transform="translate(232 188)"><line x1="0" y1="0" x2="0" y2="-26" stroke="#5A4A3A" stroke-width="2"/><g transform="translate(0 -40)">${REDUZ?"":`<animateTransform attributeName="transform" type="scale" values="1;1.12;1" dur="1.6s" repeatCount="indefinite" additive="sum"/>`}<path d="M0 -16 L15 10 H-15 Z" fill="#FFD21A" stroke="#1B1B1B" stroke-width="2.2" stroke-linejoin="round"/><path d="M0 -6 V3" stroke="#1B1B1B" stroke-width="3" stroke-linecap="round"/><circle cx="0" cy="7" r="1.7" fill="#1B1B1B"/></g></g>`; }
+  if(!vazio){ g+=bandeira(nivel)+boneca(c.look, c.persona); if(nivel===1 && !c.cancelada) g+=`<g transform="translate(232 188)"><line x1="0" y1="0" x2="0" y2="-26" stroke="#5A4A3A" stroke-width="2"/><g transform="translate(0 -40)">${REDUZ?"":`<animateTransform attributeName="transform" type="scale" values="1;1.12;1" dur="1.6s" repeatCount="indefinite" additive="sum"/>`}<path d="M0 -16 L15 10 H-15 Z" fill="#FFD21A" stroke="#1B1B1B" stroke-width="2.2" stroke-linejoin="round"/><path d="M0 -6 V3" stroke="#1B1B1B" stroke-width="3" stroke-linecap="round"/><circle cx="0" cy="7" r="1.7" fill="#1B1B1B"/></g></g>`; }
   return g+`</svg>`;
 }
 function iconeTempo(sky){
@@ -979,6 +1060,7 @@ function cardWx(base){
   const rem=rems.find(t=>parseInt(t.inicio,10)===hora)||null;
   const c=condicao(dia, base, hora, rem), ev=c.ev, uvn=uvNivel(c.uv), mare=mareGrafico(dia, hora);
   const nivelCena = c.cancelada ? 2 : ev.nivel;
+  c.look.colete = !c.cancelada && ev.nivel>=1; c.persona = personaDoDia(base, S.day);
   const seta=deg=>deg==null?"":`<svg viewBox="0 0 24 24" width="22" height="22" class="arrow" style="transform:rotate(${(deg+180)%360}deg)" aria-hidden="true"><path d="M12 3 l6 9 h-4 v9 h-4 v-9 h-4z" fill="currentColor"/></svg>`;
   const tile=(k,v,d,cls,extra)=>`<div class="wt ${cls||""}"><div class="k">${k}</div><div class="v">${v}</div>${d?`<div class="d">${d}</div>`:""}${extra||""}</div>`;
   const pill=(txt,cls)=>`<span class="pill ${cls}">${txt}</span>`;
@@ -1108,6 +1190,14 @@ function alertas(a){
   return out;
 }
 function precisaRevisao(a){ return a.status!=="inativo" && fichaStatus(a).s!=="ok"; }
+function fmtCPF(v){ const d=(v||"").replace(/\D/g,"").slice(0,11); return d.replace(/^(\d{3})(\d)/,"$1.$2").replace(/^(\d{3})\.(\d{3})(\d)/,"$1.$2.$3").replace(/\.(\d{3})(\d)/,".$1-$2"); }
+function cpfValido(v){ const d=(v||"").replace(/\D/g,""); if(d.length!==11||/^(\d)\1+$/.test(d)) return false; const calc=n=>{ let s=0; for(let i=0;i<n;i++) s+=+d[i]*(n+1-i); const r=(s*10)%11; return r===10?0:r; }; return calc(9)===+d[9] && calc(10)===+d[10]; }
+function mascaraCPF(v){ const d=(v||"").replace(/\D/g,""); return d.length===11?`***.${d.slice(3,6)}.***-**`:"***"; }
+function comprimirFoto(file){ return new Promise((res,rej)=>{ const url=URL.createObjectURL(file); const img=new Image();
+  img.onload=()=>{ const tenta=(max,q)=>{ const k=Math.min(1,max/Math.max(img.width,img.height)); const c=document.createElement("canvas"); c.width=Math.round(img.width*k); c.height=Math.round(img.height*k); c.getContext("2d").drawImage(img,0,0,c.width,c.height); return c.toDataURL("image/jpeg",q); };
+    let d=tenta(1000,.62); if(d.length>190000) d=tenta(800,.5); if(d.length>190000) d=tenta(640,.45); URL.revokeObjectURL(url); res(d); };
+  img.onerror=()=>{ URL.revokeObjectURL(url); rej(new Error("imagem")); }; img.src=url; }); }
+document.addEventListener("click",e=>{ const t=e.target.closest&&e.target.closest("[data-foto]"); if(!t) return; const src=t.querySelector("img").src; const lb=document.createElement("div"); lb.className="lightbox"; lb.innerHTML=`<img src="${src}" alt="Foto da carteirinha"><button class="x" aria-label="Fechar">×</button>`; lb.addEventListener("click",()=>lb.remove()); document.body.appendChild(lb); });
 function fichaResumoHTML(a){
   const st=fichaStatus(a), tel=t=>(t||"").replace(/[^\d+]/g,"");
   const sim=(a.parq||[]).map((r,i)=>r==="sim"?i:-1).filter(i=>i>=0);
@@ -1116,7 +1206,7 @@ function fichaResumoHTML(a){
     <div class="section"><h3>Emergência</h3>
       ${(a.emerg1_tel||"").trim()?`<a class="call" href="tel:${esc(tel(a.emerg1_tel))}"><div><strong>${esc(a.emerg1_nome||"Contato 1")}</strong><span>${esc(a.emerg1_par||"")}</span></div><span class="ph">${esc(a.emerg1_tel)}</span></a>`:`<p class="hint">Nenhum contato de emergência cadastrado.</p>`}
       ${(a.emerg2_tel||"").trim()?`<a class="call" href="tel:${esc(tel(a.emerg2_tel))}"><div><strong>${esc(a.emerg2_nome||"Contato 2")}</strong><span>${esc(a.emerg2_par||"")}</span></div><span class="ph">${esc(a.emerg2_tel)}</span></a>`:""}
-      <dl class="kv" style="margin-top:8px"><dt>Plano de saúde</dt><dd>${esc(a.plano||"–")}</dd><dt>Tipo sanguíneo</dt><dd>${esc(a.sangue||"–")}</dd><dt>Sabe nadar</dt><dd>${a.nada==="sim"?"Sim":a.nada==="nao"?"Não":"Não informado"}</dd></dl>
+      <dl class="kv" style="margin-top:8px"><dt>Plano de saúde</dt><dd>${esc(a.plano||"–")}</dd>${a.plano_num?`<dt>Carteirinha</dt><dd>${esc(a.plano_num)}</dd>`:""}${a.plano_cpf?`<dt>CPF do titular</dt><dd>${esc(S.role==="instrutor"?mascaraCPF(a.plano_cpf):a.plano_cpf)}</dd>`:""}${a.plano_foto?`<dt>Foto</dt><dd><button class="thumb" data-foto="1"><img src="${a.plano_foto}" alt="Foto da carteirinha"></button></dd>`:""}<dt>Tipo sanguíneo</dt><dd>${esc(a.sangue||"–")}</dd><dt>Sabe nadar</dt><dd>${a.nada==="sim"?"Sim":a.nada==="nao"?"Não":"Não informado"}</dd></dl>
     </div>
     <div class="section"><h3>Anamnese</h3><div class="health ${ANAM.some(([k])=>a[k]==="sim")?"":"none"}"><dl class="kv">
       ${ANAM.map(([k,t,l,c])=>`<dt>${esc(c)}</dt><dd>${a[k]==="sim"?esc(a[t]||"Sim"):a[k]==="nao"?"Não":(a[t]?esc(a[t]):"Não informado")}</dd>`).join("")}
@@ -1124,7 +1214,7 @@ function fichaResumoHTML(a){
       <dt>Atividade física</dt><dd>${esc({sedentario:"Não pratica",leve:"1 a 2 vezes por semana",regular:"3 ou mais vezes por semana"}[a.atividade]||"–")}</dd>
       ${a.gestante==="sim"?`<dt>Gestante</dt><dd>Sim</dd>`:""}
     </dl></div></div>
-    <div class="section"><h3>PAR-Q</h3>${(a.parq||[]).length?(sim.length?`<div class="health"><p style="margin:0 0 6px"><b>${sim.length} ${sim.length===1?"resposta “sim”":"respostas “sim”"}: exige liberação médica.</b>${a.liberacao?` Liberação registrada em ${new Date(a.liberacao+"T12:00").toLocaleDateString("pt-BR")}.`:""}</p>${sim.map(i=>`<p style="margin:2px 0">${i+1}. ${esc(PARQ[i])}</p>`).join("")}</div>`:`<div class="health none">Todas as respostas “não”.</div>`):`<p class="hint">Não respondido.</p>`}</div>`;
+    <div class="section"><h3>PAR-Q</h3>${(a.parq||[]).some(Boolean)?(sim.length?`<div class="health"><p style="margin:0 0 6px"><b>${sim.length} ${sim.length===1?"resposta “sim”":"respostas “sim”"}: exige liberação médica.</b>${a.liberacao?` Liberação registrada em ${new Date(a.liberacao+"T12:00").toLocaleDateString("pt-BR")}.`:""}</p>${sim.map(i=>`<p style="margin:2px 0">${i+1}. ${esc(PARQ[i])}</p>`).join("")}</div>`:`<div class="health none">Todas as respostas “não”.</div>`):`<p class="hint">Não respondido.</p>`}</div>`;
 }
 function ynRow(name, label, val, hint){
   return `<div class="yn"><div class="ynq">${esc(label)}${hint?`<span class="hint">${esc(hint)}</span>`:""}</div><div class="ynb" role="radiogroup"><label><input type="radio" name="${name}" value="sim" ${val==="sim"?"checked":""}><span>Sim</span></label><label><input type="radio" name="${name}" value="nao" ${val==="nao"?"checked":""}><span>Não</span></label></div></div>`;
@@ -1148,7 +1238,13 @@ function fichaForm(a, gestao, onSave, onCancel){
         ${inp("emerg1_tel","Telefone do contato","tel","full")}
         ${inp("emerg2_nome","2º contato (opcional)")}${inp("emerg2_par","Parentesco")}
         ${inp("emerg2_tel","Telefone do 2º contato","tel","full")}
-        ${inp("plano","Plano de saúde e número da carteirinha","text","full","Ou escreva “Não possuo”")}
+        ${inp("plano","Plano de saúde (operadora)","text","full","Ex.: Bradesco Saúde. Sem plano, escreva “Não possuo”")}
+        ${inp("plano_num","Número da carteirinha","text","full")}
+        <label class="f full">CPF do titular do plano<input name="plano_cpf" inputmode="numeric" maxlength="14" placeholder="000.000.000-00" value="${esc(a.plano_cpf)}"></label>
+        <div class="full"><div class="hint" style="margin:0 0 6px">Foto da carteirinha (frente)</div>
+          <div class="fotobox"><div id="fPrev">${a.plano_foto?`<img src="${a.plano_foto}" alt="Foto da carteirinha">`:`<span class="hint">Nenhuma foto enviada</span>`}</div>
+          <label class="btn ghost small" style="cursor:pointer">${a.plano_foto?"Trocar foto":"Enviar foto"}<input type="file" id="fFoto" accept="image/*" hidden></label>
+          <button type="button" class="linkbtn" id="fFotoRm" ${a.plano_foto?"":"hidden"}>Remover</button></div></div>
         <label class="f">Tipo sanguíneo${sel("sangue",{"":"–","A+":"A+","A-":"A−","B+":"B+","B-":"B−","AB+":"AB+","AB-":"AB−","O+":"O+","O-":"O−","nao_sei":"Não sei"},a.sangue)}</label>
         <label class="f">Sabe nadar?${sel("nada",{"":"Selecione",sim:"Sim",nao:"Não"},a.nada)}</label>
       </div></fieldset>
@@ -1182,6 +1278,17 @@ function fichaForm(a, gestao, onSave, onCancel){
       <div class="row" style="margin-top:18px"><span class="spacer"></span><button type="button" class="btn ghost" id="fCancel">Cancelar</button><button class="btn" type="submit">${gestao?"Salvar ficha":"Enviar ficha"}</button></div>
     </form>`, root=>{
       root.querySelector("#fCancel").addEventListener("click", onCancel||closeSheet);
+      let foto = a.plano_foto || "";
+      const cpfIn=root.querySelector("[name=plano_cpf]");
+      cpfIn.addEventListener("input",()=>{ cpfIn.value=fmtCPF(cpfIn.value); });
+      const prev=root.querySelector("#fPrev"), rm=root.querySelector("#fFotoRm");
+      root.querySelector("#fFoto").addEventListener("change", async e=>{
+        const f=e.target.files&&e.target.files[0]; if(!f) return;
+        prev.innerHTML=`<span class="hint">Preparando foto…</span>`;
+        try{ foto=await comprimirFoto(f); prev.innerHTML=`<img src="${foto}" alt="Foto da carteirinha">`; rm.hidden=false; }
+        catch(_){ prev.innerHTML=`<span class="hint">Não foi possível ler essa imagem. Tente outra foto.</span>`; }
+      });
+      rm.addEventListener("click",()=>{ foto=""; prev.innerHTML=`<span class="hint">Nenhuma foto enviada</span>`; rm.hidden=true; });
       root.querySelector("#ff").addEventListener("submit", async ev=>{
         ev.preventDefault();
         const f=new FormData(ev.target), o=JSON.parse(JSON.stringify(a)); delete o._id;
@@ -1189,6 +1296,8 @@ function fichaForm(a, gestao, onSave, onCancel){
         ["nome","telefone","email","nascimento","naipe","emerg1_nome","emerg1_par","emerg1_tel","emerg2_nome","emerg2_par","emerg2_tel","plano","sangue","nada","fuma","gestante","atividade","termo_nome"].forEach(k=>o[k]=g(k));
         ANAM.forEach(([k,t])=>{ o[k]=g(k); o[t]=g(t); });
         o.parq=PARQ.map((_,i)=>g("parq_"+i));
+        o.plano_num=g("plano_num"); o.plano_cpf=fmtCPF(g("plano_cpf")); o.plano_foto=foto;
+        if(o.plano_cpf && !cpfValido(o.plano_cpf)){ const e=root.querySelector("#ferr"); e.hidden=false; e.innerHTML="<b>CPF do titular inválido.</b> Confira os números."; root.scrollTop=0; return; }
         o.termo=!!f.get("termo"); o.lgpd=!!f.get("lgpd");
         if(gestao){ ["status","nivel","mensalidade","inicio","liberacao","atestado"].forEach(k=>o[k]=g(k)); o.equipe=!!f.get("equipe"); }
         const falta=faltando(o);
@@ -1288,7 +1397,7 @@ function editAluno(id){
 }
 
 async function exportCSV(){
-  const cols=[["nome","Nome"],["status","Situação"],["nivel","Nível"],["telefone","Telefone"],["email","E-mail"],["nascimento","Nascimento"],["mensalidade","Mensalidade"],["atestado","Atestado até"],["emerg1_nome","Emergência 1"],["emerg1_tel","Tel. emergência 1"],["emerg2_nome","Emergência 2"],["emerg2_tel","Tel. emergência 2"],["alergias","Alergias"],["medicacoes","Medicações"],["condicoes","Condições"],["nada","Sabe nadar"],["sangue","Tipo sanguíneo"]];
+  const cols=[["nome","Nome"],["status","Situação"],["nivel","Nível"],["telefone","Telefone"],["email","E-mail"],["nascimento","Nascimento"],["mensalidade","Mensalidade"],["atestado","Atestado até"],["emerg1_nome","Emergência 1"],["emerg1_tel","Tel. emergência 1"],["emerg2_nome","Emergência 2"],["emerg2_tel","Tel. emergência 2"],["plano","Plano"],["plano_num","Carteirinha"],["plano_cpf","CPF titular"],["alergias","Alergias"],["medicacoes","Medicações"],["condicoes","Condições"],["nada","Sabe nadar"],["sangue","Tipo sanguíneo"]];
   const q = v => `"${String(v??"").replace(/"/g,'""')}"`;
   const rows=[cols.map(c=>q(c[1])).join(";")].concat(S.alunos.map(a=>cols.map(c=>q(a[c[0]])).join(";")));
   try{
