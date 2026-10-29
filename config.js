@@ -7,13 +7,13 @@ window.APP_CONFIG = {
     subtitulo: "Clube, Urca, Rio de Janeiro",
     logo: "logo.png"
   },
-  // Cole aqui os dados do Firebase (Console do Firebase > Configurações do projeto > Seus apps > Configuração do SDK).
+  // Projeto Firebase: iako-af44f
   firebase: {
-    apiKey: "COLE_AQUI",
-    authDomain: "COLE_AQUI",
-    projectId: "COLE_AQUI",
-    storageBucket: "COLE_AQUI",
-    messagingSenderId: "COLE_AQUI",
-    appId: "COLE_AQUI"
+    apiKey: "AIzaSyAUv5Y7jtNrakrkKL0nE2ogNxONHwFvsvM",
+    authDomain: "iako-af44f.firebaseapp.com",
+    projectId: "iako-af44f",
+    storageBucket: "iako-af44f.firebasestorage.app",
+    messagingSenderId: "1041180888522",
+    appId: "1:1041180888522:web:b34a8290bcf51a46961333"
   }
 };
