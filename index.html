@@ -365,6 +365,11 @@ label.yt textarea{min-height:44px}
 .wx .why li{padding:2px 0}
 
 /* ---------- v5 ---------- */
+.vestnote{display:flex;align-items:center;gap:10px;margin:0 16px 10px;padding:9px 12px;border-radius:10px;background:var(--warn-soft);border-left:4px solid #FFD21A}
+.vestnote.n2{background:var(--stop-soft);border-left-color:var(--stop)}
+.vestnote svg{flex:none}
+.vestnote b{display:block;color:var(--ink)}
+.vestnote span{font-size:14px;color:var(--ink)}
 .alertbar{display:flex;align-items:center;gap:10px;background:var(--stop);color:#fff;border-radius:12px;padding:10px 14px;margin-bottom:14px}
 .alertbar b{display:block}
 .alertbar span{display:block;font-size:14px;opacity:.92}
@@ -876,7 +881,7 @@ function cena(base, c, nivel, hora, vazio){
   g+= vazio ? "" : canoa(nivel, A, c.cancelada);
   g+=`<g>${REDUZ?"":`<animateTransform attributeName="transform" type="translate" values="-120 0;0 0" dur="${vel*0.8}s" repeatCount="indefinite"/>`}<path d="${wavePath(160,A,60,480)}" fill="url(#${id}a)"/></g>`;
   g+=`<path d="M248 196 Q262 166 300 160 Q330 156 360 158 V196Z" fill="#EAD7AE"/>`;
-  if(!vazio){ g+=bandeira(nivel)+boneca(c.look); }
+  if(!vazio){ g+=bandeira(nivel)+boneca(c.look); if(nivel===1 && !c.cancelada) g+=`<g transform="translate(232 188)"><line x1="0" y1="0" x2="0" y2="-26" stroke="#5A4A3A" stroke-width="2"/><g transform="translate(0 -40)">${REDUZ?"":`<animateTransform attributeName="transform" type="scale" values="1;1.12;1" dur="1.6s" repeatCount="indefinite" additive="sum"/>`}<path d="M0 -16 L15 10 H-15 Z" fill="#FFD21A" stroke="#1B1B1B" stroke-width="2.2" stroke-linejoin="round"/><path d="M0 -6 V3" stroke="#1B1B1B" stroke-width="3" stroke-linecap="round"/><circle cx="0" cy="7" r="1.7" fill="#1B1B1B"/></g></g>`; }
   return g+`</svg>`;
 }
 function iconeTempo(sky){
@@ -989,9 +994,10 @@ function cardWx(base){
       : `<div class="remline ok"><b>Remada das ${esc(rem.inicio)} confirmada</b><span>Cancelamento só pelos instrutores, na Agenda</span></div>`)
     : `<div class="remline"><span>Sem remada agendada às ${String(hora).padStart(2,"0")}h nesta base</span></div>`;
   return `<article class="wx l${nivelCena}" data-base="${base}">
-    <div class="wx-scene">${cena(base,c,nivelCena,hora,false)}<div class="bubble">${esc(c.look.fala)}</div></div>
+    <div class="wx-scene">${cena(base,c,nivelCena,hora,false)}<div class="bubble">${esc(c.look.fala)}${!c.cancelada && ev.nivel>=1 ? " Use colete salva-vidas." : ""}</div></div>
     <div class="wx-head">${iconeTempo(c.night&&(c.sky==="sol"||c.sky==="parcial")?"nublado":c.sky)}<div><div class="wx-name">${nome}</div><div class="wx-cond">${c.night&&c.sky==="sol"?"Céu limpo, antes do nascer do sol":SKY_TXT[c.sky]}, ${String(hora).padStart(2,"0")}h</div></div><div class="wx-stat">${c.cancelada?"Cancelada":COND_CURTO[ev.nivel]}</div></div>
     ${remLinha}
+    ${!c.cancelada && ev.nivel>=1 ? `<div class="vestnote n${ev.nivel}"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2.5 L22.5 20.5 H1.5 Z" fill="#FFD21A" stroke="#1B1B1B" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 9 V14" stroke="#1B1B1B" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.3" fill="#1B1B1B"/></svg><div><b>${ev.nivel===1?"Atenção":"Condições desfavoráveis"}</b><span>${ev.nivel===1?"Uso de colete salva-vidas recomendado.":"Se os instrutores mantiverem a remada, uso de colete salva-vidas fortemente recomendado."}</span></div></div>` : ""}
     <div class="wx-hours" role="group" aria-label="Horário">${horas.map(h=>`<button data-wh="${base}:${h}" aria-pressed="${h===hora}" class="${rems.some(t=>parseInt(t.inicio,10)===h)?(rems.find(t=>parseInt(t.inicio,10)===h).status==="cancelada"?"rem cx":"rem"):""}">${String(h).padStart(2,"0")}h</button>`).join("")}</div>
     <div class="pills" aria-label="Análise automática">${pills}</div>
     <div class="wx-grid">
