@@ -414,6 +414,7 @@ nav.bottom button.novo{background:#FFD21A;color:#3A2F00}
 nav.bottom button.novo svg{color:#3A2F00}
 nav.tabs button.novo{background:#FFD21A;color:#3A2F00}
 .btn:disabled{opacity:.45;cursor:not-allowed}
+.vcbar{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;background:#FFF4C2;color:#3A2F00;border-radius:10px;padding:9px 14px;margin-bottom:12px;font-size:14px}
 .hbtn{background:rgba(255,255,255,.16);border:0;color:#fff;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;cursor:pointer;flex:none;margin-left:8px}
 @media (max-width:1100px){.hbtn{margin-left:auto}}
 .langs{display:grid;grid-template-columns:1fr 1fr;gap:6px}
@@ -983,7 +984,12 @@ FB = FB_OK ? (function(){
   const downloads={ save:async({filename,data})=>{ const b=data instanceof Blob?data:new Blob([data],{type:"text/csv"}); const a=document.createElement("a"); a.href=URL.createObjectURL(b); a.download=filename; a.click(); return {status:"saved"}; } };
   async function garantirMembro(u, nome){
     const ref=fs.doc(P("membros/"+u.uid)); const s=await ref.get();
-    if(!s.exists){ await ref.set({papel:"aluno", nome:nome||u.displayName||"", email:u.email||"", criado:new Date().toISOString()}); }
+    if(!s.exists){
+      let papel="aluno", em=(u.email||"").toLowerCase(), cv=null;
+      if(em){ try{ const c=await fs.doc(P("convites/"+em)).get(); if(c.exists){ cv=c; papel=c.data().papel||"aluno"; } }catch(_){} }
+      await ref.set({papel, nome:nome||u.displayName||"", email:u.email||"", criado:new Date().toISOString()});
+      if(cv){ try{ await fs.doc(P("convites/"+em)).delete(); }catch(_){} }
+    }
     membro=(await ref.get()).data();
     try{ await fs.doc(P("perfis/"+u.uid)).set({name:membro.nome||u.displayName||u.email||""},{merge:true}); }catch(_){}
   }
@@ -2328,9 +2334,16 @@ function renderClube(){
     const ids=Object.keys(S.equipe).sort((a,b)=>{ const r=x=>FB?({gestao:0,instrutor:1,agencia:2}[(S.equipe[x]||{}).papel]??3):0; return r(a)-r(b); });
     const papelDe=id=>FB?((S.equipe[id]||{}).papel||"aluno"):((c.papeis||{})[id]||"instrutor");
     const nomeEq=id=>(FB&&S.equipe[id]&&(S.equipe[id].nome||S.equipe[id].email))||(S.names[id]&&S.names[id].name)||"Membro da equipe";
+    const convites=Object.entries(S.convites||{});
+    const blocoConvite = FB ? `<div style="border-top:1px solid var(--line);margin-top:12px;padding-top:12px"><h3 style="margin:0 0 4px">Cadastrar membro da equipe</h3>
+      <p class="hint" style="margin:0 0 8px">Informe o e-mail e o papel. A pessoa cria a conta no app com esse e-mail e já entra como instrutor, comunicação ou administrador. Alunos não precisam de convite: basta tocar em Criar conta.</p>
+      <form id="fConv" class="row" style="gap:8px"><input type="email" name="email" required placeholder="email@exemplo.com" aria-label="E-mail do novo membro" style="flex:1;min-width:190px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:9px 12px">
+      <select name="papel" aria-label="Papel" style="background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:9px"><option value="instrutor">Instrutor</option><option value="gestao">Administrador</option><option value="agencia">Comunicação</option></select><button class="btn small">Cadastrar</button></form>
+      ${convites.length?`<div style="margin-top:10px">${convites.map(([em,cv])=>`<div class="grade-row"><div><b>${esc(em)}</b><div class="hint" style="margin:0">${esc(NOMES_PAPEL[cv.papel]||cv.papel)}, aguardando a pessoa criar a conta</div></div><span class="spacer"></span><button class="ib" data-rmconv="${esc(em)}" aria-label="Cancelar convite de ${esc(em)}">✕</button></div>`).join("")}</div>`:""}</div>` : "";
     html+=`<div class="panel"><h3>Equipe e permissões</h3>
       <p class="hint" style="margin:0 0 8px">${FB?"Todas as pessoas com conta no app aparecem aqui. Defina o papel de cada uma.":"Quem tem acesso de editor ao app aparece aqui ao abrir o app pela primeira vez."} Administrador altera tudo e vê todos os painéis; instrutores criam e excluem agendamentos, fazem check-in, cancelam remadas e enviam alertas; a Comunicação publica alertas, mídias, campanhas, links e formulários. Alunos entram como colaboradores e só editam a própria ficha e os agendamentos.</p>
       ${ids.length?ids.map(id=>{ const nm=nomeEq(id), dono=FB?id===S.uid:S.ownerIds.includes(id), pp=papelDe(id); return `<div class="grade-row"><div><div style="font-weight:600">${esc(nm)}${id===S.uid?" (você)":""}</div><div class="hint" style="margin:0">${FB?esc((S.equipe[id]||{}).email||""):(dono?"Responsável pelo app":"Acesso de editor")}</div></div><span class="spacer"></span>${dono?`<span class="b grn">Administrador</span>`:`<select data-papel="${esc(id)}">${(FB?[["aluno","Aluno"]]:[]).concat([["instrutor","Instrutor"],["gestao","Administrador"],["agencia","Comunicação"]]).map(([k,l])=>`<option value="${k}" ${pp===k?"selected":""}>${l}</option>`).join("")}</select>`}</div>`; }).join(""):`<p class="hint">Ninguém da equipe abriu o app ainda.</p>`}
+      ${blocoConvite}
     </div>`;
   }
   el.innerHTML=html;
@@ -2339,6 +2352,16 @@ function renderClube(){
   const gp=$("#gPadrao"); if(gp) gp.addEventListener("click",async()=>{ await saveConfig({grade:[{id:rid(),dias:[1,2,3,4,5,6],locais:LOCAIS.slice(),inicio:"06:00",fim:"07:30",titulo:"",categoria:"",ativo:true,abre_h:"24",fecha_min:"60",cancel_h:"6"}]}); toast("Grade cadastrada"); });
   el.querySelectorAll("[data-gi]").forEach(b=>b.addEventListener("click",()=>editGrade(b.dataset.gi)));
   el.querySelectorAll("[data-ci]").forEach(b=>b.addEventListener("click",()=>editCanoa(+b.dataset.ci)));
+  const fcv=el.querySelector("#fConv"); if(fcv) fcv.addEventListener("submit",async ev=>{ ev.preventDefault(); const f=new FormData(fcv); const email=(f.get("email")||"").toString().trim().toLowerCase(), papel=f.get("papel");
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ toast("E-mail inválido"); return; }
+    const ja=Object.entries(S.equipe||{}).find(([u,m])=>(m.email||"").toLowerCase()===email);
+    try{
+      if(ja){ await S.db.doc("membros/"+ja[0]).update({papel}); auditar("Permissão alterada",`${email}: ${papel}`); toast(`${email} já tinha conta: agora é ${NOMES_PAPEL[papel]}`); return; }
+      await S.db.doc("convites/"+email).set({papel, criado:new Date().toISOString(), por:S.uid||""}); auditar("Membro da equipe cadastrado",`${email}: ${papel}`);
+      toast("Cadastro feito. Envie o convite.");
+      compartilharWhats("geral", `Olá! Você foi cadastrado como *${NOMES_PAPEL[papel]}* no app do ${MARCA.nomeCurto||MARCA.nome}.\nAbra o link, toque em *Criar conta* e use o e-mail ${email}.`);
+    }catch(e){ failWrite(e); } });
+  el.querySelectorAll("[data-rmconv]").forEach(b=>b.addEventListener("click",async()=>{ try{ await S.db.doc("convites/"+b.dataset.rmconv).delete(); toast("Convite cancelado"); }catch(e){ failWrite(e); } }));
   el.querySelectorAll("[data-papel]").forEach(s=>s.addEventListener("change",async()=>{ if(FB){ try{ await S.db.doc("membros/"+s.dataset.papel).update({papel:s.value}); auditar("Permissão alterada",`${nomeEq(s.dataset.papel)}: ${s.value}`); toast("Permissão atualizada"); }catch(e){ failWrite(e); } return; } const p=Object.assign({}, c.papeis||{}); p[s.dataset.papel]=s.value; await saveConfig({papeis:p}); toast("Permissão atualizada"); }));
   const sl=$("#saveL"); if(sl) sl.addEventListener("click",async()=>{
     const nl=JSON.parse(JSON.stringify(L));
@@ -2515,7 +2538,7 @@ function renderPerfil(){
   if(S.role==="visitante"){ el.innerHTML=`<div class="locked"><h3>Entre com sua conta</h3><p>Faça login para preencher sua ficha e agendar.</p></div>`; return; }
   if(S.gsub && S.canEdit){ const f={painel:renderPainel, painelcomp:renderPainelComp, auditoria:renderAuditoria}[S.gsub];
     el.innerHTML=`<button class="backbtn" data-gback>‹ Gestão</button><div id="gsubBody"></div>`; f($("#gsubBody")); el.querySelector("[data-gback]").addEventListener("click",()=>{ S.gsub=null; renderPerfil(); }); return; }
-  if(S.role==="aluno"){ el.innerHTML=cartaoPerfil()+minhasRemadasHTML()+`<div id="fichaBox"></div>`+painelSeguranca()+rodapeIako(); renderFichaAluno($("#fichaBox")); bindPerfil(el); el.querySelectorAll("[data-goag]").forEach(b=>b.addEventListener("click",()=>setTab("agenda"))); return; }
+  if(S.role==="aluno"){ el.innerHTML=cartaoPerfil()+painelVerComo()+minhasRemadasHTML()+`<div id="fichaBox"></div>`+painelSeguranca()+rodapeIako(); renderFichaAluno($("#fichaBox")); bindPerfil(el); el.querySelectorAll("[data-goag]").forEach(b=>b.addEventListener("click",()=>setTab("agenda"))); return; }
   const revisar=S.alunos.filter(precisaRevisao).length;
   el.innerHTML=cartaoPerfil()+`<h3 class="sech">${S.role==="agencia"?"Comunicação":S.canEdit?"Administração":"Instrutor"}</h3>
     <div class="gtiles">
@@ -2527,7 +2550,7 @@ function renderPerfil(){
       ${S.canAgenda?tileG("operacao","Operação",S.canEdit?"Frota, grade, regras e equipe":"Frota e grade semanal","#F04A12",IC.clube):""}
       ${S.canMidia?tileG("midia","Mídia","Campanhas, redes sociais e formulários","#C2185B",IC.planos):""}
       ${S.canEdit?tileG("auditoria","Auditoria","Histórico de alterações","#5B7282",IC.audit):""}
-    </div>`+painelSeguranca();
+    </div>`+painelVerComo()+painelSeguranca();
   el.querySelectorAll("[data-g]").forEach(b=>b.addEventListener("click",()=>{ const g=b.dataset.g; if(g==="alunos"||g==="operacao"||g==="midia") setTab(g); else if(g==="clubepub") setTab("clube"); else if(g==="personalizar") editarClube(); else { S.gsub=g; renderPerfil(); window.scrollTo(0,0); } }));
   bindPerfil(el);
   el.insertAdjacentHTML("beforeend", rodapeIako());
@@ -3515,10 +3538,26 @@ function cadastroPorVoz(){
 
 function rodapeIako(){ return `<div class="iakofoot"><svg viewBox="0 0 512 512" width="28" height="28" aria-hidden="true"><rect width="512" height="512" rx="112" fill="#0B3A5B"/><circle cx="256" cy="150" r="48" fill="#FF6B1A"/><rect x="237" y="222" width="38" height="132" rx="19" fill="#fff"/><path d="M256 318 C304 344 308 404 256 446 C204 404 208 344 256 318 Z" fill="#fff"/></svg><span><b>IAKO</b> gestão e segurança para clubes de va’a</span><button class="linkbtn" id="ftIdioma">${tr("Idioma e acessibilidade")}</button></div>`; }
 document.addEventListener("click",e=>{ if(e.target && e.target.id==="ftIdioma") abrirIdiomaA11y(); });
+const NOMES_PAPEL={gestao:"Administrador",instrutor:"Instrutor",agencia:"Comunicação",aluno:"Aluno"};
+function verComo(papel){ try{ if(papel==="gestao") sessionStorage.removeItem("iako-vercomo"); else sessionStorage.setItem("iako-vercomo",papel); }catch(_){} computeRole(); updateBadge(); render(); window.scrollTo(0,0); toast(papel==="gestao"?"Você voltou ao perfil de Administrador":`Vendo o app como ${NOMES_PAPEL[papel]}`); }
+function barraVerComo(){
+  let b=document.getElementById("vcbar");
+  if(S.papelReal==="gestao" && S.role!=="gestao"){
+    if(!b){ b=document.createElement("div"); b.id="vcbar"; b.className="vcbar"; document.querySelector("main").prepend(b); }
+    b.innerHTML=`<span>Modo de teste: você está vendo o app como <b>${NOMES_PAPEL[S.role]}</b>.</span><button class="linkbtn" id="vcVolta">Voltar para Administrador</button>`;
+    b.querySelector("#vcVolta").onclick=()=>verComo("gestao");
+  } else if(b) b.remove();
+}
+function painelVerComo(){
+  if(S.papelReal!=="gestao") return "";
+  return `<div class="panel"><h3>Testar o app como</h3><p class="hint" style="margin:0 0 8px">Veja exatamente o que cada perfil enxerga, sem trocar de conta. As ações continuam sendo feitas com a sua conta de administrador.</p><div class="seg" role="group">${Object.entries(NOMES_PAPEL).map(([k,l])=>`<button type="button" data-vc="${k}" aria-pressed="${S.role===k}">${l}</button>`).join("")}</div></div>`;
+}
+document.addEventListener("click",e=>{ const b=e.target.closest&&e.target.closest("[data-vc]"); if(b) verComo(b.dataset.vc); });
 /* ---------- render ---------- */
 function render(){
   if(S.tab==="mural"){ marcarLido(); }
   updateBadge();
+  barraVerComo();
   ({agenda:renderAgenda, mar:renderMar, mural:renderMural, midia:renderMidia, competicao:renderCompeticao, clube:renderSobre, perfil:renderPerfil, alunos:renderAlunos, operacao:renderClube})[S.tab]();
 }
 
@@ -3530,6 +3569,8 @@ function computeRole(){
   const p=S.config.papeis||{};
   if(FB){ const pp=FB.papel(); S.role = ["gestao","instrutor","agencia"].includes(pp) ? pp : (S.uid ? "aluno" : "visitante"); }
   else S.role = S.isOwner ? "gestao" : S.platAdmin ? ({gestao:"gestao",agencia:"agencia"}[p[S.uid]]||"instrutor") : (S.uid ? "aluno" : "visitante");
+  S.papelReal = S.role; let vc=null; try{ vc=sessionStorage.getItem("iako-vercomo"); }catch(_){}
+  if(S.papelReal==="gestao" && ["instrutor","agencia","aluno"].includes(vc)) S.role=vc;
   S.canEdit = S.role==="gestao"; S.canAgenda = S.canEdit || S.role==="instrutor"; S.canMidia = S.canEdit || S.role==="agencia"; S.canAviso = S.canAgenda || S.canMidia;
   const nome = S.me && S.me.name ? S.me.name.split(" ")[0] : "";
   $("#who").textContent = nome ? `${nome} (${{gestao:"administrador",instrutor:"instrutor",agencia:"comunicação",aluno:"aluno",visitante:"visitante"}[S.role]})` : "";
@@ -3571,6 +3612,7 @@ if(!NA_CLAUDE && "serviceWorker" in navigator && location.protocol==="https:"){ 
   if(S.platAdmin){
     db.collection("atletas").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data()||{}; }); S.atletas=m; S.atletaMe=S.uid?(m[S.uid]||null):null; resolveNames(); if(S.tab==="competicao") renderCompeticao(); }, ()=>{});
     db.collection("alunos").onSnapshot(s=>{ S.alunos = s.docs.map(d=>Object.assign({_id:d.id}, d.data())); S.alunosLoaded=true; S.minhaFicha = S.uid ? (S.alunos.find(a=>a._id===S.uid)||null) : null; updateBadge(); if(S.tab==="alunos") renderAlunos(); else if(["competicao","perfil"].includes(S.tab)) render(); }, ()=>{ S.alunosLoaded=true; renderAlunos(); });
+    if(FB) db.collection("convites").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data()||{}; }); S.convites=m; if(S.tab==="operacao") renderClube(); }, ()=>{});
     db.collection(FB?"membros":"equipe").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data()||{}; }); S.equipe=m; resolveNames(); if(S.tab==="clube") renderClube(); }, ()=>{});
     if(S.uid && !FB){ try{ const me=await db.doc("equipe/"+S.uid).get(); if(!me.exists) await db.doc("equipe/"+S.uid).set({desde:new Date().toISOString()}); }catch(_){} }
   } else if(S.uid){
