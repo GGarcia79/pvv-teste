@@ -4549,6 +4549,8 @@ function render(){
   updateBadge();
   barraVerComo();
   { const inat = S.role==="aluno" && statusAluno(S.minhaFicha)==="inativo"; document.querySelectorAll('nav [data-tab="mar"]').forEach(b=>b.classList.toggle("oculto",inat)); }
+  { const com = S.role==="agencia"; ["agenda","competicao"].forEach(t=>document.querySelectorAll(`nav [data-tab="${t}"]`).forEach(b=>b.classList.toggle("oculto",com)));
+    if(com && (S.tab==="agenda"||S.tab==="competicao")){ setTab("mural"); return; } }
   ({agenda:renderAgenda, mar:renderMar, mural:renderMural, midia:renderMidia, competicao:renderCompeticao, eventos:renderEventos, clube:renderSobre, perfil:renderPerfil, alunos:renderAlunos, operacao:renderClube})[S.tab]();
 }
 
