@@ -423,6 +423,23 @@ nav.bottom button.novo{background:#FFD21A;color:#3A2F00}
 nav.bottom button.novo svg{color:#3A2F00}
 nav.tabs button.novo{background:#FFD21A;color:#3A2F00}
 .btn:disabled{opacity:.45;cursor:not-allowed}
+.filters .fc{display:inline-block;min-width:18px;padding:0 5px;border-radius:9px;background:var(--surface-2);font-size:12px;margin-left:4px;color:var(--muted)}
+.filters button[aria-pressed="true"] .fc{background:rgba(255,255,255,.2);color:inherit}
+.filters button.vazio{opacity:.6}
+.decisoes{display:grid;gap:10px;margin-bottom:12px}
+@media (min-width:760px){.decisoes{grid-template-columns:1fr 1fr}}
+.dec{display:flex;flex-direction:column;gap:4px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--muted);border-radius:14px;padding:12px 14px}
+.dec b{font-size:17px}.dec span{color:var(--muted);font-size:14px}.dec .btn{margin-top:6px}
+.dec.red{border-left-color:var(--stop)}.dec.amb{border-left-color:var(--warn)}.dec.grn{border-left-color:var(--ok)}
+.finchips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px;scroll-margin-top:120px}
+.finchip{flex:none;display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:118px;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:10px 12px;cursor:pointer;text-align:left;color:var(--ink)}
+.finchip b{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:28px;line-height:1}
+.finchip span{font-size:12.5px;color:var(--muted)}
+.finchip.vence7 b,.finchip.vence30 b{color:var(--warn)}.finchip.atrasado b,.finchip.semreg b{color:var(--stop)}.finchip.emdia b{color:var(--ok)}
+.finchip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink)}
+.finchip[aria-pressed="true"] b,.finchip[aria-pressed="true"] span{color:var(--surface)}
+.finq{flex:1;min-width:160px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:8px 12px;color:var(--ink)}
+.finsel{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:8px;color:var(--ink)}
 .trein .trmes{min-width:130px;text-align:center;display:inline-block}
 .trein .trmes::first-letter{text-transform:uppercase}
 .trav{background:#FFF4C2;color:#3A2F00;border-radius:10px;padding:8px 12px;margin:10px 0 0}
@@ -2242,13 +2259,14 @@ function renderMural(){
   if(!S.db){ el.innerHTML=`<div class="locked"><h3>Mural indisponível aqui</h3><p>Abra este app pelo Claude, conectado à sua conta.</p></div>`; return; }
   if(!S.avisosLoaded){ el.innerHTML=`<div class="empty">Carregando avisos…</div>`; return; }
   const h=todaySP(), all=avisosVisiveis();
-  const tipos=Object.keys(TIPOS_AV).filter(k=>all.some(a=>a.tipo===k));
-  const list=all.filter(a=>S.muralFiltro==="todos"||a.tipo===S.muralFiltro)
+  const GRUPOS_AV=[["agenda","Agenda",a=>a.tipo==="agenda"||a.tipo==="cancelamento"||/^(canc|ag|reat|auto|agenda)_/.test(a._id||"")],["competicao","Competição",a=>a.tipo==="competicao"||/^prova_/.test(a._id||"")],["eventos","Eventos",a=>["passeio","viagem","evento"].includes(a.tipo)||/^ev_/.test(a._id||"")],["midia","Mídia",a=>["midia","formulario"].includes(a.tipo)||/^(midia|form)_/.test(a._id||"")],["geral","Comunicados",a=>a.tipo==="geral"]];
+  if(S.muralFiltro!=="todos" && !GRUPOS_AV.some(g=>g[0]===S.muralFiltro)) S.muralFiltro="todos";
+  const grupo=GRUPOS_AV.find(g=>g[0]===S.muralFiltro);
+  const list=all.filter(a=>!grupo||grupo[2](a))
     .sort((a,b)=>((b.fixado?1:0)-(a.fixado?1:0)) || (b.criado||"").localeCompare(a.criado||""));
   let html=`<div class="ag-head"><div><h2>Alertas e comunicados</h2><p class="hint">Passeios, provas, eventos, viagens e cancelamentos.</p></div><span class="spacer"></span>${S.canAviso?`<button class="btn small" id="newAv">Novo aviso</button>`:""}</div>`;
-  if(tipos.length>1) html+=`<div class="filters" role="group" aria-label="Filtrar avisos"><button data-f="todos" aria-pressed="${S.muralFiltro==="todos"}">Todos</button>${tipos.map(k=>`<button data-f="${k}" aria-pressed="${S.muralFiltro===k}">${TIPOS_AV[k]}</button>`).join("")}</div>`;
-  else html+=`<div style="height:12px"></div>`;
-  if(!list.length) html+=`<div class="empty"><p>Nenhum aviso por aqui.</p>${S.canEdit?"<p>Publique o primeiro comunicado do clube.</p>":""}</div>`;
+  html+=`<div class="filters" role="group" aria-label="Filtrar avisos"><button data-f="todos" aria-pressed="${S.muralFiltro==="todos"}">Todos <span class="fc">${all.length}</span></button>${GRUPOS_AV.map(([k,l,fn])=>{ const n=all.filter(fn).length; return `<button data-f="${k}" aria-pressed="${S.muralFiltro===k}" ${n?"":'class="vazio"'}>${l} <span class="fc">${n}</span></button>`; }).join("")}</div>`;
+  if(!list.length) html+=`<div class="empty"><p>${grupo?`Nenhum alerta de ${grupo[1]} no momento.`:"Nenhum aviso por aqui."}</p>${S.canEdit&&!grupo?"<p>Publique o primeiro comunicado do clube.</p>":""}</div>`;
   html+=list.map(a=>{
     const longo=(a.texto||"").length>260, aberto=S.muralAberto[a._id];
     const qd=[a.data_evento?dataCurta(a.data_evento):"", a.hora||"", a.local||""].filter(Boolean).join(", ");
@@ -4449,6 +4467,81 @@ document.addEventListener("click",e=>{
   const l=e.target.closest&&e.target.closest("[data-trlist]"); if(l){ listaTreinos(); return; }
   const i=e.target.closest&&e.target.closest("[data-trinfo]"); if(i){ toast(i.dataset.trinfo==="agendado"?"Registre o treino depois que a remada acontecer":"Remada cancelada: não há treino para registrar"); }
 });
+
+/* ---------- Painel financeiro v2: filtros por situação e decisões ---------- */
+const FIN_EST = {emdia:["Em dia","grn"], vence7:["Vence em até 7 dias","amb"], vence30:["Vence em até 30 dias","amb"], atrasado:["Atrasado","red"], semreg:["Sem pagamento registrado","red"], semplano:["Sem plano","" ]};
+function finEstado(a){ const h=todaySP(); if(!a.pago_ate) return "semreg"; const d=Math.round((new Date(a.pago_ate+"T12:00")-new Date(h+"T12:00"))/864e5); if(d<0) return "atrasado"; if(d<=7) return "vence7"; if(d<=30) return "vence30"; return "emdia"; }
+function finDias(a){ return a.pago_ate?Math.round((new Date(a.pago_ate+"T12:00")-new Date(todaySP()+"T12:00"))/864e5):null; }
+function renderPainelFin(el){
+  const hoje=todaySP(), F=S.fin||(S.fin={filtro:"todos", plano:"", busca:"", inativos:false});
+  const base=S.alunos.filter(a=>F.inativos || statusAluno(a)!=="inativo");
+  const f30=frequencia(30);
+  const pr=a=>a.plano_tipo&&PLANOS[a.plano_tipo]?precoPlano(a.plano_tipo):0;
+  const grupos={todos:base, emdia:base.filter(a=>a.pago_ate&&a.pago_ate>=hoje), vence7:base.filter(a=>finEstado(a)==="vence7"), vence30:base.filter(a=>["vence7","vence30"].includes(finEstado(a))), atrasado:base.filter(a=>finEstado(a)==="atrasado"), semreg:base.filter(a=>!a.pago_ate), semplano:base.filter(a=>!a.plano_tipo)};
+  const rotulo={todos:"Todos", emdia:"Em dia", vence7:"Vencem em 7 dias", vence30:"Vencem em 30 dias", atrasado:"Atrasados", semreg:"Sem pagamento registrado", semplano:"Sem plano"};
+  let lista=(grupos[F.filtro]||base).filter(a=>(!F.plano || a.plano_tipo===F.plano) && (!F.busca || (a.nome||"").toLowerCase().includes(F.busca.toLowerCase())));
+  const ordem={atrasado:0, semreg:1, vence7:2, vence30:3, emdia:4};
+  lista=lista.slice().sort((x,y)=>(ordem[finEstado(x)]-ordem[finEstado(y)]) || ((x.pago_ate||"")).localeCompare(y.pago_ate||"") || (x.nome||"").localeCompare(y.nome||"","pt-BR"));
+  // decisões
+  const atrasoAtivo=grupos.atrasado.filter(a=>statusAluno(a)==="ativo");
+  const sugeridos=base.filter(a=>{ const s=sugestaoStatus(a); return s && s!==statusAluno(a); });
+  const emRisco=grupos.atrasado.reduce((s,a)=>s+pr(a),0);
+  const atrasRemando=grupos.atrasado.filter(a=>((f30[a._id]||{}).pres||0)>0);
+  const mrr=base.filter(a=>a.plano_tipo&&PLANOS[a.plano_tipo]&&a.pago_ate&&a.pago_ate>=hoje).reduce((s,a)=>s+precoPlano(a.plano_tipo)/PLANOS[a.plano_tipo][1],0);
+  const proj=projecaoReceita(6);
+  const meses=[...Array(6)].map((_,i)=>{ const d=new Date(hoje.slice(0,7)+"-15T12:00"); d.setMonth(d.getMonth()-5+i); return d.toISOString().slice(0,7); });
+  const recebido=meses.map(m=>({ym:m, v:S.alunos.reduce((s,a)=>s+(a.pagamentos||[]).filter(p=>(p.data||"").slice(0,7)===m).reduce((t,p)=>t+(+p.valor||0),0),0)}));
+  const maxR=Math.max(1,...recebido.map(r=>r.v),...proj.meses.map(m=>m.v));
+  const fone=a=>(a.telefone||"").replace(/\D/g,"");
+  const pix=sobreCfg().pagamento.pix, clube=MARCA.nomeCurto||MARCA.nome, nome1=a=>(a.nome||"").split(" ")[0];
+  const msg=a=>{ const e=finEstado(a); if(e==="atrasado") return `Olá, ${nome1(a)}! O seu plano no ${clube} venceu em ${dataCurta(a.pago_ate)}. Quando puder, faça a renovação pelo PIX ${pix}. Qualquer dúvida, estamos à disposição.`; if(e==="semreg") return `Olá, ${nome1(a)}! Ainda não temos o seu pagamento registrado no ${clube}. Pode nos enviar o comprovante ou fazer pelo PIX ${pix}? Obrigado!`; return `Olá, ${nome1(a)}! Passando para lembrar que o seu plano no ${clube} vence em ${dataCurta(a.pago_ate)}. Para renovar: PIX ${pix}. Obrigado! 🛶`; };
+  const chip=(k)=>`<button class="finchip ${k}" data-ff="${k}" aria-pressed="${F.filtro===k}"><b>${grupos[k].length}</b><span>${rotulo[k]}</span></button>`;
+  const est=a=>{ const e=finEstado(a), d=finDias(a); const txt=e==="atrasado"?`Atrasado ${-d} d`:e==="vence7"||e==="vence30"?(d===0?"Vence hoje":`Vence em ${d} d`):e==="semreg"?"Sem registro":"Em dia"; return `<span class="b ${FIN_EST[e][1]}">${txt}</span>`; };
+  const linha=a=>`<tr><th scope="row"><button class="linkbtn" data-fin="${esc(a._id)}">${esc(a.nome||"Sem nome")}</button>${!a.plano_tipo?` <span class="b">sem plano</span>`:""}</th>
+    <td>${a.plano_tipo&&PLANOS[a.plano_tipo]?esc(PLANOS[a.plano_tipo][0]):"–"}</td><td>${a.pago_ate?esc(dataCurta(a.pago_ate)):"–"}</td><td>${est(a)}</td>
+    <td><span class="b ${STATUS_COR[statusAluno(a)]}">${STATUS[statusAluno(a)]}</span></td><td>${(f30[a._id]||{}).pres||0}</td>
+    <td class="acoes">${fone(a)&&finEstado(a)!=="emdia"?`<a class="btn ghost small" href="${esc(waLink(msg(a),fone(a)))}" target="_blank" rel="noopener">${finEstado(a)==="atrasado"||finEstado(a)==="semreg"?"Cobrar":"Lembrar"}</a>`:""}<button class="btn small" data-finpag="${esc(a._id)}" aria-label="Registrar pagamento de ${esc(a.nome)}" title="Registrar pagamento">Dar baixa</button></td></tr>`;
+  el.innerHTML=`<h2 class="ptitle">Painel financeiro</h2>
+    <div class="decisoes">
+      ${sugeridos.length?`<div class="dec red"><b>${sugeridos.length} ${sugeridos.length===1?"aluno com situação a revisar":"alunos com situação a revisar"}</b><span>O pagamento indica outra situação (por exemplo, atrasado e ainda Ativo).</span><button class="btn small" id="decSug">Revisar e aplicar</button></div>`:""}
+      ${grupos.vence7.length?`<div class="dec amb"><b>${grupos.vence7.length} ${grupos.vence7.length===1?"vence":"vencem"} em 7 dias</b><span>Um lembrete agora evita atraso.</span><button class="btn small" data-ff="vence7">Ver e lembrar</button></div>`:""}
+      ${grupos.atrasado.length?`<div class="dec red"><b>${brl(emRisco)} em aberto</b><span>${grupos.atrasado.length} ${grupos.atrasado.length===1?"aluno atrasado":"alunos atrasados"}${atrasRemando.length?`, ${atrasRemando.length} ainda ${atrasRemando.length===1?"rema":"remam"}`:""}.</span><button class="btn small" data-ff="atrasado">Ver e cobrar</button></div>`:""}
+      ${grupos.semreg.length?`<div class="dec"><b>${grupos.semreg.length} sem pagamento registrado</b><span>Registre a baixa para entrarem nas previsões.</span><button class="btn small" data-ff="semreg">Registrar</button></div>`:""}
+      ${grupos.semplano.length?`<div class="dec"><b>${grupos.semplano.length} sem plano definido</b><span>Defina o plano no Financeiro de cada aluno.</span><button class="btn small" data-ff="semplano">Definir</button></div>`:""}
+      ${!sugeridos.length&&!grupos.vence7.length&&!grupos.atrasado.length&&!grupos.semreg.length&&!grupos.semplano.length?`<div class="dec grn"><b>Tudo em ordem</b><span>Nenhum pagamento atrasado ou pendente de registro.</span></div>`:""}
+    </div>
+    <div class="finchips" role="group" aria-label="Filtrar alunos">${["todos","emdia","vence7","vence30","atrasado","semreg","semplano"].map(chip).join("")}</div>
+    <div class="panel"><div class="row" style="gap:8px;flex-wrap:wrap;align-items:center"><h3 style="margin:0">${esc(rotulo[F.filtro])} <span class="hint">(${lista.length})</span></h3><span class="spacer"></span>
+      <input type="search" id="finQ" placeholder="Buscar aluno" value="${esc(F.busca)}" aria-label="Buscar aluno" class="finq">
+      <select id="finP" aria-label="Plano" class="finsel"><option value="">Todos os planos</option>${Object.entries(PLANOS).map(([k,[n]])=>`<option value="${k}" ${F.plano===k?"selected":""}>${n}</option>`).join("")}</select>
+      <label class="chk"><input type="checkbox" id="finIn" ${F.inativos?"checked":""}> Incluir inativos</label>
+      <button class="btn ghost small" id="finExp">Exportar</button></div>
+      ${lista.length?`<div class="scroll-x" style="margin-top:10px"><table class="fintab"><thead><tr><th scope="col" style="text-align:left">Aluno</th><th scope="col">Plano</th><th scope="col">Pago até</th><th scope="col">Pagamento</th><th scope="col">Situação</th><th scope="col" title="Remadas nos últimos 30 dias">Remadas</th><th scope="col"></th></tr></thead><tbody>${lista.map(linha).join("")}</tbody></table></div>`:`<p class="hint" style="margin:10px 0 0">Nenhum aluno neste filtro.</p>`}</div>
+    <div class="kpis">${kpi(base.filter(a=>statusAluno(a)==="ativo").length,"alunos ativos")}${kpi(brl(mrr),"receita média mensal")}${kpi(brl(proj.meses[0].v),"previsto este mês")}${kpi(brl(recebido[5].v),"recebido este mês")}</div>
+    <div class="panel"><h3>Receita: recebido e previsto</h3><p class="hint" style="margin:0 0 6px">Recebido pelas baixas dos últimos 6 meses. Previsto pelo vencimento do plano de cada aluno nos próximos 6 meses.</p>
+      <div class="fingraf">${recebido.map(r=>`<div class="rb"><b>${r.v?brl(r.v):""}</b><div class="rbb"><i class="rec" style="height:${Math.round(r.v/maxR*100)}%"></i></div><span>${new Date(r.ym+"-15T12:00").toLocaleDateString("pt-BR",{month:"short"}).replace(".","")}</span></div>`).join("")}<div class="sep" aria-hidden="true"></div>${proj.meses.map(m=>`<div class="rb"><b>${m.v?brl(m.v):""}</b><div class="rbb"><i class="prev" style="height:${Math.round(m.v/maxR*100)}%"></i></div><span>${new Date(m.ym+"-15T12:00").toLocaleDateString("pt-BR",{month:"short"}).replace(".","")}</span></div>`).join("")}</div>
+      <div class="legend"><span><i style="background:#2B9F6A"></i>Recebido</span><span><i style="background:#7A4FD0"></i>Previsto</span></div>
+      ${!recebido.some(r=>r.v)?`<p class="hint" style="margin:8px 0 0">O gráfico de recebido aparece conforme você registra os pagamentos.</p>`:""}</div>
+    <div class="panel"><h3>Alunos por plano</h3><div class="planbars">${Object.entries(PLANOS).map(([k,[n,m]])=>{ const l=base.filter(a=>a.plano_tipo===k); return {n,qtd:l.length, mrr:l.reduce((s,a)=>s+precoPlano(k)/m,0)}; }).concat([{n:"Sem plano",qtd:grupos.semplano.length,mrr:0}]).map(p=>`<div class="pbr"><span class="pn2">${p.n}</span><span class="pbt"><i style="width:${Math.round(p.qtd/Math.max(1,base.length)*100)}%"></i></span><b>${p.qtd}</b><span class="hint" style="margin:0">${Math.round(p.qtd/Math.max(1,base.length)*100)}%${p.mrr?`, ${brl(p.mrr)}/mês`:""}</span></div>`).join("")}</div></div>`;
+  el.querySelectorAll("[data-ff]").forEach(b=>b.addEventListener("click",()=>{ F.filtro=b.dataset.ff; renderPainelFin(el); const t=el.querySelector(".finchips"); if(t) t.scrollIntoView({block:"start",behavior:"smooth"}); }));
+  const qi=el.querySelector("#finQ"); qi.addEventListener("input",e=>{ F.busca=e.target.value; const pos=e.target.selectionStart; renderPainelFin(el); const n=el.querySelector("#finQ"); n.focus(); n.setSelectionRange(pos,pos); });
+  el.querySelector("#finP").addEventListener("change",e=>{ F.plano=e.target.value; renderPainelFin(el); });
+  el.querySelector("#finIn").addEventListener("change",e=>{ F.inativos=e.target.checked; renderPainelFin(el); });
+  el.querySelectorAll("[data-finpag]").forEach(b=>b.addEventListener("click",()=>{ editFinanceiro(b.dataset.finpag); setTimeout(()=>{ const x=document.querySelector("#pgAdd"); if(x){ x.scrollIntoView({block:"center"}); x.focus(); } },120); }));
+  el.querySelector("#finExp").addEventListener("click",()=>exportarLista(`Financeiro: ${rotulo[F.filtro]}`, ["Aluno","Plano","Valor","Pago até","Pagamento","Situação","Remadas 30d","Telefone"], lista.map(a=>{ const e=finEstado(a), d=finDias(a); return [a.nome, a.plano_tipo&&PLANOS[a.plano_tipo]?PLANOS[a.plano_tipo][0]:"", pr(a)?brl(pr(a)):"", a.pago_ate?dataCurta(a.pago_ate):"", e==="atrasado"?`Atrasado ${-d} d`:e==="semreg"?"Sem registro":e==="emdia"?"Em dia":`Vence em ${d} d`, STATUS[statusAluno(a)], (f30[a._id]||{}).pres||0, a.telefone||""]; })));
+  const ds=el.querySelector("#decSug"); if(ds) ds.addEventListener("click",()=>revisarSituacoes(sugeridos, ()=>renderPainelFin(el)));
+}
+function revisarSituacoes(lista, depois){
+  openSheet(`<div class="head"><h2>Revisar situações</h2><button class="x" aria-label="Fechar">×</button></div>
+    <p class="hint">Sugestão pelo pagamento: atrasado vira <b>Suspenso</b>; mais de 6 meses sem pagar vira <b>Inativo</b>; em dia vira <b>Ativo</b>. Desmarque quem não deve mudar. Os alunos não recebem aviso.</p>
+    <form id="fsug"><div class="list">${lista.map(a=>`<label class="item" style="cursor:pointer"><input type="checkbox" name="s" value="${esc(a._id)}" checked style="width:20px;height:20px;flex:none"><span style="flex:1;min-width:0"><span class="nm">${esc(a.nome)}</span><span class="sub"> ${a.pago_ate?`pago até ${esc(dataCurta(a.pago_ate))}`:"sem registro"}</span><span class="badges"><span class="b ${STATUS_COR[statusAluno(a)]}">${STATUS[statusAluno(a)]}</span> → <span class="b ${STATUS_COR[sugestaoStatus(a)]}">${STATUS[sugestaoStatus(a)]}</span></span></span></label>`).join("")}</div>
+    <div class="row" style="margin-top:14px"><span class="spacer"></span><button type="button" class="btn ghost" id="cSug">Cancelar</button><button class="btn">Aplicar</button></div></form>`, root=>{
+    root.querySelector("#cSug").addEventListener("click",closeSheet);
+    root.querySelector("#fsug").addEventListener("submit",async ev=>{ ev.preventDefault(); const ids=new FormData(ev.target).getAll("s"); let n=0;
+      for(const id of ids){ const a=S.alunos.find(x=>x._id===id); const s=sugestaoStatus(a); if(!s) continue; try{ await S.db.doc("alunos/"+id).update({status:s}); auditar("Situação alterada",`${a.nome}: ${STATUS[statusAluno(a)]} → ${STATUS[s]} (sugestão do financeiro)`); n++; }catch(e){ failWrite(e); } }
+      closeSheet(); toast(`${n} ${n===1?"situação atualizada":"situações atualizadas"}`); if(depois) setTimeout(depois,400); });
+  });
+}
 
 /* ---------- render ---------- */
 function render(){
