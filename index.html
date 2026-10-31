@@ -423,6 +423,95 @@ nav.bottom button.novo{background:#FFD21A;color:#3A2F00}
 nav.bottom button.novo svg{color:#3A2F00}
 nav.tabs button.novo{background:#FFD21A;color:#3A2F00}
 .btn:disabled{opacity:.45;cursor:not-allowed}
+.sheet.wide{max-width:960px}
+button.tile{border:0;cursor:pointer;font:inherit}button.tile:hover{filter:brightness(.97)}button.tile:focus-visible{outline:3px solid #0B3A5B}
+.rli.zero{opacity:.55}
+.rdots{display:flex;gap:3px;margin-top:3px}.rdots i{width:8px;height:8px;border-radius:50%}
+.cnome.sel{flex:1;min-width:0;font-family:"Barlow Condensed",system-ui,sans-serif;font-size:18px;font-weight:700;border:1px solid var(--line);border-radius:10px;padding:6px 8px;background:var(--surface-2);color:var(--ink)}
+.frhead,.frl{display:grid;grid-template-columns:26px minmax(120px,1.6fr) minmax(90px,1fr) minmax(150px,1.2fr) 60px minmax(120px,1fr) 34px;gap:8px;align-items:center}
+.frhead{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;padding:4px 0 6px;border-bottom:2px solid var(--line)}
+.frl{padding:7px 0;border-bottom:1px solid var(--line)}
+.frl input[data-k=nome],.frl select{width:100%;min-width:0;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:8px;color:var(--ink);font:inherit;font-size:14.5px}
+.frl.off{opacity:.6}.frl.off .frst{color:var(--stop);font-weight:700}
+.frn{font-weight:700;color:var(--muted);text-align:center}
+.frmod{display:flex;gap:6px;align-items:center}.frmod select{width:auto;flex:1}
+.frcast{display:flex;gap:4px;align-items:center;font-size:12.5px;white-space:nowrap}
+.frlug{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:22px;font-weight:700;text-align:center;color:var(--ocean)}
+.frsoma{margin-top:12px;background:var(--surface-2);border-radius:10px;padding:10px 12px;font-size:14.5px}
+@media (max-width:640px){.frhead{display:none}.frl{grid-template-columns:22px 1fr 34px;grid-template-areas:"n nome rm" "n base base" "n mod lug" "n st st";row-gap:6px}.frn{grid-area:n}.frl input[data-k=nome]{grid-area:nome}.frl select[data-k=local]{grid-area:base}.frmod{grid-area:mod}.frlug{grid-area:lug}.frl .frst{grid-area:st}.frl [data-frm]{grid-area:rm}}
+.siga{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin-bottom:10px}
+.siga b{margin-right:4px}
+.mgrid{display:grid;gap:12px}
+@media (min-width:760px){.mgrid{grid-template-columns:1fr 1fr}.mgrid.g3{grid-template-columns:repeat(3,1fr)}}
+.mcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.mcard>img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.mcard.social>img,.mcard.social .mph{aspect-ratio:1/1}
+.mph{display:grid;place-items:center;background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF);color:#fff;font-family:"Barlow Condensed",system-ui,sans-serif;font-size:28px;font-weight:700}
+.mcard.r-youtube .mph{background:#E62117}.mcard.r-tiktok .mph{background:#111}.mcard.r-facebook .mph{background:#1877F2}
+.mbody{padding:12px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.mbody h3{margin:2px 0;font-size:19px}.mbody .btn{align-self:flex-start}
+.mcard.camp{border:2px solid #F2BE7A}
+.mcard.nov .novrow{display:flex;gap:12px}.mcard.nov .novrow img{width:110px;height:80px;object-fit:cover;border-radius:10px;flex:none}
+.tipos{display:grid;gap:10px}
+.tipo{display:flex;flex-direction:column;gap:3px;text-align:left;border:1px solid var(--line);border-left:6px solid var(--ocean);background:var(--surface);border-radius:14px;padding:12px 14px;cursor:pointer;color:var(--ink);font:inherit}
+.tipo b{font-size:17px}.tipo span{color:var(--muted);font-size:14px}
+.tipo.t-social{border-left-color:#DD2A7B}.tipo.t-campanha{border-left-color:#F04A12}
+.chipsres{display:flex;flex-wrap:wrap;gap:8px}
+.resg{display:inline-flex;gap:8px;align-items:center;background:var(--surface-2);border-radius:999px;padding:5px 12px}
+.resg a{font-size:13px;font-weight:700;color:#137A3C}
+.fintab td.pos{color:var(--muted);font-weight:700}
+.fintab .frq{display:block;height:8px;background:var(--surface-2);border-radius:4px;overflow:hidden;min-width:90px}.fintab .frq i{display:block;height:100%}
+.dash{display:grid;gap:12px}
+.dhead{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.slicers{display:flex;flex-wrap:wrap;gap:10px 18px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 14px}
+.slc{display:flex;flex-direction:column;gap:4px}
+.slc>span{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.fchips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.fchips button[data-fclr]:not(.linkbtn){border:0;background:#0B3A5B;color:#fff;border-radius:999px;padding:6px 12px;font-weight:600;cursor:pointer}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media (min-width:760px){.tiles{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1100px){.tiles{grid-template-columns:repeat(6,1fr)}}
+.tile{background:#F2BE7A;color:#2A1D05;border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:2px;text-align:center}
+.tile span{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:16px;font-weight:700}
+.tile b{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:24px;line-height:1.1}
+.tile small{font-size:11.5px;opacity:.8}
+.tile.neg{background:#F6C4BC}.tile.warnt{background:#F7D58A}
+html.hc .tile{background:#FFFFFF;border:2px solid #000}
+.dgrid{display:grid;gap:12px}
+@media (min-width:900px){.dgrid{grid-template-columns:repeat(3,1fr)}.dgrid .span2{grid-column:span 2}}
+.dcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;position:relative;min-width:0}
+.dtit{display:inline-block;background:#0B3A5B;color:#fff;font-size:14px;margin:0 0 10px;padding:5px 12px;border-radius:8px}
+.graf{width:100%;height:auto;display:block}
+.graf .ax{font-size:10.5px;fill:var(--muted)}.graf .ax.sel{fill:#0B3A5B;font-weight:700}
+.graf .vl{font-size:10px;fill:var(--ink);font-weight:600}
+.graf .pt{cursor:pointer}.graf .dim{opacity:.3}.graf .pt:focus-visible{outline:none}.graf .pt:focus-visible circle{stroke:#FFD21A;stroke-width:3}
+.graf .fat{cursor:pointer;transition:opacity .2s}.graf .fat:hover{opacity:.85}
+.rc1{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:30px;font-weight:700;fill:var(--ink)}.rc2{font-size:11px;fill:var(--muted)}
+.rosca{display:flex;flex-direction:column;align-items:center;gap:8px}
+.rleg{display:grid;gap:4px;width:100%}
+.rli{display:grid;grid-template-columns:14px 1fr auto;gap:8px;align-items:center;border:0;background:none;padding:4px 6px;border-radius:8px;cursor:pointer;text-align:left;color:var(--ink);font:inherit;font-size:14px}
+.rli i{width:12px;height:12px;border-radius:3px}.rli.on{background:var(--surface-2);font-weight:700}
+.hbars{display:grid;gap:10px}
+.hb{display:grid;grid-template-columns:42px 1fr;gap:8px;align-items:center;cursor:pointer;border-radius:8px}
+.hb.dim{opacity:.35}.hbm{font-weight:700;text-transform:capitalize}
+.hbb{display:grid;gap:4px}
+.hbr{display:flex;align-items:center;gap:6px;min-width:0}.hbr i{display:block;height:16px;border-radius:3px;min-width:2px}.hbr em{font-style:normal;font-size:12.5px;white-space:nowrap}
+.cols{display:flex;gap:6px;align-items:flex-end;height:200px}
+.colb{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;height:100%;border:0;background:none;cursor:pointer;padding:0;color:var(--ink);font:inherit;min-width:0}
+.colb em{font-style:normal;font-size:11px;font-weight:600;white-space:nowrap}
+.cbar{flex:1;width:70%;display:flex;align-items:flex-end;background:var(--surface-2);border-radius:5px 5px 0 0}
+.cbar i{display:block;width:100%;background:#0B3A5B;border-radius:5px 5px 0 0}
+.colb b{font-size:11.5px}.colb small{font-size:10.5px;color:var(--muted)}
+.colb.dim{opacity:.3}
+.catbars{display:grid;gap:6px}
+.cb{display:grid;grid-template-columns:1fr 1.2fr auto;gap:8px;align-items:center;border:0;background:none;cursor:pointer;text-align:left;font:inherit;font-size:13.5px;color:var(--ink);padding:3px 0}
+.cbt{height:12px;background:var(--surface-2);border-radius:6px;overflow:hidden}.cbt i{display:block;height:100%;background:#F2B33D}
+.cb.dim{opacity:.3}
+.pill{display:inline-block;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:700;color:#fff;background:var(--c)}
+.defs ul{margin:8px 0 0;padding-left:18px}.defs li{margin:4px 0;font-size:14px}
+.revbox{background:var(--warn-soft);border-radius:12px;padding:10px 12px;display:grid;gap:6px}
+.revbox.ok{background:var(--ok-soft)}
+.revst{font-size:14px}
 .filters .fc{display:inline-block;min-width:18px;padding:0 5px;border-radius:9px;background:var(--surface-2);font-size:12px;margin-left:4px;color:var(--muted)}
 .filters button[aria-pressed="true"] .fc{background:rgba(255,255,255,.2);color:inherit}
 .filters button.vazio{opacity:.6}
@@ -879,7 +968,7 @@ const S = {
   db:null, user:null, canEdit:false, uid:null,
   tab:"agenda", day:todaySP(),
   previsoes:{}, marHora:{}, marSim:null, previsaoConectada:false,
-  forms:{}, midia:{}, formresp:{}, minhasResp:null, gsub:null, canMidia:false, eventos:{}, evView:null,
+  forms:{}, midia:{}, formresp:{}, minhasResp:null, gsub:null, canMidia:false, eventos:{}, evView:null, despesas:{},
   role:"visitante", canAgenda:false, platAdmin:false, isOwner:false, equipe:{}, minhaFicha:null, me:null, agendaBase:"todas",
   avisos:{}, avisosLoaded:false, muralFiltro:"todos", muralAberto:{},
   provas:{}, atletas:{}, atletaMe:null, showPastProvas:false,
@@ -899,7 +988,7 @@ function setTab(t){
   document.querySelectorAll("nav [data-tab]").forEach(b => b.setAttribute("aria-current", (b.dataset.tab===t || (b.dataset.tab==="perfil" && SUB_PERFIL.includes(t))) ? "page" : "false"));
   S.gsub=null; if(t!=="competicao") S.compView=null; if(t!=="eventos") S.evView=null;
   TABS.forEach(k => $("#v-"+k).hidden = k!==t);
-  if(location.hash !== "#"+t) history.replaceState(null,"","#"+t);
+  if(location.hash !== "#"+t) history.replaceState(history.state,"","#"+t);
   render();
   window.scrollTo(0,0);
   try{ if(a11yGet().leitura) setTimeout(()=>falar(resumoAba(t)), 400); }catch(_){}
@@ -918,6 +1007,7 @@ function toast(msg){ const t=$("#toast"); t.textContent=msg; t.hidden=false; cle
 function openSheet(html, onMount){
   S.openTurma = null;
   $("#sheet").innerHTML = html;
+  $("#sheet").classList.toggle("wide", /class="frhead"|class="dash"|id="fsob"|id="fev"/.test(html));
   $("#ov").hidden = false;
   document.body.style.overflow="hidden";
   const x = $("#sheet .x"); if(x) x.addEventListener("click", closeSheet);
@@ -1793,7 +1883,8 @@ function fichaForm(a, gestao, onSave, onCancel){
         ${inp("liberacao","Liberação médica recebida em","date")}
         ${inp("atestado","Atestado válido até","date")}
         <label class="chk full"><input type="checkbox" name="equipe" ${a.equipe?"checked":""}> Equipe de competição</label>
-        <label class="chk full"><input type="checkbox" name="revisao" ${!a.ficha_em?"checked":""}> Registrar como revisão anual da ficha (feita com o aluno hoje)</label>
+        <div class="full revbox ${fichaStatus(a).s==="ok"?"ok":""}"><div class="revst">${a.ficha_em?`Última revisão: <b>${esc(new Date(a.ficha_em).toLocaleDateString("pt-BR"))}</b>, válida até <b>${esc(new Date(new Date(a.ficha_em).getTime()+365*864e5).toLocaleDateString("pt-BR"))}</b>${fichaStatus(a).s==="ok"?"":" (vencida ou incompleta)"}`:"<b>Ficha ainda não revisada</b>"}</div>
+          <label class="chk"><input type="checkbox" name="revisao" ${fichaStatus(a).s!=="ok"?"checked":""}> Registrar revisão anual hoje (revisada com o aluno)</label></div>
       </div></fieldset>`:""}
       ${gestao?`<div class="row" style="margin-top:18px"><span class="spacer"></span><button type="button" class="btn ghost" id="fCancel">Cancelar</button><button class="btn" type="submit">Salvar ficha</button></div>`
         :`<div class="row wnav"><button type="button" class="btn ghost" id="fVolta">Voltar</button><span class="spacer"></span><button type="button" class="btn" id="fSegue">Continuar</button></div>`}
@@ -1846,7 +1937,8 @@ function fichaForm(a, gestao, onSave, onCancel){
         if(!gestao && falta.length){ const e=root.querySelector("#ferr"); e.hidden=false; e.innerHTML=`<b>Complete para enviar:</b><ul>${falta.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`; root.scrollTop=0; return; }
         if(!o.nome){ toast("Informe o nome"); return; }
         const agora=new Date().toISOString();
-        if(!gestao || f.get("revisao")){ if(!falta.length){ o.ficha_em=agora; if(o.lgpd && !o.lgpd_data) o.lgpd_data=agora; } }
+        if(gestao && f.get("revisao") && falta.length){ const e=root.querySelector("#ferr"); e.hidden=false; e.innerHTML=`<b>Para registrar a revisão anual, complete:</b><ul>${falta.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><p style="margin:6px 0 0">Ou desmarque “Registrar revisão anual hoje” para salvar sem revisar.</p>`; root.scrollTop=0; return; }
+        if(!gestao || f.get("revisao")){ if(!falta.length){ o.ficha_em=agora; o.revisada_por=gestao?(S.uid||""):"aluno"; if(o.lgpd && !o.lgpd_data) o.lgpd_data=agora; } }
         o.atualizado=agora;
         try{ await onSave(o, falta); }catch(e){ failWrite(e); }
       });
@@ -1944,7 +2036,9 @@ function editAluno(id){
   fichaForm(a, true, async (o, falta)=>{
     const ref = id ? S.db.doc("alunos/"+id) : S.db.collection("alunos").doc();
     await ref.set(o);
-    toast(falta.length?"Ficha salva, ainda incompleta":"Ficha salva");
+    const revisou = o.ficha_em && (!a.ficha_em || o.ficha_em!==a.ficha_em);
+    if(revisou) auditar("Revisão anual da ficha", o.nome);
+    toast(revisou?`Revisão anual registrada: válida até ${new Date(new Date(o.ficha_em).getTime()+365*864e5).toLocaleDateString("pt-BR")}`:falta.length?"Ficha salva, ainda incompleta":"Ficha salva");
     setTimeout(()=>verAluno(ref.id), 80);
   }, ()=> id ? verAluno(id) : closeSheet());
 }
@@ -2106,7 +2200,7 @@ function editTurma(id){
       <label class="f">Saída<input name="inicio" type="time" required value="${esc(t.inicio)}"></label>
       <label class="f">Retorno<input name="fim" type="time" value="${esc(t.fim)}"></label>
       <label class="f full">Tipo<select name="categoria"><option value="">Remada aberta a todos</option>${CATS.map(c=>`<option value="${c[0]}" ${t.categoria===c[0]?"selected":""}>Treino ${c[1]}</option>`).join("")}</select></label>
-      <label class="f full">Vagas<input name="vagas" inputmode="numeric" value="${esc(t.vagas)}" placeholder="${auto?`Automático pela frota: ${auto}`:"Cadastre a frota ou informe aqui"}"></label>
+      <label class="f full">Limite de vagas (opcional)<input name="vagas" inputmode="numeric" value="${esc(t.vagas)}" placeholder="${capFrota(t.local)!=null?`Frota disponível: ${capFrota(t.local)} vagas`:"Cadastre a frota em Operação"}"><small class="hint" style="margin:2px 0 0">As vagas vêm das canoas disponíveis da base. Preencha só para limitar a menos que a frota.</small></label>
       <label class="f full">Observação<input name="obs" value="${esc(t.obs)}" placeholder="Ex.: travessia até a Praia Vermelha"></label>
       ${camposRegras(t)}
     </div>
@@ -2195,7 +2289,7 @@ function editGrade(gid){
       <label class="f">Retorno<input name="fim" type="time" value="${esc(g.fim)}"></label>
       <label class="f full">Tipo<select name="categoria"><option value="">Remada aberta a todos</option>${CATS.map(c=>`<option value="${c[0]}" ${g.categoria===c[0]?"selected":""}>Treino ${c[1]}</option>`).join("")}</select></label>
       <label class="f full">Título (opcional)<input name="titulo" value="${esc(g.titulo)}" placeholder="Ex.: Remada das 6h"></label>
-      <label class="f full">Vagas (em branco: pela frota)<input name="vagas" inputmode="numeric" value="${esc(g.vagas)}"></label>
+      <label class="f full">Limite de vagas (opcional)<input name="vagas" inputmode="numeric" value="${esc(g.vagas)}" placeholder="Em branco: frota disponível"><small class="hint" style="margin:2px 0 0">As vagas vêm das canoas disponíveis de cada base no dia. Use só para limitar a menos que a frota.</small></label>
       ${camposRegras(g)}
       <label class="chk full"><input type="checkbox" name="ativo" ${g.ativo!==false?"checked":""}> Horário ativo (desmarque para pausar sem apagar)</label>
     </div>
@@ -2716,7 +2810,7 @@ function renderPerfil(){
   el.innerHTML=cartaoPerfil()+`<h3 class="sech">${S.role==="agencia"?"Comunicação":S.canEdit?"Administração":"Instrutor"}</h3>
     <div class="gtiles">
       ${S.canEdit?tileG("painel","Painel social","Alunos, frequência e retenção","#1C6C86",IC.painel):""}
-      ${S.canEdit?tileG("painelfin","Painel financeiro","Planos, vencimentos e receita","#2B9F6A",IC.painel):""}
+      ${S.canEdit?tileG("painelfin","Mensalidades","Vencimentos, previsões e alunos em risco","#2B9F6A",IC.painel):""}
       ${S.canEdit?tileG("painelcomp","Painel de competição","Atletas, categorias e provas","#B9800F",IC.comp):""}
       ${S.canAgenda?tileG("alunos","Alunos",`Fichas e cadastros${revisar&&S.canEdit?`, ${revisar} a revisar`:""}`,"#2C8A57",IC.alunos):""}
       ${S.canEdit?tileG("personalizar","Personalizar clube","Nome, logo, cor e bases","#E9612B",IC.clube):""}
@@ -3484,7 +3578,7 @@ function inscritosProva(p){
   const ano=+(p.data||todaySP()).slice(0,4);
   return Object.entries(S.atletas||{}).filter(([u,a])=>a&&a.provas&&a.provas[p._id]&&a.provas[p._id].s==="quero").map(([uid,a])=>({uid, a, nome:nomeAtleta(uid), naipe:a.naipe||"", cat:a.provas[p._id].cat||"", idade:idadeEm(a,ano), est:ehEstreante(a,ano), pcd:a.pcd==="sim"})).sort((x,y)=>x.nome.localeCompare(y.nome,"pt-BR"));
 }
-function canoaNova(n){ return {id:rid(), nome:`Canoa ${n}`, cat:"OPEN", tipo:"X", bancos:[null,null,null,null,null,null]}; }
+function canoaNova(n){ const fr=(S.config.canoas||[]).filter(c=>c.status!=="manutencao"); return {id:rid(), nome:fr[n-1]?fr[n-1].nome:`Canoa ${n}`, cat:"OPEN", tipo:"X", bancos:[null,null,null,null,null,null]}; }
 function tripulacoesDe(p){ const t=p.tripulacoes; if(Array.isArray(t)&&t.length) return JSON.parse(JSON.stringify(t)); return Array.from({length:6},(_,i)=>canoaNova(i+1)); }
 function validarBanco(c, idx, pessoa, ano){
   if(!pessoa) return [true,""];
@@ -3529,7 +3623,7 @@ function renderTripulacoes(el, pid){
       ${(lista==="dist"?dist:pend).length?`<ul class="plist">${(lista==="dist"?dist:pend).map(pessoaLi).join("")}</ul>`:`<p class="hint" style="margin:8px 0 0">${lista==="dist"?"Ninguém distribuído ainda.":ins.length?"Todos os inscritos já estão em canoas.":"Nenhum atleta marcou interesse nesta prova ainda."}</p>`}</div>
     <div class="cgrid">${vis.map((c,k)=>{ const i=ini+k; const ruins=c.bancos.map((b,j)=>b?validarBanco(c,j,ins.find(x=>x.uid===b.uid)||{uid:b.uid,a:S.atletas[b.uid],naipe:b.naipe},ano):[true,""]);
       return `<article class="ccard" data-ci="${i}">
-        <div class="chead"><input class="cnome" data-cn="${i}" value="${esc(c.nome)}" aria-label="Nome da canoa"><button class="ib lixo" data-del="${i}" aria-label="Excluir ${esc(c.nome)}" title="Excluir canoa">🗑</button></div>
+        <div class="chead">${selCanoaFrota(`data-cn="${i}"`, c.nome, tr.map(x=>x.nome))}<button class="ib lixo" data-del="${i}" aria-label="Excluir ${esc(c.nome)}" title="Excluir canoa">🗑</button></div>
         <div class="row" style="gap:8px;margin-bottom:8px"><label class="f" style="flex:1">Categoria<select data-cc="${i}">${CATEG_PROVA.map(([k2,l])=>`<option value="${k2}" ${c.cat===k2?"selected":""}>${l}</option>`).join("")}</select></label>
           <label class="f" style="flex:1">Formação<select data-ct="${i}">${Object.entries(TIPO_CANOA).map(([k2,l])=>`<option value="${k2}" ${c.tipo===k2?"selected":""}>${l}</option>`).join("")}</select></label></div>
         <div class="canoa-topo">${svgCanoaTopo()}${c.bancos.map((b,j)=>`<button class="banco ${b?"ocup":""} ${ruins[j][0]?"":"erro"}" style="left:${18+j*13.2}%" data-banco="${i}:${j}" aria-label="Banco ${j+1}, ${b?esc(b.nome):"vazio"}${ruins[j][0]?"":", fora da regra: "+esc(ruins[j][1])}"><span class="bn">${j+1}</span><span class="bi">${b?esc(initials(b.nome)):"+"}</span></button>`).join("")}</div>
@@ -3544,7 +3638,7 @@ function renderTripulacoes(el, pid){
   el.querySelectorAll("[data-tl]").forEach(b=>b.addEventListener("click",()=>{ S.tripLista=b.dataset.tl; renderTripulacoes(el,pid); }));
   el.querySelectorAll("[data-cc]").forEach(s=>s.addEventListener("change",()=>{ const nt=tripulacoesDe(S.provas[pid]); nt[+s.dataset.cc].cat=s.value; salvar(nt); }));
   el.querySelectorAll("[data-ct]").forEach(s=>s.addEventListener("change",()=>{ const nt=tripulacoesDe(S.provas[pid]); nt[+s.dataset.ct].tipo=s.value; salvar(nt); }));
-  el.querySelectorAll("[data-cn]").forEach(s=>s.addEventListener("change",()=>{ const nt=tripulacoesDe(S.provas[pid]); nt[+s.dataset.cn].nome=s.value.trim()||nt[+s.dataset.cn].nome; salvar(nt); }));
+  el.querySelectorAll("[data-cn]").forEach(s=>s.addEventListener("change",async()=>{ const nt=tripulacoesDe(S.provas[pid]), i=+s.dataset.cn; let v=s.value; if(v==="__outro"){ v=await askText("Nome da canoa","Digite o nome"); closeSheet(); if(!v||!v.trim()){ renderTripulacoes(el,pid); return; } } nt[i].nome=v.trim(); salvar(nt); }));
   el.querySelectorAll("[data-del]").forEach(b=>b.addEventListener("click",async()=>{ const i=+b.dataset.del, nt=tripulacoesDe(S.provas[pid]); const n=nt[i].bancos.filter(Boolean).length; if(!await ask(`Excluir ${nt[i].nome}?${n?` Os ${n} atletas voltam para a lista de pendentes.`:""}`,"Excluir canoa")){ return; } closeSheet(); nt.splice(i,1); salvar(nt); }));
   const ad=el.querySelector("#tripAdd"); if(ad) ad.addEventListener("click",()=>{ const nt=tripulacoesDe(S.provas[pid]); nt.push(canoaNova(nt.length+1)); S.tripPag=Math.floor((nt.length-1)/POR_PAGINA); salvar(nt); });
   const pa=el.querySelector("#pgAnt"), px=el.querySelector("#pgProx"); if(pa) pa.addEventListener("click",()=>{ S.tripPag--; renderTripulacoes(el,pid); }); if(px) px.addEventListener("click",()=>{ S.tripPag++; renderTripulacoes(el,pid); });
@@ -4116,7 +4210,7 @@ function renderCanoasEvento(el,id){
       <div class="row"><button class="btn ghost small" id="evWa2">Enviar no WhatsApp</button><button class="btn small" id="evPdf">Gerar PDF</button></div></div>
     ${pernas.map((pn,pi)=>{ const sent=new Set(); pn.canoas.forEach(c=>c.bancos.forEach(b=>{ if(b) sent.add(b.uid); })); const apoio=conf.filter(x=>!sent.has(x.uid));
       return `<section class="perna"><div class="row" style="align-items:center"><h3 class="sech" style="margin:14px 0 8px">Canoas ${esc(pn.nome)}</h3><span class="spacer"></span>${pi>0?`<button class="ib lixo" data-pdel="${pi}" aria-label="Excluir ${esc(pn.nome)}">🗑</button>`:""}</div>
-      <div class="cgrid">${pn.canoas.map((c,ci)=>`<article class="ccard"><div class="chead"><input class="cnome" data-ecn="${pi}:${ci}" value="${esc(c.nome)}" aria-label="Nome da canoa"><button class="ib lixo" data-ecdel="${pi}:${ci}" aria-label="Excluir ${esc(c.nome)}">🗑</button></div>
+      <div class="cgrid">${pn.canoas.map((c,ci)=>`<article class="ccard"><div class="chead">${selCanoaFrota(`data-ecn="${pi}:${ci}"`, c.nome, pn.canoas.map(x=>x.nome))}<button class="ib lixo" data-ecdel="${pi}:${ci}" aria-label="Excluir ${esc(c.nome)}">🗑</button></div>
         <label class="f">Lugares<select data-ecl="${pi}:${ci}">${[7,6,4,3,2,1].map(n=>`<option value="${n}" ${c.lugares===n?"selected":""}>${n} ${n===1?"pessoa":"pessoas"}${n===7?" (OC6 com castelo)":""}</option>`).join("")}</select></label>
         <div class="canoa-topo" style="margin-top:8px">${svgCanoaTopo()}${c.bancos.map((b,j)=>`<button class="banco ${b?"ocup":""}" style="left:${posBanco(j,c.lugares)}%" data-eb="${pi}:${ci}:${j}" aria-label="Banco ${j+1}, ${b?esc(b.nome):"vazio"}"><span class="bn">${j+1}</span><span class="bi">${b?esc(initials(b.nome)):"+"}</span></button>`).join("")}</div>
         <ol class="blist">${c.bancos.map((b,j)=>`<li><span>Banco ${j+1}</span><b>${b?esc(b.nome):"–"}</b></li>`).join("")}</ol></article>`).join("")}
@@ -4130,7 +4224,9 @@ function renderCanoasEvento(el,id){
   el.querySelectorAll("[data-pdel]").forEach(b=>b.addEventListener("click",async()=>{ const np=P(), i=+b.dataset.pdel; if(!await ask(`Excluir a ${np[i].nome}?`,"Excluir perna")) return; closeSheet(); np.splice(i,1); np.forEach((p,k)=>p.nome=`Perna ${k+1}`); salvar(np); }));
   el.querySelectorAll("[data-ecadd]").forEach(b=>b.addEventListener("click",()=>{ const np=P(), pi=+b.dataset.ecadd; np[pi].canoas.push({id:rid(), nome:`Canoa ${np[pi].canoas.length+1}`, lugares:6, bancos:Array(6).fill(null)}); salvar(np); }));
   el.querySelectorAll("[data-ecdel]").forEach(b=>b.addEventListener("click",async()=>{ const [pi,ci]=b.dataset.ecdel.split(":").map(Number), np=P(); if(!await ask(`Excluir ${np[pi].canoas[ci].nome} da ${np[pi].nome}? Quem estava nela vai para o barco de apoio.`,"Excluir canoa")) return; closeSheet(); np[pi].canoas.splice(ci,1); salvar(np); }));
-  el.querySelectorAll("[data-ecn]").forEach(s=>s.addEventListener("change",()=>{ const [pi,ci]=s.dataset.ecn.split(":").map(Number), np=P(); np[pi].canoas[ci].nome=s.value.trim()||np[pi].canoas[ci].nome; salvar(np); }));
+  el.querySelectorAll("[data-ecn]").forEach(s=>s.addEventListener("change",async()=>{ const [pi,ci]=s.dataset.ecn.split(":").map(Number), np=P(), c=np[pi].canoas[ci]; let v=s.value;
+    if(v==="__outro"){ v=await askText("Nome da canoa","Digite o nome"); closeSheet(); if(!v||!v.trim()){ renderCanoasEvento(el,id); return; } c.nome=v.trim(); salvar(np); return; }
+    c.nome=v; const fc=(S.config.canoas||[]).find(x=>x.nome===v); if(fc){ const n=+fc.lugares||6, b=c.bancos.filter(Boolean).slice(0,n); c.lugares=n; c.bancos=Array.from({length:n},(_,k)=>b[k]||null); } salvar(np); }));
   el.querySelectorAll("[data-ecl]").forEach(s=>s.addEventListener("change",()=>{ const [pi,ci]=s.dataset.ecl.split(":").map(Number), np=P(), c=np[pi].canoas[ci], n=+s.value; const b=c.bancos.filter(Boolean).slice(0,n); c.lugares=n; c.bancos=Array.from({length:n},(_,k)=>b[k]||null); salvar(np); }));
   el.querySelectorAll("[data-eb]").forEach(b=>b.addEventListener("click",()=>{ const [pi,ci,j]=b.dataset.eb.split(":").map(Number); escolherBancoEv(id,pi,ci,j,el); }));
   el.querySelector("#evWa2").addEventListener("click",()=>compartilharWhats("viagem", textoCanoasEvento(S.eventos[id])));
@@ -4335,7 +4431,7 @@ function empilhar(){ if(_restaurando) return; PILHA.push(estadoNav()); try{ hist
 window.__nav=()=>PILHA.length;
 function atualizaVoltar(){ const b=document.getElementById("btnVoltar"); if(b) b.classList.toggle("oculto", !PILHA.length); }
 function voltar(){ if(!PILHA.length) return; const st=PILHA.pop(); _restaurando=true; try{ if(st.t!==S.tab) setTab(st.t); S.gsub=st.g; S.compView=st.c; S.evView=st.e; render(); window.scrollTo(0,0); }finally{ _restaurando=false; } atualizaVoltar(); }
-window.addEventListener("popstate",()=>{ if(!document.getElementById("ov").hidden){ closeSheet(); return; } voltar(); });
+window.addEventListener("popstate",ev=>{ if(!ev.state || ev.state.iako==null) return; if(!document.getElementById("ov").hidden){ closeSheet(); return; } voltar(); });
 /* ----- frota: modelos ----- */
 const MODELOS_CANOA={OC6:6, V6:6, V3:3, V1:1, OC4:4, OC2:2, OC1:1};
 function lugaresModelo(m,castelo){ return m==="OC6"&&castelo?7:(MODELOS_CANOA[m]||6); }
@@ -4543,6 +4639,465 @@ function revisarSituacoes(lista, depois){
   });
 }
 
+/* ---------- Painel financeiro (dashboard com filtros cruzados) ---------- */
+const CAT_DESP = {canoas:"Manutenção de canoas", equip:"Equipamentos", instrutores:"Instrutores", espaco:"Aluguel e espaço", eventos:"Eventos e provas", marketing:"Marketing", admin:"Administrativo", outros:"Outros"};
+const PAG_EST = {emdia:["Em dia","#2B9F6A"], vence:["Vence em 30 dias","#F2B33D"], atrasado:["Atrasado","#C0392B"], semreg:["Sem registro","#9AA9B3"]};
+function ymAdd(ym,n){ const d=new Date(ym+"-15T12:00"); d.setMonth(d.getMonth()+n); return d.toISOString().slice(0,7); }
+function ymNome(ym,longo){ return new Date(ym+"-15T12:00").toLocaleDateString("pt-BR",longo?{month:"long",year:"numeric"}:{month:"short"}).replace(".",""); }
+function pagEst(a){ const e=finEstado(a); return e==="vence7"||e==="vence30"?"vence":e; }
+function brlK(v){ return Math.abs(v)>=10000?"R$ "+(v/1000).toLocaleString("pt-BR",{maximumFractionDigits:1})+" mil":brl(v); }
+function renderPainelFin(el){
+  const hoje=todaySP(), ymHoje=hoje.slice(0,7);
+  const F=S.fd||(S.fd={per:6, planos:[], sit:["ativo","suspenso"], mes:null, est:null, cat:null, aba:"alunos"});
+  const meses=[...Array(F.per)].map((_,i)=>ymAdd(ymHoje,i-F.per+1));
+  const periodo = F.mes?[F.mes]:meses;
+  const despesas=Object.values(S.despesas||{});
+  // conjunto de alunos filtrado (fatias que funcionam como no Power BI)
+  const alunosF=S.alunos.filter(a=>F.sit.includes(statusAluno(a)) && (!F.planos.length || F.planos.includes(a.plano_tipo||"sem")));
+  const alunosE=alunosF.filter(a=>!F.est || pagEst(a)===F.est);
+  const pags=[]; S.alunos.forEach(a=>(a.pagamentos||[]).forEach(p=>pags.push(Object.assign({aluno:a},p))));
+  const pagF=pags.filter(p=>F.sit.includes(statusAluno(p.aluno)) && (!F.planos.length || F.planos.includes(p.plano||p.aluno.plano_tipo||"sem")));
+  const naPer=(d)=>d && periodo.includes(d.slice(0,7));
+  const recebido=pagF.filter(p=>naPer(p.data)).reduce((s,p)=>s+(+p.valor||0),0);
+  const despF=despesas.filter(d=>naPer(d.data) && (!F.cat || d.categoria===F.cat));
+  const gasto=despF.reduce((s,d)=>s+(+d.valor||0),0);
+  const resultado=recebido-gasto;
+  const comPlano=alunosF.filter(a=>a.plano_tipo&&PLANOS[a.plano_tipo]);
+  const emDia=comPlano.filter(a=>a.pago_ate&&a.pago_ate>=hoje);
+  const atras=alunosF.filter(a=>pagEst(a)==="atrasado");
+  const aberto=atras.reduce((s,a)=>s+(a.plano_tipo?precoPlano(a.plano_tipo):0),0);
+  const adimp=comPlano.length?Math.round(emDia.length/comPlano.length*100):0;
+  const mrr=emDia.reduce((s,a)=>s+precoPlano(a.plano_tipo)/PLANOS[a.plano_tipo][1],0);
+  const devidoEm=ym=>{ let v=0; alunosF.forEach(a=>{ if(!a.plano_tipo||!PLANOS[a.plano_tipo]) return; const ds=new Set((a.pagamentos||[]).map(p=>(p.ate||"").slice(0,7))); if(a.pago_ate) ds.add(a.pago_ate.slice(0,7)); if(ds.has(ym)) v+=precoPlano(a.plano_tipo); if(a.plano_tipo==="mensal" && !ds.has(ym) && a.pago_ate && a.pago_ate.slice(0,7)>ym && (a.inicio||"0")<=ym+"-31") v+=0; }); return v; };
+  const recEm=ym=>pagF.filter(p=>(p.data||"").slice(0,7)===ym).reduce((s,p)=>s+(+p.valor||0),0);
+  const despEm=ym=>despesas.filter(d=>(d.data||"").slice(0,7)===ym && (!F.cat||d.categoria===F.cat)).reduce((s,d)=>s+(+d.valor||0),0);
+  const prevEm=ym=>{ let v=0; alunosF.forEach(a=>{ if(!a.plano_tipo||!PLANOS[a.plano_tipo]||statusAluno(a)==="inativo") return; const m=PLANOS[a.plano_tipo][1]; let venc=a.pago_ate||hoje, k=0; while(venc.slice(0,7)<ym && k<40){ venc=addMeses(venc,m); k++; } if(venc.slice(0,7)===ym) v+=precoPlano(a.plano_tipo); }); return v; };
+  const prevMes=prevEm(ymHoje);
+  // ---- gráfico de linhas: receitas x despesas (+ previsão 3 meses)
+  const futuros=[1,2,3].map(i=>ymAdd(ymHoje,i));
+  const serieR=meses.map(recEm), serieD=meses.map(despEm), serieP=[recEm(ymHoje)].concat(futuros.map(prevEm));
+  const eixo=meses.concat(futuros), maxY=maxBonito(Math.max(1,...serieR,...serieD,...serieP)*1.1);
+  const GW=560, GH=220, pl=56, pb=28, pt=14, X=i=>pl+i*((GW-pl-14)/(eixo.length-1||1)), Y=v=>pt+(GH-pt-pb)*(1-v/maxY);
+  const path=(vals,off)=>vals.map((v,i)=>`${i?"L":"M"}${X(i+off).toFixed(1)} ${Y(v).toFixed(1)}`).join(" ");
+  const grid=[0,.25,.5,.75,1].map(f=>`<line x1="${pl}" x2="${GW-10}" y1="${Y(maxY*f)}" y2="${Y(maxY*f)}" stroke="var(--line)"/><text x="${pl-6}" y="${Y(maxY*f)+4}" text-anchor="end" class="ax">${eixoNum(maxY*f)}</text>`).join("");
+  const linhas=`<svg viewBox="0 0 ${GW} ${GH}" class="graf" role="img" aria-label="Receitas e despesas por mês">
+    ${grid}${eixo.map((m,i)=>`<text x="${X(i)}" y="${GH-8}" text-anchor="middle" class="ax ${F.mes===m?"sel":""}">${ymNome(m)}</text>`).join("")}
+    <line x1="${X(meses.length-1)}" x2="${X(meses.length-1)}" y1="${pt}" y2="${GH-pb}" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="${X(meses.length-1)+4}" y="${pt+10}" class="ax">hoje</text>
+    <path d="${path(serieD,0)}" fill="none" stroke="#F2B33D" stroke-width="3"/>
+    <path d="${path(serieR,0)}" fill="none" stroke="#0B3A5B" stroke-width="3"/>
+    <path d="${path(serieP,meses.length-1)}" fill="none" stroke="#7A4FD0" stroke-width="2.5" stroke-dasharray="6 5"/>
+    ${meses.map((m,i)=>`<g class="pt ${F.mes&&F.mes!==m?"dim":""}" data-fmes="${m}" tabindex="0" role="button" aria-label="${ymNome(m,true)}: recebido ${brl(serieR[i])}, despesas ${brl(serieD[i])}"><rect x="${X(i)-18}" y="${pt}" width="36" height="${GH-pt-pb}" fill="transparent"/><circle cx="${X(i)}" cy="${Y(serieR[i])}" r="5" fill="#0B3A5B"/><circle cx="${X(i)}" cy="${Y(serieD[i])}" r="5" fill="#F2B33D"/>${serieR[i]?`<text x="${X(i)}" y="${Y(serieR[i])-9}" text-anchor="middle" class="vl">${brlK(serieR[i])}</text>`:""}</g>`).join("")}
+    ${futuros.map((m,i)=>`<circle cx="${X(meses.length+i)}" cy="${Y(serieP[i+1])}" r="4" fill="#7A4FD0"/>${serieP[i+1]?`<text x="${X(meses.length+i)}" y="${Y(serieP[i+1])-8}" text-anchor="middle" class="vl">${brlK(serieP[i+1])}</text>`:""}`).join("")}
+  </svg><div class="legend"><span><i style="background:#0B3A5B"></i>Recebido</span><span><i style="background:#F2B33D"></i>Despesas</span><span><i style="background:#7A4FD0"></i>Previsto</span></div>`;
+  // ---- rosca: situação de pagamento
+  const contEst=Object.keys(PAG_EST).map(k=>[k,alunosF.filter(a=>pagEst(a)===k).length]);
+  const tot=Math.max(1,contEst.reduce((s,x)=>s+x[1],0)); let ang=-Math.PI/2;
+  const arco=(a0,a1,r0,r1)=>{ const p=(a,r)=>[110+r*Math.cos(a),110+r*Math.sin(a)]; const lg=a1-a0>Math.PI?1:0; const [x0,y0]=p(a0,r1),[x1,y1]=p(a1,r1),[x2,y2]=p(a1,r0),[x3,y3]=p(a0,r0); return `M${x0} ${y0} A${r1} ${r1} 0 ${lg} 1 ${x1} ${y1} L${x2} ${y2} A${r0} ${r0} 0 ${lg} 0 ${x3} ${y3}Z`; };
+  const fatias=contEst.filter(x=>x[1]).map(([k,n])=>{ const a1=ang+2*Math.PI*n/tot-(n===tot?0.0001:0); const d=arco(ang,a1,62,100); ang=a1; return `<path d="${d}" fill="${PAG_EST[k][1]}" class="fat ${F.est&&F.est!==k?"dim":""}" data-fest="${k}" tabindex="0" role="button" aria-label="${PAG_EST[k][0]}: ${n}"/>`; }).join("");
+  const rosca=`<div class="rosca"><svg viewBox="0 0 220 220" class="graf" style="max-width:220px" role="img" aria-label="Situação de pagamento">${fatias||'<circle cx="110" cy="110" r="81" fill="none" stroke="var(--line)" stroke-width="38"/>'}<text x="110" y="104" text-anchor="middle" class="rc1">${adimp}%</text><text x="110" y="124" text-anchor="middle" class="rc2">adimplência</text></svg>
+    <div class="rleg">${contEst.map(([k,n])=>`<button class="rli ${F.est===k?"on":""}" data-fest="${k}"><i style="background:${PAG_EST[k][1]}"></i><span>${PAG_EST[k][0]}</span><b>${n}</b></button>`).join("")}</div></div>`;
+  // ---- barras horizontais: recebido x previsto (3 últimos meses)
+  const ult3=[0,1,2].map(i=>ymAdd(ymHoje,-i));
+  const hb=ult3.map(m=>({m, r:recEm(m), d:devidoEm(m)})); const maxH=Math.max(1,...hb.map(x=>Math.max(x.r,x.d)));
+  const barrasH=`<div class="hbars">${hb.map(x=>`<div class="hb ${F.mes&&F.mes!==x.m?"dim":""}" data-fmes="${x.m}" role="button" tabindex="0"><span class="hbm">${ymNome(x.m)}</span><div class="hbb"><div class="hbr"><i style="width:${x.r/maxH*100}%;background:#0B3A5B"></i><em>${brl(x.r)}</em></div><div class="hbr"><i style="width:${x.d/maxH*100}%;background:#F2BE7A"></i><em>${brl(x.d)}</em></div></div></div>`).join("")}</div><div class="legend"><span><i style="background:#0B3A5B"></i>Recebido</span><span><i style="background:#F2BE7A"></i>Devido no mês</span></div>`;
+  // ---- colunas: receita mensal por plano
+  const porPlano=Object.entries(PLANOS).map(([k,[n,m]])=>{ const l=S.alunos.filter(a=>F.sit.includes(statusAluno(a)) && a.plano_tipo===k && (!F.est||pagEst(a)===F.est)); return {k,n,q:l.length,v:l.reduce((s,a)=>s+precoPlano(k)/m,0)}; });
+  const maxP=Math.max(1,...porPlano.map(p=>p.v));
+  const colunas=`<div class="cols">${porPlano.map(p=>`<button class="colb ${F.planos.length&&!F.planos.includes(p.k)?"dim":""}" data-fplano="${p.k}" aria-label="${p.n}: ${p.q} alunos, ${brl(p.v)} por mês"><em>${p.v?brlK(p.v):""}</em><span class="cbar"><i style="height:${Math.max(2,p.v/maxP*100)}%"></i></span><b>${p.n}</b><small>${p.q} ${p.q===1?"aluno":"alunos"}</small></button>`).join("")}</div>`;
+  // ---- despesas por categoria
+  const porCat=Object.entries(CAT_DESP).map(([k,n])=>({k,n,v:despesas.filter(d=>naPer(d.data)&&d.categoria===k).reduce((s,d)=>s+(+d.valor||0),0)})).filter(x=>x.v).sort((a,b)=>b.v-a.v);
+  const maxC=Math.max(1,...porCat.map(x=>x.v));
+  const cats=porCat.length?`<div class="catbars">${porCat.map(x=>`<button class="cb ${F.cat&&F.cat!==x.k?"dim":""}" data-fcat="${x.k}"><span>${x.n}</span><span class="cbt"><i style="width:${x.v/maxC*100}%"></i></span><b>${brl(x.v)}</b></button>`).join("")}</div>`:`<p class="hint" style="margin:0">Nenhuma despesa lançada no período. Toque em <b>Lançar despesa</b>.</p>`;
+  // ---- tabela de detalhe
+  const fone=a=>(a.telefone||"").replace(/\D/g,""), pix=sobreCfg().pagamento.pix, clube=MARCA.nomeCurto||MARCA.nome, n1=a=>(a.nome||"").split(" ")[0];
+  const msgW=a=>{ const e=pagEst(a); return e==="atrasado"?`Olá, ${n1(a)}! O seu plano no ${clube} venceu em ${dataCurta(a.pago_ate)}. Quando puder, renove pelo PIX ${pix}. Obrigado!`:e==="semreg"?`Olá, ${n1(a)}! Ainda não temos o seu pagamento registrado no ${clube}. Pode nos enviar o comprovante ou pagar pelo PIX ${pix}?`:`Olá, ${n1(a)}! O seu plano no ${clube} vence em ${dataCurta(a.pago_ate)}. Para renovar: PIX ${pix}. 🛶`; };
+  const linhaA=a=>{ const e=pagEst(a), d=finDias(a); return `<tr><th scope="row"><button class="linkbtn" data-fin="${esc(a._id)}">${esc(a.nome||"Sem nome")}</button></th><td>${a.plano_tipo&&PLANOS[a.plano_tipo]?esc(PLANOS[a.plano_tipo][0]):"–"}</td><td>${a.plano_tipo?brl(precoPlano(a.plano_tipo)):"–"}</td><td>${a.pago_ate?esc(dataCurta(a.pago_ate)):"–"}</td><td><span class="pill" style="--c:${PAG_EST[e][1]}">${e==="atrasado"?`Atrasado ${-d} d`:e==="vence"?`Vence em ${d} d`:PAG_EST[e][0]}</span></td><td><span class="b ${STATUS_COR[statusAluno(a)]}">${STATUS[statusAluno(a)]}</span></td><td class="acoes">${fone(a)&&e!=="emdia"?`<a class="btn ghost small" href="${esc(waLink(msgW(a),fone(a)))}" target="_blank" rel="noopener">${e==="vence"?"Lembrar":"Cobrar"}</a>`:""}<button class="btn small" data-finpag="${esc(a._id)}">Dar baixa</button></td></tr>`; };
+  const ordem={atrasado:0,semreg:1,vence:2,emdia:3};
+  const listaA=alunosE.slice().sort((x,y)=>ordem[pagEst(x)]-ordem[pagEst(y)]||(x.pago_ate||"").localeCompare(y.pago_ate||"")||(x.nome||"").localeCompare(y.nome||"","pt-BR"));
+  const pagsT=pagF.filter(p=>naPer(p.data)).sort((a,b)=>(b.data||"").localeCompare(a.data||""));
+  const despT=despF.slice().sort((a,b)=>(b.data||"").localeCompare(a.data||""));
+  const abas={alunos:`Alunos (${listaA.length})`, pagamentos:`Pagamentos (${pagsT.length})`, despesas:`Despesas (${despT.length})`};
+  let tabela="";
+  if(F.aba==="alunos") tabela=listaA.length?`<table class="fintab"><thead><tr><th scope="col" style="text-align:left">Aluno</th><th>Plano</th><th>Valor</th><th>Pago até</th><th>Pagamento</th><th>Situação</th><th></th></tr></thead><tbody>${listaA.map(linhaA).join("")}</tbody></table>`:`<p class="hint">Nenhum aluno com esses filtros.</p>`;
+  if(F.aba==="pagamentos") tabela=pagsT.length?`<table class="fintab"><thead><tr><th scope="col" style="text-align:left">Aluno</th><th>Data</th><th>Valor</th><th>Plano</th><th>Forma</th><th>Válido até</th></tr></thead><tbody>${pagsT.map(p=>`<tr><th scope="row">${esc(p.aluno.nome)}</th><td>${esc(dataCurta(p.data))}</td><td><b>${brl(+p.valor||0)}</b></td><td>${esc(PLANOS[p.plano]?PLANOS[p.plano][0]:"–")}</td><td>${esc(p.forma||"")}</td><td>${p.ate?esc(dataCurta(p.ate)):"–"}</td></tr>`).join("")}</tbody></table>`:`<p class="hint">Nenhum pagamento registrado no período. Use <b>Dar baixa</b> na lista de alunos.</p>`;
+  if(F.aba==="despesas") tabela=despT.length?`<table class="fintab"><thead><tr><th scope="col" style="text-align:left">Descrição</th><th>Data</th><th>Categoria</th><th>Valor</th><th></th></tr></thead><tbody>${despT.map(d=>`<tr><th scope="row">${esc(d.descricao||"–")}</th><td>${esc(dataCurta(d.data))}</td><td>${esc(CAT_DESP[d.categoria]||d.categoria)}</td><td><b>${brl(+d.valor||0)}</b></td><td class="acoes"><button class="ib" data-desped="${esc(d._id)}" aria-label="Editar despesa">✏️</button><button class="ib" data-despdel="${esc(d._id)}" aria-label="Excluir despesa">🗑</button></td></tr>`).join("")}</tbody></table>`:`<p class="hint">Nenhuma despesa no período.</p>`;
+  const chipsF=[]; if(F.mes) chipsF.push(["mes",`Mês: ${ymNome(F.mes,true)}`]); if(F.est) chipsF.push(["est",`Pagamento: ${PAG_EST[F.est][0]}`]); if(F.planos.length) chipsF.push(["planos",`Plano: ${F.planos.map(k=>k==="sem"?"Sem plano":PLANOS[k][0]).join(", ")}`]); if(F.cat) chipsF.push(["cat",`Despesa: ${CAT_DESP[F.cat]}`]);
+  el.innerHTML=`<div class="dash">
+    <div class="dhead"><div><h2 class="ptitle" style="margin:0">Painel financeiro</h2><p class="hint" style="margin:2px 0 0">Toque nos gráficos para filtrar, como no Power BI. Tudo na página responde aos filtros.</p></div><span class="spacer"></span><button class="btn small" id="dspNova">+ Lançar despesa</button></div>
+    <div class="slicers">
+      <div class="slc"><span>Período</span><div class="seg">${[[3,"3 meses"],[6,"6 meses"],[12,"12 meses"]].map(([v,l])=>`<button data-fper="${v}" aria-pressed="${F.per===v&&!F.mes}">${l}</button>`).join("")}</div></div>
+      <div class="slc"><span>Situação do aluno</span><div class="seg">${Object.entries(STATUS).map(([k,l])=>`<button data-fsit="${k}" aria-pressed="${F.sit.includes(k)}">${l}</button>`).join("")}</div></div>
+      <div class="slc"><span>Plano</span><div class="seg">${Object.entries(PLANOS).map(([k,[n]])=>`<button data-fplano="${k}" aria-pressed="${F.planos.includes(k)}">${n}</button>`).join("")}<button data-fplano="sem" aria-pressed="${F.planos.includes("sem")}">Sem plano</button></div></div>
+    </div>
+    ${chipsF.length?`<div class="fchips">${chipsF.map(([k,l])=>`<button data-fclr="${k}">${esc(l)} <b aria-hidden="true">×</b></button>`).join("")}<button class="linkbtn" data-fclr="tudo">Limpar filtros</button></div>`:""}
+    <div class="tiles">
+      <div class="tile"><span>Recebido</span><b>${brl(recebido)}</b><small>${F.mes?ymNome(F.mes,true):`últimos ${F.per} meses`}</small></div>
+      <div class="tile"><span>Despesas</span><b>${brl(gasto)}</b><small>${F.cat?CAT_DESP[F.cat]:"todas as categorias"}</small></div>
+      <div class="tile ${resultado<0?"neg":""}"><span>Resultado</span><b>${brl(resultado)}</b><small>recebido menos despesas</small></div>
+      <div class="tile"><span>Previsto este mês</span><b>${brl(prevMes)}</b><small>planos que vencem em ${ymNome(ymHoje)}</small></div>
+      <div class="tile ${aberto?"warnt":""}"><span>Em aberto</span><b>${brl(aberto)}</b><small>${atras.length} ${atras.length===1?"aluno atrasado":"alunos atrasados"}</small></div>
+      <div class="tile"><span>Receita média mensal</span><b>${brl(mrr)}</b><small>${emDia.length} de ${comPlano.length} em dia (${adimp}%)</small></div>
+    </div>
+    <div class="dgrid">
+      <section class="dcard span2"><h3 class="dtit">Receitas e despesas por mês</h3>${linhas}</section>
+      <section class="dcard"><h3 class="dtit">Situação de pagamento</h3>${rosca}</section>
+      <section class="dcard"><h3 class="dtit">Recebido x devido (3 meses)</h3>${barrasH}</section>
+      <section class="dcard"><h3 class="dtit">Receita mensal por plano</h3>${colunas}</section>
+      <section class="dcard"><h3 class="dtit">Despesas por categoria</h3>${cats}</section>
+    </div>
+    <section class="dcard"><div class="row" style="gap:8px;flex-wrap:wrap;align-items:center"><div class="seg" role="tablist">${Object.entries(abas).map(([k,l])=>`<button role="tab" data-faba="${k}" aria-selected="${F.aba===k}">${l}</button>`).join("")}</div><span class="spacer"></span><button class="btn ghost small" id="dExp">Exportar</button></div>
+      <div class="scroll-x" style="margin-top:10px">${tabela}</div></section>
+    <details class="dcard defs"><summary><b>Como os números são calculados</b></summary><ul>
+      <li><b>Recebido:</b> soma das baixas de pagamento com data no período.</li>
+      <li><b>Despesas:</b> soma das despesas lançadas no período.</li>
+      <li><b>Resultado:</b> recebido menos despesas.</li>
+      <li><b>Previsto este mês:</b> soma dos planos que vencem neste mês (o anual entra uma vez por ano, o mensal todo mês).</li>
+      <li><b>Em aberto:</b> valor do plano dos alunos com pagamento vencido.</li>
+      <li><b>Receita média mensal:</b> valor do plano dividido pelos meses do plano, somando quem está em dia. Exemplo: anual de R$ 2.700 conta R$ 225 por mês.</li>
+      <li><b>Devido no mês:</b> planos que venceram naquele mês, para comparar com o que de fato entrou.</li></ul></details>
+  </div>`;
+  const R=()=>renderPainelFin(el);
+  el.querySelectorAll("[data-fper]").forEach(b=>b.addEventListener("click",()=>{ F.per=+b.dataset.fper; F.mes=null; R(); }));
+  el.querySelectorAll("[data-fsit]").forEach(b=>b.addEventListener("click",()=>{ const k=b.dataset.fsit; F.sit=F.sit.includes(k)?F.sit.filter(x=>x!==k):F.sit.concat(k); if(!F.sit.length) F.sit=["ativo"]; R(); }));
+  el.querySelectorAll("[data-fplano]").forEach(b=>b.addEventListener("click",()=>{ const k=b.dataset.fplano; F.planos=F.planos.includes(k)?F.planos.filter(x=>x!==k):F.planos.concat(k); R(); }));
+  const tog=(campo,v)=>{ F[campo]=F[campo]===v?null:v; R(); };
+  el.querySelectorAll("[data-fmes]").forEach(b=>{ const go=()=>tog("mes",b.dataset.fmes); b.addEventListener("click",go); b.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); go(); } }); });
+  el.querySelectorAll("[data-fest]").forEach(b=>{ const go=()=>{ tog("est",b.dataset.fest); F.aba="alunos"; R(); }; b.addEventListener("click",go); b.addEventListener("keydown",e=>{ if(e.key==="Enter"){ go(); } }); });
+  el.querySelectorAll("[data-fcat]").forEach(b=>b.addEventListener("click",()=>{ tog("cat",b.dataset.fcat); F.aba="despesas"; R(); }));
+  el.querySelectorAll("[data-fclr]").forEach(b=>b.addEventListener("click",()=>{ const k=b.dataset.fclr; if(k==="tudo"){ Object.assign(F,{mes:null,est:null,cat:null,planos:[],sit:["ativo","suspenso"]}); } else if(k==="planos") F.planos=[]; else F[k]=null; R(); }));
+  el.querySelectorAll("[data-faba]").forEach(b=>b.addEventListener("click",()=>{ F.aba=b.dataset.faba; R(); }));
+  el.querySelector("#dspNova").addEventListener("click",()=>editDespesa());
+  el.querySelectorAll("[data-desped]").forEach(b=>b.addEventListener("click",()=>editDespesa(b.dataset.desped)));
+  el.querySelectorAll("[data-despdel]").forEach(b=>b.addEventListener("click",async()=>{ if(!await ask("Excluir esta despesa?","Excluir")) return; closeSheet(); try{ await S.db.doc("despesas/"+b.dataset.despdel).delete(); auditar("Despesa excluída",""); toast("Despesa excluída"); }catch(e){ failWrite(e); } }));
+  el.querySelectorAll("[data-finpag]").forEach(b=>b.addEventListener("click",()=>{ editFinanceiro(b.dataset.finpag); setTimeout(()=>{ const x=document.querySelector("#pgAdd"); if(x){ x.scrollIntoView({block:"center"}); x.focus(); } },120); }));
+  el.querySelector("#dExp").addEventListener("click",()=>{
+    if(F.aba==="alunos") exportarLista("Financeiro: alunos",["Aluno","Plano","Valor","Pago até","Pagamento","Situação","Telefone"],listaA.map(a=>[a.nome,PLANOS[a.plano_tipo]?PLANOS[a.plano_tipo][0]:"",a.plano_tipo?brl(precoPlano(a.plano_tipo)):"",a.pago_ate?dataCurta(a.pago_ate):"",PAG_EST[pagEst(a)][0],STATUS[statusAluno(a)],a.telefone||""]));
+    else if(F.aba==="pagamentos") exportarLista("Financeiro: pagamentos",["Aluno","Data","Valor","Plano","Forma","Válido até"],pagsT.map(p=>[p.aluno.nome,dataCurta(p.data),brl(+p.valor||0),PLANOS[p.plano]?PLANOS[p.plano][0]:"",p.forma||"",p.ate?dataCurta(p.ate):""]));
+    else exportarLista("Financeiro: despesas",["Descrição","Data","Categoria","Valor"],despT.map(d=>[d.descricao||"",dataCurta(d.data),CAT_DESP[d.categoria]||d.categoria,brl(+d.valor||0)]));
+  });
+}
+function editDespesa(id){
+  const d=id?Object.assign({},S.despesas[id]):{data:todaySP(), categoria:"canoas", valor:"", descricao:""};
+  openSheet(`<div class="head"><h2>${id?"Editar despesa":"Lançar despesa"}</h2><button class="x" aria-label="Fechar">×</button></div>
+    <form id="fdsp"><div class="grid"><label class="f full">Descrição<input name="descricao" required value="${esc(d.descricao)}" placeholder="Ex.: Reparo do ama da Iemanjá"></label>
+      <label class="f">Valor (R$)<input name="valor" inputmode="decimal" required value="${esc(d.valor)}"></label>
+      <label class="f">Data<input type="date" name="data" required value="${esc(d.data)}"></label>
+      <label class="f full">Categoria<select name="categoria">${Object.entries(CAT_DESP).map(([k,n])=>`<option value="${k}" ${d.categoria===k?"selected":""}>${n}</option>`).join("")}</select></label></div>
+      <div class="row" style="margin-top:14px"><span class="spacer"></span><button type="button" class="btn ghost" id="cDsp">Cancelar</button><button class="btn">Salvar</button></div></form>`, root=>{
+    root.querySelector("#cDsp").addEventListener("click",closeSheet);
+    root.querySelector("#fdsp").addEventListener("submit",async ev=>{ ev.preventDefault(); const f=new FormData(ev.target); const v=num(String(f.get("valor")).replace(/\./g,"").replace(",","."));
+      if(!v||v<=0){ toast("Informe o valor"); return; }
+      const o={descricao:String(f.get("descricao")).trim(), valor:v, data:f.get("data"), categoria:f.get("categoria"), criado:d.criado||new Date().toISOString(), por:S.uid||""};
+      try{ await S.db.doc("despesas/"+(id||("d"+Date.now().toString(36)+rid()))).set(o); auditar(id?"Despesa editada":"Despesa lançada",`${o.descricao}: ${brl(v)}`); closeSheet(); toast("Despesa salva"); }catch(e){ failWrite(e); } });
+  });
+}
+
+/* ---------- Painel social (dashboard com filtros cruzados) ---------- */
+function eixoNum(v){ return v>=1000?(v/1000).toLocaleString("pt-BR",{maximumFractionDigits:1})+" mil":String(Math.round(v)); }
+function maxBonito(v){ if(v<=0) return 1; const p=Math.pow(10,Math.floor(Math.log10(v))); return Math.ceil(v/p*2)/2*p; }
+const FAIXAS_FREQ=[["zero","Não remou",0,0,"#C0392B"],["baixa","1 a 3 remadas",1,3,"#F2B33D"],["media","4 a 7 remadas",4,7,"#5BA8D0"],["alta","8 ou mais",8,999,"#0B3A5B"]];
+function renderPainelX(el){
+  const hoje=todaySP(), F=S.sd||(S.sd={dias:30, sit:["ativo"], base:"", faixa:null, sem:null, busca:""});
+  const desde=addDays(hoje,-F.dias+1);
+  const alunos=S.alunos.filter(a=>F.sit.includes(statusAluno(a)));
+  const feitas=a=>minhasRemadasFeitas(a._id,desde).filter(o=>!F.base||o.t.local===F.base);
+  const dados=alunos.map(a=>{ const f=feitas(a); const ult=minhasRemadasFeitas(a._id,"2000-01-01")[0]; return {a,n:f.length,km:f.reduce((s,o)=>s+(+((o.x.treino||{}).km)||0),0),ult:ult?ult.t.data:"",f}; });
+  const faixaDe=n=>FAIXAS_FREQ.find(x=>n>=x[2]&&n<=x[3])[0];
+  const semanas=[...Array(Math.max(4,Math.round(F.dias/7)))].map((_,i,arr)=>{ const fim=addDays(hoje,-(arr.length-1-i)*7), ini=addDays(fim,-6); return {ini,fim}; });
+  const dadosF=dados.filter(d=>(!F.faixa||faixaDe(d.n)===F.faixa) && (!F.busca||(d.a.nome||"").toLowerCase().includes(F.busca.toLowerCase())));
+  const pres=dadosF.reduce((s,d)=>s+d.f.filter(o=>!F.sem||(o.t.data>=F.sem.ini&&o.t.data<=F.sem.fim)).length,0);
+  const ativosN=dadosF.filter(d=>d.n>0).length, media=dadosF.length?pres/dadosF.length:0;
+  const resgatar=dadosF.filter(d=>pagoEmDia(d.a)!==false && (!d.ult||d.ult<addDays(hoje,-21)));
+  const novos=alunos.filter(a=>(a.inicio||"")>=desde).length;
+  const kmTot=dadosF.reduce((s,d)=>s+d.km,0);
+  // colunas por semana empilhadas por base
+  const porSem=semanas.map(w=>{ const o={}; LOCAIS.forEach(l=>o[l]=0); dadosF.forEach(d=>d.f.forEach(x=>{ if(x.t.data>=w.ini&&x.t.data<=w.fim&&o[x.t.local]!=null) o[x.t.local]++; })); return Object.assign(w,{o,tot:LOCAIS.reduce((s,l)=>s+o[l],0)}); });
+  const maxS=maxBonito(Math.max(1,...porSem.map(w=>w.tot)));
+  const CORB=["#0B3A5B","#F2BE7A","#5BA8D0","#7A4FD0"];
+  const colSem=`<div class="cols" style="height:210px">${porSem.map(w=>{ const sel=F.sem&&F.sem.ini===w.ini; return `<button class="colb ${F.sem&&!sel?"dim":""}" data-fsem="${w.ini}" aria-label="Semana de ${dataCurta(w.ini)}: ${w.tot} presenças"><em>${w.tot||""}</em><span class="cbar" style="flex-direction:column-reverse">${LOCAIS.map((l,k)=>`<i style="height:${w.o[l]/maxS*100}%;background:${CORB[k%4]};border-radius:0"></i>`).join("")}</span><b>${new Date(w.ini+"T12:00").toLocaleDateString("pt-BR",{day:"numeric",month:"numeric"})}</b></button>`; }).join("")}</div>
+    <div class="legend">${LOCAIS.map((l,k)=>`<span><i style="background:${CORB[k%4]}"></i>${esc(B(l).curto)}</span>`).join("")}</div>`;
+  // rosca de faixas de frequência
+  const cont=FAIXAS_FREQ.map(f=>[f,dados.filter(d=>faixaDe(d.n)===f[0]).length]); const tot=Math.max(1,cont.reduce((s,x)=>s+x[1],0)); let ang=-Math.PI/2;
+  const arco=(a0,a1)=>{ const p=(a,r)=>[110+r*Math.cos(a),110+r*Math.sin(a)]; const lg=a1-a0>Math.PI?1:0; const [x0,y0]=p(a0,100),[x1,y1]=p(a1,100),[x2,y2]=p(a1,62),[x3,y3]=p(a0,62); return `M${x0} ${y0} A100 100 0 ${lg} 1 ${x1} ${y1} L${x2} ${y2} A62 62 0 ${lg} 0 ${x3} ${y3}Z`; };
+  const fat=cont.filter(x=>x[1]).map(([f,n])=>{ const a1=ang+2*Math.PI*n/tot-(n===tot?0.0001:0); const d=arco(ang,a1); ang=a1; return `<path d="${d}" fill="${f[4]}" class="fat ${F.faixa&&F.faixa!==f[0]?"dim":""}" data-ffx="${f[0]}" tabindex="0" role="button" aria-label="${f[1]}: ${n}"/>`; }).join("");
+  const engaj=dados.length?Math.round(dados.filter(d=>d.n>=4).length/dados.length*100):0;
+  const rosca=`<div class="rosca"><svg viewBox="0 0 220 220" class="graf" style="max-width:220px">${fat||'<circle cx="110" cy="110" r="81" fill="none" stroke="var(--line)" stroke-width="38"/>'}<text x="110" y="104" text-anchor="middle" class="rc1">${engaj}%</text><text x="110" y="124" text-anchor="middle" class="rc2">remam 4+ vezes</text></svg>
+    <div class="rleg">${cont.map(([f,n])=>`<button class="rli ${F.faixa===f[0]?"on":""}" data-ffx="${f[0]}"><i style="background:${f[4]}"></i><span>${f[1]}</span><b>${n}</b></button>`).join("")}</div></div>`;
+  // barras por base
+  const porBase=LOCAIS.map((l,k)=>({l,k,v:dados.reduce((s,d)=>s+minhasRemadasFeitas(d.a._id,desde).filter(o=>o.t.local===l).length,0)})); const maxB=Math.max(1,...porBase.map(x=>x.v));
+  const bases=`<div class="catbars">${porBase.map(x=>`<button class="cb ${F.base&&F.base!==x.l?"dim":""}" data-fbase="${esc(x.l)}"><span>${esc(B(x.l).nome)}</span><span class="cbt"><i style="width:${x.v/maxB*100}%;background:${CORB[x.k%4]}"></i></span><b>${x.v}</b></button>`).join("")}</div>`;
+  // ranking
+  const rk=dadosF.slice().sort((x,y)=>y.n-x.n||y.km-x.km);
+  const fone=a=>(a.telefone||"").replace(/\D/g,"");
+  const linha=(d,i)=>{ const dias=d.ult?Math.round((new Date(hoje+"T12:00")-new Date(d.ult+"T12:00"))/864e5):null; const fx=FAIXAS_FREQ.find(f=>f[0]===faixaDe(d.n));
+    return `<tr><td class="pos">${i+1}</td><th scope="row"><button class="linkbtn" data-fic="${esc(d.a._id)}">${esc(d.a.nome)}</button></th><td><b>${d.n}</b></td><td><span class="frq"><i style="width:${Math.min(100,d.n/Math.max(1,rk[0]?rk[0].n:1)*100)}%;background:${fx[4]}"></i></span></td><td>${fmtN(d.km,1)} km</td><td>${d.ult?`${esc(dataCurta(d.ult))}${dias>21?` <span class="pill" style="--c:#C0392B">${dias} d</span>`:""}`:"–"}</td><td><span class="b ${pagoEmDia(d.a)===false?"red":pagoEmDia(d.a)?"grn":""}">${pagoEmDia(d.a)===false?"Em aberto":pagoEmDia(d.a)?"Em dia":"–"}</span></td><td class="acoes">${fone(d.a)&&(!d.ult||dias>14)?`<a class="btn ghost small" href="${esc(waLink(`Oi, ${(d.a.nome||"").split(" ")[0]}! Sentimos sua falta na canoa 🛶 Tem remada nesta semana, bora? Agende pelo app.`,fone(d.a)))}" target="_blank" rel="noopener">Chamar</a>`:""}</td></tr>`; };
+  const chipsF=[]; if(F.faixa) chipsF.push(["faixa",`Frequência: ${FAIXAS_FREQ.find(f=>f[0]===F.faixa)[1]}`]); if(F.base) chipsF.push(["base",`Base: ${B(F.base).curto}`]); if(F.sem) chipsF.push(["sem",`Semana de ${dataCurta(F.sem.ini)}`]);
+  el.innerHTML=`<div class="dash">
+    <div class="dhead"><div><h2 class="ptitle" style="margin:0">Painel social</h2><p class="hint" style="margin:2px 0 0">Frequência e engajamento dos alunos. Conta as remadas em que o aluno marcou Vou e que aconteceram (canceladas não contam). Toque nos gráficos para filtrar.</p></div></div>
+    <div class="slicers">
+      <div class="slc"><span>Período</span><div class="seg">${[[30,"30 dias"],[60,"60 dias"],[90,"90 dias"]].map(([v,l])=>`<button data-fdias="${v}" aria-pressed="${F.dias===v}">${l}</button>`).join("")}</div></div>
+      <div class="slc"><span>Situação do aluno</span><div class="seg">${Object.entries(STATUS).map(([k,l])=>`<button data-fsit2="${k}" aria-pressed="${F.sit.includes(k)}">${l}</button>`).join("")}</div></div>
+      <div class="slc"><span>Base</span><div class="seg"><button data-fbase="" aria-pressed="${!F.base}">Todas</button>${LOCAIS.map(l=>`<button data-fbase="${esc(l)}" aria-pressed="${F.base===l}">${esc(B(l).curto)}</button>`).join("")}</div></div>
+    </div>
+    ${chipsF.length?`<div class="fchips">${chipsF.map(([k,l])=>`<button data-fclr2="${k}">${esc(l)} <b aria-hidden="true">×</b></button>`).join("")}<button class="linkbtn" data-fclr2="tudo">Limpar filtros</button></div>`:""}
+    <div class="tiles">
+      <div class="tile"><span>Alunos</span><b>${dadosF.length}</b><small>${F.sit.map(s=>STATUS[s].toLowerCase()).join(" e ")}</small></div>
+      <div class="tile"><span>Remaram no período</span><b>${ativosN}</b><small>${dadosF.length?Math.round(ativosN/dadosF.length*100):0}% dos alunos</small></div>
+      <div class="tile"><span>Presenças</span><b>${pres}</b><small>${F.sem?"na semana selecionada":`últimos ${F.dias} dias`}</small></div>
+      <div class="tile"><span>Média por aluno</span><b>${fmtN(media,1)}</b><small>remadas no período</small></div>
+      <div class="tile ${resgatar.length?"warnt":""}"><span>Para resgatar</span><b>${resgatar.length}</b><small>em dia e sem remar há 21+ dias</small></div>
+      <div class="tile"><span>Novos alunos</span><b>${novos}</b><small>entraram no período</small></div>
+    </div>
+    <div class="dgrid">
+      <section class="dcard span2"><h3 class="dtit">Presenças por semana</h3>${colSem}</section>
+      <section class="dcard"><h3 class="dtit">Frequência dos alunos</h3>${rosca}</section>
+      <section class="dcard"><h3 class="dtit">Presenças por base</h3>${bases}<p class="hint" style="margin:10px 0 0">${fmtN(kmTot,1)} km registrados pelos alunos no período.</p></section>
+      <section class="dcard span2"><h3 class="dtit">Para resgatar (${resgatar.length})</h3>${resgatar.length?`<p class="hint" style="margin:0 0 6px">Pagam em dia, mas não remam há mais de 21 dias. Um contato agora evita perder o aluno.</p><div class="chipsres">${resgatar.map(d=>`<span class="resg"><button class="linkbtn" data-fic="${esc(d.a._id)}">${esc(d.a.nome)}</button>${fone(d.a)?`<a href="${esc(waLink(`Oi, ${(d.a.nome||"").split(" ")[0]}! Sentimos sua falta na canoa 🛶 Tem remada nesta semana, bora? Agende pelo app.`,fone(d.a)))}" target="_blank" rel="noopener" aria-label="Chamar ${esc(d.a.nome)} no WhatsApp">WhatsApp</a>`:""}</span>`).join("")}</div>`:`<p class="hint" style="margin:0">Ninguém nesta lista. Ótimo sinal!</p>`}</section>
+    </div>
+    <section class="dcard"><div class="row" style="gap:8px;flex-wrap:wrap;align-items:center"><h3 class="dtit" style="margin:0">Ranking de frequência</h3><span class="spacer"></span><input type="search" id="sdQ" class="finq" placeholder="Buscar aluno" value="${esc(F.busca)}" aria-label="Buscar aluno"><button class="btn ghost small" id="sdExp">Exportar</button></div>
+      <div class="scroll-x" style="margin-top:10px">${rk.length?`<table class="fintab"><thead><tr><th>#</th><th scope="col" style="text-align:left">Aluno</th><th>Remadas</th><th style="min-width:110px"></th><th>Km</th><th>Última remada</th><th>Mensalidade</th><th></th></tr></thead><tbody>${rk.map(linha).join("")}</tbody></table>`:`<p class="hint">Nenhum aluno com esses filtros.</p>`}</div></section>
+  </div>`;
+  const R=()=>renderPainelX(el);
+  el.querySelectorAll("[data-fdias]").forEach(b=>b.addEventListener("click",()=>{ F.dias=+b.dataset.fdias; F.sem=null; R(); }));
+  el.querySelectorAll("[data-fsit2]").forEach(b=>b.addEventListener("click",()=>{ const k=b.dataset.fsit2; F.sit=F.sit.includes(k)?F.sit.filter(x=>x!==k):F.sit.concat(k); if(!F.sit.length) F.sit=["ativo"]; R(); }));
+  el.querySelectorAll("[data-fbase]").forEach(b=>b.addEventListener("click",()=>{ const v=b.dataset.fbase; F.base=F.base===v?"":v; R(); }));
+  el.querySelectorAll("[data-ffx]").forEach(b=>{ const go=()=>{ F.faixa=F.faixa===b.dataset.ffx?null:b.dataset.ffx; R(); }; b.addEventListener("click",go); b.addEventListener("keydown",e=>{ if(e.key==="Enter") go(); }); });
+  el.querySelectorAll("[data-fsem]").forEach(b=>b.addEventListener("click",()=>{ const w=porSem.find(x=>x.ini===b.dataset.fsem); F.sem=F.sem&&F.sem.ini===w.ini?null:{ini:w.ini,fim:w.fim}; R(); }));
+  el.querySelectorAll("[data-fclr2]").forEach(b=>b.addEventListener("click",()=>{ const k=b.dataset.fclr2; if(k==="tudo") Object.assign(F,{faixa:null,base:"",sem:null,busca:""}); else F[k]=k==="base"?"":null; R(); }));
+  const q=el.querySelector("#sdQ"); q.addEventListener("input",e=>{ F.busca=e.target.value; const pos=e.target.selectionStart; R(); const n=el.querySelector("#sdQ"); n.focus(); n.setSelectionRange(pos,pos); });
+  el.querySelector("#sdExp").addEventListener("click",()=>exportarLista(`Frequência: últimos ${F.dias} dias`,["Posição","Aluno","Remadas","Km","Última remada","Mensalidade","Situação"],rk.map((d,i)=>[i+1,d.a.nome,d.n,fmtN(d.km,1),d.ult?dataCurta(d.ult):"",pagoEmDia(d.a)===false?"Em aberto":pagoEmDia(d.a)?"Em dia":"",STATUS[statusAluno(d.a)]])));
+}
+
+/* ---------- Mensalidades (painel financeiro sem receita/despesas) ---------- */
+const RISCOS = {atraso30:["Atrasado há mais de 30 dias","#C0392B"], remaAberto:["Rema com mensalidade em aberto","#E67E22"], vence7:["Vence em até 7 dias","#F2B33D"], semreg:["Sem pagamento registrado","#9AA9B3"], evasao:["Em dia, sem remar há 21+ dias","#5BA8D0"]};
+function riscosDe(a){ const hoje=todaySP(), e=pagEst(a), d=finDias(a), r=[]; if(statusAluno(a)==="inativo") return r;
+  if(e==="atrasado" && d<-30) r.push("atraso30");
+  if(e==="atrasado" && minhasRemadasFeitas(a._id,addDays(hoje,-30)).length) r.push("remaAberto");
+  if(e==="vence" && d<=7) r.push("vence7");
+  if(e==="semreg") r.push("semreg");
+  if(e!=="atrasado" && e!=="semreg"){ const u=minhasRemadasFeitas(a._id,"2000-01-01")[0]; if(!u || u.t.data<addDays(hoje,-21)) r.push("evasao"); }
+  return r; }
+function vencimentoEm(a, ym){ if(!a.plano_tipo||!PLANOS[a.plano_tipo]) return false; const m=PLANOS[a.plano_tipo][1]; let venc=a.pago_ate||todaySP(), k=0; while(venc.slice(0,7)<ym && k<40){ venc=addMeses(venc,m); k++; } return venc.slice(0,7)===ym; }
+function renderPainelFin(el){
+  const hoje=todaySP(), ymHoje=hoje.slice(0,7);
+  const F=S.fm||(S.fm={sit:["ativo","suspenso"], planos:[], est:null, mes:null, risco:null, busca:""});
+  const base=S.alunos.filter(a=>F.sit.includes(statusAluno(a)) && (!F.planos.length || F.planos.includes(a.plano_tipo||"sem")));
+  const lista=base.filter(a=>(!F.est||pagEst(a)===F.est) && (!F.mes||vencimentoEm(a,F.mes)) && (!F.risco||riscosDe(a).includes(F.risco)) && (!F.busca||(a.nome||"").toLowerCase().includes(F.busca.toLowerCase())));
+  const comPlano=base.filter(a=>a.plano_tipo&&PLANOS[a.plano_tipo]);
+  const emDia=base.filter(a=>pagEst(a)==="emdia"||pagEst(a)==="vence"), v30=base.filter(a=>pagEst(a)==="vence"), atras=base.filter(a=>pagEst(a)==="atrasado");
+  const adimp=comPlano.length?Math.round(comPlano.filter(a=>a.pago_ate&&a.pago_ate>=hoje).length/comPlano.length*100):0;
+  const emRisco=base.filter(a=>riscosDe(a).length);
+  // previsão de renovações (6 meses)
+  const meses=[0,1,2,3,4,5].map(i=>ymAdd(ymHoje,i));
+  const prev=meses.map(m=>{ const l=base.filter(a=>statusAluno(a)!=="inativo"&&vencimentoEm(a,m)); return {m,n:l.length,v:l.reduce((s,a)=>s+precoPlano(a.plano_tipo),0)}; });
+  const maxV=Math.max(1,...prev.map(p=>p.n));
+  const colPrev=`<div class="cols" style="height:220px">${prev.map(p=>`<button class="colb ${F.mes&&F.mes!==p.m?"dim":""}" data-fmesv="${p.m}" aria-label="${ymNome(p.m,true)}: ${p.n} renovações previstas, ${brl(p.v)}"><em>${p.v?brl(p.v):""}</em><span class="cbar"><i style="height:${Math.max(2,p.n/maxV*100)}%;background:#7A4FD0"></i></span><b style="text-transform:capitalize">${ymNome(p.m)}</b><small>${p.n} ${p.n===1?"aluno":"alunos"}</small></button>`).join("")}</div>`;
+  // rosca situação
+  const contEst=Object.keys(PAG_EST).map(k=>[k,base.filter(a=>pagEst(a)===k).length]); const tot=Math.max(1,contEst.reduce((s,x)=>s+x[1],0)); let ang=-Math.PI/2;
+  const arco=(a0,a1)=>{ const p=(a,r)=>[110+r*Math.cos(a),110+r*Math.sin(a)]; const lg=a1-a0>Math.PI?1:0; const [x0,y0]=p(a0,100),[x1,y1]=p(a1,100),[x2,y2]=p(a1,62),[x3,y3]=p(a0,62); return `M${x0} ${y0} A100 100 0 ${lg} 1 ${x1} ${y1} L${x2} ${y2} A62 62 0 ${lg} 0 ${x3} ${y3}Z`; };
+  const fat=contEst.filter(x=>x[1]).map(([k,n])=>{ const a1=ang+2*Math.PI*n/tot-(n===tot?0.0001:0); const d=arco(ang,a1); ang=a1; return `<path d="${d}" fill="${PAG_EST[k][1]}" class="fat ${F.est&&F.est!==k?"dim":""}" data-fest="${k}" tabindex="0" role="button" aria-label="${PAG_EST[k][0]}: ${n}"/>`; }).join("");
+  const rosca=`<div class="rosca"><svg viewBox="0 0 220 220" class="graf" style="max-width:210px">${fat||'<circle cx="110" cy="110" r="81" fill="none" stroke="var(--line)" stroke-width="38"/>'}<text x="110" y="104" text-anchor="middle" class="rc1">${adimp}%</text><text x="110" y="124" text-anchor="middle" class="rc2">adimplência</text></svg>
+    <div class="rleg">${contEst.map(([k,n])=>`<button class="rli ${F.est===k?"on":""}" data-fest="${k}"><i style="background:${PAG_EST[k][1]}"></i><span>${PAG_EST[k][0]}</span><b>${n}</b></button>`).join("")}</div></div>`;
+  // alunos por plano
+  const porPlano=Object.entries(PLANOS).map(([k,[n]])=>({k,n,q:S.alunos.filter(a=>F.sit.includes(statusAluno(a))&&a.plano_tipo===k&&(!F.est||pagEst(a)===F.est)).length})).concat([{k:"sem",n:"Sem plano",q:S.alunos.filter(a=>F.sit.includes(statusAluno(a))&&!a.plano_tipo).length}]);
+  const maxP=Math.max(1,...porPlano.map(p=>p.q)), totP=Math.max(1,porPlano.reduce((s,p)=>s+p.q,0));
+  const colPlano=`<div class="cols" style="height:200px">${porPlano.map(p=>`<button class="colb ${F.planos.length&&!F.planos.includes(p.k)?"dim":""}" data-fplano="${p.k}" aria-label="${p.n}: ${p.q} alunos"><em>${p.q}</em><span class="cbar"><i style="height:${Math.max(2,p.q/maxP*100)}%"></i></span><b>${p.n}</b><small>${Math.round(p.q/totP*100)}%</small></button>`).join("")}</div>`;
+  // riscos
+  const contR=Object.keys(RISCOS).map(k=>[k,base.filter(a=>riscosDe(a).includes(k)).length]);
+  const riscos=`<div class="rleg">${contR.map(([k,n])=>`<button class="rli ${F.risco===k?"on":""} ${n?"":"zero"}" data-frisco="${k}"><i style="background:${RISCOS[k][1]}"></i><span>${RISCOS[k][0]}</span><b>${n}</b></button>`).join("")}</div>`;
+  // tabela
+  const fone=a=>(a.telefone||"").replace(/\D/g,""), pix=sobreCfg().pagamento.pix, clube=MARCA.nomeCurto||MARCA.nome, n1=a=>(a.nome||"").split(" ")[0];
+  const msgW=a=>{ const e=pagEst(a); return e==="atrasado"?`Olá, ${n1(a)}! O seu plano no ${clube} venceu em ${dataCurta(a.pago_ate)}. Quando puder, renove pelo PIX ${pix}. Obrigado!`:e==="semreg"?`Olá, ${n1(a)}! Ainda não temos o seu pagamento registrado no ${clube}. Pode nos enviar o comprovante ou pagar pelo PIX ${pix}?`:`Olá, ${n1(a)}! O seu plano no ${clube} vence em ${dataCurta(a.pago_ate)}. Para renovar: PIX ${pix}. 🛶`; };
+  const ordem={atrasado:0,semreg:1,vence:2,emdia:3};
+  const ord=lista.slice().sort((x,y)=>ordem[pagEst(x)]-ordem[pagEst(y)]||(x.pago_ate||"").localeCompare(y.pago_ate||"")||(x.nome||"").localeCompare(y.nome||"","pt-BR"));
+  const linha=a=>{ const e=pagEst(a), d=finDias(a), rs=riscosDe(a); return `<tr><th scope="row"><button class="linkbtn" data-fin="${esc(a._id)}">${esc(a.nome||"Sem nome")}</button>${rs.length?`<div class="rdots">${rs.map(r=>`<i title="${esc(RISCOS[r][0])}" style="background:${RISCOS[r][1]}"></i>`).join("")}</div>`:""}</th><td>${a.plano_tipo&&PLANOS[a.plano_tipo]?esc(PLANOS[a.plano_tipo][0]):"–"}</td><td>${a.plano_tipo?brl(precoPlano(a.plano_tipo)):"–"}</td><td>${a.pago_ate?esc(dataCurta(a.pago_ate)):"–"}</td><td><span class="pill" style="--c:${PAG_EST[e][1]}">${e==="atrasado"?`Atrasado ${-d} d`:e==="vence"?(d===0?"Vence hoje":`Vence em ${d} d`):PAG_EST[e][0]}</span></td><td><span class="b ${STATUS_COR[statusAluno(a)]}">${STATUS[statusAluno(a)]}</span></td><td class="acoes">${fone(a)&&e!=="emdia"?`<a class="btn ghost small" href="${esc(waLink(msgW(a),fone(a)))}" target="_blank" rel="noopener">${e==="vence"?"Lembrar":"Cobrar"}</a>`:""}<button class="btn small" data-finpag="${esc(a._id)}">Dar baixa</button></td></tr>`; };
+  const sug=base.filter(a=>{ const s=sugestaoStatus(a); return s && s!==statusAluno(a); });
+  const chipsF=[]; if(F.est) chipsF.push(["est",`Pagamento: ${PAG_EST[F.est][0]}`]); if(F.mes) chipsF.push(["mes",`Vence em ${ymNome(F.mes,true)}`]); if(F.risco) chipsF.push(["risco",`Risco: ${RISCOS[F.risco][0]}`]); if(F.planos.length) chipsF.push(["planos",`Plano: ${F.planos.map(k=>k==="sem"?"Sem plano":PLANOS[k][0]).join(", ")}`]);
+  el.innerHTML=`<div class="dash">
+    <div class="dhead"><div><h2 class="ptitle" style="margin:0">Mensalidades</h2><p class="hint" style="margin:2px 0 0">Situação de pagamento dos alunos, vencimentos previstos e alunos em risco. Toque nos gráficos para filtrar.</p></div><span class="spacer"></span>${sug.length?`<button class="btn small" id="decSug">Revisar situações (${sug.length})</button>`:""}</div>
+    <div class="slicers">
+      <div class="slc"><span>Situação do aluno</span><div class="seg">${Object.entries(STATUS).map(([k,l])=>`<button data-fsit="${k}" aria-pressed="${F.sit.includes(k)}">${l}</button>`).join("")}</div></div>
+      <div class="slc"><span>Plano</span><div class="seg">${Object.entries(PLANOS).map(([k,[n]])=>`<button data-fplano="${k}" aria-pressed="${F.planos.includes(k)}">${n}</button>`).join("")}<button data-fplano="sem" aria-pressed="${F.planos.includes("sem")}">Sem plano</button></div></div>
+    </div>
+    ${chipsF.length?`<div class="fchips">${chipsF.map(([k,l])=>`<button data-fclr="${k}">${esc(l)} <b aria-hidden="true">×</b></button>`).join("")}<button class="linkbtn" data-fclr="tudo">Limpar filtros</button></div>`:""}
+    <div class="tiles">
+      <button class="tile" data-tile="" aria-label="Todos os alunos com plano"><span>Alunos com plano</span><b>${comPlano.length}</b><small>de ${base.length} no filtro</small></button>
+      <button class="tile" data-tile="emdia"><span>Em dia</span><b>${emDia.length}</b><small>pagamento válido</small></button>
+      <button class="tile ${v30.length?"warnt":""}" data-tile="vence"><span>Vencem em 30 dias</span><b>${v30.length}</b><small>lembrar antes de vencer</small></button>
+      <button class="tile ${atras.length?"neg":""}" data-tile="atrasado"><span>Atrasados</span><b>${atras.length}</b><small>plano vencido</small></button>
+      <div class="tile"><span>Adimplência</span><b>${adimp}%</b><small>alunos com plano em dia</small></div>
+      <div class="tile ${emRisco.length?"warnt":""}"><span>Alunos em risco</span><b>${emRisco.length}</b><small>veja os motivos ao lado</small></div>
+    </div>
+    <div class="dgrid">
+      <section class="dcard span2"><h3 class="dtit">Renovações previstas (próximos 6 meses)</h3><p class="hint" style="margin:-4px 0 8px">Cada aluno entra no mês em que o plano dele vence: o mensal todo mês, o trimestral a cada 3 meses, o anual uma vez por ano. Valor = preço do plano.</p>${colPrev}</section>
+      <section class="dcard"><h3 class="dtit">Situação de pagamento</h3>${rosca}</section>
+      <section class="dcard"><h3 class="dtit">Alunos em risco</h3>${riscos}</section>
+      <section class="dcard span2"><h3 class="dtit">Alunos por plano</h3>${colPlano}</section>
+    </div>
+    <section class="dcard"><div class="row" style="gap:8px;flex-wrap:wrap;align-items:center"><h3 class="dtit" style="margin:0">Alunos (${ord.length})</h3><span class="spacer"></span><input type="search" id="fmQ" class="finq" placeholder="Buscar aluno" value="${esc(F.busca)}" aria-label="Buscar aluno"><button class="btn ghost small" id="dExp">Exportar</button></div>
+      <div class="scroll-x" style="margin-top:10px">${ord.length?`<table class="fintab"><thead><tr><th scope="col" style="text-align:left">Aluno</th><th>Plano</th><th>Valor</th><th>Pago até</th><th>Pagamento</th><th>Situação</th><th></th></tr></thead><tbody>${ord.map(linha).join("")}</tbody></table>`:`<p class="hint">Nenhum aluno com esses filtros.</p>`}</div></section>
+    <details class="dcard defs"><summary><b>Como os números são calculados</b></summary><ul>
+      <li><b>Em dia:</b> o “pago até” do aluno é hoje ou depois.</li>
+      <li><b>Vencem em 30 dias:</b> em dia, mas o plano vence nos próximos 30 dias.</li>
+      <li><b>Atrasado:</b> o “pago até” já passou. <b>Sem registro:</b> nenhum pagamento lançado.</li>
+      <li><b>Adimplência:</b> alunos com plano em dia divididos pelos alunos com plano.</li>
+      <li><b>Renovações previstas:</b> soma do preço do plano de quem vence em cada mês, contando que todos renovem no mesmo plano.</li>
+      <li><b>Alunos em risco:</b> atrasados há mais de 30 dias, quem rema com a mensalidade em aberto, quem vence em 7 dias, quem não tem pagamento registrado e quem está em dia mas não rema há 21 dias ou mais.</li></ul></details>
+  </div>`;
+  const R=()=>renderPainelFin(el);
+  el.querySelectorAll("[data-fsit]").forEach(b=>b.addEventListener("click",()=>{ const k=b.dataset.fsit; F.sit=F.sit.includes(k)?F.sit.filter(x=>x!==k):F.sit.concat(k); if(!F.sit.length) F.sit=["ativo"]; R(); }));
+  el.querySelectorAll("[data-fplano]").forEach(b=>b.addEventListener("click",()=>{ const k=b.dataset.fplano; F.planos=F.planos.includes(k)?F.planos.filter(x=>x!==k):F.planos.concat(k); R(); }));
+  const tog=(c,v)=>{ F[c]=F[c]===v?null:v; R(); };
+  el.querySelectorAll("[data-fest]").forEach(b=>{ b.addEventListener("click",()=>tog("est",b.dataset.fest)); b.addEventListener("keydown",e=>{ if(e.key==="Enter") tog("est",b.dataset.fest); }); });
+  el.querySelectorAll("[data-tile]").forEach(b=>b.addEventListener("click",()=>{ const v=b.dataset.tile; if(!v){ F.est=null; R(); } else if(v==="emdia"){ tog("est","emdia"); } else tog("est",v); }));
+  el.querySelectorAll("[data-fmesv]").forEach(b=>b.addEventListener("click",()=>tog("mes",b.dataset.fmesv)));
+  el.querySelectorAll("[data-frisco]").forEach(b=>b.addEventListener("click",()=>tog("risco",b.dataset.frisco)));
+  el.querySelectorAll("[data-fclr]").forEach(b=>b.addEventListener("click",()=>{ const k=b.dataset.fclr; if(k==="tudo") Object.assign(F,{est:null,mes:null,risco:null,planos:[],busca:"",sit:["ativo","suspenso"]}); else if(k==="planos") F.planos=[]; else F[k]=null; R(); }));
+  const q=el.querySelector("#fmQ"); q.addEventListener("input",e=>{ F.busca=e.target.value; const pos=e.target.selectionStart; R(); const n=el.querySelector("#fmQ"); n.focus(); n.setSelectionRange(pos,pos); });
+  el.querySelectorAll("[data-finpag]").forEach(b=>b.addEventListener("click",()=>{ editFinanceiro(b.dataset.finpag); setTimeout(()=>{ const x=document.querySelector("#pgAdd"); if(x){ x.scrollIntoView({block:"center"}); x.focus(); } },120); }));
+  const ds=el.querySelector("#decSug"); if(ds) ds.addEventListener("click",()=>revisarSituacoes(sug,R));
+  el.querySelector("#dExp").addEventListener("click",()=>exportarLista("Mensalidades",["Aluno","Plano","Valor","Pago até","Pagamento","Situação","Riscos","Telefone"],ord.map(a=>[a.nome,PLANOS[a.plano_tipo]?PLANOS[a.plano_tipo][0]:"",a.plano_tipo?brl(precoPlano(a.plano_tipo)):"",a.pago_ate?dataCurta(a.pago_ate):"",PAG_EST[pagEst(a)][0],STATUS[statusAluno(a)],riscosDe(a).map(r=>RISCOS[r][0]).join("; "),a.telefone||""])));
+}
+
+/* ---------- vagas sempre pela frota disponível ---------- */
+function capFrota(local){ const l=(S.config.canoas||[]).filter(c=>c.status!=="manutencao" && (c.local||LOCAIS[0])===local); return l.length?l.reduce((s,c)=>s+(+c.lugares||0),0):null; }
+function vagasDe(t){ const fr=capFrota(t.local); const lim=(t.vagas!=null&&t.vagas!==""&&!isNaN(+t.vagas))?+t.vagas:null; if(fr==null) return lim; return lim!=null?Math.min(fr,lim):fr; }
+
+/* ---------- frota: editor em tabela ---------- */
+function editarFrota(){
+  let linhas=(S.config.canoas||[]).map(c=>({nome:c.nome||"", local:c.local||LOCAIS[0], tipo:MODELOS_CANOA[c.tipo]?c.tipo:"OC6", castelo:!!c.castelo, status:c.status==="manutencao"?"indisponivel":"disponivel"}));
+  for(let i=linhas.length;i<7;i++) linhas.push({nome:`Canoa ${i+1}`, local:LOCAIS[0], tipo:"OC6", castelo:false, status:"disponivel"});
+  openSheet(`<div class="head"><div><h2>Frota do clube</h2><div class="hint" style="margin:0">As vagas de cada remada vêm das canoas disponíveis da base.</div></div><button class="x" aria-label="Fechar">×</button></div>
+    <div class="frhead" aria-hidden="true"><span>#</span><span>Nome da canoa</span><span>Base</span><span>Modelo</span><span>Bancos</span><span>Situação</span><span></span></div>
+    <div id="frBox"></div>
+    <button type="button" class="btn ghost small" id="frAdd" style="margin-top:8px">+ Adicionar canoa</button>
+    <div class="frsoma" id="frSoma" aria-live="polite"></div>
+    <div class="row" style="margin-top:14px"><span class="spacer"></span><button class="btn ghost" id="frC">Cancelar</button><button class="btn" id="frS">Salvar frota</button></div>`, root=>{
+    const box=root.querySelector("#frBox");
+    const ler=()=>{ box.querySelectorAll(".frl").forEach((el,i)=>{ const l=linhas[i]; l.nome=el.querySelector("[data-k=nome]").value.trim(); l.local=el.querySelector("[data-k=local]").value; l.tipo=el.querySelector("[data-k=tipo]").value; l.castelo=l.tipo==="OC6"&&el.querySelector("[data-k=castelo]").checked; l.status=el.querySelector("[data-k=status]").value; }); };
+    const soma=()=>{ ler(); root.querySelector("#frSoma").innerHTML=`<b>Vagas por base:</b> `+LOCAIS.map(b=>{ const ls=linhas.filter(l=>l.nome&&l.local===b&&l.status==="disponivel"); return `${esc(B(b).curto)} <b>${ls.reduce((s,l)=>s+lugaresModelo(l.tipo,l.castelo),0)}</b> (${ls.length} ${ls.length===1?"canoa":"canoas"})`; }).join(" · "); };
+    const desenha=()=>{ box.innerHTML=linhas.map((l,i)=>`<div class="frl ${l.status!=="disponivel"?"off":""}">
+      <span class="frn">${i+1}</span>
+      <input data-k="nome" value="${esc(l.nome)}" placeholder="Nome" aria-label="Nome da canoa ${i+1}">
+      <select data-k="local" aria-label="Base">${LOCAIS.map(b=>`<option value="${esc(b)}" ${l.local===b?"selected":""}>${esc(B(b).curto)}</option>`).join("")}</select>
+      <span class="frmod"><select data-k="tipo" aria-label="Modelo">${Object.keys(MODELOS_CANOA).map(m=>`<option ${l.tipo===m?"selected":""}>${m}</option>`).join("")}</select><label class="frcast ${l.tipo==="OC6"?"":"oculto"}" title="OC6 com castelo leva 7"><input type="checkbox" data-k="castelo" ${l.castelo?"checked":""}> castelo</label></span>
+      <span class="frlug">${lugaresModelo(l.tipo,l.castelo)}</span>
+      <select data-k="status" class="frst" aria-label="Situação"><option value="disponivel" ${l.status==="disponivel"?"selected":""}>Disponível</option><option value="indisponivel" ${l.status!=="disponivel"?"selected":""}>Indisponível</option></select>
+      <button type="button" class="ib" data-frm="${i}" aria-label="Remover canoa ${i+1}">🗑</button></div>`).join("");
+      box.querySelectorAll("[data-frm]").forEach(b=>b.addEventListener("click",()=>{ ler(); linhas.splice(+b.dataset.frm,1); desenha(); }));
+      box.querySelectorAll("input,select").forEach(x=>x.addEventListener("change",()=>{ ler(); box.querySelectorAll(".frl").forEach((el,i)=>{ const l=linhas[i]; el.querySelector(".frcast").classList.toggle("oculto",l.tipo!=="OC6"); el.querySelector(".frlug").textContent=lugaresModelo(l.tipo,l.castelo); el.classList.toggle("off",l.status!=="disponivel"); }); soma(); })); soma(); };
+    desenha();
+    root.querySelector("#frAdd").addEventListener("click",()=>{ ler(); linhas.push({nome:`Canoa ${linhas.length+1}`, local:LOCAIS[0], tipo:"OC6", castelo:false, status:"disponivel"}); desenha(); });
+    root.querySelector("#frC").addEventListener("click",closeSheet);
+    root.querySelector("#frS").addEventListener("click",async()=>{ ler(); const canoas=linhas.filter(l=>l.nome).map(l=>({nome:l.nome, local:l.local, tipo:l.tipo, castelo:!!l.castelo, lugares:lugaresModelo(l.tipo,l.castelo), status:l.status==="disponivel"?"ativa":"manutencao"}));
+      if(await saveConfig({canoas})){ auditar("Frota atualizada",`${canoas.length} canoas`); closeSheet(); toast("Frota salva"); } });
+  });
+}
+
+/* ---------- nome da canoa a partir da frota ---------- */
+function selCanoaFrota(attr, atual, usados, localPref){
+  const fr=(S.config.canoas||[]).filter(c=>c.status!=="manutencao");
+  const temAtual=fr.some(c=>c.nome===atual);
+  return `<select ${attr} class="cnome sel" aria-label="Canoa da frota">${fr.map(c=>`<option value="${esc(c.nome)}" ${c.nome===atual?"selected":""}>${esc(c.nome)} · ${esc(c.tipo||"OC6")}${c.castelo?" castelo":""} · ${esc(B(c.local||LOCAIS[0]).curto)}${usados.includes(c.nome)&&c.nome!==atual?" (em uso)":""}</option>`).join("")}${!temAtual?`<option value="${esc(atual)}" selected>${esc(atual)}</option>`:""}<option value="__outro">Outro nome…</option></select>`;
+}
+
+/* ---------- Mídia organizada por tipo ---------- */
+const TIPOS_POST = {social:["Post nas redes","Divulgue um post do Instagram, YouTube, TikTok ou Facebook do clube."], campanha:["Campanha","Promoção ou ação com prazo e botão de chamada (ex.: traga um amigo)."], novidade:["Novidade","Notícia rápida do clube (ex.: canoa nova, resultado de prova)."]};
+function tipoPost(p){ return p.tipo || (p.rede&&p.rede!=="site"&&p.rede!=="formulario"?"social":p.cta?"campanha":"novidade"); }
+function estadoPost(p){ const h=todaySP(); if(p.rascunho) return "rascunho"; if(p.publicar_em&&p.publicar_em>h) return "agendado"; if(tipoPost(p)==="campanha"&&p.fim&&p.fim<h) return "encerrada"; return "publicado"; }
+function renderMidia(){
+  const el=$("#midiaBody");
+  if(!S.db){ el.innerHTML=`<div class="locked"><h3>Mídia indisponível aqui</h3><p>Abra o app conectado à sua conta.</p></div>`; return; }
+  marcarVisto("midia");
+  const aba=S.midiaAba||"tudo";
+  const forms=Object.values(S.forms).filter(formVisivel).filter(f=>S.canMidia||!oculto("fm:"+f._id)).sort((a,b)=>(b.criado||"").localeCompare(a.criado||""));
+  const posts=Object.values(S.midia).filter(p=>S.canMidia||(!oculto("md:"+p._id)&&estadoPost(p)==="publicado")).sort((a,b)=>((b.fixado?1:0)-(a.fixado?1:0))||((b.publicar_em||b.criado||"").localeCompare(a.publicar_em||a.criado||"")));
+  const por=t=>posts.filter(p=>tipoPost(p)===t);
+  const redes=REDES_CLUBE.filter(([k])=>sobreCfg().redes[k]);
+  const resp=fid=>S.minhasResp&&S.minhasResp.r&&S.minhasResp.r[fid];
+  const nResp=fid=>Object.values(S.formresp).filter(d=>d&&d.r&&d.r[fid]).length;
+  const estB=p=>{ const e=estadoPost(p); return S.canMidia&&e!=="publicado"?`<span class="b ${e==="rascunho"?"":e==="agendado"?"amb":"red"}">${{rascunho:"Rascunho",agendado:`Agendado: ${dataCurta(p.publicar_em)}`,encerrada:"Encerrada"}[e]}</span>`:""; };
+  const acoes=p=>S.canMidia?`<span class="spacer"></span><button class="ib" data-wp="${esc(p._id)}" aria-label="Enviar no WhatsApp" title="WhatsApp">💬</button><button class="ib" data-ep="${esc(p._id)}" aria-label="Editar" title="Editar">✏️</button><button class="ib" data-delmd="${esc(p._id)}" aria-label="Excluir" title="Excluir">🗑</button>`:`<span class="spacer"></span><button class="ib" data-ocu="md:${esc(p._id)}" aria-label="Ocultar para mim">✕</button>`;
+  const cardSocial=p=>`<article class="mcard social r-${esc(p.rede||"instagram")}">${p.imagem?`<img src="${p.imagem}" alt="">`:`<div class="mph"><span>${esc((REDES[p.rede]||["Rede"])[0])}</span></div>`}
+    <div class="mbody"><div class="row" style="gap:6px"><span class="b rede r-${esc(p.rede)}">${esc((REDES[p.rede]||["Rede"])[0])}</span>${p.fixado?`<span class="b">Destaque</span>`:""}${estB(p)}${acoes(p)}</div>
+    ${p.titulo?`<h3>${esc(p.titulo)}</h3>`:""}${p.texto?`<p class="tx">${esc(p.texto)}</p>`:""}
+    ${linkOk(p.link)?`<a class="btn small" href="${esc(p.link)}" target="_blank" rel="noopener">${esc((REDES[p.rede]||["","Abrir"])[1])}</a>`:""}</div></article>`;
+  const cardCamp=p=>`<article class="mcard camp">${p.imagem?`<img src="${p.imagem}" alt="">`:""}<div class="mbody"><div class="row" style="gap:6px"><span class="b" style="background:#FDE7DC;color:#B4410F">Campanha</span>${p.fim?`<span class="b">até ${esc(dataCurta(p.fim))}</span>`:""}${p.fixado?`<span class="b">Destaque</span>`:""}${estB(p)}${acoes(p)}</div>
+    <h3>${esc(p.titulo)}</h3>${p.texto?`<p class="tx">${esc(p.texto)}</p>`:""}<div class="row" style="gap:8px;margin-top:8px">${linkOk(p.link)?`<a class="btn small" href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.cta||"Saiba mais")}</a>`:""}${botaoTraduzir((p.titulo||"")+"\n"+(p.texto||""))}</div></div></article>`;
+  const cardNov=p=>`<article class="mcard nov"><div class="mbody"><div class="row" style="gap:6px"><span class="b" style="background:var(--ocean-soft);color:var(--ocean)">Novidade</span><span class="hint" style="margin:0">${esc(quando(p.publicar_em?p.publicar_em+"T12:00:00":p.criado))}</span>${estB(p)}${acoes(p)}</div>
+    <div class="novrow">${p.imagem?`<img src="${p.imagem}" alt="">`:""}<div><h3>${esc(p.titulo)}</h3>${p.texto?`<p class="tx">${esc(p.texto)}</p>`:""}${linkOk(p.link)?`<a class="linkbtn" href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.cta||"Ler mais")}</a>`:""}</div></div></div></article>`;
+  const cardForm=f=>{ const r=resp(f._id); return `<article class="fcard ${f.ativo?"":"off"}"><div class="row" style="gap:8px"><span class="tp">${esc(TIPOS_FORM[f.tipo]||"Formulário")}</span><span class="b">${esc(PUBLICOS[f.publico]||"Todos")}</span>${!f.ativo?`<span class="b">Encerrado</span>`:""}<span class="spacer"></span>${f.prazo?`<span class="hint" style="margin:0">até ${esc(dataCurta(f.prazo))}</span>`:""}${S.canMidia?`<button class="ib" data-delfm="${esc(f._id)}" aria-label="Excluir formulário">🗑</button>`:`<button class="ib" data-ocu="fm:${esc(f._id)}" aria-label="Ocultar para mim">✕</button>`}</div>
+    <h3>${esc(f.titulo)}</h3>${f.descricao?`<p class="tx">${esc(f.descricao)}</p>`:""}
+    <div class="row" style="gap:8px;margin-top:8px">${f.ativo&&S.role!=="visitante"?(r?`<span class="b grn">Respondido em ${new Date(r.t).toLocaleDateString("pt-BR")}</span><button class="btn ghost small" data-resp="${esc(f._id)}">Editar respostas</button>`:`<button class="btn small" data-resp="${esc(f._id)}">Responder</button>`):""}<span class="spacer"></span>${S.canMidia&&(S.canEdit||f.tipo!=="competicao")?`<button class="btn ghost small" data-vr="${esc(f._id)}">${nResp(f._id)} respostas</button>`:""}${S.canMidia?`<button class="btn ghost small" data-ef="${esc(f._id)}">Editar</button>`:""}</div></article>`; };
+  const secao=(t,lista,card,vazio)=>`<h3 class="sech">${t}</h3>${lista.length?`<div class="mgrid ${card===cardSocial?"g3":""}">${lista.map(card).join("")}</div>`:`<div class="empty">${vazio}</div>`}`;
+  const abas=[["tudo","Tudo",posts.length+forms.length],["social","Redes sociais",por("social").length],["campanha","Campanhas",por("campanha").length],["novidade","Novidades",por("novidade").length],["form","Formulários",forms.length]];
+  let html=`<div class="ag-head"><div><h2>Mídia</h2><p class="hint">Redes sociais, campanhas, novidades e formulários do clube. Passeios e viagens ficam na aba Eventos.</p></div><span class="spacer"></span>${S.canMidia?`<div class="row"><button class="btn ghost small" id="novoForm">Novo formulário</button><button class="btn small" id="novoPost">+ Nova publicação</button></div>`:""}</div>`;
+  if(redes.length) html+=`<div class="siga"><b>Siga o clube</b>${redes.map(([k,n])=>`<a class="rede r-${k}" href="${esc(linkRede(k,sobreCfg().redes[k]))}" target="_blank" rel="noopener">${n}</a>`).join("")}</div>`;
+  html+=`<div class="filters" role="tablist" aria-label="Tipo de conteúdo">${abas.map(([k,l,n])=>`<button role="tab" data-maba="${k}" aria-pressed="${aba===k}">${l} <span class="fc">${n}</span></button>`).join("")}</div>`;
+  const vz={social:S.canMidia?"Divulgue aqui os posts do Instagram, YouTube, TikTok e Facebook do clube.":"Nenhum post nas redes no momento.", campanha:S.canMidia?"Crie campanhas com prazo e botão de chamada.":"Nenhuma campanha ativa.", novidade:S.canMidia?"Publique notícias rápidas do clube.":"Nenhuma novidade.", form:S.canMidia?"Crie formulários para inscrições e pesquisas.":"Nenhum formulário aberto."};
+  if(aba==="tudo"||aba==="campanha") html+=secao("Campanhas",por("campanha"),cardCamp,vz.campanha);
+  if(aba==="tudo"||aba==="social") html+=secao("Redes sociais",por("social"),cardSocial,vz.social);
+  if(aba==="tudo"||aba==="novidade") html+=secao("Novidades",por("novidade"),cardNov,vz.novidade);
+  if(aba==="tudo"||aba==="form") html+=`<h3 class="sech">Formulários</h3>`+(forms.length?forms.map(cardForm).join(""):`<div class="empty">${vz.form}</div>`);
+  el.innerHTML=html;
+  el.querySelectorAll("[data-maba]").forEach(b=>b.addEventListener("click",()=>{ S.midiaAba=b.dataset.maba; renderMidia(); }));
+  const nf=$("#novoForm"); if(nf) nf.addEventListener("click",()=>editForm(null));
+  const np=$("#novoPost"); if(np) np.addEventListener("click",()=>editPost(null));
+  el.querySelectorAll("[data-resp]").forEach(b=>b.addEventListener("click",()=>responderForm(b.dataset.resp)));
+  el.querySelectorAll("[data-vr]").forEach(b=>b.addEventListener("click",()=>verRespostas(b.dataset.vr)));
+  el.querySelectorAll("[data-ef]").forEach(b=>b.addEventListener("click",()=>editForm(b.dataset.ef)));
+  el.querySelectorAll("[data-ep]").forEach(b=>b.addEventListener("click",()=>editPost(b.dataset.ep)));
+  el.querySelectorAll("[data-wp]").forEach(b=>b.addEventListener("click",()=>{ const p=S.midia[b.dataset.wp]; compartilharWhats("midia",`*${(p.titulo||TIPOS_POST[tipoPost(p)][0]).toUpperCase()}*\n${p.texto||""}${linkOk(p.link)?`\n${p.link}`:""}`); }));
+}
+function editPost(id, tipoIni){
+  const p = id ? Object.assign({},S.midia[id]) : {titulo:"", texto:"", link:"", cta:"", fixado:false, imagem:"", rede:"instagram", publicar_em:todaySP()};
+  let tipo = id ? tipoPost(p) : tipoIni;
+  if(!tipo){ openSheet(`<div class="head"><h2>Nova publicação</h2><button class="x" aria-label="Fechar">×</button></div><p class="hint">O que você quer publicar?</p>
+      <div class="tipos">${Object.entries(TIPOS_POST).map(([k,[n,d]])=>`<button class="tipo t-${k}" data-tp="${k}"><b>${n}</b><span>${d}</span></button>`).join("")}</div>
+      <p class="hint" style="margin-top:10px">Para divulgar passeios e viagens, use a aba <b>Eventos</b>: lá o aluno já confirma presença.</p>`, r=>r.querySelectorAll("[data-tp]").forEach(b=>b.addEventListener("click",()=>editPost(null,b.dataset.tp)))); return; }
+  let img=p.imagem||"";
+  const redesOpts=["instagram","youtube","tiktok","facebook"].filter(k=>REDES[k]).map(k=>`<option value="${k}" ${p.rede===k?"selected":""}>${REDES[k][0]}</option>`).join("");
+  const campos = tipo==="social" ? `
+      <label class="f">Rede<select name="rede">${redesOpts}</select></label>
+      <label class="f">Link do post<input name="link" type="url" required value="${esc(p.link)}" placeholder="https://instagram.com/p/…"></label>
+      <label class="f full">Título (opcional)<input name="titulo" value="${esc(p.titulo)}" placeholder="Ex.: Remada ao nascer do sol"></label>
+      <label class="f full">Legenda<textarea name="texto" style="min-height:90px">${esc(p.texto)}</textarea></label>`
+    : tipo==="campanha" ? `
+      <label class="f full">Título<input name="titulo" required value="${esc(p.titulo)}" placeholder="Ex.: Traga um amigo em novembro"></label>
+      <label class="f full">Texto<textarea name="texto" style="min-height:100px">${esc(p.texto)}</textarea></label>
+      <label class="f">Texto do botão<input name="cta" value="${esc(p.cta)}" placeholder="Ex.: Quero participar"></label>
+      <label class="f">Link do botão<input name="link" type="url" value="${esc(p.link)}" placeholder="https://"></label>
+      <label class="f">Válida até<input type="date" name="fim" value="${esc(p.fim||"")}"></label>`
+    : `
+      <label class="f full">Título<input name="titulo" required value="${esc(p.titulo)}" placeholder="Ex.: Chegou a canoa nova!"></label>
+      <label class="f full">Texto<textarea name="texto" style="min-height:100px">${esc(p.texto)}</textarea></label>
+      <label class="f full">Link (opcional)<input name="link" type="url" value="${esc(p.link)}" placeholder="https://"></label>`;
+  openSheet(`<div class="head"><div><h2>${id?"Editar":"Nova"}: ${TIPOS_POST[tipo][0]}</h2><div class="hint" style="margin:0">${TIPOS_POST[tipo][1]}</div></div><button class="x" aria-label="Fechar">×</button></div>
+    <form id="fpost"><div class="grid">
+      <div class="full"><div class="fotobox"><div id="pPrev">${img?`<img src="${img}" alt="">`:`<span class="hint">Sem imagem</span>`}</div><label class="btn ghost small" style="cursor:pointer">${tipo==="social"?"Capa do post":"Imagem"}<input type="file" id="pImg" accept="image/*" hidden></label><button type="button" class="linkbtn" id="pImgRm" ${img?"":"hidden"}>Remover</button></div></div>
+      ${campos}
+      <label class="f">Publicar em<input type="date" name="publicar_em" value="${esc(p.publicar_em||todaySP())}"></label>
+      <label class="chk full"><input type="checkbox" name="fixado" ${p.fixado?"checked":""}> Destacar no topo</label>
+      <label class="chk full"><input type="checkbox" name="rascunho" ${p.rascunho?"checked":""}> Salvar como rascunho (só a equipe vê)</label>
+    </div><p class="hint">Só publique fotos de alunos que autorizaram o uso de imagem na ficha.</p>
+    <div class="row" style="margin-top:16px"><span class="spacer"></span><button type="button" class="btn ghost" id="cP">Cancelar</button><button class="btn" type="submit">${id?"Salvar":"Publicar"}</button></div></form>`, root=>{
+    const prev=root.querySelector("#pPrev"), rm=root.querySelector("#pImgRm");
+    root.querySelector("#pImg").addEventListener("change",async e=>{ const f=e.target.files&&e.target.files[0]; if(!f) return; prev.innerHTML=`<span class="hint">Preparando…</span>`; try{ img=await comprimirFoto(f); prev.innerHTML=`<img src="${img}" alt="">`; rm.hidden=false; }catch(_){ prev.innerHTML=`<span class="hint">Não foi possível ler a imagem</span>`; } });
+    rm.addEventListener("click",()=>{ img=""; prev.innerHTML=`<span class="hint">Sem imagem</span>`; rm.hidden=true; });
+    root.querySelector("#cP").addEventListener("click",closeSheet);
+    root.querySelector("#fpost").addEventListener("submit",async ev=>{ ev.preventDefault(); const f=new FormData(ev.target), g=k=>(f.get(k)||"").toString().trim();
+      const o={tipo, titulo:g("titulo"), texto:g("texto"), link:g("link"), rede:tipo==="social"?(g("rede")||"instagram"):"site", cta:g("cta"), fim:g("fim"), fixado:!!f.get("fixado"), rascunho:!!f.get("rascunho"), publicar_em:g("publicar_em")||todaySP(), imagem:img, criado:p.criado||new Date().toISOString(), atualizado:new Date().toISOString(), por:S.uid||""};
+      if(tipo==="social" && !linkOk(o.link)){ toast("Cole o link do post"); return; }
+      const pid=id||("m"+Date.now().toString(36)+rid());
+      try{ await S.db.doc("midia/"+pid).set(o); auditar(id?"Publicação editada":"Publicação criada",o.titulo||TIPOS_POST[tipo][0]);
+        const publico = !o.rascunho && o.publicar_em<=todaySP();
+        if(publico && !(S.avisos||{})["midia_"+pid]){ await S.db.doc("avisos/midia_"+pid).set({tipo:"midia", titulo:o.titulo||`Novo post no ${REDES[o.rede]?REDES[o.rede][0]:"clube"}`, texto:(o.texto||"").slice(0,240)+"\nVeja na aba Mídia.", data_evento:o.tipo==="campanha"&&o.fim?o.fim:"", hora:"", local:"", link:o.link, expira:o.tipo==="campanha"&&o.fim?o.fim:"", fixado:false, criado:new Date().toISOString()}); }
+        if(!id && publico){ toast("Publicado"); compartilharWhats("midia",`*${(o.titulo||TIPOS_POST[tipo][0]).toUpperCase()}*\n${o.texto||""}${linkOk(o.link)?`\n${o.link}`:""}`); }
+        else { closeSheet(); toast(o.rascunho?"Rascunho salvo":o.publicar_em>todaySP()?`Agendado para ${dataCurta(o.publicar_em)}`:"Publicação salva"); }
+      }catch(e){ failWrite(e); } });
+  });
+}
+
 /* ---------- render ---------- */
 function render(){
   if(S.tab==="mural"){ marcarLido(); }
@@ -4610,6 +5165,7 @@ if(!NA_CLAUDE && "serviceWorker" in navigator && location.protocol==="https:"){ 
   if(S.platAdmin){
     db.collection("atletas").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data()||{}; }); S.atletas=m; S.atletaMe=S.uid?(m[S.uid]||null):null; resolveNames(); if(S.tab==="competicao") renderCompeticao(); }, ()=>{});
     db.collection("alunos").onSnapshot(s=>{ S.alunos = s.docs.map(d=>Object.assign({_id:d.id}, d.data())); S.alunosLoaded=true; S.minhaFicha = S.uid ? (S.alunos.find(a=>a._id===S.uid)||null) : null; updateBadge(); if(S.tab==="alunos") renderAlunos(); else if(["competicao","perfil"].includes(S.tab)) render(); }, ()=>{ S.alunosLoaded=true; renderAlunos(); });
+    db.collection("despesas").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=Object.assign({_id:d.id}, d.data()); }); S.despesas=m; if(S.tab==="perfil"&&S.gsub==="painelfin") renderPerfil(); }, ()=>{});
     if(FB) db.collection("convitelinks").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data()||{}; }); S.convLinks=m; if(S.tab==="operacao") renderClube(); }, ()=>{});
     if(FB) db.collection("convites").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data()||{}; }); S.convites=m; if(S.tab==="operacao") renderClube(); }, ()=>{});
     db.collection(FB?"membros":"equipe").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data()||{}; }); S.equipe=m; resolveNames(); if(S.tab==="clube") renderClube(); }, ()=>{});
