@@ -423,6 +423,9 @@ nav.bottom button.novo{background:#FFD21A;color:#3A2F00}
 nav.bottom button.novo svg{color:#3A2F00}
 nav.tabs button.novo{background:#FFD21A;color:#3A2F00}
 .btn:disabled{opacity:.45;cursor:not-allowed}
+.lancar{background:var(--surface);border:2px solid #E5B92B;border-radius:16px;padding:12px 14px;margin:8px 0 12px;display:grid;gap:10px}.lancar>div:first-child b{display:block;font-size:17px}.lancar>div:first-child span{color:var(--muted);font-size:14px}
+.lancl{display:grid;gap:8px}@media (min-width:760px){.lancl{grid-template-columns:1fr 1fr}}
+.lancit{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;align-items:center;text-align:left;border:1px solid var(--line);background:var(--surface-2);border-radius:12px;padding:10px 12px;cursor:pointer;font:inherit;color:var(--ink)}.lancit small{grid-column:1;color:var(--muted)}.lancit .btn{grid-column:2;grid-row:1/3}
 .resgrid{display:grid;gap:12px;margin-top:12px}@media (min-width:900px){.resgrid{grid-template-columns:1fr 1fr}}
 .rescard{position:relative;display:flex;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;overflow:hidden}
 .rescard.ouro{border:2px solid #E5B92B;background:linear-gradient(135deg,#FFF8DC,var(--surface) 55%)}.rescard.prata{border:2px solid #BFC5CC;background:linear-gradient(135deg,#F2F4F6,var(--surface) 55%)}.rescard.bronze{border:2px solid #D08C4E;background:linear-gradient(135deg,#FBEBDD,var(--surface) 55%)}
@@ -5936,7 +5939,9 @@ function painelResultadosHTML(){
   const maxM=Math.max(1,...porProva.map(x=>x.o+x.pr+x.b));
   const ranking=rankingAtletas().slice(0,15), fotos=Object.values(S.pvFotos||{}).sort((a,b)=>(b.criado||"").localeCompare(a.criado||"")).slice(0,8);
   const msgs=provasR.slice(-2).reverse().flatMap(p=>mensagensProva(p)).slice(0,4);
-  return `<h3 class="sech" style="margin-top:24px">🏆 Resultados e conquistas</h3>
+  const lanc=Object.values(S.provas||{}).filter(p=>(p.data||"")<=addDays(todaySP(),3)).sort((a,b)=>(b.data||"").localeCompare(a.data||"")).slice(0,12);
+  const lancHTML=S.canAgenda?`<div class="lancar"><div><b>Lançar ou editar resultados</b><span>Colocação, tempo, guarnição e fotos de cada prova.</span></div>${lanc.length?`<div class="lancl">${lanc.map(p=>{ const n=resultadosDe(p).length, f=fotosProva(p._id).length; return `<button class="lancit" data-resv="${esc(p._id)}"><b>${esc(p.nome)}</b><small>${esc(dataCurta(p.data))} · ${n?`${n} ${n===1?"resultado":"resultados"}`:"sem resultado"}${f?` · ${f} fotos`:""}</small><span class="btn small">${n?"✏️ Editar":"+ Lançar"}</span></button>`; }).join("")}</div>`:`<p class="hint" style="margin:0">Cadastre a prova em Provas para lançar o resultado depois que ela acontecer.</p>`}</div>`:"";
+  return `<h3 class="sech" style="margin-top:24px">🏆 Resultados e conquistas</h3>${lancHTML}
     <div class="slicers"><div class="slc"><span>Ano</span><div class="seg"><button data-prano="" aria-pressed="${!F.ano}">Todos</button>${anos.map(a=>`<button data-prano="${a}" aria-pressed="${F.ano===a}">${a}</button>`).join("")}</div></div>
       <div class="slc"><span>Categoria</span><div class="seg"><button data-prcat="" aria-pressed="${!F.cat}">Todas</button>${CATEG_PROVA.map(([k,l])=>`<button data-prcat="${k}" aria-pressed="${F.cat===k}">${l}</button>`).join("")}</div></div></div>
     <div class="tiles" style="margin-top:10px"><div class="tile"><span>Provas</span><b>${provasR.length}</b><small>com resultado</small></div><div class="tile ouro"><span>🥇 Ouro</span><b>${ouro}</b><small>títulos</small></div><div class="tile prata"><span>🥈 Prata</span><b>${prata}</b><small>vice</small></div><div class="tile bronze"><span>🥉 Bronze</span><b>${bronze}</b><small>terceiros</small></div><div class="tile"><span>Pódios</span><b>${podPct}%</b><small>das canoas</small></div><div class="tile"><span>Medalhistas</span><b>${rankingAtletas().filter(a=>a.ouro+a.prata+a.bronze).length}</b><small>atletas</small></div></div>
