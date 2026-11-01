@@ -423,6 +423,31 @@ nav.bottom button.novo{background:#FFD21A;color:#3A2F00}
 nav.bottom button.novo svg{color:#3A2F00}
 nav.tabs button.novo{background:#FFD21A;color:#3A2F00}
 .btn:disabled{opacity:.45;cursor:not-allowed}
+.resgrid{display:grid;gap:12px;margin-top:12px}@media (min-width:900px){.resgrid{grid-template-columns:1fr 1fr}}
+.rescard{position:relative;display:flex;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;overflow:hidden}
+.rescard.ouro{border:2px solid #E5B92B;background:linear-gradient(135deg,#FFF8DC,var(--surface) 55%)}.rescard.prata{border:2px solid #BFC5CC;background:linear-gradient(135deg,#F2F4F6,var(--surface) 55%)}.rescard.bronze{border:2px solid #D08C4E;background:linear-gradient(135deg,#FBEBDD,var(--surface) 55%)}
+.resmed{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:40px;line-height:1}.resmed .trof{font-size:34px;animation:pula 1.8s ease-in-out infinite}.resmed .med{animation:brilho 2.4s ease-in-out infinite}
+@keyframes pula{50%{transform:translateY(-6px)}}@keyframes brilho{50%{filter:drop-shadow(0 0 8px rgba(255,210,60,.9))}}
+.resinfo{flex:1;min-width:0}.resnum{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0}.resnum div{display:flex;flex-direction:column}.resnum b{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:24px;line-height:1.1}.resnum span{font-size:12px;color:var(--muted)}.resnum .dif b{color:var(--stop)}
+.resguar{margin:6px 0 0;font-size:14px}
+.podio{display:flex;align-items:flex-end;justify-content:center;gap:4px;height:120px;margin:6px 0}
+.pdg{display:flex;flex-direction:column;align-items:center;width:30%}.pdbloco{width:100%;display:grid;place-items:center;color:#fff;font-weight:800;border-radius:8px 8px 0 0;animation:sobe .9s cubic-bezier(.2,.8,.2,1) both}
+.p1 .pdbloco{height:70px;background:#E5B92B}.p2 .pdbloco{height:50px;background:#AEB6BF;animation-delay:.15s}.p3 .pdbloco{height:36px;background:#C9834A;animation-delay:.3s}
+@keyframes sobe{from{transform:scaleY(0);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
+.pdcan{font-size:12px;text-align:center;line-height:1.2;margin-bottom:4px;min-height:34px}.pdcan.vazio{color:var(--muted)}.pdg.nos .pdcan{animation:pula 1.8s ease-in-out infinite}.pdmed{display:block;font-size:22px}
+.celebra{position:relative;overflow:hidden;background:linear-gradient(135deg,#0B3A5B,#155E8A);color:#fff;border-radius:16px;padding:16px;margin-top:10px}.celebra.ouro{background:linear-gradient(135deg,#7A5A00,#C9961A 60%,#F2C94C)}.celebra.mini{padding:10px 14px}
+.celebra .msgs p{margin:6px 0;font-size:15.5px;opacity:0;animation:entra .6s ease forwards}@keyframes entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.medtot{display:flex;gap:14px;flex-wrap:wrap}.medtot div{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border-radius:12px;padding:6px 12px}.medtot span{font-size:24px}.medtot b{font-family:"Barlow Condensed",system-ui,sans-serif;font-size:26px}.medtot small{font-size:11px;opacity:.8}
+.conq .medtot div{background:var(--surface);border:1px solid var(--line)}
+.confete{position:absolute;inset:0;pointer-events:none}.confete i{position:absolute;top:-10px;width:8px;height:12px;border-radius:2px;animation:cai 3s linear infinite}
+@keyframes cai{to{transform:translateY(260px) rotate(540deg);opacity:.2}}
+@media (prefers-reduced-motion: reduce){.confete,.celebra .msgs p,.pdbloco,.resmed *,.pdg.nos .pdcan{animation:none!important;opacity:1!important}}
+html.rm .confete{display:none}html.rm .celebra .msgs p{animation:none;opacity:1}
+.mural{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:8px 0}.mural figure{margin:0;position:relative}.mural img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;transition:transform .3s}.mural img:hover{transform:scale(1.04)}.mural figcaption{font-size:11.5px;color:var(--muted)}.mural .ib{position:absolute;top:4px;right:4px;background:var(--surface)}
+.conq{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 14px}.conqlist{display:grid;gap:6px;margin-top:10px}
+.conqit{display:flex;gap:10px;align-items:center;text-align:left;border:1px solid var(--line);background:var(--surface-2);border-radius:12px;padding:8px 10px;cursor:pointer;font:inherit;color:var(--ink)}.conqit .med{font-size:28px}.conqit small{display:block;color:var(--muted);font-size:12.5px}.conqit.ouro{border-color:#E5B92B}
+.medprev{background:var(--surface-2);border-radius:10px;padding:8px 12px;font-size:16px}.medprev.ouro{background:#FFF3C4}.medprev.prata{background:#EEF1F4}.medprev.bronze{background:#F8E3CF}
+.tile.ouro{background:#F7DC79}.tile.prata{background:#DDE2E7}.tile.bronze{background:#EBC09A}
 .sheet>.head{position:sticky;top:-18px;background:var(--surface);z-index:7;margin:-18px -18px 8px;padding:14px 18px 10px;border-bottom:1px solid var(--line)}
 .sheet>.head{justify-content:flex-start}.sheet>.head .topsave{margin-left:auto;margin-right:4px}.sheet>.head .topsave+.x{margin-left:0}
 @media (min-width:760px){.sheet{max-height:min(88%,calc(100dvh - 48px))}}
@@ -1032,7 +1057,7 @@ function setTab(t){
   if(window.__navOk && t!==S.tab && !_restaurando) empilhar();
   S.tab = t;
   document.querySelectorAll("nav [data-tab]").forEach(b => b.setAttribute("aria-current", (b.dataset.tab===t || (b.dataset.tab==="perfil" && SUB_PERFIL.includes(t))) ? "page" : "false"));
-  S.gsub=null; if(t!=="competicao") S.compView=null; if(t!=="eventos") S.evView=null;
+  S.gsub=null; if(t!=="competicao"){ S.compView=null; S.resView=null; } if(t!=="eventos") S.evView=null;
   TABS.forEach(k => $("#v-"+k).hidden = k!==t);
   if(location.hash !== "#"+t) history.replaceState(history.state,"","#"+t);
   render();
@@ -2486,6 +2511,7 @@ function diasAte(iso){ return Math.round((new Date(iso+"T12:00:00")-new Date(tod
 function renderCompeticao(){
   const el=$("#compBody");
   if(!S.db){ el.innerHTML=`<div class="locked"><h3>Competição indisponível aqui</h3><p>Abra este app pelo Claude, conectado à sua conta.</p></div>`; return; }
+  if(S.resView && S.provas[S.resView]){ renderResultadosProva(el, S.resView); return; }
   if(S.compView && S.canAgenda){ renderTripulacoes(el, S.compView); return; }
   const h=todaySP();
   const provas=Object.values(S.provas).sort((a,b)=>(a.data||"").localeCompare(b.data||""));
@@ -2514,6 +2540,7 @@ function renderCompeticao(){
     html+=`<div class="row" style="margin-top:12px"><button class="btn ghost small" id="pastPv">${S.showPastProvas?"Ocultar provas anteriores":"Ver provas anteriores"}</button></div>`;
     if(S.showPastProvas) html+=`<div class="list" style="margin-top:10px">${passadas.slice(0,20).map(rowProva).join("")}</div>`;
   }
+  html+=conquistasHTML(4);
   if(S.canAgenda) html+=painelEquipeComp();
   el.innerHTML=html;
   bindEquipeComp(el);
@@ -2563,7 +2590,7 @@ function verProva(id){
       <div class="rsvp" style="border:1px solid var(--line);border-radius:10px;margin-top:10px;overflow:hidden">${[["quero","Quero competir"],["talvez","Talvez"],["nao","Não vou"]].map(([k,l])=>`<button class="${k==="quero"?"vou":k}" data-ps="${k}" aria-pressed="${me&&me.s===k?"true":"false"}" ${k==="quero"&&!elig.length?"disabled":""}>${l}</button>`).join("")}</div>`}
     </div>`:""}
     ${interesse}
-    ${S.canAgenda?`<div class="row" style="margin-top:18px">${S.canEdit?`<button class="ib lixo" id="delPv" aria-label="Excluir prova" title="Excluir prova">🗑</button><button class="btn ghost small" id="edPv">Editar</button>`:""}<button class="btn ghost small" id="cpPv">Convocação</button><span class="spacer"></span><button class="btn small" id="mtPv">Montar canoas</button></div>`:""}
+    ${S.canAgenda?`<div class="row" style="margin-top:18px">${S.canEdit?`<button class="ib lixo" id="delPv" aria-label="Excluir prova" title="Excluir prova">🗑</button><button class="btn ghost small" id="edPv">Editar</button>`:""}<button class="btn ghost small" id="cpPv">Convocação</button><button class="btn ghost small" data-resv="${esc(id)}" id="rsPv">🏆 Resultados</button><span class="spacer"></span><button class="btn small" id="mtPv">Montar canoas</button></div>`:resultadosDe(p).length||fotosProva(id).length?`<div class="row" style="margin-top:14px"><button class="btn small" data-resv="${esc(id)}">🏆 Ver resultados e fotos</button></div>`:""}
   `, root=>{
     const pa=root.querySelector("#pAt"); if(pa) pa.addEventListener("click",editAtleta);
     root.querySelectorAll("[data-ps]").forEach(b=>b.addEventListener("click",async()=>{
@@ -3794,7 +3821,7 @@ function botaoTraduzir(txt){ if(LANG==="pt-BR"||LANG==="pt-PT"||!txt) return "";
 const A11Y_KEY="iako-a11y";
 function a11yGet(){ try{ return Object.assign({fonte:1, contraste:false, reduzir:false}, JSON.parse(localStorage.getItem(A11Y_KEY)||"{}")); }catch(_){ return {fonte:1, contraste:false, reduzir:false}; } }
 function a11ySet(o){ try{ localStorage.setItem(A11Y_KEY, JSON.stringify(o)); }catch(_){} aplicarA11y(); }
-function aplicarA11y(){ const a=a11yGet(); document.body.style.zoom = a.fonte; document.documentElement.classList.toggle("hc", !!a.contraste); REDUZ = !!a.reduzir || (()=>{ try{ return matchMedia("(prefers-reduced-motion: reduce)").matches; }catch(_){ return false; } })(); }
+function aplicarA11y(){ const a=a11yGet(); document.body.style.zoom = a.fonte; document.documentElement.classList.toggle("hc", !!a.contraste); REDUZ = !!a.reduzir || (()=>{ try{ return matchMedia("(prefers-reduced-motion: reduce)").matches; }catch(_){ return false; } })(); document.documentElement.classList.toggle("rm", REDUZ); }
 const TEM_VOZ = "speechSynthesis" in window;
 const Reconhecedor = window.SpeechRecognition || window.webkitSpeechRecognition || null;
 function vozLang(){ return {"pt-BR":"pt-BR","pt-PT":"pt-PT",en:"en-US",es:"es-ES",fr:"fr-FR",zh:"zh-CN",hi:"hi-IN",ar:"ar-SA",bn:"bn-BD",ru:"ru-RU"}[LANG]||"pt-BR"; }
@@ -4503,11 +4530,11 @@ function bindEquipeComp(el){
 }
 /* ----- navegação com voltar ----- */
 let PILHA=[]; let _restaurando=false;
-function estadoNav(){ return {t:S.tab, g:S.gsub||null, c:S.compView||null, e:S.evView||null}; }
+function estadoNav(){ return {t:S.tab, g:S.gsub||null, c:S.compView||null, e:S.evView||null, r:S.resView||null}; }
 function empilhar(){ if(_restaurando) return; PILHA.push(estadoNav()); try{ history.pushState({iako:PILHA.length},"",location.hash); }catch(_){} atualizaVoltar(); }
 window.__nav=()=>PILHA.length;
 function atualizaVoltar(){ const b=document.getElementById("btnVoltar"); if(b) b.classList.toggle("oculto", !PILHA.length); }
-function voltar(){ if(!PILHA.length) return; const st=PILHA.pop(); _restaurando=true; try{ if(st.t!==S.tab) setTab(st.t); S.gsub=st.g; S.compView=st.c; S.evView=st.e; render(); window.scrollTo(0,0); }finally{ _restaurando=false; } atualizaVoltar(); }
+function voltar(){ if(!PILHA.length) return; const st=PILHA.pop(); _restaurando=true; try{ if(st.t!==S.tab) setTab(st.t); S.gsub=st.g; S.compView=st.c; S.evView=st.e; S.resView=st.r||null; render(); window.scrollTo(0,0); }finally{ _restaurando=false; } atualizaVoltar(); }
 window.addEventListener("popstate",ev=>{ if(!ev.state || ev.state.iako==null) return; if(!document.getElementById("ov").hidden){ closeSheet(); return; } voltar(); });
 /* ----- frota: modelos ----- */
 const MODELOS_CANOA={OC6:6, V6:6, V3:3, V1:1, OC4:4, OC2:2, OC1:1};
@@ -4531,6 +4558,7 @@ function renderPainelX(el){
 }
 function renderPainelCompX(el){
   renderPainelComp(el);
+  el.insertAdjacentHTML("beforeend", painelResultadosHTML()); bindPainelResultados(el);
   el.insertAdjacentHTML("beforeend",`<div class="row" style="margin-top:12px"><button class="btn ghost small" id="pcExp">Exportar atletas</button></div>`);
   el.querySelector("#pcExp").addEventListener("click",()=>{ const ano=+todaySP().slice(0,4); const l=Object.entries(S.atletas||{}).filter(([u,a])=>cadastroCompOk(a)).map(([u,a])=>[nomeAtleta(u),a.naipe,idadeEm(a,ano)??"",catsDoAtleta(a,ano).map(c=>CATP[c]).join(", "),a.competiu==="sim"?a.comp_desde:"Nunca",a.pcd==="sim"?(PCD_TIPOS[a.pcd_tipo]||"Sim"):"Não"]); exportarLista("Atletas de competição", ["Nome","Naipe","Idade","Categorias","Compete desde","PCD"], l); });
 }
@@ -5792,6 +5820,143 @@ document.addEventListener("click",e=>{
 });
 document.addEventListener("change",async e=>{ if(e.target&&e.target.id==="hdrFoto"){ const f=e.target.files&&e.target.files[0]; fecharMenuUsuario(); if(!f) return; try{ await trocarFoto(f); }catch(er){ failWrite(er); } cabecalhoUsuario(); } });
 document.addEventListener("keydown",e=>{ if(e.key==="Escape") fecharMenuUsuario(); });
+/* ====================== Resultados de competição ====================== */
+function tempoSeg(t){ t=String(t||"").trim().replace(",","."); if(!t) return null; const p=t.split(":").map(Number); if(p.some(isNaN)) return null; return p.reduce((s,v)=>s*60+v,0); }
+function fmtSeg(s){ if(s==null||isNaN(s)) return "–"; const neg=s<0; s=Math.abs(s); const h=Math.floor(s/3600), m=Math.floor(s%3600/60), x=s%60; const ss=(Math.round(x*100)/100).toFixed(x%1?2:0).padStart(x%1?5:2,"0"); return (neg?"-":"")+(h?`${h}:${String(m).padStart(2,"0")}:${ss}`:`${m}:${ss}`); }
+function medalhaDe(c){ c=parseInt(c,10); return c===1?{ico:"🥇",nome:"Ouro",cls:"ouro",trofeu:"🏆"}:c===2?{ico:"🥈",nome:"Prata",cls:"prata"}:c===3?{ico:"🥉",nome:"Bronze",cls:"bronze"}:null; }
+function resultadosDe(p){ return Array.isArray(p&&p.resultados)?p.resultados:[]; }
+function difPrimeiro(r){ const a=tempoSeg(r.tempo), b=tempoSeg(r.tempo_primeiro); return (+r.colocacao!==1 && a!=null && b!=null)?a-b:null; }
+function todosResultados(){ const out=[]; Object.values(S.provas||{}).forEach(p=>resultadosDe(p).forEach((r,i)=>out.push(Object.assign({prova:p, idx:i}, r)))); return out.sort((a,b)=>(b.prova.data||"").localeCompare(a.prova.data||"")); }
+let _pfSub=false;
+function assinarFotosProva(){ if(_pfSub||!S.db) return; _pfSub=true; try{ S.db.collection("provafotos").onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=Object.assign({_id:d.id}, d.data()); }); S.pvFotos=m; if(S.tab==="competicao"||S.gsub==="painelcomp") render(); }, ()=>{}); }catch(_){} }
+function fotosProva(pid){ return Object.values(S.pvFotos||{}).filter(f=>f.prova===pid).sort((a,b)=>(a.criado||"").localeCompare(b.criado||"")); }
+function confete(n){ if(document.documentElement.classList.contains("rm")) return ""; const cores=["#F2B33D","#C0392B","#0B3A5B","#2B9F6A","#7A4FD0","#F04A12"]; return `<div class="confete" aria-hidden="true">${Array.from({length:n||36},(_,i)=>`<i style="left:${Math.round(Math.random()*100)}%;background:${cores[i%cores.length]};animation-delay:${(Math.random()*1.2).toFixed(2)}s;animation-duration:${(2.2+Math.random()*1.6).toFixed(2)}s;transform:rotate(${Math.round(Math.random()*360)}deg)"></i>`).join("")}</div>`; }
+function podioHTML(r){ const c=parseInt(r.colocacao,10); const deg=[2,1,3]; return `<div class="podio" role="img" aria-label="Pódio: ${esc(r.canoa)} em ${c}º lugar">${deg.map(k=>`<div class="pdg p${k} ${k===c?"nos":""}">${k===c?`<div class="pdcan"><span class="pdmed">${medalhaDe(k).ico}</span><b>${esc(r.canoa||"Canoa")}</b></div>`:`<div class="pdcan vazio">–</div>`}<div class="pdbloco"><span>${k}º</span></div></div>`).join("")}</div>`; }
+function mensagensProva(p){
+  const rs=resultadosDe(p), atletas=new Set(); rs.forEach(r=>(r.guarnicao||[]).forEach(g=>atletas.add(g.uid||g.nome)));
+  const m=[]; const ouro=rs.filter(r=>+r.colocacao===1), pod=rs.filter(r=>[2,3].includes(+r.colocacao));
+  ouro.forEach(r=>m.push(`🏆 Campeões! A ${r.canoa} levou o ouro em ${CATP[r.cat]||r.cat||"sua categoria"}. Obrigado, ${(r.guarnicao||[]).map(g=>g.nome.split(" ")[0]).join(", ")}!`));
+  pod.forEach(r=>m.push(`${medalhaDe(r.colocacao).ico} Pódio! ${r.canoa} conquistou a ${medalhaDe(r.colocacao).nome.toLowerCase()} em ${CATP[r.cat]||r.cat||""}.`));
+  rs.filter(r=>+r.colocacao>3).forEach(r=>{ const ant=todosResultados().find(x=>x.prova._id!==p._id && x.cat===r.cat && (x.prova.data||"")<(p.data||"") && +x.colocacao); if(ant && +ant.colocacao>+r.colocacao) m.push(`📈 Evolução! Em ${CATP[r.cat]||r.cat}, subimos do ${ant.colocacao}º para o ${r.colocacao}º lugar.`); else { const d=difPrimeiro(r); if(d!=null) m.push(`💪 ${r.canoa}: ${r.colocacao}º lugar, a ${fmtSeg(d)} do primeiro. Rumo ao pódio!`); } });
+  if(atletas.size) m.push(`🙏 Obrigado aos ${atletas.size} atletas que representaram o ${MARCA.nomeCurto||"clube"} nesta prova.`);
+  return m;
+}
+/* ---------- tela de resultados de uma prova ---------- */
+function renderResultadosProva(el,pid){
+  const p=S.provas[pid]; if(!p){ S.resView=null; renderCompeticao(); return; } assinarFotosProva();
+  const rs=resultadosDe(p), fotos=fotosProva(pid), pode=S.canAgenda, msgs=mensagensProva(p), temOuro=rs.some(r=>+r.colocacao===1);
+  const card=(r,i)=>{ const md=medalhaDe(r.colocacao), d=difPrimeiro(r);
+    return `<article class="rescard ${md?md.cls:""}">${md?`<div class="resmed" aria-hidden="true">${md.trofeu?`<span class="trof">${md.trofeu}</span>`:""}<span class="med">${md.ico}</span></div>`:""}
+      <div class="resinfo"><div class="row" style="gap:6px;align-items:baseline"><h3 style="margin:0">${esc(r.canoa||"Canoa")}</h3><span class="b">${esc(CATP[r.cat]||r.cat||"")}</span>${r.formacao?`<span class="b">${esc(TIPO_CANOA[r.formacao]||r.formacao)}</span>`:""}<span class="spacer"></span>${pode?`<button class="ib" data-red="${i}" aria-label="Editar resultado">✏️</button><button class="ib lixo" data-rdel="${i}" aria-label="Excluir resultado">🗑</button>`:""}</div>
+        <div class="resnum"><div><b>${r.colocacao?esc(r.colocacao)+"º":"–"}</b><span>colocação</span></div><div><b>${esc(r.tempo||"–")}</b><span>tempo</span></div>${+r.colocacao!==1&&r.tempo_primeiro?`<div><b>${esc(r.tempo_primeiro)}</b><span>tempo do 1º</span></div><div class="dif"><b>${d!=null?"+"+fmtSeg(d):"–"}</b><span>diferença</span></div>`:""}</div>
+        ${md?podioHTML(r):""}
+        <p class="resguar"><b>Guarnição:</b> ${(r.guarnicao||[]).map(g=>esc(g.nome)).join(", ")||"–"}</p>${r.obs?`<p class="hint" style="margin:0">${esc(r.obs)}</p>`:""}</div></article>`; };
+  el.innerHTML=`<button class="backbtn" id="resVolta">‹ Competição</button>
+    <div class="ag-head"><div><h2>Resultados: ${esc(p.nome)}</h2><p class="hint">${esc(dataCurta(p.data))}${p.local?", "+esc(p.local):""}</p></div><span class="spacer"></span>${pode?`<div class="row" style="gap:8px">${!rs.length&&tripulacoesDe(p).some(c=>c.bancos.some(Boolean))?`<button class="btn ghost small" id="resImp">Trazer canoas das tripulações</button>`:""}<button class="btn small" id="resAdd">+ Resultado</button></div>`:""}</div>
+    ${rs.length?`<div class="celebra ${temOuro?"ouro":""}">${temOuro?confete(40):""}<div class="medtot">${["🥇","🥈","🥉"].map((m,k)=>`<div><span>${m}</span><b>${rs.filter(r=>+r.colocacao===k+1).length}</b></div>`).join("")}<div><span>🛶</span><b>${rs.length}</b></div></div><div class="msgs">${msgs.map((t,k)=>`<p style="animation-delay:${k*0.25}s">${esc(t)}</p>`).join("")}</div></div>`:`<div class="empty">${pode?"Cadastre o resultado de cada canoa: categoria, colocação, tempo e guarnição.":"Os resultados desta prova ainda não foram publicados."}</div>`}
+    <div class="resgrid">${rs.map(card).join("")}</div>
+    <h3 class="sech">📁 Fotos da prova</h3>
+    ${pode?`<label class="btn ghost small" style="cursor:pointer">+ Adicionar fotos<input type="file" id="pfFile" accept="image/*" multiple hidden></label> <span class="hint" id="pfSt"></span>`:""}
+    ${fotos.length?`<div class="mural">${fotos.map(f=>`<figure><img src="${f.img}" alt="${esc(f.legenda||"")}" loading="lazy">${pode?`<button class="ib" data-pfdel="${esc(f._id)}" aria-label="Excluir foto">🗑</button>`:""}</figure>`).join("")}</div>`:`<p class="hint">Nenhuma foto ainda.</p>`}
+    ${rs.length?`<div class="row" style="gap:8px;margin-top:14px"><button class="btn ghost small" id="resWa">Enviar no WhatsApp</button><button class="btn ghost small" id="resXls">Excel</button></div>`:""}`;
+  el.querySelector("#resVolta").addEventListener("click",()=>{ S.resView=null; renderCompeticao(); });
+  const ad=el.querySelector("#resAdd"); if(ad) ad.addEventListener("click",()=>editResultado(pid,null));
+  const im=el.querySelector("#resImp"); if(im) im.addEventListener("click",async()=>{ const l=tripulacoesDe(p).filter(c=>c.bancos.some(Boolean)).map(c=>({id:rid(), canoa:c.nome, cat:c.cat, formacao:c.tipo, colocacao:"", tempo:"", tempo_primeiro:"", guarnicao:c.bancos.filter(Boolean).map(b=>({uid:b.uid, nome:b.nome}))})); try{ await S.db.doc("provas/"+pid).update({resultados:l}); S.provas[pid].resultados=l; toast(`${l.length} canoas trazidas. Agora informe colocação e tempo.`); render(); }catch(x){ failWrite(x); } });
+  el.querySelectorAll("[data-red]").forEach(b=>b.addEventListener("click",()=>editResultado(pid,+b.dataset.red)));
+  el.querySelectorAll("[data-rdel]").forEach(b=>b.addEventListener("click",async()=>{ if(!await ask("Excluir este resultado?","Excluir")) return; closeSheet(); const l=resultadosDe(S.provas[pid]).slice(); l.splice(+b.dataset.rdel,1); try{ await S.db.doc("provas/"+pid).update({resultados:l}); S.provas[pid].resultados=l; render(); }catch(x){ failWrite(x); } }));
+  const pf=el.querySelector("#pfFile"); if(pf) pf.addEventListener("change",async ev=>{ const fs=[...ev.target.files], st=el.querySelector("#pfSt"); let n=0; for(const f of fs){ st.textContent=`Enviando ${++n} de ${fs.length}…`; try{ const img=await comprimirFotoMax(f,1100,.72); await S.db.doc("provafotos/"+pid+"_"+Date.now().toString(36)+rid()).set({prova:pid, img, legenda:"", criado:new Date().toISOString()}); }catch(x){ failWrite(x); } } st.textContent=""; toast("Fotos adicionadas"); });
+  el.querySelectorAll("[data-pfdel]").forEach(b=>b.addEventListener("click",async()=>{ try{ await S.db.doc("provafotos/"+b.dataset.pfdel).delete(); }catch(x){ failWrite(x); } }));
+  const wa=el.querySelector("#resWa"); if(wa) wa.addEventListener("click",()=>compartilharWhats("competicao", textoResultados(p)));
+  const xl=el.querySelector("#resXls"); if(xl) xl.addEventListener("click",()=>excelResultados([p]));
+}
+function textoResultados(p){ let s=`*RESULTADOS: ${p.nome.toUpperCase()}*\n${dataCurta(p.data)}${p.local?", "+p.local:""}\n`; resultadosDe(p).slice().sort((a,b)=>(+a.colocacao||99)-(+b.colocacao||99)).forEach(r=>{ const md=medalhaDe(r.colocacao); s+=`\n${md?(md.trofeu||"")+md.ico+" ":""}*${r.canoa}* – ${CATP[r.cat]||r.cat||""}: ${r.colocacao?r.colocacao+"º":"–"}${r.tempo?`, ${r.tempo}`:""}${difPrimeiro(r)!=null?` (+${fmtSeg(difPrimeiro(r))} do 1º)`:""}\n${(r.guarnicao||[]).map(g=>g.nome).join(", ")}\n`; }); mensagensProva(p).forEach(m=>s+=`\n${m}`); return s; }
+function editResultado(pid, idx){
+  const p=S.provas[pid], l=resultadosDe(p).slice(), r=idx!=null?JSON.parse(JSON.stringify(l[idx])):{id:rid(), canoa:"", cat:(p.categorias||[])[0]||"OPEN", formacao:"X", colocacao:"", tempo:"", tempo_primeiro:"", guarnicao:[]};
+  let gu=(r.guarnicao||[]).slice();
+  const pool=[...inscritosProva(p).map(x=>({uid:x.uid,nome:x.nome})), ...S.alunos.filter(a=>statusAluno(a)!=="inativo").map(a=>({uid:a._id,nome:a.nome}))].filter((x,i,arr)=>arr.findIndex(y=>y.uid===x.uid)===i).sort((a,b)=>a.nome.localeCompare(b.nome,"pt-BR"));
+  const fr=(S.config.canoas||[]).map(c=>c.nome);
+  openSheet(`<div class="head"><h2>${idx!=null?"Editar":"Novo"} resultado</h2><button class="x" aria-label="Fechar">×</button></div>
+    <form id="fres"><div class="grid">
+      <label class="f">Canoa<input name="canoa" list="frlist" required value="${esc(r.canoa)}" placeholder="Nome da canoa"><datalist id="frlist">${fr.map(n=>`<option value="${esc(n)}">`).join("")}</datalist></label>
+      <label class="f">Categoria<select name="cat">${CATEG_PROVA.map(([k,lb])=>`<option value="${k}" ${r.cat===k?"selected":""}>${lb}</option>`).join("")}</select></label>
+      <label class="f">Formação<select name="formacao">${Object.entries(TIPO_CANOA).map(([k,lb])=>`<option value="${k}" ${r.formacao===k?"selected":""}>${lb}</option>`).join("")}</select></label>
+      <label class="f">Colocação<input name="colocacao" inputmode="numeric" value="${esc(r.colocacao)}" placeholder="Ex.: 1"></label>
+      <label class="f">Tempo da prova<input name="tempo" value="${esc(r.tempo)}" placeholder="Ex.: 1:12:35 ou 58:20"></label>
+      <label class="f" id="tp1">Tempo do 1º colocado<input name="tempo_primeiro" value="${esc(r.tempo_primeiro)}" placeholder="Ex.: 1:10:02"></label>
+      <div class="full" id="resMed"></div>
+      <label class="f full">Observação<input name="obs" value="${esc(r.obs||"")}" placeholder="Ex.: mar mexido, largada atrasada"></label></div>
+      <h3 class="sech">Guarnição</h3><div class="ocup" id="gOc"></div>
+      <div class="row" style="gap:8px;margin-top:8px;flex-wrap:wrap"><select id="gSel" class="finsel" style="flex:1;min-width:200px"><option value="">Adicionar atleta…</option>${pool.map(x=>`<option value="${esc(x.uid)}">${esc(x.nome)}</option>`).join("")}</select><input id="gNome" class="finq" placeholder="Ou digite um nome"><button type="button" class="btn ghost small" id="gAdd">Adicionar</button></div>
+      <div class="row" style="margin-top:14px"><span class="spacer"></span><button type="button" class="btn ghost" id="cRes">Cancelar</button><button class="btn" type="submit">Salvar</button></div></form>`, root=>{
+    const f=root.querySelector("#fres");
+    const med=()=>{ const c=parseInt(f.colocacao.value,10), md=medalhaDe(c); root.querySelector("#tp1").classList.toggle("oculto", c===1); const a=tempoSeg(f.tempo.value), b=tempoSeg(f.tempo_primeiro.value);
+      root.querySelector("#resMed").innerHTML=md?`<div class="medprev ${md.cls}">${md.trofeu?md.trofeu+" ":""}${md.ico} <b>${md.nome}</b>${c===1?" · Campeões!":""}</div>`:(c&&a!=null&&b!=null?`<div class="medprev">Diferença para o 1º: <b>+${fmtSeg(a-b)}</b></div>`:""); };
+    const draw=()=>{ root.querySelector("#gOc").innerHTML=gu.length?gu.map((g,i)=>`<span class="oc ${g.uid?"":"conv"}">${esc(g.nome)}<button type="button" data-gr="${i}" aria-label="Tirar ${esc(g.nome)}">×</button></span>`).join(""):`<span class="hint">Ninguém ainda.</span>`; root.querySelectorAll("[data-gr]").forEach(b=>b.onclick=()=>{ gu.splice(+b.dataset.gr,1); draw(); }); };
+    ["colocacao","tempo","tempo_primeiro"].forEach(n=>f[n].addEventListener("input",med)); med(); draw();
+    root.querySelector("#gSel").addEventListener("change",e=>{ const u=e.target.value; if(u&&!gu.some(g=>g.uid===u)){ const x=pool.find(z=>z.uid===u); gu.push({uid:u,nome:x.nome}); } e.target.value=""; draw(); });
+    root.querySelector("#gAdd").addEventListener("click",()=>{ const i=root.querySelector("#gNome"), n=i.value.trim(); if(n){ gu.push({nome:n}); i.value=""; draw(); } });
+    root.querySelector("#cRes").addEventListener("click",closeSheet);
+    f.addEventListener("submit",async ev=>{ ev.preventDefault(); const g=k=>(f[k].value||"").trim(); const col=g("colocacao").replace(/[^\d]/g,"");
+      if(g("tempo") && tempoSeg(g("tempo"))==null){ toast("Tempo inválido. Use 1:12:35 ou 58:20"); return; }
+      const o=Object.assign(r,{canoa:g("canoa"), cat:g("cat"), formacao:g("formacao"), colocacao:col, tempo:g("tempo"), tempo_primeiro:col==="1"?"":g("tempo_primeiro"), obs:g("obs"), guarnicao:gu});
+      if(idx!=null) l[idx]=o; else l.push(o);
+      try{ await S.db.doc("provas/"+pid).update({resultados:l}); S.provas[pid].resultados=l; auditar("Resultado registrado",`${p.nome}: ${o.canoa} ${col?col+"º":""}`); closeSheet(); toast(medalhaDe(col)?`${medalhaDe(col).ico} Resultado salvo. Parabéns!`:"Resultado salvo"); render(); }catch(x){ failWrite(x); } });
+  });
+}
+async function excelResultados(provas){
+  toast("Gerando planilha…");
+  const L=[["Data","Prova","Local","Categoria","Formação","Canoa","Colocação","Medalha","Tempo","Tempo do 1º","Diferença","Guarnição"]];
+  provas.forEach(p=>resultadosDe(p).forEach(r=>{ const d=difPrimeiro(r), md=medalhaDe(r.colocacao); L.push([dataCurta(p.data),p.nome,p.local||"",CATP[r.cat]||r.cat||"",TIPO_CANOA[r.formacao]||"",r.canoa,r.colocacao?+r.colocacao:"",md?md.nome:"",r.tempo||"",r.tempo_primeiro||"",d!=null?"+"+fmtSeg(d):"",(r.guarnicao||[]).map(g=>g.nome).join(", ")]); }));
+  const A=rankingAtletas(), RA=[["Atleta","Provas","Ouro","Prata","Bronze","Pódios","Melhor colocação","Último resultado"]]; A.forEach(a=>RA.push([a.nome,a.provas,a.ouro,a.prata,a.bronze,a.ouro+a.prata+a.bronze,a.melhor||"",a.ultimo||""]));
+  const fills={1:"F2C94C",2:"D9D9D9",3:"E0A36B"};
+  try{ await excelLivro([{nome:"Resultados", linhas:L, larguras:[11,28,18,12,11,16,10,9,10,11,10,60], estilos:(ws,X)=>{ for(let c=0;c<L[0].length;c++) ws[X.utils.encode_cell({r:0,c})].s=ST_HEAD; for(let r=1;r<L.length;r++){ const v=L[r][6]; if(fills[v]) for(let c=0;c<L[0].length;c++){ const a=X.utils.encode_cell({r,c}); if(ws[a]) ws[a].s={fill:{fgColor:{rgb:fills[v]}}}; } } }},{nome:"Atletas", linhas:RA, larguras:[28,8,7,7,8,8,15,30], estilos:(ws,X)=>{ for(let c=0;c<RA[0].length;c++) ws[X.utils.encode_cell({r:0,c})].s=ST_HEAD; }}], provas.length===1?`resultados-${nomeArq(provas[0].nome)}`:"resultados-competicoes"); }
+  catch(x){ console.warn(x); toast("Não foi possível gerar a planilha"); }
+}
+function rankingAtletas(){
+  const m={}; todosResultados().forEach(r=>{ const c=+r.colocacao||null; (r.guarnicao||[]).forEach(g=>{ const k=g.uid||("n:"+g.nome); const a=m[k]||(m[k]={nome:g.nome, uid:g.uid, provasSet:new Set(), ouro:0,prata:0,bronze:0, melhor:null, ultimo:""}); a.provasSet.add(r.prova._id); if(c===1)a.ouro++; if(c===2)a.prata++; if(c===3)a.bronze++; if(c&&(a.melhor==null||c<a.melhor)) a.melhor=c; if(!a.ultimo) a.ultimo=`${r.prova.nome}: ${c?c+"º":"–"}`; }); });
+  return Object.values(m).map(a=>Object.assign(a,{provas:a.provasSet.size})).sort((x,y)=>(y.ouro-x.ouro)||(y.prata-x.prata)||(y.bronze-x.bronze)||(y.provas-x.provas)||x.nome.localeCompare(y.nome,"pt-BR"));
+}
+/* ---------- conquistas (aba Provas) e painel ---------- */
+function conquistasHTML(lim){
+  const rs=todosResultados().filter(r=>r.colocacao); if(!rs.length) return "";
+  const tot=k=>rs.filter(r=>+r.colocacao===k).length;
+  const ult=rs.filter(r=>medalhaDe(r.colocacao)).slice(0,lim||4);
+  return `<div class="dayhdr" style="margin-top:24px">🏆 Conquistas do clube</div><div class="conq"><div class="medtot">${["🥇","🥈","🥉"].map((m,k)=>`<div><span>${m}</span><b>${tot(k+1)}</b></div>`).join("")}<div><span>🏁</span><b>${new Set(rs.map(r=>r.prova._id)).size}</b><small>provas</small></div></div>
+    ${ult.length?`<div class="conqlist">${ult.map(r=>`<button class="conqit ${medalhaDe(r.colocacao).cls}" data-resv="${esc(r.prova._id)}"><span class="med">${medalhaDe(r.colocacao).ico}</span><span><b>${esc(r.canoa)}</b> · ${esc(CATP[r.cat]||r.cat||"")}<small>${esc(r.prova.nome)}, ${esc(dataCurta(r.prova.data))}${r.tempo?` · ${esc(r.tempo)}`:""}</small></span></button>`).join("")}</div>`:""}</div>`;
+}
+function painelResultadosHTML(){
+  const rs=todosResultados(); assinarFotosProva();
+  const F=S.prf||(S.prf={ano:"", cat:""});
+  const anos=[...new Set(rs.map(r=>(r.prova.data||"").slice(0,4)).filter(Boolean))].sort().reverse();
+  const f=rs.filter(r=>(!F.ano||(r.prova.data||"").startsWith(F.ano))&&(!F.cat||r.cat===F.cat));
+  const comCol=f.filter(r=>+r.colocacao), ouro=comCol.filter(r=>+r.colocacao===1).length, prata=comCol.filter(r=>+r.colocacao===2).length, bronze=comCol.filter(r=>+r.colocacao===3).length;
+  const podPct=comCol.length?Math.round((ouro+prata+bronze)/comCol.length*100):0;
+  const provasR=[...new Map(f.map(r=>[r.prova._id,r.prova])).values()].sort((a,b)=>(a.data||"").localeCompare(b.data||""));
+  const porProva=provasR.map(p=>{ const l=f.filter(r=>r.prova._id===p._id); return {p, o:l.filter(r=>+r.colocacao===1).length, pr:l.filter(r=>+r.colocacao===2).length, b:l.filter(r=>+r.colocacao===3).length, media:(()=>{ const c=l.map(r=>+r.colocacao).filter(Boolean); return c.length?c.reduce((s,v)=>s+v,0)/c.length:null; })()}; });
+  const maxM=Math.max(1,...porProva.map(x=>x.o+x.pr+x.b));
+  const ranking=rankingAtletas().slice(0,15), fotos=Object.values(S.pvFotos||{}).sort((a,b)=>(b.criado||"").localeCompare(a.criado||"")).slice(0,8);
+  const msgs=provasR.slice(-2).reverse().flatMap(p=>mensagensProva(p)).slice(0,4);
+  return `<h3 class="sech" style="margin-top:24px">🏆 Resultados e conquistas</h3>
+    <div class="slicers"><div class="slc"><span>Ano</span><div class="seg"><button data-prano="" aria-pressed="${!F.ano}">Todos</button>${anos.map(a=>`<button data-prano="${a}" aria-pressed="${F.ano===a}">${a}</button>`).join("")}</div></div>
+      <div class="slc"><span>Categoria</span><div class="seg"><button data-prcat="" aria-pressed="${!F.cat}">Todas</button>${CATEG_PROVA.map(([k,l])=>`<button data-prcat="${k}" aria-pressed="${F.cat===k}">${l}</button>`).join("")}</div></div></div>
+    <div class="tiles" style="margin-top:10px"><div class="tile"><span>Provas</span><b>${provasR.length}</b><small>com resultado</small></div><div class="tile ouro"><span>🥇 Ouro</span><b>${ouro}</b><small>títulos</small></div><div class="tile prata"><span>🥈 Prata</span><b>${prata}</b><small>vice</small></div><div class="tile bronze"><span>🥉 Bronze</span><b>${bronze}</b><small>terceiros</small></div><div class="tile"><span>Pódios</span><b>${podPct}%</b><small>das canoas</small></div><div class="tile"><span>Medalhistas</span><b>${rankingAtletas().filter(a=>a.ouro+a.prata+a.bronze).length}</b><small>atletas</small></div></div>
+    ${msgs.length?`<div class="celebra mini">${msgs.map((t,k)=>`<p style="animation-delay:${k*0.25}s">${esc(t)}</p>`).join("")}</div>`:""}
+    <div class="dgrid">
+      <section class="dcard span2"><h3 class="dtit">Medalhas por prova</h3>${porProva.length?`<div class="cols" style="height:200px">${porProva.map(x=>`<button class="colb" data-resv="${esc(x.p._id)}" aria-label="${esc(x.p.nome)}: ${x.o} ouro, ${x.pr} prata, ${x.b} bronze"><em>${x.o+x.pr+x.b||""}</em><span class="cbar" style="flex-direction:column-reverse">${[["o","#F2C94C"],["pr","#BFC5CC"],["b","#D08C4E"]].map(([k,c])=>`<i style="height:${x[k]/maxM*100}%;background:${c};border-radius:0"></i>`).join("")}</span><b>${esc(x.p.nome.slice(0,12))}</b><small>${esc(dataCurta(x.p.data))}</small></button>`).join("")}</div><div class="legend"><span><i style="background:#F2C94C"></i>Ouro</span><span><i style="background:#BFC5CC"></i>Prata</span><span><i style="background:#D08C4E"></i>Bronze</span></div>`:`<p class="hint">Cadastre resultados nas provas para ver a evolução.</p>`}</section>
+      <section class="dcard"><h3 class="dtit">Colocação média</h3>${porProva.filter(x=>x.media).length?`<div class="catbars">${porProva.filter(x=>x.media).map(x=>`<div class="cb" style="cursor:default"><span>${esc(x.p.nome.slice(0,18))}</span><span class="cbt"><i style="width:${Math.max(8,100-(x.media-1)*12)}%;background:#2B9F6A"></i></span><b>${fmtN(x.media,1)}º</b></div>`).join("")}</div><p class="hint" style="margin:6px 0 0">Quanto maior a barra, mais perto do 1º lugar.</p>`:`<p class="hint">Sem colocações ainda.</p>`}</section>
+    </div>
+    <section class="dcard"><div class="row"><h3 class="dtit" style="margin:0">Controle dos competidores</h3><span class="spacer"></span><button class="btn ghost small" id="prXls">Excel geral</button></div>
+      <div class="scroll-x" style="margin-top:10px">${ranking.length?`<table class="fintab"><thead><tr><th style="text-align:left">Atleta</th><th>Provas</th><th>🥇</th><th>🥈</th><th>🥉</th><th>Melhor</th><th style="text-align:left">Último resultado</th></tr></thead><tbody>${ranking.map(a=>`<tr><th scope="row">${esc(a.nome)}</th><td>${a.provas}</td><td>${a.ouro||""}</td><td>${a.prata||""}</td><td>${a.bronze||""}</td><td>${a.melhor?a.melhor+"º":"–"}</td><td style="text-align:left">${esc(a.ultimo)}</td></tr>`).join("")}</tbody></table>`:`<p class="hint">As guarnições aparecem aqui quando os resultados forem cadastrados.</p>`}</div></section>
+    <section class="dcard"><h3 class="dtit">Tempos e resultados</h3><div class="scroll-x">${f.length?`<table class="fintab"><thead><tr><th>Data</th><th style="text-align:left">Prova</th><th>Categoria</th><th style="text-align:left">Canoa</th><th>Colocação</th><th>Tempo</th><th>Do 1º</th></tr></thead><tbody>${f.map(r=>{ const md=medalhaDe(r.colocacao), d=difPrimeiro(r); return `<tr><td>${esc(dataCurta(r.prova.data))}</td><th scope="row"><button class="linkbtn" data-resv="${esc(r.prova._id)}">${esc(r.prova.nome)}</button></th><td>${esc(CATP[r.cat]||r.cat||"")}</td><td style="text-align:left">${esc(r.canoa)}</td><td>${md?md.ico+" ":""}${r.colocacao?esc(r.colocacao)+"º":"–"}</td><td>${esc(r.tempo||"–")}</td><td>${d!=null?"+"+fmtSeg(d):md&&+r.colocacao===1?"🏆":"–"}</td></tr>`; }).join("")}</tbody></table>`:`<p class="hint">Nenhum resultado com esses filtros.</p>`}</div></section>
+    ${fotos.length?`<section class="dcard"><h3 class="dtit">📸 Mural das provas</h3><div class="mural">${fotos.map(f2=>`<figure><img src="${f2.img}" alt="" loading="lazy"><figcaption>${esc((S.provas[f2.prova]||{}).nome||"")}</figcaption></figure>`).join("")}</div></section>`:""}`;
+}
+function bindPainelResultados(el){
+  el.querySelectorAll("[data-prano]").forEach(b=>b.addEventListener("click",()=>{ S.prf.ano=b.dataset.prano; renderPerfil(); }));
+  el.querySelectorAll("[data-prcat]").forEach(b=>b.addEventListener("click",()=>{ S.prf.cat=b.dataset.prcat; renderPerfil(); }));
+  const x=el.querySelector("#prXls"); if(x) x.addEventListener("click",()=>excelResultados(Object.values(S.provas).filter(p=>resultadosDe(p).length).sort((a,b)=>(a.data||"").localeCompare(b.data||""))));
+}
+document.addEventListener("click",e=>{ const b=e.target.closest&&e.target.closest("[data-resv]"); if(!b) return; if(!document.getElementById("ov").hidden) closeSheet(); empilhar(); S.resView=b.dataset.resv; if(S.tab!=="competicao") setTab("competicao"); S.resView=b.dataset.resv; renderCompeticao(); window.scrollTo(0,0); });
+
 /* ---------- render ---------- */
 function render(){
   try{ cabecalhoUsuario(); }catch(_){}
