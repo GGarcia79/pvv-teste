@@ -854,6 +854,7 @@ html[dir="rtl"] .bubble::after{display:none}
 .mareline span{display:block;color:var(--muted);font-size:13px}
 .mareline.enchente{background:#E1F0FA;color:#14577A} .mareline.vazante{background:#EAF3EE;color:#1E6B45} .mareline.estofo{background:var(--warn-soft);color:var(--warn)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mareline.enchente{background:#16384A;color:#9CD3EE} :root:not([data-theme="light"]) .mareline.vazante{background:#173A29;color:#9BDDB7}}
+:root[data-theme="dark"] .mareline.enchente{background:#16384A;color:#9CD3EE} :root[data-theme="dark"] .mareline.vazante{background:#173A29;color:#9BDDB7}
 .b.mare-enchente{background:#E1F0FA;color:#14577A} .b.mare-vazante{background:#EAF3EE;color:#1E6B45} .b.mare-estofo{background:var(--warn-soft);color:var(--warn)}
 .vagas{display:flex;gap:6px;margin-top:8px}
 .vagas>div{flex:1;background:var(--surface-2);border-radius:8px;padding:5px 6px;text-align:center;min-width:0}
@@ -3830,7 +3831,11 @@ function botaoTraduzir(txt){ if(LANG==="pt-BR"||LANG==="pt-PT"||!txt) return "";
 const A11Y_KEY="iako-a11y";
 function a11yGet(){ try{ return Object.assign({fonte:1, contraste:false, reduzir:false}, JSON.parse(localStorage.getItem(A11Y_KEY)||"{}")); }catch(_){ return {fonte:1, contraste:false, reduzir:false}; } }
 function a11ySet(o){ try{ localStorage.setItem(A11Y_KEY, JSON.stringify(o)); }catch(_){} aplicarA11y(); }
-function aplicarA11y(){ const a=a11yGet(); document.body.style.zoom = a.fonte; document.documentElement.classList.toggle("hc", !!a.contraste); REDUZ = !!a.reduzir || (()=>{ try{ return matchMedia("(prefers-reduced-motion: reduce)").matches; }catch(_){ return false; } })(); document.documentElement.classList.toggle("rm", REDUZ); }
+const TEMAS={auto:"Automático", claro:"Claro", escuro:"Escuro"};
+function aplicarTema(){ const t=a11yGet().tema||"auto", r=document.documentElement; if(t==="claro") r.dataset.theme="light"; else if(t==="escuro") r.dataset.theme="dark"; else delete r.dataset.theme;
+  const escuro = t==="escuro" || (t==="auto" && (()=>{ try{ return matchMedia("(prefers-color-scheme: dark)").matches; }catch(_){ return false; } })());
+  let m=document.querySelector('meta[name="color-scheme"]'); if(!m){ m=document.createElement("meta"); m.name="color-scheme"; document.head.appendChild(m); } m.content=t==="auto"?"light dark":escuro?"dark":"light"; }
+function aplicarA11y(){ const a=a11yGet(); aplicarTema(); document.body.style.zoom = a.fonte; document.documentElement.classList.toggle("hc", !!a.contraste); REDUZ = !!a.reduzir || (()=>{ try{ return matchMedia("(prefers-reduced-motion: reduce)").matches; }catch(_){ return false; } })(); document.documentElement.classList.toggle("rm", REDUZ); }
 const TEM_VOZ = "speechSynthesis" in window;
 const Reconhecedor = window.SpeechRecognition || window.webkitSpeechRecognition || null;
 function vozLang(){ return {"pt-BR":"pt-BR","pt-PT":"pt-PT",en:"en-US",es:"es-ES",fr:"fr-FR",zh:"zh-CN",hi:"hi-IN",ar:"ar-SA",bn:"bn-BD",ru:"ru-RU"}[LANG]||"pt-BR"; }
@@ -3843,6 +3848,8 @@ function abrirIdiomaA11y(){
     <h3 class="sech" style="margin-top:4px">${tr("Idioma")}</h3>
     <div class="langs" role="radiogroup" aria-label="${tr("Idioma")}">${IDIOMAS.map(([k,n])=>`<label class="opt"><input type="radio" name="lang" value="${k}" ${LANG===k?"checked":""}><span lang="${k}">${n}</span></label>`).join("")}</div>
     <p class="hint">Menus, botões e títulos mudam de idioma. Para comunicados e textos longos, use o botão Traduzir.</p>
+    <h3 class="sech">Aparência</h3>
+    <div class="grade-row"><div><b>Tema</b><div class="hint" style="margin:0">Automático segue o modo claro ou escuro do celular ou do computador.</div></div><span class="spacer"></span><div class="seg" role="radiogroup" aria-label="Tema">${Object.entries(TEMAS).map(([k,l])=>`<button type="button" data-tema="${k}" aria-pressed="${(a.tema||"auto")===k}">${k==="claro"?"☀️ ":k==="escuro"?"🌙 ":"🌓 "}${l}</button>`).join("")}</div></div>
     <h3 class="sech">${tr("Acessibilidade")}</h3>
     <div class="grade-row"><div><b>${tr("Tamanho do texto")}</b></div><span class="spacer"></span><div class="seg" role="radiogroup">${[[1,"A"],[1.15,"A+"],[1.3,"A++"]].map(([v,l])=>`<button type="button" data-fz="${v}" aria-pressed="${a.fonte==v}" aria-label="${tr("Tamanho do texto")} ${l}">${l}</button>`).join("")}</div></div>
     <div class="grade-row"><div><b>${tr("Alto contraste")}</b></div><span class="spacer"></span><label class="chk"><input type="checkbox" id="aHc" ${a.contraste?"checked":""}> Ativo</label></div>
@@ -3852,6 +3859,7 @@ function abrirIdiomaA11y(){
     <div class="grade-row"><div><b>Notificações do celular</b><div class="hint" style="margin:0" id="aNotT">${!("Notification" in window)?"Não disponível neste navegador":Notification.permission==="granted"?"Ativadas":Notification.permission==="denied"?"Bloqueadas nas configurações do navegador":"Desativadas"}</div></div><span class="spacer"></span>${("Notification" in window)&&Notification.permission==="default"?`<button class="btn ghost small" id="aNot">Ativar</button>`:""}</div>
     <div class="row" style="gap:8px;margin-top:12px">${TEM_VOZ?`<button class="btn ghost" id="aOuvir">${tr("Ouvir esta tela")}</button><button class="btn ghost" id="aAgVoz">🔊 Agendar por voz</button>`:""}${S.role==="aluno"?`<button class="btn" id="aVoz">${tr("Cadastro por voz")}</button>`:""}</div>`, root=>{
     root.querySelectorAll("[name=lang]").forEach(r=>r.addEventListener("change",()=>{ closeSheet(); mudarIdioma(r.value); }));
+    root.querySelectorAll("[data-tema]").forEach(b=>b.addEventListener("click",()=>{ const o=a11yGet(); o.tema=b.dataset.tema; a11ySet(o); root.querySelectorAll("[data-tema]").forEach(x=>x.setAttribute("aria-pressed", x===b)); }));
     root.querySelectorAll("[data-fz]").forEach(b=>b.addEventListener("click",()=>{ const o=a11yGet(); o.fonte=+b.dataset.fz; a11ySet(o); root.querySelectorAll("[data-fz]").forEach(x=>x.setAttribute("aria-pressed", x===b)); }));
     root.querySelector("#aHc").addEventListener("change",e=>{ const o=a11yGet(); o.contraste=e.target.checked; a11ySet(o); });
     root.querySelector("#aRd").addEventListener("change",e=>{ const o=a11yGet(); o.reduzir=e.target.checked; a11ySet(o); render(); });
@@ -5815,6 +5823,7 @@ function cabecalhoUsuario(){
       <div class="whohead">${avatar(nome, foto, "big")}<div><b>${esc(completo)}</b><span>${esc(papel)}</span></div></div>
       <label class="whoit" role="menuitem" tabindex="0">📷 Trocar foto de perfil<input type="file" accept="image/*" id="hdrFoto" hidden></label>
       <button class="whoit" role="menuitem" id="hdrPerfil">👤 ${S.canAgenda?"Gestão e perfil":"Meu perfil"}</button>
+      <button class="whoit" role="menuitem" id="hdrTema">${{auto:"🌓",claro:"☀️",escuro:"🌙"}[a11yGet().tema||"auto"]} Tema: ${TEMAS[a11yGet().tema||"auto"]}</button>
       <button class="whoit" role="menuitem" id="hdrIdioma">🌐 Idioma e acessibilidade</button>
       ${FB?`<button class="whoit sair" role="menuitem" id="hdrSair">↩ Sair da conta</button>`:""}
     </div>`;
@@ -5825,6 +5834,7 @@ document.addEventListener("click",e=>{
   const t=e.target;
   if(t.closest&&t.closest("#whoBtn")){ S.whoAberto=!S.whoAberto; const m=$("#whoMenu"); if(m) m.hidden=!S.whoAberto; $("#whoBtn").setAttribute("aria-expanded",String(!!S.whoAberto)); const el=$("#who"); if(el) el.__html=null; return; }
   if(t.closest&&t.closest("#hdrPerfil")){ fecharMenuUsuario(); setTab("perfil"); return; }
+  if(t.closest&&t.closest("#hdrTema")){ const o=a11yGet(), ord=["auto","claro","escuro"]; o.tema=ord[(ord.indexOf(o.tema||"auto")+1)%3]; a11ySet(o); const el=$("#who"); if(el) el.__html=null; cabecalhoUsuario(); toast(`Tema: ${TEMAS[o.tema]}`); return; }
   if(t.closest&&t.closest("#hdrIdioma")){ fecharMenuUsuario(); abrirIdiomaA11y(); return; }
   if(t.closest&&t.closest("#hdrSair")){ fecharMenuUsuario(); if(FB) FB.sair(); return; }
   if(S.whoAberto && !(t.closest&&t.closest("#whoMenu"))) fecharMenuUsuario();
