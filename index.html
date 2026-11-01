@@ -423,6 +423,10 @@ nav.bottom button.novo{background:#FFD21A;color:#3A2F00}
 nav.bottom button.novo svg{color:#3A2F00}
 nav.tabs button.novo{background:#FFD21A;color:#3A2F00}
 .btn:disabled{opacity:.45;cursor:not-allowed}
+.fer{color:#3A2F00}.fer.ponte{color:#0B2A40}.fer b{color:inherit}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.ghost{color:var(--ink)}}
+:root[data-theme="dark"] .btn.ghost{color:var(--ink)}
+@media (max-width:700px){.top-in{flex-wrap:nowrap!important}.top-in>div:not(.who){min-width:0;flex:1 1 auto;overflow:hidden}.top h1{overflow:hidden;text-overflow:ellipsis;font-size:19px}#sub{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.top-in .logo{width:40px;height:40px;flex:none}.top-in>.hbtn,#btnIdioma{flex:none}}
 .lancar{background:var(--surface);border:2px solid #E5B92B;border-radius:16px;padding:12px 14px;margin:8px 0 12px;display:grid;gap:10px}.lancar>div:first-child b{display:block;font-size:17px}.lancar>div:first-child span{color:var(--muted);font-size:14px}
 .lancl{display:grid;gap:8px}@media (min-width:760px){.lancl{grid-template-columns:1fr 1fr}}
 .lancit{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;align-items:center;text-align:left;border:1px solid var(--line);background:var(--surface-2);border-radius:12px;padding:10px 12px;cursor:pointer;font:inherit;color:var(--ink)}.lancit small{grid-column:1;color:var(--muted)}.lancit .btn{grid-column:2;grid-row:1/3}
@@ -1060,7 +1064,7 @@ function setTab(t){
   if(window.__navOk && t!==S.tab && !_restaurando) empilhar();
   S.tab = t;
   document.querySelectorAll("nav [data-tab]").forEach(b => b.setAttribute("aria-current", (b.dataset.tab===t || (b.dataset.tab==="perfil" && SUB_PERFIL.includes(t))) ? "page" : "false"));
-  S.gsub=null; if(t!=="competicao"){ S.compView=null; S.resView=null; } if(t!=="eventos") S.evView=null;
+  S.gsub=null; if(t!=="competicao"){ S.compView=null; S.resView=null; S.pcView=false; } if(t!=="eventos") S.evView=null;
   TABS.forEach(k => $("#v-"+k).hidden = k!==t);
   if(location.hash !== "#"+t) history.replaceState(history.state,"","#"+t);
   render();
@@ -2514,13 +2518,14 @@ function diasAte(iso){ return Math.round((new Date(iso+"T12:00:00")-new Date(tod
 function renderCompeticao(){
   const el=$("#compBody");
   if(!S.db){ el.innerHTML=`<div class="locked"><h3>Competição indisponível aqui</h3><p>Abra este app pelo Claude, conectado à sua conta.</p></div>`; return; }
+  if(S.pcView && podePainelComp()){ el.innerHTML=`<button class="backbtn" id="pcVolta">‹ Competição</button><div id="pcBody"></div>`; el.querySelector("#pcVolta").addEventListener("click",()=>{ S.pcView=false; renderCompeticao(); }); renderPainelCompX(el.querySelector("#pcBody")); return; }
   if(S.resView && S.provas[S.resView]){ renderResultadosProva(el, S.resView); return; }
   if(S.compView && S.canAgenda){ renderTripulacoes(el, S.compView); return; }
   const h=todaySP();
   const provas=Object.values(S.provas).sort((a,b)=>(a.data||"").localeCompare(b.data||""));
   const futuras=provas.filter(p=>(p.data_fim||p.data)>=h), passadas=provas.filter(p=>(p.data_fim||p.data)<h).reverse();
   const prox=futuras.find(p=>p.status!=="cancelada");
-  let html=`<div class="ag-head"><div><h2>Competição</h2><p class="hint">Provas, treinos por categoria e equipe.</p></div><span class="spacer"></span>${S.canEdit?`<button class="btn small" id="newPv">Nova prova</button>`:""}</div>`;
+  let html=`<div class="ag-head"><div><h2>Competição</h2><p class="hint">Provas, treinos por categoria e equipe.</p></div><span class="spacer"></span>${podePainelComp()?`<button class="btn ghost small" id="pcOpen">📊 Painel de competição</button>`:""}${S.canAgenda?`<button class="btn small" id="newPv">Nova prova</button>`:""}</div>`;
   if(prox){
     const dd=diasAte(prox.data), insc=prox.inscricao_ate?diasAte(prox.inscricao_ate):null;
     html+=`<button class="hero" data-pv="${esc(prox._id)}"><div class="hk">Próxima prova</div><div class="hn">${dd===0?"Hoje":dd===1?"Amanhã":`Faltam ${dd} dias`}</div>
@@ -2533,11 +2538,11 @@ function renderCompeticao(){
   const treinos=Object.values(S.turmas).filter(t=>t.categoria && (t.data>h || (t.data===h && Date.now()<startMs(t)+3*3600e3)))
     .sort((a,b)=>(a.data+a.inicio).localeCompare(b.data+b.inicio));
   html+=`<div class="dayhdr" style="margin-top:24px">Treinos da equipe</div>`;
-  if(!treinos.length) html+=`<div class="empty">${S.canEdit?"Nenhum treino aberto. Na Agenda, crie uma remada do tipo treino e escolha a categoria.":"Nenhum treino aberto no momento."}</div>`;
+  if(!treinos.length) html+=`<div class="empty">${S.canAgenda?"Nenhum treino aberto. Na Agenda, crie uma remada do tipo treino e escolha a categoria.":"Nenhum treino aberto no momento."}</div>`;
   else { let last=null; for(const t of treinos){ if(t.data!==last){ last=t.data; html+=`<div class="subday">${dayHeader(t.data)}</div>`; } html+=cardTurma(t); } }
   // provas
   html+=`<div class="dayhdr" style="margin-top:24px">Calendário de provas</div>`;
-  if(!futuras.length) html+=`<div class="empty">${S.canEdit?"Cadastre as próximas provas do calendário.":"Nenhuma prova cadastrada ainda."}</div>`;
+  if(!futuras.length) html+=`<div class="empty">${S.canAgenda?"Cadastre as próximas provas do calendário.":"Nenhuma prova cadastrada ainda."}</div>`;
   else html+=`<div class="list">${futuras.map(rowProva).join("")}</div>`;
   if(passadas.length){
     html+=`<div class="row" style="margin-top:12px"><button class="btn ghost small" id="pastPv">${S.showPastProvas?"Ocultar provas anteriores":"Ver provas anteriores"}</button></div>`;
@@ -2547,6 +2552,7 @@ function renderCompeticao(){
   if(S.canAgenda) html+=painelEquipeComp();
   el.innerHTML=html;
   bindEquipeComp(el);
+  const pco=el.querySelector("#pcOpen"); if(pco) pco.addEventListener("click",()=>{ empilhar(); S.pcView=true; renderCompeticao(); window.scrollTo(0,0); });
   const np=$("#newPv"); if(np) np.addEventListener("click",()=>editProva(null));
   const ea=$("#edAt"); if(ea) ea.addEventListener("click",editAtleta);
   const pp=$("#pastPv"); if(pp) pp.addEventListener("click",()=>{ S.showPastProvas=!S.showPastProvas; renderCompeticao(); });
@@ -2559,10 +2565,10 @@ function renderCompeticao(){
 }
 function rowProva(p){
   const d=new Date(p.data+"T12:00:00"), me=S.atletaMe && S.atletaMe.provas && S.atletaMe.provas[p._id];
-  const n=S.canEdit ? Object.values(S.atletas).filter(a=>a.provas && a.provas[p._id] && a.provas[p._id].s==="quero").length : 0;
+  const n=S.canAgenda ? Object.values(S.atletas).filter(a=>a.provas && a.provas[p._id] && a.provas[p._id].s==="quero").length : 0;
   return `<button class="item" data-pv="${esc(p._id)}"><span class="datebox"><b>${d.getDate()}</b>${d.toLocaleDateString("pt-BR",{month:"short"}).replace(".","")}</span>
     <span style="min-width:0"><span class="nm">${esc(p.nome)}</span><span class="sub"> ${esc(p.local||"")}</span>
-    <span class="badges">${p.status==="cancelada"?`<span class="b red">Cancelada</span>`:""}${(p.categorias||[]).map(c=>`<span class="b">${esc(CAT_LABEL[c]||c)}</span>`).join("")}${me&&me.s==="quero"?`<span class="b grn">Você quer competir${me.cat?" ("+esc(CAT_LABEL[me.cat])+")":""}</span>`:""}${S.canEdit&&n?`<span class="b grn">${n} ${n===1?"interessado":"interessados"}</span>`:""}</span></span></button>`;
+    <span class="badges">${p.status==="cancelada"?`<span class="b red">Cancelada</span>`:""}${(p.categorias||[]).map(c=>`<span class="b">${esc(CAT_LABEL[c]||c)}</span>`).join("")}${me&&me.s==="quero"?`<span class="b grn">Você quer competir${me.cat?" ("+esc(CAT_LABEL[me.cat])+")":""}</span>`:""}${S.canAgenda&&n?`<span class="b grn">${n} ${n===1?"interessado":"interessados"}</span>`:""}</span></span></button>`;
 }
 function verProva(id){
   const p=S.provas[id]; if(!p){ closeSheet(); return; }
@@ -2571,7 +2577,7 @@ function verProva(id){
   const fechada=p.status==="cancelada" || (p.data_fim||p.data)<todaySP();
   const podeMarcar=S.uid && S.canWrite!==false && !fechada;
   let interesse="";
-  if(S.canEdit){
+  if(S.canAgenda){
     const regs=Object.entries(S.atletas).map(([uid,a])=>({uid, r:a.provas&&a.provas[id]})).filter(x=>x.r);
     const quero=regs.filter(x=>x.r.s==="quero"), talvez=regs.filter(x=>x.r.s==="talvez");
     const porCat=CATEG_PROVA.map(c=>({c, l:quero.filter(x=>x.r.cat===c[0])})).filter(g=>g.l.length);
@@ -2593,7 +2599,7 @@ function verProva(id){
       <div class="rsvp" style="border:1px solid var(--line);border-radius:10px;margin-top:10px;overflow:hidden">${[["quero","Quero competir"],["talvez","Talvez"],["nao","Não vou"]].map(([k,l])=>`<button class="${k==="quero"?"vou":k}" data-ps="${k}" aria-pressed="${me&&me.s===k?"true":"false"}" ${k==="quero"&&!elig.length?"disabled":""}>${l}</button>`).join("")}</div>`}
     </div>`:""}
     ${interesse}
-    ${S.canAgenda?`<div class="row" style="margin-top:18px">${S.canEdit?`<button class="ib lixo" id="delPv" aria-label="Excluir prova" title="Excluir prova">🗑</button><button class="btn ghost small" id="edPv">Editar</button>`:""}<button class="btn ghost small" id="cpPv">Convocação</button><button class="btn ghost small" data-resv="${esc(id)}" id="rsPv">🏆 Resultados</button><span class="spacer"></span><button class="btn small" id="mtPv">Montar canoas</button></div>`:resultadosDe(p).length||fotosProva(id).length?`<div class="row" style="margin-top:14px"><button class="btn small" data-resv="${esc(id)}">🏆 Ver resultados e fotos</button></div>`:""}
+    ${S.canAgenda?`<div class="row" style="margin-top:18px">${S.canAgenda?`<button class="ib lixo" id="delPv" aria-label="Excluir prova" title="Excluir prova">🗑</button><button class="btn ghost small" id="edPv">Editar</button>`:""}<button class="btn ghost small" id="cpPv">Convocação</button><button class="btn ghost small" data-resv="${esc(id)}" id="rsPv">🏆 Resultados</button><span class="spacer"></span><button class="btn small" id="mtPv">Montar canoas</button></div>`:resultadosDe(p).length||fotosProva(id).length?`<div class="row" style="margin-top:14px"><button class="btn small" data-resv="${esc(id)}">🏆 Ver resultados e fotos</button></div>`:""}
   `, root=>{
     const pa=root.querySelector("#pAt"); if(pa) pa.addEventListener("click",editAtleta);
     root.querySelectorAll("[data-ps]").forEach(b=>b.addEventListener("click",async()=>{
@@ -2901,7 +2907,7 @@ function renderPerfil(){
   const el=$("#perfilBody");
   if(!S.db){ el.innerHTML=`<div class="locked"><h3>Indisponível aqui</h3><p>Abra o app conectado à sua conta.</p></div>`; return; }
   if(S.role==="visitante"){ el.innerHTML=`<div class="locked"><h3>Entre com sua conta</h3><p>Faça login para preencher sua ficha e agendar.</p></div>`; return; }
-  if(S.gsub && S.canEdit){ const f={painel:renderPainelX, painelfin:renderPainelFin, painelcomp:renderPainelCompX, auditoria:renderAuditoria}[S.gsub];
+  if(S.gsub && (S.canEdit || (S.gsub==="painelcomp" && podePainelComp()))){ const f={painel:renderPainelX, painelfin:renderPainelFin, painelcomp:renderPainelCompX, auditoria:renderAuditoria}[S.gsub];
     el.innerHTML=`<button class="backbtn" data-gback>‹ Gestão</button><div id="gsubBody"></div>`; f($("#gsubBody")); el.querySelector("[data-gback]").addEventListener("click",()=>{ S.gsub=null; renderPerfil(); }); return; }
   if(S.role==="aluno"){ el.innerHTML=cartaoPerfil()+painelVerComo()+painelFrequencia()+minhasRemadasHTML()+`<div id="fichaBox"></div>`+painelSeguranca()+rodapeIako(); renderFichaAluno($("#fichaBox")); bindPerfil(el); el.querySelectorAll("[data-goag]").forEach(b=>b.addEventListener("click",()=>setTab("agenda"))); return; }
   const revisar=S.alunos.filter(precisaRevisao).length;
@@ -2909,7 +2915,7 @@ function renderPerfil(){
     <div class="gtiles">
       ${S.canEdit?tileG("painel","Painel social","Alunos, frequência e retenção","#1C6C86",IC.painel):""}
       ${S.canEdit?tileG("painelfin","Mensalidades","Vencimentos, previsões e alunos em risco","#2B9F6A",IC.painel):""}
-      ${S.canEdit?tileG("painelcomp","Painel de competição","Atletas, categorias e provas","#B9800F",IC.comp):""}
+      ${podePainelComp()?tileG("painelcomp","Painel de competição",S.canAgenda?"Atletas, categorias, resultados e fotos":"Resultados, medalhas e fotos","#B9800F",IC.comp):""}
       ${S.canAgenda?tileG("alunos","Alunos",`Fichas e cadastros${revisar&&S.canEdit?`, ${revisar} a revisar`:""}`,"#2C8A57",IC.alunos):""}
       ${S.canEdit?tileG("personalizar","Personalizar clube","Nome, logo, cor e bases","#E9612B",IC.clube):""}
       ${S.canEdit?tileG("clubepub","Planos e estrutura","Preços, pagamento e bases","#7A4FD0",IC.planos):""}
@@ -4533,11 +4539,11 @@ function bindEquipeComp(el){
 }
 /* ----- navegação com voltar ----- */
 let PILHA=[]; let _restaurando=false;
-function estadoNav(){ return {t:S.tab, g:S.gsub||null, c:S.compView||null, e:S.evView||null, r:S.resView||null}; }
+function estadoNav(){ return {t:S.tab, g:S.gsub||null, c:S.compView||null, e:S.evView||null, r:S.resView||null, pc:!!S.pcView}; }
 function empilhar(){ if(_restaurando) return; PILHA.push(estadoNav()); try{ history.pushState({iako:PILHA.length},"",location.hash); }catch(_){} atualizaVoltar(); }
 window.__nav=()=>PILHA.length;
 function atualizaVoltar(){ const b=document.getElementById("btnVoltar"); if(b) b.classList.toggle("oculto", !PILHA.length); }
-function voltar(){ if(!PILHA.length) return; const st=PILHA.pop(); _restaurando=true; try{ if(st.t!==S.tab) setTab(st.t); S.gsub=st.g; S.compView=st.c; S.evView=st.e; S.resView=st.r||null; render(); window.scrollTo(0,0); }finally{ _restaurando=false; } atualizaVoltar(); }
+function voltar(){ if(!PILHA.length) return; const st=PILHA.pop(); _restaurando=true; try{ if(st.t!==S.tab) setTab(st.t); S.gsub=st.g; S.compView=st.c; S.evView=st.e; S.resView=st.r||null; S.pcView=!!st.pc; render(); window.scrollTo(0,0); }finally{ _restaurando=false; } atualizaVoltar(); }
 window.addEventListener("popstate",ev=>{ if(!ev.state || ev.state.iako==null) return; if(!document.getElementById("ov").hidden){ closeSheet(); return; } voltar(); });
 /* ----- frota: modelos ----- */
 const MODELOS_CANOA={OC6:6, V6:6, V3:3, V1:1, OC4:4, OC2:2, OC1:1};
@@ -4560,6 +4566,7 @@ function renderPainelX(el){
   el.querySelector("#rkExp").addEventListener("click",()=>exportarLista(`Frequência ${S.rkMes}`, ["Posição","Aluno","Remadas","Km","Última remada","Mensalidade","Situação"], rk.map((x,i)=>[i+1,x.a.nome,x.n,fmtN(x.km,1),x.ultima?dataCurta(x.ultima):"",x.pago===true?"Em dia":x.pago===false?"Em aberto":"",STATUS[statusAluno(x.a)]])));
 }
 function renderPainelCompX(el){
+  if(!S.canAgenda){ renderPainelCompAberto(el); return; }
   renderPainelComp(el);
   el.insertAdjacentHTML("beforeend", painelResultadosHTML()); bindPainelResultados(el);
   el.insertAdjacentHTML("beforeend",`<div class="row" style="margin-top:12px"><button class="btn ghost small" id="pcExp">Exportar atletas</button></div>`);
@@ -5220,10 +5227,11 @@ function avisosFeriado(){
   if(!S.canAgenda) return [];
   const hoje=todaySP(), out=[], pontes=(S.config&&S.config.pontes)||{};
   for(let i=1;i<=3;i++){ const d=addDays(hoje,i), f=feriado(d);
-    if(f && i===1) out.push({tipo:"feriado", d, txt:`Necessário agendar remada para amanhã (${dataCurta(d)}) – Feriado: ${f}. A grade semanal não é aplicada em feriados.`});
+    const temRemada=Object.values(S.turmas||{}).some(t=>t.data===d && t.status!=="cancelada");
+    if(f && i===1 && !temRemada) out.push({tipo:"feriado", d, txt:`Necessário agendar remada para amanhã (${dataCurta(d)}) – Feriado: ${f}. A grade semanal não é aplicada em feriados.`});
     const p=ponteDe(d);
-    if(p && !pontes[d] && i<=3) out.push({tipo:"ponte", d, txt:`Atenção: ${NOMES_DIA[weekday(d)]}, ${dataCurta(d)}, fica entre o feriado (${p}) e o fim de semana. Nosso calendário informa que será aula normal. Deseja que eu siga de forma automática ou será ajustado?`});
-    if(p && pontes[d]==="manual" && i===1) out.push({tipo:"feriado", d, txt:`Amanhã (${dataCurta(d)}) é dia de ponte e a gestão escolheu agendar manualmente. Crie as remadas em Nova remada.`});
+    if(p && !pontes[d] && i<=3) out.push({tipo:"ponte", d, txt:`Atenção: ${dataCurta(d)} fica entre o feriado (${p}) e o fim de semana. Nosso calendário informa que será aula normal. Deseja que eu siga de forma automática ou será ajustado?`});
+    if(p && pontes[d]==="manual" && i===1 && !temRemada) out.push({tipo:"feriado", d, txt:`Amanhã (${dataCurta(d)}) é dia de ponte e a gestão escolheu agendar manualmente. Crie as remadas em Nova remada.`});
   }
   return out;
 }
@@ -5956,12 +5964,17 @@ function painelResultadosHTML(){
     ${fotos.length?`<section class="dcard"><h3 class="dtit">📸 Mural das provas</h3><div class="mural">${fotos.map(f2=>`<figure><img src="${f2.img}" alt="" loading="lazy"><figcaption>${esc((S.provas[f2.prova]||{}).nome||"")}</figcaption></figure>`).join("")}</div></section>`:""}`;
 }
 function bindPainelResultados(el){
-  el.querySelectorAll("[data-prano]").forEach(b=>b.addEventListener("click",()=>{ S.prf.ano=b.dataset.prano; renderPerfil(); }));
-  el.querySelectorAll("[data-prcat]").forEach(b=>b.addEventListener("click",()=>{ S.prf.cat=b.dataset.prcat; renderPerfil(); }));
+  el.querySelectorAll("[data-prano]").forEach(b=>b.addEventListener("click",()=>{ S.prf.ano=b.dataset.prano; render(); }));
+  el.querySelectorAll("[data-prcat]").forEach(b=>b.addEventListener("click",()=>{ S.prf.cat=b.dataset.prcat; render(); }));
   const x=el.querySelector("#prXls"); if(x) x.addEventListener("click",()=>excelResultados(Object.values(S.provas).filter(p=>resultadosDe(p).length).sort((a,b)=>(a.data||"").localeCompare(b.data||""))));
 }
-document.addEventListener("click",e=>{ const b=e.target.closest&&e.target.closest("[data-resv]"); if(!b) return; if(!document.getElementById("ov").hidden) closeSheet(); empilhar(); S.resView=b.dataset.resv; if(S.tab!=="competicao") setTab("competicao"); S.resView=b.dataset.resv; renderCompeticao(); window.scrollTo(0,0); });
+document.addEventListener("click",e=>{ const b=e.target.closest&&e.target.closest("[data-resv]"); if(!b) return; if(!document.getElementById("ov").hidden) closeSheet(); empilhar(); S.pcView=false; S.resView=b.dataset.resv; if(S.tab!=="competicao"){ const r=b.dataset.resv; _restaurando=true; try{ setTab("competicao"); }finally{ _restaurando=false; } S.resView=r; } S.resView=b.dataset.resv; renderCompeticao(); window.scrollTo(0,0); });
 
+function podePainelComp(){ if(S.canAgenda||S.role==="agencia") return true; const a=S.atletaMe; return S.role==="aluno" && !!a && (cadastroCompOk(a) || Object.values(a.provas||{}).some(x=>x&&x.s==="quero")); }
+function renderPainelCompAberto(el){
+  el.innerHTML=`<h2 class="ptitle">Painel de competição</h2><p class="hint" style="margin:-6px 0 8px">Resultados, medalhas, tempos e fotos das provas do clube.</p>${conquistasHTML(6)}`+painelResultadosHTML();
+  bindPainelResultados(el);
+}
 /* ---------- render ---------- */
 function render(){
   try{ cabecalhoUsuario(); }catch(_){}
@@ -5970,7 +5983,7 @@ function render(){
   barraVerComo();
   { const inat = S.role==="aluno" && statusAluno(S.minhaFicha)==="inativo"; document.querySelectorAll('nav [data-tab="mar"]').forEach(b=>b.classList.toggle("oculto",inat)); }
   { const com = S.role==="agencia"; ["agenda","competicao"].forEach(t=>document.querySelectorAll(`nav [data-tab="${t}"]`).forEach(b=>b.classList.toggle("oculto",com)));
-    if(com && (S.tab==="agenda"||S.tab==="competicao")){ setTab("mural"); return; } }
+    if(com && (S.tab==="agenda"||(S.tab==="competicao"&&!S.resView))){ setTab("mural"); return; } }
   ({agenda:renderAgenda, mar:renderMar, mural:renderMural, midia:renderMidia, competicao:renderCompeticao, eventos:renderEventos, clube:renderSobre, perfil:renderPerfil, alunos:renderAlunos, operacao:renderClube})[S.tab]();
 }
 
