@@ -2643,8 +2643,8 @@ function renderClube(){
     ${grade.length?grade.map(g=>`<div class="grade-row"><div><div style="font-weight:600">${diasTxt(g.dias)}, ${esc(g.inicio)}–${esc(g.fim)}</div><div class="hint" style="margin:0">${esc(locaisTxt(g.locais))}${g.categoria?", treino "+esc(CAT_LABEL[g.categoria]):""}${g.titulo?", "+esc(g.titulo):""}${g.instrutor?", "+esc(g.instrutor):""}${g.ativo===false?", pausado":""}</div></div><span class="spacer"></span>${S.canAgenda?`<button class="btn ghost small" data-gi="${esc(g.id)}">Editar</button>`:""}</div>`).join("")
       :`<p class="hint">Nenhum horário fixo cadastrado.</p>${S.canAgenda?`<button class="btn ghost small" id="gPadrao">Usar grade sugerida: todas as bases, de segunda a sábado, às 6h</button>`:""}`}
   </div>
-  <div class="panel"><div class="row"><h3 style="margin:0">Frota</h3><span class="spacer"></span>${S.canEdit?`<button class="btn small" id="addC">Editar frota</button>`:""}</div>
-    ${canoas.length?canoas.map((x,i)=>`<div class="canoe"><div><div class="nm">${esc(x.nome)}</div><div class="sub">${esc(B(x.local||LOCAIS[0]).curto)}, ${esc(x.tipo)}${x.castelo?" com castelo":""}, ${x.lugares} ${+x.lugares===1?"banco":"bancos"}${!canoaAtiva(x)?`, <b class="frsit s-${statusCanoa(x)}">${STATUS_FROTA[statusCanoa(x)]}</b>`:""}</div></div><span class="spacer"></span>${S.canEdit?`<button class="btn ghost small" data-ci="${i}">Editar</button>`:""}</div>`).join(""):`<p class="hint">Nenhuma canoa cadastrada. Cadastre a frota para calcular as vagas.</p>`}
+  <div class="panel"><div class="row"><h3 style="margin:0">Frota</h3><span class="spacer"></span>${S.canAgenda?`<button class="btn small" id="addC">Editar frota</button>`:""}</div>
+    ${canoas.length?canoas.map((x,i)=>`<div class="canoe"><div><div class="nm">${esc(x.nome)}</div><div class="sub">${esc(B(x.local||LOCAIS[0]).curto)}, ${esc(x.tipo)}${x.castelo?" com castelo":""}, ${x.lugares} ${+x.lugares===1?"banco":"bancos"}${!canoaAtiva(x)?`, <b class="frsit s-${statusCanoa(x)}">${STATUS_FROTA[statusCanoa(x)]}</b>`:""}</div></div><span class="spacer"></span>${S.canAgenda?`<button class="btn ghost small" data-ci="${i}">Editar</button>`:""}</div>`).join(""):`<p class="hint">Nenhuma canoa cadastrada. Cadastre a frota para calcular as vagas.</p>`}
   </div>
   <div class="panel"><h3>Vento: escala Beaufort por base</h3>
     <p class="hint" style="margin:0 0 8px">Defina o que cada força significa em cada base. Rajadas contam com uma força a menos. Valores iniciais sugeridos para canoa havaiana; ajuste com os instrutores.</p>
@@ -2732,7 +2732,7 @@ function editCanoa(i){
       });
     });
 }
-const CHAVES_AGENDA = ["grade","pontes"];
+const CHAVES_AGENDA = ["grade","pontes","canoas"];
 async function saveConfig(patch){
   const ks=Object.keys(patch), soAgenda=ks.every(k=>CHAVES_AGENDA.includes(k));
   try{
@@ -2742,7 +2742,7 @@ async function saveConfig(patch){
   }catch(e){ failWrite(e); return false; }
 }
 function juntarConfigSync(){ setTimeout(()=>sincronizarGrade(), 1500); }
-function juntarConfig(){ const c=Object.assign({}, DEFAULT_CONFIG, S.configClube||{}); if(S.configAgenda && S.configAgenda.grade) c.grade=S.configAgenda.grade; else if(S.configClube && S.configClube.grade) c.grade=S.configClube.grade; c.pontes=(S.configAgenda&&S.configAgenda.pontes)||{}; S.config=c; aplicarClube(); }
+function juntarConfig(){ const c=Object.assign({}, DEFAULT_CONFIG, S.configClube||{}); if(S.configAgenda && S.configAgenda.grade) c.grade=S.configAgenda.grade; else if(S.configClube && S.configClube.grade) c.grade=S.configClube.grade; c.pontes=(S.configAgenda&&S.configAgenda.pontes)||{}; if(S.configAgenda && Array.isArray(S.configAgenda.canoas)) c.canoas=S.configAgenda.canoas; S.config=c; aplicarClube(); }
 
 function failWrite(e){
   const code = e && e.code;
