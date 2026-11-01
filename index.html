@@ -423,11 +423,30 @@ nav.bottom button.novo{background:#FFD21A;color:#3A2F00}
 nav.bottom button.novo svg{color:#3A2F00}
 nav.tabs button.novo{background:#FFD21A;color:#3A2F00}
 .btn:disabled{opacity:.45;cursor:not-allowed}
+.sheet>.head{position:sticky;top:-18px;background:var(--surface);z-index:7;margin:-18px -18px 8px;padding:14px 18px 10px;border-bottom:1px solid var(--line)}
+.sheet>.head{justify-content:flex-start}.sheet>.head .topsave{margin-left:auto;margin-right:4px}.sheet>.head .topsave+.x{margin-left:0}
+@media (min-width:760px){.sheet{max-height:min(88%,calc(100dvh - 48px))}}
+.sheet{scrollbar-width:auto;scrollbar-color:#9AB0BE transparent}
+.sheet form{min-width:0}.fs{min-width:0}.fs .grid>*{min-width:0}.fs input,.fs select,.fs textarea{max-width:100%;box-sizing:border-box}
+.sheet::-webkit-scrollbar{width:12px}.sheet::-webkit-scrollbar-thumb{background:#9AB0BE;border-radius:8px;border:3px solid var(--surface)}.sheet::-webkit-scrollbar-track{background:transparent}
+.sheet form>.row:last-child{position:sticky;bottom:calc(-18px - env(safe-area-inset-bottom,0px));background:var(--surface);padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));margin-bottom:-18px;border-top:1px solid var(--line);z-index:5}
+.fsnav{display:flex;gap:6px;overflow-x:auto;position:static;background:var(--surface);z-index:6;padding:8px 0;margin:0 0 4px;border-bottom:1px solid var(--line)}
+.fsnav button{flex:none;border:1px solid var(--line);background:var(--surface-2);border-radius:999px;padding:6px 12px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;color:var(--ink)}
+.fsnav button.on{background:#0B3A5B;color:#fff;border-color:#0B3A5B}.fsnav .fsall{background:none;border-style:dashed}
+@media (min-width:900px){.sheet.wide.comnav{display:grid;grid-template-columns:190px minmax(0,1fr);column-gap:18px;align-content:start}.sheet.wide.comnav>.head{grid-column:1/-1}.sheet.wide.comnav>.fsnav{flex-direction:column;position:sticky;top:52px;align-self:start;border:0;border-right:1px solid var(--line);padding:4px 12px 4px 0;margin:0;overflow:visible}.sheet.wide.comnav>.fsnav button{text-align:left;border-radius:10px}}
+.top #who.who{position:relative;max-width:none;overflow:visible;text-overflow:clip}
+.whobtn{display:flex;align-items:center;gap:8px;border:0;background:rgba(255,255,255,.14);color:#fff;border-radius:999px;padding:4px 12px 4px 4px;cursor:pointer;font:inherit;font-size:13.5px;font-weight:600}
+.whobtn:hover{background:rgba(255,255,255,.24)}.whonm{white-space:nowrap}.whobtn small{font-weight:500;opacity:.85}.whocar{font-size:11px;opacity:.85}
+.whomenu{position:absolute;right:0;top:calc(100% + 8px);z-index:60;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 32px rgba(0,0,0,.18);min-width:250px;padding:8px;display:grid;gap:2px;text-align:left}
+.whomenu[hidden]{display:none}
+.whohead{display:flex;gap:10px;align-items:center;padding:6px 8px 10px;border-bottom:1px solid var(--line);margin-bottom:4px}.whohead .av.big{width:48px;height:48px;font-size:18px}.whohead b{display:block;font-size:14.5px}.whohead span{font-size:12.5px;color:var(--muted)}
+.whoit{display:block;width:100%;text-align:left;border:0;background:none;padding:9px 10px;border-radius:9px;cursor:pointer;font:inherit;font-size:14.5px;color:var(--ink)}.whoit:hover,.whoit:focus-visible{background:var(--surface-2)}.whoit.sair{color:var(--stop)}
+@media (max-width:700px){.whobtn{padding:3px}.whonm,.whocar{display:none}.top .who span.whonm{display:none}}
 .frl.off .frst{font-weight:700}.frl.s-indisponivel .frst{color:#7A4FD0}.frl.s-manutencao .frst{color:var(--stop)}.frl.s-garagem .frst{color:var(--muted)}
 .frsit{font-weight:700}.frsit.s-indisponivel{color:#7A4FD0}.frsit.s-manutencao{color:var(--stop)}.frsit.s-garagem{color:var(--muted)}
 .frhead,.frl{grid-template-columns:26px minmax(120px,1.5fr) minmax(90px,1fr) minmax(150px,1.2fr) 56px minmax(190px,1.3fr) 34px}
 .top .who{display:flex;align-items:center;gap:8px}.top .who .av.hdr{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.8);font-size:13px;display:inline-grid;place-items:center;background:rgba(255,255,255,.25);color:#fff;flex:none}
-@media (max-width:700px){.top .who{display:flex!important}.top .who span{display:none}}
+@media (max-width:700px){.top #who.who{display:flex!important}.top #who .whobtn .whonm{display:none}}
 .fer{background:#FFF1C2;border-left:6px solid #E0A100;border-radius:12px;padding:10px 14px;margin:0 0 10px;display:flex;flex-direction:column;gap:2px}.fer.ponte{background:#E8F1FB;border-left-color:#0B3A5B}
 .evcapa{width:100%;max-height:180px;object-fit:cover;display:block}
 .evtag{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--surface-2);color:var(--ink)}.evtag.viagem{background:#FDE7DC;color:#B4410F}.evtag.passeio{background:#E1F2FA;color:#0B5C80}.evtag.evento{background:#EDE6FB;color:#5B36B0}
@@ -1039,6 +1058,25 @@ function openSheet(html, onMount){
   document.body.style.overflow="hidden";
   const x = $("#sheet .x"); if(x) x.addEventListener("click", closeSheet);
   if(onMount) onMount($("#sheet"));
+  try{ navSecoesSheet($("#sheet")); }catch(_){}
+  try{ salvarNoTopo($("#sheet")); }catch(_){}
+}
+function salvarNoTopo(sh){
+  const head=sh.querySelector(":scope > .head"), form=sh.querySelector("form"); if(!head||!form) return;
+  const sub=form.querySelector('button[type=submit], button.btn:not([type])'); if(!sub || sh.scrollHeight<=sh.clientHeight+40) return;
+  const x=head.querySelector(".x"); const b=document.createElement("button"); b.type="button"; b.className="btn small topsave"; b.textContent=sub.textContent.trim()||"Salvar";
+  b.addEventListener("click",()=>{ if(form.requestSubmit) form.requestSubmit(sub); else sub.click(); });
+  if(x) head.insertBefore(b,x); else head.appendChild(b);
+}
+function navSecoesSheet(sh){
+  const fs=[...sh.querySelectorAll("details.fs")]; sh.classList.toggle("comnav", fs.length>=3); if(fs.length<3) return;
+  const form=fs[0].closest("form"); if(!form||sh.querySelector(".fsnav")) return;
+  const nav=document.createElement("nav"); nav.className="fsnav"; nav.setAttribute("aria-label","Seções do formulário");
+  nav.innerHTML=fs.map((d,i)=>`<button type="button" data-fsi="${i}">${esc(d.querySelector("summary").textContent)}</button>`).join("")+`<button type="button" class="fsall" data-fsi="all">Abrir tudo</button>`;
+  form.parentNode.insertBefore(nav, form);
+  const marca=()=>{ const top=sh.getBoundingClientRect().top; let atual=0; fs.forEach((d,i)=>{ if(d.getBoundingClientRect().top-top<120) atual=i; }); nav.querySelectorAll("[data-fsi]").forEach(b=>b.classList.toggle("on", b.dataset.fsi===String(atual))); };
+  nav.querySelectorAll("[data-fsi]").forEach(b=>b.addEventListener("click",()=>{ if(b.dataset.fsi==="all"){ fs.forEach(d=>d.open=true); return; } const d=fs[+b.dataset.fsi]; d.open=true; d.scrollIntoView({block:"start",behavior:"smooth"}); setTimeout(marca,400); }));
+  sh.addEventListener("scroll",marca,{passive:true}); marca();
 }
 function closeSheet(){ S.openTurma = null; $("#ov").hidden = true; document.body.style.overflow=""; }
 function ask(msg, ok){ return new Promise(res=>{ openSheet(`<div class="head"><h2>Confirmar</h2><button class="x" aria-label="Fechar">×</button></div><p style="margin:4px 0 0">${esc(msg)}</p><div class="row" style="margin-top:18px"><span class="spacer"></span><button class="btn ghost" id="qN">Voltar</button><button class="btn" id="qY">${esc(ok||"Confirmar")}</button></div>`, root=>{ let done=false; const fin=v=>{ if(done) return; done=true; res(v); }; root.querySelector("#qN").addEventListener("click",()=>{ closeSheet(); fin(false); }); root.querySelector("#qY").addEventListener("click",()=>fin(true)); root.querySelector(".x").addEventListener("click",()=>fin(false)); }); }); }
@@ -3648,7 +3686,7 @@ function renderTripulacoes(el, pid){
   const ini=S.tripPag*POR_PAGINA, vis=tr.slice(ini, ini+POR_PAGINA);
   el.innerHTML=`<button class="backbtn" id="tripVolta">‹ Competição</button>
     <div class="ag-head"><div><h2>Tripulações</h2><p class="hint">${esc(p.nome)}, ${esc(dataCurta(p.data))}${p.local?", "+esc(p.local):""}</p></div><span class="spacer"></span>
-      <div class="row"><button class="btn ghost small" id="tripWa">Enviar no WhatsApp</button><button class="btn ghost small" id="tripXls">Excel</button><button class="btn small" id="tripPdf">Gerar PDF</button></div></div>
+      <div class="row"><button class="btn ghost small" id="tripWa">Enviar no WhatsApp</button><button class="btn ghost small" id="tripXls">Excel</button><button class="btn ghost small" id="tripDoc">Word</button><button class="btn small" id="tripPdf">Gerar PDF</button></div></div>
     <div class="kpis">${kpi(ins.length,"inscritos")}${kpi(dist.length,"distribuídos")}${kpi(pend.length,"pendentes",pend.length?"warn":"")}${kpi(tr.length,"canoas")}</div>
     <div class="panel"><h3>Por categoria</h3>${barras(porCat,0,"#B9800F")}<h3 style="margin-top:14px">Por naipe</h3>${barras(porNaipe,0,"#1C6C86")}</div>
     ${painelVersoes(p)}
@@ -3679,6 +3717,7 @@ function renderTripulacoes(el, pid){
   el.querySelector("#tripWa").addEventListener("click",()=>compartilharWhats("competicao", textoTripulacoes(p, tripulacoesDe(p))));
   el.querySelector("#tripPdf").addEventListener("click",()=>pdfTripulacoes(p, tripulacoesDe(p)));
   el.querySelector("#tripXls").addEventListener("click",()=>excelTripulacoes(p, tripulacoesDe(p)));
+  el.querySelector("#tripDoc").addEventListener("click",()=>wordTripulacoes(p, tripulacoesDe(p)));
 }
 function escolherBanco(pid,i,j,el){
   const p=S.provas[pid], ano=+(p.data||todaySP()).slice(0,4), tr=tripulacoesDe(p), c=tr[i], ins=inscritosProva(p);
@@ -5398,9 +5437,10 @@ function verEvento(id){
     ${apresentacaoHTML(e)}
     ${mc.length||mq?`<div class="panel" style="background:var(--ok-soft)"><b>Sua organização</b>${mc.length?`<p style="margin:4px 0 0">${mc.map(esc).join("<br>")}</p>`:""}${mq?`<p style="margin:4px 0 0">Quarto: ${esc(mq)}</p>`:""}</div>`:""}
     ${S.uid&&S.role!=="agencia"&&jan==="aberto"?`<div class="rsvp" style="margin-top:14px;border-radius:12px;overflow:hidden" data-ev="${esc(id)}">${[["vou","Vou"],["talvez","Talvez"],["nao","Não vou"]].map(([k,l])=>`<button class="${k}" data-evs="${k}" aria-pressed="${me===k}">${l}</button>`).join("")}</div>`:""}
-    <div class="row" style="margin-top:14px;gap:8px;flex-wrap:wrap">${comCanoas(e)?`<button class="btn small" id="evApPdf">Baixar apresentação (PDF)</button>`:""}${S.canAgenda?`<button class="btn ghost small" id="evWa">Enviar no WhatsApp</button><button class="btn ghost small" id="evCn">Organizar</button>`:""}${botaoTraduzir(e.titulo+"\n"+(e.descricao||""))}</div>`, root=>{
+    <div class="row" style="margin-top:14px;gap:8px;flex-wrap:wrap">${comCanoas(e)?`<button class="btn small" id="evApPdf">Baixar apresentação (PDF)</button><button class="btn ghost small" id="evApDoc">Word</button>`:""}${S.canAgenda?`<button class="btn ghost small" id="evWa">Enviar no WhatsApp</button><button class="btn ghost small" id="evCn">Organizar</button>`:""}${botaoTraduzir(e.titulo+"\n"+(e.descricao||""))}</div>`, root=>{
     root.querySelectorAll(".rsvp[data-ev] button").forEach(b=>b.addEventListener("click",()=>rsvpEvento(id,b.dataset.evs)));
     const ap=root.querySelector("#evApPdf"); if(ap) ap.addEventListener("click",()=>pdfApresentacao(S.eventos[id]));
+    const aw=root.querySelector("#evApDoc"); if(aw) aw.addEventListener("click",()=>wordApresentacao(S.eventos[id]));
     const w=root.querySelector("#evWa"); if(w) w.addEventListener("click",()=>compartilharWhats("viagem", textoEvento(e)));
     const cn=root.querySelector("#evCn"); if(cn) cn.addEventListener("click",()=>{ closeSheet(); empilhar(); S.evView=id; if(S.tab!=="eventos") setTab("eventos"); S.evView=id; renderEventos(); });
   });
@@ -5426,12 +5466,13 @@ function renderGestaoEvento(el,id){
 }
 function abaApresentacao(body,id){
   const e=S.eventos[id], fotos=fotosEv(id), secoes=[["capa","Capa"],...(e.programacao||[]).map((x,i)=>["dia"+(i+1),x.titulo||`${i+1}º dia`]),...(e.pousadas||[]).map(p=>["pousada:"+p.id,`Hospedagem: ${p.nome}`]),["geral","Galeria geral"]];
-  body.innerHTML=`<div class="row" style="gap:8px;flex-wrap:wrap;margin:10px 0">${comCanoas(e)?`<button class="btn small" id="apPdf">Gerar PDF da apresentação</button>`:""}<button class="btn ghost small" id="apWa">Enviar no WhatsApp</button></div>
+  body.innerHTML=`<div class="row" style="gap:8px;flex-wrap:wrap;margin:10px 0">${comCanoas(e)?`<button class="btn small" id="apPdf">Gerar PDF da apresentação</button><button class="btn ghost small" id="apDoc">Word</button>`:""}<button class="btn ghost small" id="apWa">Enviar no WhatsApp</button></div>
     <div class="panel"><h3>Imagens</h3><p class="hint" style="margin:0 0 8px">Fotos valorizam a proposta. Escolha onde cada foto aparece: capa, um dia da programação, uma pousada ou a galeria.</p>
       <div class="row" style="gap:8px;flex-wrap:wrap"><select id="apSec" class="finsel">${secoes.map(([k,l])=>`<option value="${esc(k)}">${esc(l)}</option>`).join("")}</select><label class="btn small" style="cursor:pointer">+ Adicionar fotos<input type="file" id="apFile" accept="image/*" multiple hidden></label><span class="hint" id="apSt" style="margin:0"></span></div>
       ${fotos.length?`<div class="evthumbs">${fotos.map(f=>`<figure><img src="${f.img}" alt=""><figcaption>${esc((secoes.find(s=>s[0]===f.secao)||["","Galeria"])[1])}</figcaption><button class="ib" data-fdel="${esc(f._id)}" aria-label="Excluir foto">🗑</button></figure>`).join("")}</div>`:`<p class="hint" style="margin:8px 0 0">Nenhuma foto ainda.</p>`}</div>
     <div class="panel">${apresentacaoHTML(e)}</div>`;
   const pd=body.querySelector("#apPdf"); if(pd) pd.addEventListener("click",()=>pdfApresentacao(e));
+  const pw=body.querySelector("#apDoc"); if(pw) pw.addEventListener("click",()=>wordApresentacao(e));
   body.querySelector("#apWa").addEventListener("click",()=>compartilharWhats("viagem", textoEvento(e)));
   body.querySelector("#apFile").addEventListener("change",async ev=>{ const fs=[...ev.target.files]; const sec=body.querySelector("#apSec").value, st=body.querySelector("#apSt"); let n=0;
     for(const f of fs){ st.textContent=`Enviando ${++n} de ${fs.length}…`; try{ const img=await comprimirFotoMax(f,1100,.72); await S.db.doc("eventofotos/"+id+"_"+Date.now().toString(36)+rid()).set({evento:id, secao:sec, img, legenda:"", ordem:Date.now(), criado:new Date().toISOString()}); }catch(x){ failWrite(x); } }
@@ -5460,7 +5501,7 @@ function abaCanoas(body,id,el){
   const sent=new Set(); pn.canoas.forEach(c=>c.bancos.forEach(b=>{ if(b) sent.add(b.uid); }));
   const apoio=part.filter(x=>!sent.has(x.uid));
   const posB=(j,n)=>n<=1?50:18+j*(64/(n-1));
-  body.innerHTML=`<div class="row" style="gap:8px;flex-wrap:wrap;margin:10px 0"><span class="hint" style="margin:0">${fmtN(+e.km_total||pernas.reduce((s,_,i)=>s+kmPernaEv(e,i),0),0)} km no total · ${pernas.length} pernas · ${part.length} participantes</span><span class="spacer"></span><button class="btn ghost small" id="cnWa">WhatsApp</button><button class="btn ghost small" id="cnXls">Excel</button><button class="btn small" id="cnPdf">PDF</button></div>
+  body.innerHTML=`<div class="row" style="gap:8px;flex-wrap:wrap;margin:10px 0"><span class="hint" style="margin:0">${fmtN(+e.km_total||pernas.reduce((s,_,i)=>s+kmPernaEv(e,i),0),0)} km no total · ${pernas.length} pernas · ${part.length} participantes</span><span class="spacer"></span><button class="btn ghost small" id="cnWa">WhatsApp</button><button class="btn ghost small" id="cnXls">Excel</button><button class="btn ghost small" id="cnDoc">Word</button><button class="btn small" id="cnPdf">PDF</button></div>
     <div class="pernabar" role="tablist">${pernas.map((p,i)=>`<button role="tab" data-pk="${i}" aria-selected="${i===k}">Perna ${i+1}<small>${fmtN(kmPernaEv(e,i),1)} km · ${R.porPerna[i]}</small></button>`).join("")}<button class="padd" id="pAdd" aria-label="Adicionar perna">+ Perna</button></div>
     <div class="evlayout"><div>
       <div class="row" style="gap:8px;flex-wrap:wrap;align-items:center;margin:4px 0 10px"><h3 style="margin:0">Perna ${k+1}</h3><label class="f" style="flex-direction:row;align-items:center;gap:6px;margin:0">Km<input id="pKm" inputmode="decimal" value="${esc(pn.km!==""&&pn.km!=null?pn.km:"")}" placeholder="${fmtN(kmPernaEv(e,k),1)}" style="width:70px"></label><span class="spacer"></span>${k>0?`<button class="btn ghost small" id="pCopia">Copiar perna ${k}</button>`:""}<button class="btn ghost small" id="pLimpa">Limpar</button>${pernas.length>1?`<button class="ib lixo" id="pDel" aria-label="Excluir perna ${k+1}">🗑</button>`:""}</div>
@@ -5489,6 +5530,7 @@ function abaCanoas(body,id,el){
   body.querySelectorAll("[data-eb]").forEach(b=>b.addEventListener("click",()=>{ const [ci,j]=b.dataset.eb.split(":").map(Number); escolherBancoEv(id,k,ci,j,()=>abaCanoas(body,id,el)); }));
   body.querySelector("#cnPdf").addEventListener("click",()=>pdfCanoasEvento(S.eventos[id]));
   body.querySelector("#cnXls").addEventListener("click",()=>excelEvento(S.eventos[id]));
+  body.querySelector("#cnDoc").addEventListener("click",()=>wordCanoasEvento(S.eventos[id]));
   body.querySelector("#cnWa").addEventListener("click",()=>compartilharWhats("viagem", textoCanoasEvento(S.eventos[id])));
 }
 function escolherBancoEv(id,pi,ci,j,depois){
@@ -5553,7 +5595,7 @@ function abaHospedagem(body,id){
   const alocados=new Set(); pous.forEach(p=>(p.quartos||[]).forEach(q=>(q.ocupantes||[]).forEach(o=>{ if(o.uid) alocados.add(o.uid); })));
   const semQ=part.filter(x=>!alocados.has(x.uid));
   const totCap=pous.reduce((s,p)=>s+(p.quartos||[]).reduce((t,q)=>t+capQuarto(q),0),0), totOc=pous.reduce((s,p)=>s+(p.quartos||[]).reduce((t,q)=>t+(q.ocupantes||[]).length,0),0);
-  body.innerHTML=`<div class="row" style="gap:8px;flex-wrap:wrap;margin:10px 0"><span class="hint" style="margin:0">${pous.length} ${pous.length===1?"pousada":"pousadas"} · ${totOc} de ${totCap} lugares ocupados</span><span class="spacer"></span><button class="btn ghost small" id="hXls">Excel</button><button class="btn small" id="hPdf">PDF dos quartos</button></div>
+  body.innerHTML=`<div class="row" style="gap:8px;flex-wrap:wrap;margin:10px 0"><span class="hint" style="margin:0">${pous.length} ${pous.length===1?"pousada":"pousadas"} · ${totOc} de ${totCap} lugares ocupados</span><span class="spacer"></span><button class="btn ghost small" id="hXls">Excel</button><button class="btn ghost small" id="hDoc">Word</button><button class="btn small" id="hPdf">PDF dos quartos</button></div>
     ${pous.map((p,pi)=>`<section class="pous"><div class="row" style="align-items:center;gap:8px"><h3 style="margin:0">🏠 ${esc(p.nome)}</h3><span class="spacer"></span><button class="ib" data-pren="${pi}" aria-label="Renomear pousada">✏️</button><button class="ib lixo" data-pdel="${pi}" aria-label="Excluir pousada">🗑</button></div>
       ${(p.quartos||[]).map((q,qi)=>`<div class="quarto"><div><b>${esc(q.nome)}</b><span class="hint" style="margin:0 0 0 6px">${esc(camasTxt(q))} · ${(q.ocupantes||[]).length}/${capQuarto(q)} lugares</span><div class="ocup">${(q.ocupantes||[]).map(o=>`<span class="oc ${o.uid?"":"conv"}">${esc(o.nome)}</span>`).join("")||`<span class="hint">Vazio</span>`}</div></div><span class="spacer"></span><button class="ib" data-qed="${pi}:${qi}" aria-label="Editar ${esc(q.nome)}">✏️</button><button class="ib lixo" data-qdel="${pi}:${qi}" aria-label="Excluir ${esc(q.nome)}">🗑</button></div>`).join("")}
       <button class="btn ghost small" data-qadd="${pi}">+ Cadastrar quarto ${(p.quartos||[]).length+1}</button></section>`).join("")}
@@ -5569,6 +5611,7 @@ function abaHospedagem(body,id){
   body.querySelectorAll("[data-qdel]").forEach(b=>b.addEventListener("click",async()=>{ const [pi,qi]=b.dataset.qdel.split(":").map(Number), np=PP(); if(!await ask(`Excluir ${np[pi].quartos[qi].nome}?`,"Excluir quarto")) return; closeSheet(); np[pi].quartos.splice(qi,1); salvar(np); }));
   body.querySelector("#hPdf").addEventListener("click",()=>pdfHospedagem(S.eventos[id]));
   body.querySelector("#hXls").addEventListener("click",()=>excelEvento(S.eventos[id]));
+  body.querySelector("#hDoc").addEventListener("click",()=>wordHospedagem(S.eventos[id]));
 }
 function editarQuarto(id, pi, qi, depois){
   const e=S.eventos[id], pous=JSON.parse(JSON.stringify(e.pousadas||[])), p=pous[pi]; if(!p) return;
@@ -5645,8 +5688,113 @@ async function pdfApresentacao(e){
 const STATUS_FROTA={ativa:"Disponível", indisponivel:"Indisponível (evento particular)", manutencao:"Manutenção", garagem:"Garagem"};
 function statusCanoa(c){ return STATUS_FROTA[c&&c.status]?c.status:"ativa"; }
 function canoaAtiva(c){ return statusCanoa(c)==="ativa"; }
+/* ---------- exportação em Word (.docx) ---------- */
+const DOCX_URL="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js";
+function b64Bytes(dataUrl){ const b=atob(String(dataUrl).split(",")[1]||""); const u=new Uint8Array(b.length); for(let i=0;i<b.length;i++) u[i]=b.charCodeAt(i); return u; }
+function tamImg(dataUrl){ return new Promise(r=>{ const i=new Image(); i.onload=()=>r([i.width,i.height]); i.onerror=()=>r([4,3]); i.src=dataUrl; }); }
+function canoaCanvas(c, W){
+  W=W||560; const n=c.bancos.length, H=Math.round(W*0.26), cv=document.createElement("canvas"); cv.width=W; cv.height=H; const g=cv.getContext("2d");
+  const rr=(x,y,w,h,r)=>{ g.beginPath(); g.moveTo(x+r,y); g.arcTo(x+w,y,x+w,y+h,r); g.arcTo(x+w,y+h,x,y+h,r); g.arcTo(x,y+h,x,y,r); g.arcTo(x,y,x+w,y,r); g.closePath(); };
+  g.fillStyle="#1F86AB"; rr(0,0,W,H,14); g.fill();
+  g.fillStyle="#FAFAF6"; rr(W*.25,H*.12,W*.56,H*.12,8); g.fill();
+  g.strokeStyle="#C9B48A"; g.lineWidth=6; g.lineCap="round"; g.beginPath(); g.moveTo(W*.38,H*.24); g.lineTo(W*.38,H*.56); g.moveTo(W*.65,H*.24); g.lineTo(W*.65,H*.56); g.stroke();
+  g.fillStyle="#FAFAF6"; rr(W*.03,H*.55,W*.94,H*.30,H*.15); g.fill();
+  g.fillStyle=COR(); rr(W*.09,H*.6,W*.82,H*.2,H*.1); g.fill();
+  const pos=j=>n<=1?W*.5:W*(.18+j*(.64/(n-1)));
+  c.bancos.forEach((b,j)=>{ const cx=pos(j), cy=H*.70, r=H*.17; g.beginPath(); g.arc(cx,cy,r,0,Math.PI*2); g.fillStyle=b?"#0B3A5B":"#FFFFFF"; g.fill(); g.lineWidth=3; g.strokeStyle=b?"#FFFFFF":"#0B3A5B"; g.stroke();
+    g.fillStyle=b?"#FFFFFF":"#0B3A5B"; g.font=`bold ${Math.round(r*.85)}px Arial`; g.textAlign="center"; g.textBaseline="middle"; g.fillText(b?initials(b.nome):"+", cx, cy+1);
+    g.fillStyle="#FFFFFF"; g.font=`bold ${Math.round(H*.1)}px Arial`; g.fillText(String(j+1), cx, H*.45); });
+  return b64Bytes(cv.toDataURL("image/png"));
+}
+async function wordDoc(titulo, sub, filhos, nome){
+  await carregarScript(DOCX_URL); const D=window.docx;
+  const cab=[new D.TextRun({text:MARCA.nome||"Clube", bold:true, size:22, color:"0B3A5B"}), new D.TextRun({text:`   ${titulo}${sub?" · "+sub:""}`, size:18, color:"5B7282"})];
+  const headKids=[]; if(MARCA.logo){ try{ headKids.push(new D.Paragraph({children:[new D.ImageRun({data:b64Bytes(MARCA.logo), transformation:{width:34,height:34}}), ...cab]})); }catch(_){ headKids.push(new D.Paragraph({children:cab})); } } else headKids.push(new D.Paragraph({children:cab}));
+  headKids.push(new D.Paragraph({border:{bottom:{color:COR().replace("#",""), size:12, style:D.BorderStyle.SINGLE, space:2}}, children:[]}));
+  const cf=sobreCfg().pagamento||{};
+  const doc=new D.Document({creator:"IAKO", title:titulo, styles:{default:{document:{run:{font:"Calibri", size:21}}}},
+    sections:[{properties:{page:{margin:{top:1100,bottom:900,left:900,right:900}}}, headers:{default:new D.Header({children:headKids})},
+      footers:{default:new D.Footer({children:[new D.Paragraph({alignment:D.AlignmentType.CENTER, children:[new D.TextRun({text:`${MARCA.nome||""}${cf.cnpj?" · CNPJ "+cf.cnpj:""}  ·  página `, size:16, color:"5B7282"}), new D.TextRun({children:[D.PageNumber.CURRENT], size:16, color:"5B7282"})]})]})},
+      children:filhos}]});
+  const blob=await D.Packer.toBlob(doc); await baixarArquivo(blob, nome+".docx");
+}
+function wP(D, texto, o){ o=o||{}; return new D.Paragraph({spacing:{after:o.after!=null?o.after:80, before:o.before||0}, alignment:o.center?D.AlignmentType.CENTER:undefined, bullet:o.bullet?{level:0}:undefined, heading:o.h, children:[new D.TextRun({text:String(texto||""), bold:!!o.bold, size:o.size, color:o.color, italics:!!o.it})]}); }
+function wTitulo(D, t, o){ return wP(D, t, Object.assign({bold:true, size:30, color:"0B3A5B", after:120}, o||{})); }
+function wSec(D, t){ return new D.Paragraph({spacing:{before:240, after:100}, border:{left:{color:COR().replace("#",""), size:24, style:D.BorderStyle.SINGLE, space:6}}, children:[new D.TextRun({text:t.toUpperCase(), bold:true, size:26, color:"0B3A5B"})]}); }
+function wCel(D, txt, o){ o=o||{}; return new D.TableCell({width:o.w?{size:o.w, type:D.WidthType.DXA}:undefined, shading:o.fill?{fill:o.fill, type:D.ShadingType.CLEAR, color:"auto"}:undefined, verticalAlign:D.VerticalAlign.CENTER, children:Array.isArray(txt)?txt:[new D.Paragraph({alignment:o.center?D.AlignmentType.CENTER:undefined, children:[new D.TextRun({text:String(txt??""), bold:!!o.bold, color:o.color, size:o.size})]})]}); }
+function wTabela(D, linhas, larg){ return new D.Table({width:{size:100, type:D.WidthType.PERCENTAGE}, rows:linhas.map(l=>new D.TableRow({children:l}))}); }
+async function wordImagens(D, fotos, larg){ const out=[]; for(const f of fotos){ const [w,h]=await tamImg(f.img); const W=larg||560, H=Math.round(W*h/w); try{ out.push(new D.Paragraph({alignment:D.AlignmentType.CENTER, spacing:{after:80}, children:[new D.ImageRun({data:b64Bytes(f.img), transformation:{width:W, height:Math.min(H,420)}})]})); if(f.legenda) out.push(wP(D,f.legenda,{center:true,it:true,size:18,color:"5B7282"})); }catch(_){} } return out; }
+function blocoCanoa(D, c, sub){
+  const kids=[new D.Paragraph({children:[new D.TextRun({text:c.nome||"Canoa", bold:true, size:24, color:"0B3A5B"}), ...(sub?[new D.TextRun({text:"   "+sub, size:18, color:"5B7282"})]:[])]}),
+    new D.Paragraph({children:[new D.ImageRun({data:canoaCanvas(c), transformation:{width:300, height:78}})]})];
+  c.bancos.forEach((b,j)=>kids.push(new D.Paragraph({spacing:{after:20}, children:[new D.TextRun({text:`Banco ${j+1}   `, color:"5B7282", size:19}), new D.TextRun({text:b?b.nome:"–", bold:true, size:19})]})));
+  return kids;
+}
+function gradeCanoas(D, canoas, sub){ const rows=[]; for(let i=0;i<canoas.length;i+=2){ const a=canoas[i], b=canoas[i+1]; rows.push(new D.TableRow({children:[new D.TableCell({borders:semBorda(D), children:blocoCanoa(D,a,sub&&sub(a))}), new D.TableCell({borders:semBorda(D), children:b?blocoCanoa(D,b,sub&&sub(b)):[new D.Paragraph("")]})]})); } return new D.Table({width:{size:100,type:D.WidthType.PERCENTAGE}, rows}); }
+function semBorda(D){ const n={style:D.BorderStyle.NONE, size:0, color:"FFFFFF"}; return {top:n,bottom:n,left:n,right:n}; }
+async function wordTripulacoes(p, tr){ toast("Gerando Word…"); try{ await carregarScript(DOCX_URL); const D=window.docx;
+  await wordDoc(`Tripulações: ${p.nome}`, dataCurta(p.data), [wTitulo(D,`Tripulações: ${p.nome}`), wP(D,`${dataCurta(p.data)}${p.local?", "+p.local:""}`,{color:"5B7282"}), gradeCanoas(D, tr, c=>`${CATP[c.cat]||""}, ${(TIPO_CANOA[c.tipo]||"").toLowerCase()}`)], `tripulacoes-${nomeArq(p.nome)}`); }catch(x){ console.warn(x); toast("Não foi possível gerar o Word"); } }
+async function wordCanoasEvento(e){ toast("Gerando Word…"); try{ await carregarScript(DOCX_URL); const D=window.docx, R=resumoPernas(e), kids=[wTitulo(D,`Canoas: ${e.titulo}`), wP(D,`${dataCurta(e.data_inicio)}${e.local?", "+e.local:""} · ${R.pernas.length} pernas`,{color:"5B7282"})];
+  R.pernas.forEach((pn,k)=>{ kids.push(new D.Paragraph({pageBreakBefore:k>0, spacing:{before:120,after:80}, children:[new D.TextRun({text:`Perna ${k+1}`, bold:true, size:30, color:"0B3A5B"}), new D.TextRun({text:`   ${fmtN(kmPernaEv(e,k),1)} km · ${R.porPerna[k]} remadores`, size:20, color:"5B7282"})]})); kids.push(gradeCanoas(D, pn.canoas)); const ap=R.linhas.filter(l=>!l.em[k]).map(l=>l.x.nome); if(ap.length) kids.push(new D.Paragraph({spacing:{before:120}, children:[new D.TextRun({text:"Barco de apoio: ", bold:true}), new D.TextRun({text:ap.join(", ")})]})); });
+  kids.push(new D.Paragraph({pageBreakBefore:true, children:[new D.TextRun({text:"Resumo por remador", bold:true, size:30, color:"0B3A5B"})]}));
+  const head=[wCel(D,"Remador",{bold:true,fill:"0B3A5B",color:"FFFFFF"}),wCel(D,"Km",{bold:true,fill:"0B3A5B",color:"FFFFFF",center:true}),wCel(D,"Pernas",{bold:true,fill:"0B3A5B",color:"FFFFFF",center:true}),...R.pernas.map((_,i)=>wCel(D,String(i+1),{bold:true,fill:"0B3A5B",color:"FFFFFF",center:true}))];
+  const rows=[head,...R.linhas.map(l=>[wCel(D,l.x.nome+(l.x.conv?" (convidado)":""),{size:18}),wCel(D,fmtN(l.km,1),{center:true,size:18}),wCel(D,String(l.n),{bold:true,center:true,size:18}),...l.em.map(v=>wCel(D,String(v),{center:true,fill:v?"63BE7B":"F8696B",size:18}))]),[wCel(D,"Total",{bold:true}),wCel(D,fmtN(R.linhas.reduce((s,l)=>s+l.km,0),0),{bold:true,center:true}),wCel(D,String(R.linhas.reduce((s,l)=>s+l.n,0)),{bold:true,center:true}),...R.porPerna.map(v=>wCel(D,String(v),{bold:true,center:true}))]];
+  kids.push(wTabela(D, rows));
+  await wordDoc(`Canoas: ${e.titulo}`, dataCurta(e.data_inicio), kids, `canoas-${nomeArq(e.titulo)}`); }catch(x){ console.warn(x); toast("Não foi possível gerar o Word"); } }
+async function wordHospedagem(e){ toast("Gerando Word…"); try{ await carregarScript(DOCX_URL); const D=window.docx, kids=[wTitulo(D,"Configuração dos quartos"), wP(D,`${e.titulo} · ${dataCurta(e.data_inicio)}${e.data_fim?" a "+dataCurta(e.data_fim):""}`,{color:"5B7282"})];
+  (e.pousadas||[]).forEach(p=>{ kids.push(new D.Paragraph({spacing:{before:200,after:80}, shading:{fill:"F2BE7A", type:D.ShadingType.CLEAR, color:"auto"}, children:[new D.TextRun({text:" "+p.nome.toUpperCase(), bold:true, size:24})]}));
+    const rows=[[wCel(D,"Quarto",{bold:true,fill:"E8F1FB"}),wCel(D,"Camas",{bold:true,fill:"E8F1FB"}),wCel(D,"Ocupantes",{bold:true,fill:"E8F1FB"})], ...(p.quartos||[]).map(q=>[wCel(D,q.nome,{bold:true}),wCel(D,`${camasTxt(q)} (${capQuarto(q)} pessoas)`,{size:18}),wCel(D,(q.ocupantes||[]).map(o=>o.nome).join(" / ")||"–")])];
+    kids.push(wTabela(D, rows)); });
+  await wordDoc(`Quartos: ${e.titulo}`, dataCurta(e.data_inicio), kids, `quartos-${nomeArq(e.titulo)}`); }catch(x){ console.warn(x); toast("Não foi possível gerar o Word"); } }
+async function wordApresentacao(e){ toast("Gerando Word…"); try{ await carregarScript(DOCX_URL); const D=window.docx, fotos=fotosEv(e._id), k=[];
+  k.push(wP(D,e.titulo.toUpperCase(),{bold:true,size:40,color:"0B3A5B",center:true,after:60}));
+  k.push(wP(D,`${dataCurta(e.data_inicio)}${e.data_fim&&e.data_fim!==e.data_inicio?" a "+dataCurta(e.data_fim):""}${e.local?" · "+e.local:""}`,{center:true,color:"5B7282",size:24}));
+  if(e.chamada) k.push(wP(D,e.chamada.toUpperCase(),{center:true,bold:true,color:COR().replace("#",""),size:24,before:80}));
+  k.push(...await wordImagens(D, fotos.filter(f=>f.secao==="capa").slice(0,1), 600));
+  if(e.descricao) linhasTxt(e.descricao).forEach(l=>k.push(wP(D,l)));
+  [e.encontro?`Encontro: ${e.encontro}`:"", e.transporte?`Transporte: ${e.transporte}`:"", +e.km_total?`Remada: ${fmtN(+e.km_total,0)} km${+e.n_pernas?` em ${e.n_pernas} pernas de ${fmtN(kmPernaEv(e,0),1)} km (revezamento)`:""}`:"", `Confirmação até ${dataCurta(e.prazo||e.data_inicio)} pelo app, aba Eventos.`].filter(Boolean).forEach(l=>k.push(wP(D,l,{bullet:true})));
+  let n=1;
+  if((e.programacao||[]).length){ k.push(wSec(D,`${n++}. Programação`)); for(const [i,x] of e.programacao.entries()){ k.push(wP(D,x.titulo||`${i+1}º dia`,{bold:true,size:24,color:"0B3A5B",before:120})); if(x.percurso||x.km) k.push(wP(D,`${x.percurso||""}${x.km?` – ${x.km} km`:""}${x.modelo?` – ${MODELOS_REMADA[x.modelo]||x.modelo}`:""}`,{bold:true})); linhasTxt(x.itens).forEach(l=>k.push(wP(D,l,{after:30}))); if(x.obs) k.push(wP(D,x.obs,{it:true,color:"8A5A00"})); k.push(...await wordImagens(D, fotos.filter(f=>f.secao==="dia"+(i+1)), 420)); } }
+  if(linhasTxt(e.incluido).length||linhasTxt(e.nao_incluido).length){ k.push(wSec(D,`${n++}. Disponibilidade`)); if(linhasTxt(e.incluido).length){ k.push(wP(D,"O que está incluído:",{bold:true})); linhasTxt(e.incluido).forEach(l=>k.push(wP(D,l.replace(/^[•\-–]\s*/,""),{bullet:true,after:30}))); } if(linhasTxt(e.nao_incluido).length){ k.push(wP(D,"O que não está incluído:",{bold:true,before:100})); linhasTxt(e.nao_incluido).forEach(l=>k.push(wP(D,l.replace(/^[•\-–]\s*/,""),{bullet:true,after:30}))); } }
+  if(e.valores||e.pagamento||e.cancelamento){ k.push(wSec(D,`${n++}. Valores e pagamentos`)); linhasTxt(e.valores).forEach(l=>k.push(wP(D,l))); if(e.pagamento){ k.push(wP(D,"Pagamento:",{bold:true,before:100})); linhasTxt(e.pagamento).forEach(l=>k.push(wP(D,l,{after:30}))); } if(e.cancelamento){ k.push(wP(D,"Cancelamento:",{bold:true,before:100})); k.push(wP(D,e.cancelamento)); } }
+  if(tipoEv(e)==="viagem"&&(e.pousadas||[]).length){ k.push(wSec(D,`${n++}. Hospedagens`)); for(const p of e.pousadas){ k.push(wP(D,p.nome,{bold:true,size:24,color:"0B3A5B"})); k.push(...await wordImagens(D, fotos.filter(f=>f.secao==="pousada:"+p.id), 380)); } }
+  const gal=fotos.filter(f=>f.secao==="geral"); if(gal.length){ k.push(wSec(D,`${n++}. Galeria`)); k.push(...await wordImagens(D,gal,420)); }
+  if(linhasTxt(e.observacoes).length){ k.push(wSec(D,`${n++}. Observações`)); linhasTxt(e.observacoes).forEach(l=>k.push(wP(D,l.replace(/^[•\-–]\s*/,""),{bullet:true,after:30}))); }
+  k.push(wP(D,"A UTILIZAÇÃO DE COLETE SALVA-VIDAS É OBRIGATÓRIA DURANTE AS REMADAS.",{bold:true,color:"B42318",center:true,before:200}));
+  if(e.contato_nome||e.contato_tel){ k.push(wP(D,"DÚVIDAS? ENTRE EM CONTATO:",{bold:true,center:true,before:200})); k.push(wP(D,`${e.contato_nome||""}${e.contato_tel?" · "+e.contato_tel:""}`,{center:true})); }
+  await wordDoc(e.titulo, dataCurta(e.data_inicio), k, nomeArq(e.titulo)); }catch(x){ console.warn(x); toast("Não foi possível gerar o Word"); } }
+
+/* ---------- menu do usuário fixo no cabeçalho ---------- */
+const PAPEL_NOME={gestao:"Administrador",instrutor:"Instrutor",agencia:"Comunicação",aluno:"Aluno",visitante:"Visitante"};
+function cabecalhoUsuario(){
+  const el=$("#who"); if(!el) return;
+  const completo=(S.role==="aluno"&&S.minhaFicha&&S.minhaFicha.nome)||(S.me&&S.me.name)||"";
+  if(!completo){ if(el.innerHTML) el.innerHTML=""; return; }
+  const nome=completo.split(" ")[0], foto=minhaFoto(), papel=PAPEL_NOME[S.role]||"";
+  const html=`<button class="whobtn" id="whoBtn" aria-haspopup="menu" aria-expanded="${!!S.whoAberto}" aria-label="Menu da conta de ${esc(completo)}">${avatar(nome, foto, "hdr")}<span class="whonm">${esc(nome)} <small>(${esc(papel.toLowerCase())})</small></span><span class="whocar" aria-hidden="true">▾</span></button>
+    <div class="whomenu" id="whoMenu" role="menu" ${S.whoAberto?"":"hidden"}>
+      <div class="whohead">${avatar(nome, foto, "big")}<div><b>${esc(completo)}</b><span>${esc(papel)}</span></div></div>
+      <label class="whoit" role="menuitem" tabindex="0">📷 Trocar foto de perfil<input type="file" accept="image/*" id="hdrFoto" hidden></label>
+      <button class="whoit" role="menuitem" id="hdrPerfil">👤 ${S.canAgenda?"Gestão e perfil":"Meu perfil"}</button>
+      <button class="whoit" role="menuitem" id="hdrIdioma">🌐 Idioma e acessibilidade</button>
+      ${FB?`<button class="whoit sair" role="menuitem" id="hdrSair">↩ Sair da conta</button>`:""}
+    </div>`;
+  if(el.__html!==html){ el.innerHTML=html; el.__html=html; }
+}
+function fecharMenuUsuario(){ if(!S.whoAberto) return; S.whoAberto=false; const m=$("#whoMenu"), b=$("#whoBtn"); if(m) m.hidden=true; if(b) b.setAttribute("aria-expanded","false"); const el=$("#who"); if(el) el.__html=null; }
+document.addEventListener("click",e=>{
+  const t=e.target;
+  if(t.closest&&t.closest("#whoBtn")){ S.whoAberto=!S.whoAberto; const m=$("#whoMenu"); if(m) m.hidden=!S.whoAberto; $("#whoBtn").setAttribute("aria-expanded",String(!!S.whoAberto)); const el=$("#who"); if(el) el.__html=null; return; }
+  if(t.closest&&t.closest("#hdrPerfil")){ fecharMenuUsuario(); setTab("perfil"); return; }
+  if(t.closest&&t.closest("#hdrIdioma")){ fecharMenuUsuario(); abrirIdiomaA11y(); return; }
+  if(t.closest&&t.closest("#hdrSair")){ fecharMenuUsuario(); if(FB) FB.sair(); return; }
+  if(S.whoAberto && !(t.closest&&t.closest("#whoMenu"))) fecharMenuUsuario();
+});
+document.addEventListener("change",async e=>{ if(e.target&&e.target.id==="hdrFoto"){ const f=e.target.files&&e.target.files[0]; fecharMenuUsuario(); if(!f) return; try{ await trocarFoto(f); }catch(er){ failWrite(er); } cabecalhoUsuario(); } });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") fecharMenuUsuario(); });
 /* ---------- render ---------- */
 function render(){
+  try{ cabecalhoUsuario(); }catch(_){}
   if(S.tab==="mural"){ marcarLido(); }
   updateBadge();
   barraVerComo();
@@ -5668,7 +5816,7 @@ function computeRole(){
   if(S.papelReal==="gestao" && ["instrutor","agencia","aluno"].includes(vc)) S.role=vc;
   S.canEdit = S.role==="gestao"; S.canAgenda = S.canEdit || S.role==="instrutor"; S.canMidia = S.canEdit || S.role==="agencia"; S.canAviso = S.canAgenda || S.canMidia;
   const nome = S.me && S.me.name ? S.me.name.split(" ")[0] : "";
-  $("#who").innerHTML = nome ? `${avatar(nome, minhaFoto(), "hdr")}<span>${esc(nome)} (${{gestao:"administrador",instrutor:"instrutor",agencia:"comunicação",aluno:"aluno",visitante:"visitante"}[S.role]})</span>` : "";
+  cabecalhoUsuario();
   document.querySelectorAll('[data-tab="perfil"] .lbl').forEach(l=>l.textContent = (S.canAgenda) ? "Gestão" : "Perfil");
   const inat = S.role==="aluno" && statusAluno(S.minhaFicha)==="inativo";
   document.querySelectorAll('nav [data-tab="mar"]').forEach(b=>b.classList.toggle("oculto",inat));
