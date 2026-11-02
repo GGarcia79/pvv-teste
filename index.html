@@ -423,6 +423,7 @@ nav.bottom button.novo{background:#FFD21A;color:#3A2F00}
 nav.bottom button.novo svg{color:#3A2F00}
 nav.tabs button.novo{background:#FFD21A;color:#3A2F00}
 .btn:disabled{opacity:.45;cursor:not-allowed}
+.whover{font-size:11.5px;color:var(--muted);text-align:center;padding:6px 0 2px;border-top:1px solid var(--line);margin-top:4px}
 .fer{color:#3A2F00}.fer.ponte{color:#0B2A40}.fer b{color:inherit}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.ghost{color:var(--ink)}}
 :root[data-theme="dark"] .btn.ghost{color:var(--ink)}
@@ -2924,7 +2925,7 @@ function renderPerfil(){
       ${S.canMidia?tileG("midia","Mídia","Campanhas, redes sociais e formulários","#C2185B",IC.planos):""}
       ${S.canEdit?tileG("auditoria","Auditoria","Histórico de alterações","#5B7282",IC.audit):""}
       ${S.canEdit?tileG("exportar","Exportar dados","Todas as coleções em JSON","#0B3A5B",IC.audit):""}
-    </div>`+painelVerComo()+painelSeguranca();
+    </div>`+painelVerComo()+painelSeguranca()+`<p class="hint" style="text-align:center;margin:18px 0 0">IAKO · versão ${VERSAO_APP}</p>`;
   el.querySelectorAll("[data-g]").forEach(b=>b.addEventListener("click",()=>{ const g=b.dataset.g; if(g==="alunos"||g==="operacao"||g==="midia") setTab(g); else if(g==="clubepub") setTab("clube"); else if(g==="personalizar") editarClube(); else if(g==="exportar") exportarDadosClube(); else { empilhar(); S.gsub=g; renderPerfil(); window.scrollTo(0,0); } }));
   bindPerfil(el);
   el.insertAdjacentHTML("beforeend", rodapeIako());
@@ -5813,6 +5814,7 @@ async function wordApresentacao(e){ toast("Gerando Word…"); try{ await carrega
   await wordDoc(e.titulo, dataCurta(e.data_inicio), k, nomeArq(e.titulo)); }catch(x){ console.warn(x); toast("Não foi possível gerar o Word"); } }
 
 /* ---------- menu do usuário fixo no cabeçalho ---------- */
+const VERSAO_APP="2026.11.02";
 const PAPEL_NOME={gestao:"Administrador",instrutor:"Instrutor",agencia:"Comunicação",aluno:"Aluno",visitante:"Visitante"};
 function cabecalhoUsuario(){
   const el=$("#who"); if(!el) return;
@@ -5827,6 +5829,7 @@ function cabecalhoUsuario(){
       <button class="whoit" role="menuitem" id="hdrTema">${{auto:"🌓",claro:"☀️",escuro:"🌙"}[a11yGet().tema||"auto"]} Tema: ${TEMAS[a11yGet().tema||"auto"]}</button>
       <button class="whoit" role="menuitem" id="hdrIdioma">🌐 Idioma e acessibilidade</button>
       ${FB?`<button class="whoit sair" role="menuitem" id="hdrSair">↩ Sair da conta</button>`:""}
+      <div class="whover">Versão ${VERSAO_APP}</div>
     </div>`;
   if(el.__html!==html){ el.innerHTML=html; el.__html=html; }
 }
@@ -5991,14 +5994,32 @@ const COLECOES_EXPORT=["membros","alunos","inscricoes","turmas","config","avisos
 function lerColecao(nome){ return new Promise(res=>{ let feito=false, un=null; const fim=v=>{ if(feito) return; feito=true; try{ if(typeof un==="function") un(); }catch(_){} res(v); };
   try{ un=S.db.collection(nome).onSnapshot(sn=>{ const m={}; sn.docs.forEach(d=>{ m[d.id]=d.data(); }); fim({ok:true, docs:m}); }, e=>fim({ok:false, erro:(e&&e.code)||"erro"})); }catch(e){ fim({ok:false, erro:"erro"}); }
   setTimeout(()=>fim({ok:false, erro:"tempo esgotado"}),15000); }); }
-async function exportarDadosClube(){
+function exportarDadosClube(){
   if(!S.canEdit){ toast("Só a gestão exporta os dados"); return; }
+  openSheet(`<div class="head"><h2>Exportar dados do clube</h2><button class="x" aria-label="Fechar">×</button></div>
+    <p class="hint">Escolha o formato. O arquivo contém dados pessoais e de saúde: envie só por canal seguro.</p>
+    <div class="tipos">
+      <button class="tipo" data-exp="leve"><b>Sem fotos (recomendado para importar)</b><span>Arquivo leve, com todos os dados e sem as imagens (fotos de perfil, eventos e provas). Geralmente fica bem abaixo de 10 MB.</span></button>
+      <button class="tipo" data-exp="completo"><b>Completo, com fotos</b><span>Tudo, incluindo as imagens em base64. Pode passar de 10 MB.</span></button>
+      <button class="tipo" data-exp="usuarios"><b>Usuários (para Firebase Authentication)</b><span>Lista de contas no formato do Firebase (localId, e-mail, nome e papel), sem senhas. Serve para recriar os acessos e enviar o link de nova senha.</span></button>
+      <button class="tipo" data-exp="separado"><b>Um arquivo por coleção (sem fotos)</b><span>Baixa um JSON para cada coleção (alunos, turmas, provas…), para importar em partes.</span></button></div>`, r=>r.querySelectorAll("[data-exp]").forEach(b=>b.addEventListener("click",()=>{ closeSheet(); exportarDadosClubeModo(b.dataset.exp); })));
+}
+function semImagens(o){ if(Array.isArray(o)) return o.map(semImagens); if(o&&typeof o==="object"){ const r={}; for(const [k,v] of Object.entries(o)){ if(typeof v==="string" && v.startsWith("data:image/")) continue; r[k]=semImagens(v); } return r; } return o; }
+async function exportarDadosClubeModo(modo){
+  if(modo==="usuarios"){ toast("Lendo os usuários…"); const r=await lerColecao("membros"); if(!r.ok){ toast("Não foi possível ler os usuários"); return; }
+    const al=(await lerColecao("alunos")).docs||{};
+    const users=Object.entries(r.docs).filter(([id,m])=>m&&(m.email||(al[id]&&al[id].email))).map(([id,m])=>({localId:id, email:String(m.email||al[id].email).toLowerCase(), emailVerified:false, displayName:m.nome||(al[id]&&al[id].nome)||"", disabled:false, customAttributes:JSON.stringify({papel:m.papel||"aluno", clube:(window.APP_CONFIG&&APP_CONFIG.clube&&APP_CONFIG.clube.id)||"pvv"})}));
+    await baixarArquivo(new Blob([JSON.stringify({users},null,1)],{type:"application/json"}), `iako-usuarios-${todaySP()}.json`);
+    auditar("Exportação de usuários", `${users.length} contas`); toast(`${users.length} contas exportadas (sem senhas)`); return; }
   toast("Lendo os dados do clube…");
   const out={formato:"iako-export-1", clube:(window.APP_CONFIG&&APP_CONFIG.clube&&APP_CONFIG.clube.id)||"pvv", nome:MARCA.nome, exportado_em:new Date().toISOString(), por:S.uid||"", colecoes:{}, falhas:{}};
-  for(const c of COLECOES_EXPORT){ const r=await lerColecao(c); if(r.ok) out.colecoes[c]=r.docs; else out.falhas[c]=r.erro; }
+  const leve=modo!=="completo";
+  for(const c of COLECOES_EXPORT){ if(leve && (c==="eventofotos"||c==="provafotos")) continue; const r=await lerColecao(c); if(r.ok) out.colecoes[c]=leve?semImagens(r.docs):r.docs; else out.falhas[c]=r.erro; }
+  out.com_fotos=!leve;
   const tot=Object.values(out.colecoes).reduce((s,m)=>s+Object.keys(m).length,0);
   out.resumo=Object.fromEntries(Object.entries(out.colecoes).map(([k,m])=>[k,Object.keys(m).length]));
-  await baixarArquivo(new Blob([JSON.stringify(out,null,1)],{type:"application/json"}), `iako-dados-${out.clube}-${todaySP()}.json`);
+  if(modo==="separado"){ for(const [c,m] of Object.entries(out.colecoes)){ await baixarArquivo(new Blob([JSON.stringify({formato:out.formato, clube:out.clube, colecao:c, exportado_em:out.exportado_em, documentos:m},null,1)],{type:"application/json"}), `iako-${out.clube}-${c}-${todaySP()}.json`); await new Promise(r=>setTimeout(r,350)); } }
+  else { const blob=new Blob([JSON.stringify(out,null,1)],{type:"application/json"}); await baixarArquivo(blob, `iako-dados-${out.clube}-${leve?"sem-fotos-":""}${todaySP()}.json`); if(blob.size>10*1024*1024) toast(`Arquivo com ${(blob.size/1048576).toFixed(1)} MB. Se o destino aceitar no máximo 10 MB, use “Sem fotos”.`); }
   auditar("Exportação de dados", `${tot} documentos`); toast(`Exportados ${tot} documentos de ${Object.keys(out.colecoes).length} coleções`);
 }
 /* ---------- render ---------- */
