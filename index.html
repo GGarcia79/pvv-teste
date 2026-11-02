@@ -2923,8 +2923,9 @@ function renderPerfil(){
       ${S.canAgenda?tileG("operacao","Operação",S.canEdit?"Frota, grade, regras e equipe":"Frota e grade semanal","#F04A12",IC.clube):""}
       ${S.canMidia?tileG("midia","Mídia","Campanhas, redes sociais e formulários","#C2185B",IC.planos):""}
       ${S.canEdit?tileG("auditoria","Auditoria","Histórico de alterações","#5B7282",IC.audit):""}
+      ${S.canEdit?tileG("exportar","Exportar dados","Todas as coleções em JSON","#0B3A5B",IC.audit):""}
     </div>`+painelVerComo()+painelSeguranca();
-  el.querySelectorAll("[data-g]").forEach(b=>b.addEventListener("click",()=>{ const g=b.dataset.g; if(g==="alunos"||g==="operacao"||g==="midia") setTab(g); else if(g==="clubepub") setTab("clube"); else if(g==="personalizar") editarClube(); else { empilhar(); S.gsub=g; renderPerfil(); window.scrollTo(0,0); } }));
+  el.querySelectorAll("[data-g]").forEach(b=>b.addEventListener("click",()=>{ const g=b.dataset.g; if(g==="alunos"||g==="operacao"||g==="midia") setTab(g); else if(g==="clubepub") setTab("clube"); else if(g==="personalizar") editarClube(); else if(g==="exportar") exportarDadosClube(); else { empilhar(); S.gsub=g; renderPerfil(); window.scrollTo(0,0); } }));
   bindPerfil(el);
   el.insertAdjacentHTML("beforeend", rodapeIako());
 }
@@ -5984,6 +5985,21 @@ function podePainelComp(){ if(S.canAgenda||S.role==="agencia") return true; cons
 function renderPainelCompAberto(el){
   el.innerHTML=`<h2 class="ptitle">Painel de competição</h2><p class="hint" style="margin:-6px 0 8px">Resultados, medalhas, tempos e fotos das provas do clube.</p>${conquistasHTML(6)}`+painelResultadosHTML();
   bindPainelResultados(el);
+}
+/* ---------- exportar todos os dados do clube (JSON) ---------- */
+const COLECOES_EXPORT=["membros","alunos","inscricoes","turmas","config","avisos","provas","provafotos","atletas","eventos","eventofotos","midia","forms","formresp","convites","convitelinks","auditoria","despesas"];
+function lerColecao(nome){ return new Promise(res=>{ let feito=false, un=null; const fim=v=>{ if(feito) return; feito=true; try{ if(typeof un==="function") un(); }catch(_){} res(v); };
+  try{ un=S.db.collection(nome).onSnapshot(sn=>{ const m={}; sn.docs.forEach(d=>{ m[d.id]=d.data(); }); fim({ok:true, docs:m}); }, e=>fim({ok:false, erro:(e&&e.code)||"erro"})); }catch(e){ fim({ok:false, erro:"erro"}); }
+  setTimeout(()=>fim({ok:false, erro:"tempo esgotado"}),15000); }); }
+async function exportarDadosClube(){
+  if(!S.canEdit){ toast("Só a gestão exporta os dados"); return; }
+  toast("Lendo os dados do clube…");
+  const out={formato:"iako-export-1", clube:(window.APP_CONFIG&&APP_CONFIG.clube&&APP_CONFIG.clube.id)||"pvv", nome:MARCA.nome, exportado_em:new Date().toISOString(), por:S.uid||"", colecoes:{}, falhas:{}};
+  for(const c of COLECOES_EXPORT){ const r=await lerColecao(c); if(r.ok) out.colecoes[c]=r.docs; else out.falhas[c]=r.erro; }
+  const tot=Object.values(out.colecoes).reduce((s,m)=>s+Object.keys(m).length,0);
+  out.resumo=Object.fromEntries(Object.entries(out.colecoes).map(([k,m])=>[k,Object.keys(m).length]));
+  await baixarArquivo(new Blob([JSON.stringify(out,null,1)],{type:"application/json"}), `iako-dados-${out.clube}-${todaySP()}.json`);
+  auditar("Exportação de dados", `${tot} documentos`); toast(`Exportados ${tot} documentos de ${Object.keys(out.colecoes).length} coleções`);
 }
 /* ---------- render ---------- */
 function render(){
